@@ -1,0 +1,6 @@
+Chrome=
+FireFox=
+Edge=
+Opera=
+Safari=
+FortranCompiler=False
