@@ -1,5 +1,7 @@
+FortranCompiler=False
+AutoCheckForInstalledBrowsers=True
+Language=Eng
 Chrome=
 FireFox=
 Edge=
 Opera=
-FortranCompiler=False

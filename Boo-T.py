@@ -16,10 +16,11 @@ class Config_Real(ABC):
     @abstractmethod
     def __init__(self):
         self.__Config=self.__Load_Config_File()
-        self.__CheckBrowsers(self.__Config["Chrome"],
-                             self.__Config["FireFox"],
-                             self.__Config["Edge"],
-                             self.__Config["Opera"])
+        if self.__Config["AutoCheckForInstalledBrowsers"]=="True":
+            self.__CheckBrowsers(self.__Config["Chrome"],
+                                 self.__Config["FireFox"],
+                                 self.__Config["Edge"],
+                                 self.__Config["Opera"])
 
     @abstractmethod
     def Set_Element(self, key, value):
@@ -30,6 +31,7 @@ class Config_Real(ABC):
         return(self.__Config[key])
 
     def __Load_Config_File(self):
+        """Will load the config file located in the root folder."""
         __temp={}
         config_file=open("Config.txt", "r")
         text=config_file.readlines()
@@ -39,40 +41,61 @@ class Config_Real(ABC):
         return(__temp)
 
     def __CheckBrowsers(self, Chrome, FireFox, Edge, Opera):
+        """If a browser had no gien path, it will try to find the installed path of application.
+        Only Windows and these four browsers are supported at the moment."""
         if Chrome=="":
             self.__Config["Chrome"]=self.__GetLocation("Chrome")
+            if self.__Config["Chrome"]=="":
+                self.__Config["Chrome"] = self.__Browser_Search_Window("Chrome")
         if FireFox=="":
             self.__Config["FireFox"]=self.__GetLocation("FireFox")
+            if self.__Config["FireFox"]=="":
+                self.__Config["FireFox"] = self.__Browser_Search_Window("FireFox")
         if Edge=="":
             self.__Config["Edge"]=self.__GetLocation("Edge")
+            if self.__Config["Edge"] == "":
+                self.__Config["Edge"] = self.__Browser_Search_Window("Edge")
         if Opera=="":
             self.__Config["Opera"]=self.__GetLocation("Opera")
+            if self.__Config["Opera"] == "":
+                self.__Config["Opera"] = self.__Browser_Search_Window("Opera")
         print(self.__Config)
 
+    def __Browser_Search_Window(self, browser):
+        if self.__Config["Language"]=="Eng":
+            title=browser+" not found!"
+            message="Couldn't find path to " + browser +"! Would you like to find it yourself?"
+            asktitle="Select the laucher for "+browser+"!"
+        else:
+            title=browser+" nem található!"
+            message="Nem található a(z) " + browser +" böngésző! Kívánja manuálisan beállítani?"
+            asktitle="Adja meg a(z) "+browser+" alkalmazás helyét!"
+
+        QuestionBox=messagebox.askyesno(title=title, message=message)
+        if QuestionBox=="False":
+            return("")
+        else:
+            return(askopenfilename(initialdir = "*",title = asktitle, filetypes = ((".exe","*.exe"),)))
 
     def __GetLocation(self, browser):
         import winapps
-        result=""
         for app in winapps.search_installed(browser):
             if app!="":
-                result=self.__Regex_Get_Install_Location(app)
-
-        if result=="":
-            return("")
-        else:
-            return(self.__Get_App_Path(result, browser))
-
+                result=self.__Get_App_Path(self.__Regex_Get_Install_Location(app), browser)
+                if result!="":
+                    return(result)
+        return("")
 
     def __Regex_Get_Install_Location(self, app):
-        FindRegex = re.findall(r"install_location=WindowsPath\(\'[a-zA-Z0-9:\/\s]+\'\)", str(app))
+        FindRegex = re.findall(r"install_location=WindowsPath\(\'[a-zA-Z0-9:\/\s\(\)]+\'\)", str(app))
         if len(FindRegex) > 0:
-            result = FindRegex[0].replace("install_location=WindowsPath('", "").replace("')", "")
-        return(result)
+            return(FindRegex[0].replace("install_location=WindowsPath('", "").replace("')", ""))
+        return("")
 
     def __Get_App_Path(self, result, browser):
         for root, dirs, files in os.walk(result):
             for file in files:
-                if file.upper()==browser.upper()+".EXE":
+                if file.upper()==browser.upper()+".EXE" or str(browser.upper()+".EXE") in file.upper():
                     return(str(root + "/" + file).replace("\\", "/"))
         return("")
 
@@ -88,7 +111,6 @@ class Config(Config_Real):
 
     def Get_Element(self, key):
         return(super().Get_Element(key))
-
 
 if __name__=="__main__":
     Config=Config()
