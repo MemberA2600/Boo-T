@@ -139,39 +139,60 @@ class DisplayLoading_Real(ABC):
     """This class only opens a loading screen image and shows a status bar.
     It's adopting to the screen size"""
 
+    @abstractmethod
     def __init__(self, size):
         from PIL import ImageTk, Image
-        import time
 
         if size[0]>1600:
-            __w_Size=800
+            self.__w_Size=800
         elif size[0]>1280:
-            __w_Size=650
+            self.__w_Size=650
         elif size[0]>800:
-            __w_Size=550
+            self.__w_Size=550
         else:
-            __w_Size=400
+            self.__w_Size=400
 
-        __h_Size=round((__w_Size/800)*300)
-
+        self.__h_Size=round((self.__w_Size/800)*300)
         self.__Loading_Window=Toplevel()
-        self.__Loading_Window.geometry("%dx%d+%d+%d" % (__w_Size, __h_Size,
-                                                        (size[0]/2)-__w_Size/2,
-                                                        (size[1]/2)-__h_Size/2-50))
+        self.__Loading_Window.geometry("%dx%d+%d+%d" % (self.__w_Size, self.__h_Size,
+                                                        (size[0]/2)-self.__w_Size/2,
+                                                        (size[1]/2)-self.__h_Size/2-50))
         self.__Loading_Window.overrideredirect(True)
         self.__Loading_Window.resizable(False, False)
-
-        self.__img = ImageTk.PhotoImage(Image.open("loading.png").resize((__w_Size,__h_Size)))
+        self.__img = ImageTk.PhotoImage(Image.open("loading.png").resize((self.__w_Size,self.__h_Size)))
 
         self.__imgLabel = Label(self.__Loading_Window, image=self.__img)
         self.__imgLabel.pack()
+        self.__bW = round(self.__w_Size*0.50)
+        self.__bH = round(self.__h_Size/20)
 
+        self.__loadbar_area = Canvas(self.__Loading_Window, width=self.__bW, height=self.__bH, bg='black')
+        self.__loadbar_area.place(x=2, y=(self.__h_Size-self.__bH-(round(self.__h_Size/self.__bH/2))))
+        self.set_Percentage(0)
+
+        self.__Loading_Window.mainloop()
+
+    @abstractmethod
+    def set_Percentage(self, perc):
+        self.__loadbar_area.delete("all")
+        self.__loadBar = self.__loadbar_area.create_rectangle(
+            2, 4, round(self.__bW / 100 * perc), self.__bH, fill='white')
+
+    @abstractmethod
+    def destroy_Loader(self):
+        self.__Loading_Window.destroy()
 
 class DisplayLoading(DisplayLoading_Real):
     """Access to the implemented class creating the Lading screen."""
 
     def __init__(self, size):
         super().__init__(size)
+
+    def set_Percentage(self, perc):
+        super().set_Percentage(perc)
+
+    def destroy_Loader(self):
+        super().destroy_Loader()
 
 class Create_MainWindow_Real(ABC):
     """Creating the Main Window, loads data for application."""
