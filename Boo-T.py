@@ -23,11 +23,11 @@ class Config_Real(ABC):
                                  self.__Config["Opera"])
 
     @abstractmethod
-    def Set_Element(self, key, value):
+    def set_Element(self, key, value):
         self.__Config[key]=value
 
     @abstractmethod
-    def Get_Element(self, key):
+    def get_Element(self, key):
         return(self.__Config[key])
 
     def __Load_Config_File(self):
@@ -70,7 +70,7 @@ class Config_Real(ABC):
             message="Nem található a(z) " + browser +" böngésző! Kívánja manuálisan beállítani?"
             asktitle="Adja meg a(z) "+browser+" alkalmazás helyét!"
 
-        QuestionBox=messagebox.askyesno(title=title, message=message)
+        QuestionBox=messagebox.askyesno(title=title, message=message, default="yes")
         if QuestionBox==False:
             return("")
         else:
@@ -105,11 +105,11 @@ class Config(Config_Real):
     def __init__(self):
         super().__init__()
 
-    def Set_Element(self, key, value):
+    def set_Element(self, key, value):
         super().Set_Element(key, value)
 
-    def Get_Element(self, key):
-        return(super().Get_Element(key))
+    def get_Element(self, key):
+        return(super().get_Element(key))
 
 class Monitor_Real(ABC):
     """This the real class that is supposed to get the current
@@ -123,7 +123,7 @@ class Monitor_Real(ABC):
         self.__screensize = user32.GetSystemMetrics(0), user32.GetSystemMetrics(1)
 
     @abstractmethod
-    def get_screensize(self):
+    def get_Screensize(self):
         return(self.__screensize)
 
 class Monitor(Monitor_Real):
@@ -132,9 +132,66 @@ class Monitor(Monitor_Real):
     def __init__(self):
         super().__init__()
 
-    def get_screensize(self):
-        return(super().get_screensize())
+    def get_Screensize(self):
+        return(super().get_Screensize())
+
+class DisplayLoading_Real(ABC):
+    """This class only opens a loading screen image and shows a status bar.
+    It's adopting to the screen size"""
+
+    def __init__(self, size):
+        from PIL import ImageTk, Image
+        import time
+
+        if size[0]>1600:
+            __w_Size=800
+        elif size[0]>1280:
+            __w_Size=650
+        elif size[0]>800:
+            __w_Size=550
+        else:
+            __w_Size=400
+
+        __h_Size=round((__w_Size/800)*300)
+
+        self.__Loading_Window=Toplevel()
+        self.__Loading_Window.geometry("%dx%d+%d+%d" % (__w_Size, __h_Size,
+                                                        (size[0]/2)-__w_Size/2,
+                                                        (size[1]/2)-__h_Size/2-50))
+        self.__Loading_Window.overrideredirect(True)
+        self.__Loading_Window.resizable(False, False)
+
+        self.__img = ImageTk.PhotoImage(Image.open("loading.png").resize((__w_Size,__h_Size)))
+
+        self.__imgLabel = Label(self.__Loading_Window, image=self.__img)
+        self.__imgLabel.pack()
+
+
+class DisplayLoading(DisplayLoading_Real):
+    """Access to the implemented class creating the Lading screen."""
+
+    def __init__(self, size):
+        super().__init__(size)
+
+class Create_MainWindow_Real(ABC):
+    """Creating the Main Window, loads data for application."""
+    def __init__(self, main):
+        self.__main=main
+        self.__main.geometry("%dx%d+%d+%d" % (1, 1, 1, 1))
+        self.__main.overrideredirect(True)
+        self.__main.resizable(False, False)
+
+        monitor = Monitor()
+        loading_Screen = DisplayLoading(monitor.get_Screensize())
+        config = Config()
+
+class Create_MainWindow(Create_MainWindow_Real):
+
+    def __init__(self, main):
+        super().__init__(main)
 
 if __name__=="__main__":
-    Monitor=Monitor()
-    Config=Config()
+    Main_Window = Tk()
+    Creator = Create_MainWindow(Main_Window)
+    Main_Window.mainloop()
+
