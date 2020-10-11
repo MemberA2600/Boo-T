@@ -59,7 +59,6 @@ class Config_Real(ABC):
             self.__Config["Opera"]=self.__GetLocation("Opera")
             if self.__Config["Opera"] == "":
                 self.__Config["Opera"] = self.__Browser_Search_Window("Opera")
-        print(self.__Config)
 
     def __Browser_Search_Window(self, browser):
         if self.__Config["Language"]=="Eng":
@@ -72,7 +71,7 @@ class Config_Real(ABC):
             asktitle="Adja meg a(z) "+browser+" alkalmazás helyét!"
 
         QuestionBox=messagebox.askyesno(title=title, message=message)
-        if QuestionBox=="False":
+        if QuestionBox==False:
             return("")
         else:
             return(askopenfilename(initialdir = "*",title = asktitle, filetypes = ((".exe","*.exe"),)))
@@ -112,5 +111,30 @@ class Config(Config_Real):
     def Get_Element(self, key):
         return(super().Get_Element(key))
 
+class Monitor_Real(ABC):
+    """This the real class that is supposed to get the current
+    resolution of the primary monitor."""
+
+    @abstractmethod
+    def __init__(self):
+        import ctypes as ctypes
+
+        user32 = ctypes.windll.user32
+        self.__screensize = user32.GetSystemMetrics(0), user32.GetSystemMetrics(1)
+
+    @abstractmethod
+    def get_screensize(self):
+        return(self.__screensize)
+
+class Monitor(Monitor_Real):
+    """This is the class the user can primary access to get the resolution of the screen."""
+
+    def __init__(self):
+        super().__init__()
+
+    def get_screensize(self):
+        return(super().get_screensize())
+
 if __name__=="__main__":
+    Monitor=Monitor()
     Config=Config()
