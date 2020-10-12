@@ -6,7 +6,7 @@ from tkinter.filedialog import *
 from tkinter import messagebox
 import tkinter.scrolledtext as tkscrolled
 from tkinterhtml import HtmlFrame
-
+import multiprocessing
 
 class Config_Real(ABC):
     """This is the real class, hidden from direct accessing.
@@ -136,8 +136,8 @@ class Monitor(Monitor_Real):
         return(super().get_Screensize())
 
 class DisplayLoading_Real(ABC):
-    """This class only opens a loading screen image and shows a status bar.
-    It's adopting to the screen size"""
+    """This class only opens a loading screen image and swaits for 3 seccnds,
+    then destroys the window and then goes back to the main window."""
 
     @abstractmethod
     def __init__(self, size):
@@ -163,48 +163,35 @@ class DisplayLoading_Real(ABC):
 
         self.__imgLabel = Label(self.__Loading_Window, image=self.__img)
         self.__imgLabel.pack()
-        self.__bW = round(self.__w_Size*0.50)
-        self.__bH = round(self.__h_Size/20)
 
-        self.__loadbar_area = Canvas(self.__Loading_Window, width=self.__bW, height=self.__bH, bg='black')
-        self.__loadbar_area.place(x=2, y=(self.__h_Size-self.__bH-(round(self.__h_Size/self.__bH/2))))
-        self.set_Percentage(0)
+        self.__Loading_Window.after(3500, self.destroy_Loader)
+        self.__Loading_Window.wait_window()
 
-        self.__Loading_Window.mainloop()
 
-    @abstractmethod
-    def set_Percentage(self, perc):
-        self.__loadbar_area.delete("all")
-        self.__loadBar = self.__loadbar_area.create_rectangle(
-            2, 4, round(self.__bW / 100 * perc), self.__bH, fill='white')
-
-    @abstractmethod
     def destroy_Loader(self):
         self.__Loading_Window.destroy()
+
 
 class DisplayLoading(DisplayLoading_Real):
     """Access to the implemented class creating the Lading screen."""
 
     def __init__(self, size):
-        super().__init__(size)
+        super().__init__(size, )
 
-    def set_Percentage(self, perc):
-        super().set_Percentage(perc)
-
-    def destroy_Loader(self):
-        super().destroy_Loader()
 
 class Create_MainWindow_Real(ABC):
     """Creating the Main Window, loads data for application."""
     def __init__(self, main):
+
         self.__main=main
         self.__main.geometry("%dx%d+%d+%d" % (1, 1, 1, 1))
         self.__main.overrideredirect(True)
         self.__main.resizable(False, False)
 
-        monitor = Monitor()
-        loading_Screen = DisplayLoading(monitor.get_Screensize())
-        config = Config()
+        __monitor = Monitor()
+        self.__loading_Screen = DisplayLoading(__monitor.get_Screensize())
+
+        __config = Config()
 
 class Create_MainWindow(Create_MainWindow_Real):
 
