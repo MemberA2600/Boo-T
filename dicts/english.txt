@@ -1,0 +1,6 @@
+browserNotFoundTitle=#browser# not found!
+browserNotFoundMessage=Couldn't find path for #browser#! Would you like to find it yourself?
+browserNotFoundAskTitle=Select the laucher for #browser#!
+new=Create New File
+open=Open File
+file=File

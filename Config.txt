@@ -1,6 +1,6 @@
 FortranCompiler=False
 AutoCheckForInstalledBrowsers=True
-Language=Eng
+Language=english
 Chrome=
 FireFox=
 Edge=

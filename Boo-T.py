@@ -1,6 +1,6 @@
-from abc import*
-import os
 from tkinter import *
+from abc import *
+import os
 import re
 from tkinter.filedialog import *
 from tkinter import messagebox
@@ -8,13 +8,43 @@ import tkinter.scrolledtext as tkscrolled
 from tkinterhtml import HtmlFrame
 import multiprocessing
 
+class Dictionaries_REAL(ABC):
+    """Cointains text the application will display, loaded from '/dicts'."""
+    @abstractmethod
+    def __init__(self):
+        self.__D = {}
+        for root, dirs, files in os.walk("dicts/"):
+            for file in files:
+                self.__LoadDict(root+file, file.replace(".txt",""))
+
+    def __LoadDict(self, path, name):
+        f = open(path, "r")
+        lines = f.readlines()
+        f.close()
+        self.__D[name]={}
+
+        for line in lines:
+            self.__D[name][line.split("=")[0]] = line.split("=")[1]
+
+    @abstractmethod
+    def getWordFromDict(self, lang, word):
+        return(self.__D[lang][word])
+
+class Dictionaries(Dictionaries_REAL):
+    def __init__(self):
+        super().__init__()
+
+    def getWordFromDict(self, lang, word):
+        return(super().getWordFromDict(lang,word))
+
 class Config_Real(ABC):
     """This is the real class, hidden from direct accessing.
     The configuration file and the dictionary containing the
     settings can be accessed with it."""
 
     @abstractmethod
-    def __init__(self):
+    def __init__(self, dicts):
+        self.__dicts=dicts
         self.__Config=self.__Load_Config_File()
         if self.__Config["AutoCheckForInstalledBrowsers"]=="True":
             self.__CheckBrowsers(self.__Config["Chrome"],
@@ -43,32 +73,64 @@ class Config_Real(ABC):
     def __CheckBrowsers(self, Chrome, FireFox, Edge, Opera):
         """If a browser had no gien path, it will try to find the installed path of application.
         Only Windows and these four browsers are supported at the moment."""
-        if Chrome=="":
-            self.__Config["Chrome"]=self.__GetLocation("Chrome")
-            if self.__Config["Chrome"]=="":
-                self.__Config["Chrome"] = self.__Browser_Search_Window("Chrome")
-        if FireFox=="":
-            self.__Config["FireFox"]=self.__GetLocation("FireFox")
-            if self.__Config["FireFox"]=="":
-                self.__Config["FireFox"] = self.__Browser_Search_Window("FireFox")
+
+        self.__CheckChrome(Chrome)
+        self.__CheckFireFox(FireFox)
+        self.__CheckEdge(Edge)
+        self.__CheckOpera(Opera)
+
+    def __pathExists(self, path):
+        if os.path.exists(path):
+            return(path)
+        return("")
+
+    def __CheckEdge(self, Edge):
         if Edge=="":
             self.__Config["Edge"]=self.__GetLocation("Edge")
             if self.__Config["Edge"] == "":
+                self.__Config["Edge"] = self.__pathExists("C:\Program Files\Microsoft\Edge\Application\msedge.exe")
+            if self.__Config["Edge"] == "":
+                self.__Config["Edge"] = self.__pathExists("C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe")
+            if self.__Config["Edge"] == "":
                 self.__Config["Edge"] = self.__Browser_Search_Window("Edge")
+
+
+    def __CheckOpera(self, Opera):
         if Opera=="":
             self.__Config["Opera"]=self.__GetLocation("Opera")
             if self.__Config["Opera"] == "":
+                self.__Config["Opera"] = self.__pathExists("C:\\Users\\"+os.getlogin()+"\AppData\Local\Programs\Opera\launcher.exe")
+
+            if self.__Config["Opera"] == "":
                 self.__Config["Opera"] = self.__Browser_Search_Window("Opera")
 
+
+    def __CheckFireFox(self, FireFox):
+        if FireFox=="":
+            self.__Config["FireFox"]=self.__GetLocation("FireFox")
+            if self.__Config["FireFox"]=="":
+                self.__Config["FireFox"] = self.__pathExists("C:\Program Files\Mozilla Firefox\firefox.exe")
+            if self.__Config["FireFox"]=="":
+                self.__Config["FireFox"] = self.__pathExists("C:\Program Files (x86)\Mozilla Firefox\firefox.exe")
+            if self.__Config["FireFox"]=="":
+                self.__Config["FireFox"] = self.__Browser_Search_Window("FireFox")
+
+    def __CheckChrome(self, Chrome):
+        if Chrome=="":
+            self.__Config["Chrome"]=self.__GetLocation("Chrome")
+            if self.__Config["Chrome"]=="":
+                self.__Config["Crome"] = self.__pathExists("C:\Program Files\Google\Chrome\Application\chrome.exe")
+            if self.__Config["Chrome"]=="":
+                self.__Config["Crome"] = self.__pathExists("C:\Program Files (x86)\Google\Chrome\Application\chrome.exe")
+            if self.__Config["Chrome"] == "":
+                self.__Config["Chrome"] = self.__Browser_Search_Window("Chrome")
+
+
     def __Browser_Search_Window(self, browser):
-        if self.__Config["Language"]=="Eng":
-            title=browser+" not found!"
-            message="Couldn't find path to " + browser +"! Would you like to find it yourself?"
-            asktitle="Select the laucher for "+browser+"!"
-        else:
-            title=browser+" nem található!"
-            message="Nem található a(z) " + browser +" böngésző! Kívánja manuálisan beállítani?"
-            asktitle="Adja meg a(z) "+browser+" alkalmazás helyét!"
+
+        title = self.__dicts.getWordFromDict(self.__Config["Language"], "browserNotFoundTitle").replace("#browser#", browser)
+        message = self.__dicts.getWordFromDict(self.__Config["Language"], "browserNotFoundMessage").replace("#browser#", browser)
+        asktitle=self.__dicts.getWordFromDict(self.__Config["Language"], "browserNotFoundAskTitle").replace("#browser#", browser)
 
         QuestionBox=messagebox.askyesno(title=title, message=message, default="yes")
         if QuestionBox==False:
@@ -102,8 +164,8 @@ class Config(Config_Real):
     """This is the class that can be accessed directly for the
     configuration."""
 
-    def __init__(self):
-        super().__init__()
+    def __init__(self, dicts):
+        super().__init__(dicts)
 
     def set_Element(self, key, value):
         super().Set_Element(key, value)
@@ -176,7 +238,7 @@ class DisplayLoading(DisplayLoading_Real):
     """Access to the implemented class creating the Lading screen."""
 
     def __init__(self, size):
-        super().__init__(size, )
+        super().__init__(size)
 
 
 class Create_MainWindow_Real(ABC):
@@ -188,10 +250,65 @@ class Create_MainWindow_Real(ABC):
         self.__main.overrideredirect(True)
         self.__main.resizable(False, False)
 
+        self.__dicts = Dictionaries()
         __monitor = Monitor()
-        self.__loading_Screen = DisplayLoading(__monitor.get_Screensize())
+        __loading_Screen = DisplayLoading(__monitor.get_Screensize())
+        __config = Config(self.__dicts)
+        self.__size_Num=self.__Create_Main_Window_By_Screen_Size(__monitor.get_Screensize() ,__config.get_Element("Language"))
 
-        __config = Config()
+    def __Create_Main_Window_By_Screen_Size(self, size, lang):
+        if size[0]>1600:
+            s=4
+            self.__create_Main_Window_size4(size)
+        elif size[0]>1280:
+            s=3
+            self.__create_Main_Window_size3(size)
+        elif size[0]>800:
+            s=2
+            self.__create_Main_Window_size2(size)
+        else:
+            s=1
+            self.__create_Main_Window_size1(size)
+
+        self.__create_Menu(lang, s)
+        return(s)
+
+    def __create_Menu(self, lang, size):
+        from PIL import ImageTk, Image
+
+        __new = self.__dicts.getWordFromDict(lang, "new")
+        __open = self.__dicts.getWordFromDict(lang, "open")
+        __file = self.__dicts.getWordFromDict(lang, "file")
+
+        self.__main.title("Boo-T")
+        self.__main.overrideredirect(False)
+        self.__main.iconbitmap("icons/Boots.ico")
+        self.__menuBar = Menu(self.__main)
+        self.__main.config(menu=self.__menuBar)
+
+        self.__fontSize=9+size
+
+        self.__fileMenu=Menu(self.__menuBar, tearoff=0, font=self.__fontSize)
+        self.__menuBar.add_cascade(label=__file, menu=self.__fileMenu)
+        self.__fileMenu.add_command(label=__new, font=self.__fontSize)
+        self.__fileMenu.add_command(label=__open)
+        self.__imgNew = ImageTk.PhotoImage(Image.open("icons/new.png"))
+        self.__imgOpen = ImageTk.PhotoImage(Image.open("icons/open.png"))
+
+        self.__new_B=Button(self.__main, image=self.__imgNew, width=32, height=32).place(x=4, y=5)
+        self.__new_B=Button(self.__main, image=self.__imgOpen, width=32, height=32).place(x=44, y=5)
+
+    def __create_Main_Window_size1(self, size):
+        self.__create_Main_Window_size3(size) # Temporal set only!
+
+    def __create_Main_Window_size2(self, size):
+        self.__create_Main_Window_size3(size) # Temporal set only!
+
+    def __create_Main_Window_size3(self, size):
+        self.__main.geometry("%dx%d+%d+%d" % (1400, 1000, (size[0]/2)-700, (size[1]/2)-550))
+
+    def __create_Main_Window_size4(self, size):
+        self.__create_Main_Window_size3(size) # Temporal set only!
 
 class Create_MainWindow(Create_MainWindow_Real):
 
@@ -199,6 +316,8 @@ class Create_MainWindow(Create_MainWindow_Real):
         super().__init__(main)
 
 if __name__=="__main__":
+
+
     Main_Window = Tk()
     Creator = Create_MainWindow(Main_Window)
     Main_Window.mainloop()

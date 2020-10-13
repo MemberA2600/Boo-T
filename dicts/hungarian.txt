@@ -1,0 +1,6 @@
+browserNotFoundTitle=#browser# nem található!
+browserNotFoundMessage=#browser# böngészõ nem található! Szeretné mamuálisan megkeresni?
+browserNotFoundAskTitle=Válassza ki a(z) #browser# alkalmazását!
+new=Új Fájl Létrehozása
+open=Fájl Megnyitása
+file=Fájl
