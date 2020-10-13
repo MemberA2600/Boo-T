@@ -4,3 +4,5 @@ browserNotFoundAskTitle=Select the laucher for #browser#!
 new=Create New File
 open=Open File
 file=File
+save=Save
+save_as=Save As...

@@ -273,12 +273,17 @@ class Create_MainWindow_Real(ABC):
         self.__create_Menu(lang, s)
         return(s)
 
+    def defineWords(self, lang):
+        self.__new = self.__dicts.getWordFromDict(lang, "new")
+        self.__open = self.__dicts.getWordFromDict(lang, "open")
+        self.__file = self.__dicts.getWordFromDict(lang, "file")
+        self.__save = self.__dicts.getWordFromDict(lang, "save")
+        self.__save_as = self.__dicts.getWordFromDict(lang, "save_as")
+
     def __create_Menu(self, lang, size):
         from PIL import ImageTk, Image
 
-        __new = self.__dicts.getWordFromDict(lang, "new")
-        __open = self.__dicts.getWordFromDict(lang, "open")
-        __file = self.__dicts.getWordFromDict(lang, "file")
+        self.defineWords(lang)
 
         self.__main.title("Boo-T")
         self.__main.overrideredirect(False)
@@ -289,14 +294,41 @@ class Create_MainWindow_Real(ABC):
         self.__fontSize=9+size
 
         self.__fileMenu=Menu(self.__menuBar, tearoff=0, font=self.__fontSize)
-        self.__menuBar.add_cascade(label=__file, menu=self.__fileMenu)
-        self.__fileMenu.add_command(label=__new, font=self.__fontSize)
-        self.__fileMenu.add_command(label=__open)
+        self.__menuBar.add_cascade(label=self.__file, menu=self.__fileMenu)
+        self.__fileMenu.add_command(label=self.__new)
+        self.__fileMenu.add_command(label=self.__open)
+        self.__fileMenu.add_separator()
+        self.__fileMenu.add_command(label=self.__save)
+        self.__fileMenu.add_command(label=self.__save_as)
+
         self.__imgNew = ImageTk.PhotoImage(Image.open("icons/new.png"))
         self.__imgOpen = ImageTk.PhotoImage(Image.open("icons/open.png"))
+        self.__imgSave = ImageTk.PhotoImage(Image.open("icons/save.png"))
+        self.__imgSaveAs = ImageTk.PhotoImage(Image.open("icons/save_as.png"))
 
-        self.__new_B=Button(self.__main, image=self.__imgNew, width=32, height=32).place(x=4, y=5)
-        self.__new_B=Button(self.__main, image=self.__imgOpen, width=32, height=32).place(x=44, y=5)
+        self.__new_B=Button(self.__main, image=self.__imgNew, width=32, height=32)
+        self.__new_B.place(x=4, y=5)
+        self.__new_B.bind("<Enter>", self.on_enterNewB)
+        self.__new_B.bind("<Leave>", self.on_Leave)
+
+        self.__open_B=Button(self.__main, image=self.__imgOpen, width=32, height=32)
+        self.__open_B.place(x=44, y=5)
+        self.__open_B.bind("<Enter>", self.on_enterOpenB)
+        self.__open_B.bind("<Leave>", self.on_Leave)
+
+        self.__save_B=Button(self.__main, image=self.__imgSave, width=32, height=32)
+        self.__save_B.place(x=84, y=5)
+        self.__save_B.bind("<Enter>", self.on_enterSaveB)
+        self.__save_B.bind("<Leave>", self.on_Leave)
+
+        self.__saveAs_B=Button(self.__main, image=self.__imgSaveAs, width=32, height=32)
+        self.__saveAs_B.place(x=124, y=5)
+        self.__saveAs_B.bind("<Enter>", self.on_enterSaveAsB)
+        self.__saveAs_B.bind("<Leave>", self.on_Leave)
+
+        self.Hint=StringVar()
+        self.HintText = Entry(self.__main, textvariable=self.Hint, width=60, state=DISABLED, font=self.__fontSize)
+        self.HintText.place(x=4, y=50)
 
     def __create_Main_Window_size1(self, size):
         self.__create_Main_Window_size3(size) # Temporal set only!
@@ -309,6 +341,21 @@ class Create_MainWindow_Real(ABC):
 
     def __create_Main_Window_size4(self, size):
         self.__create_Main_Window_size3(size) # Temporal set only!
+
+    def on_Leave(self, event):
+        self.Hint.set("")
+
+    def on_enterNewB(self, event):
+        self.Hint.set(self.__new)
+
+    def on_enterOpenB(self, event):
+        self.Hint.set(self.__open)
+
+    def on_enterSaveB(self, event):
+        self.Hint.set(self.__save)
+
+    def on_enterSaveAsB(self, event):
+        self.Hint.set(self.__save_as)
 
 class Create_MainWindow(Create_MainWindow_Real):
 

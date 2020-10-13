@@ -4,3 +4,5 @@ browserNotFoundAskTitle=Válassza ki a(z) #browser# alkalmazását!
 new=Új Fájl Létrehozása
 open=Fájl Megnyitása
 file=Fájl
+save=Mentés
+save_as=Mentés Másként...
