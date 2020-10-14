@@ -15,3 +15,6 @@ FFoxTest=Megnyitás Tesztelésre FireFox-ban
 ChromeTest=Megnyitás Tesztelésre Chrome-ban
 EdgeTest=Megnyitás Tesztelésre Edge-ben
 OperaTest=Megnyitás Tesztelésre Operá-ban
+browserNotSet=#browser# nincs beállítva!
+about=Névjegy
+help=Súgó

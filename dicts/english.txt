@@ -15,3 +15,6 @@ FFoxTest=Open in FireFox for Testing
 ChromeTest=Open in Chrome for Testing
 EdgeTest=Open in Edge for Testing
 OperaTest=Open in Opera for Testing
+browserNotSet=#browser# is not set!
+help=Help
+about=About

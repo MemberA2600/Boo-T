@@ -305,6 +305,9 @@ class Create_MainWindow_Real(ABC):
         self.__ChromeTest = self.__dicts.getWordFromDict(lang, "ChromeTest")
         self.__EdgeTest = self.__dicts.getWordFromDict(lang, "EdgeTest")
         self.__OperaTest = self.__dicts.getWordFromDict(lang, "OperaTest")
+        self.__browserNotSet = self.__dicts.getWordFromDict(lang, "browserNotSet")
+        self.__help = self.__dicts.getWordFromDict(lang, "help")
+        self.__about = self.__dicts.getWordFromDict(lang, "about")
 
 
     def __create_Menu(self, lang, size):
@@ -325,81 +328,95 @@ class Create_MainWindow_Real(ABC):
 
         self.__imgOpen = ImageTk.PhotoImage(Image.open("icons/open.png"))
         self.__open_B=Button(self.__main, image=self.__imgOpen, width=32, height=32)
-        self.__open_B.place(x=4+self.__buttonSize, y=1)
+        self.__open_B.place(x=self.__getButtonPoz(1), y=1)
         self.__open_B.bind("<Enter>", self.on_enterOpenB)
         self.__open_B.bind("<Leave>", self.on_Leave)
 
         self.__imgSave = ImageTk.PhotoImage(Image.open("icons/save.png"))
         self.__save_B=Button(self.__main, image=self.__imgSave, width=32, height=32)
-        self.__save_B.place(x=4+(self.__buttonSize)*2, y=1)
+        self.__save_B.place(x=self.__getButtonPoz(2), y=1)
         self.__save_B.bind("<Enter>", self.on_enterSaveB)
         self.__save_B.bind("<Leave>", self.on_Leave)
 
         self.__imgSaveAs = ImageTk.PhotoImage(Image.open("icons/save_as.png"))
         self.__saveAs_B=Button(self.__main, image=self.__imgSaveAs, width=32, height=32)
-        self.__saveAs_B.place(x=4+(self.__buttonSize)*3, y=1)
+        self.__saveAs_B.place(x=self.__getButtonPoz(3), y=1)
         self.__saveAs_B.bind("<Enter>", self.on_enterSaveAsB)
         self.__saveAs_B.bind("<Leave>", self.on_Leave)
 
         self.__imgCopy = ImageTk.PhotoImage(Image.open("icons/copy.png"))
         self.__saveAs_B=Button(self.__main, image=self.__imgCopy, width=32, height=32)
-        self.__saveAs_B.place(x=4+(self.__buttonSize)*5, y=1)
+        self.__saveAs_B.place(x=self.__getButtonPoz(4.25), y=1)
         self.__saveAs_B.bind("<Enter>", self.on_enterCopy)
         self.__saveAs_B.bind("<Leave>", self.on_Leave)
 
         self.__imgPaste = ImageTk.PhotoImage(Image.open("icons/paste.png"))
         self.__saveAs_B=Button(self.__main, image=self.__imgPaste, width=32, height=32)
-        self.__saveAs_B.place(x=4+(self.__buttonSize)*6, y=1)
+        self.__saveAs_B.place(x=self.__getButtonPoz(5.25), y=1)
         self.__saveAs_B.bind("<Enter>", self.on_enterPaste)
         self.__saveAs_B.bind("<Leave>", self.on_Leave)
 
         self.__imgHTML = ImageTk.PhotoImage(Image.open("icons/html.png"))
         self.__HTML_B=Button(self.__main, image=self.__imgHTML, width=32, height=32)
-        self.__HTML_B.place(x=4+(self.__buttonSize)*8, y=1)
+        self.__HTML_B.place(x=self.__getButtonPoz(6.5), y=1)
         self.__HTML_B.bind("<Enter>", self.on_enterHTML)
         self.__HTML_B.bind("<Leave>", self.on_Leave)
 
         self.__imgFastTest = ImageTk.PhotoImage(Image.open("icons/test.png"))
         self.__FTest_B=Button(self.__main, image=self.__imgFastTest, width=32, height=32)
-        self.__FTest_B.place(x=4+(self.__buttonSize)*9, y=1)
+        self.__FTest_B.place(x=self.__getButtonPoz(7.5), y=1)
         self.__FTest_B.bind("<Enter>", self.on_enterFastTest)
         self.__FTest_B.bind("<Leave>", self.on_Leave)
 
         self.__imgFFox = ImageTk.PhotoImage(Image.open("icons/firefox.png"))
         self.__FFox_B=Button(self.__main, image=self.__imgFFox, width=32, height=32)
-        self.__FFox_B.place(x=4+(self.__buttonSize)*10, y=1)
+        self.__FFox_B.place(x=self.__getButtonPoz(8.5), y=1)
         self.__FFox_B.bind("<Enter>", self.on_enterFFox)
         self.__FFox_B.bind("<Leave>", self.on_Leave)
 
         self.__imgChrome = ImageTk.PhotoImage(Image.open("icons/chrome.png"))
         self.__Chrome_B=Button(self.__main, image=self.__imgChrome, width=32, height=32)
-        self.__Chrome_B.place(x=4+(self.__buttonSize)*11, y=1)
+        self.__Chrome_B.place(x=self.__getButtonPoz(9.5), y=1)
         self.__Chrome_B.bind("<Enter>", self.on_enterChrome)
         self.__Chrome_B.bind("<Leave>", self.on_Leave)
 
         self.__imgEdge = ImageTk.PhotoImage(Image.open("icons/edge.png"))
         self.__Edge_B=Button(self.__main, image=self.__imgEdge, width=32, height=32)
-        self.__Edge_B.place(x=4+(self.__buttonSize)*12, y=1)
+        self.__Edge_B.place(x=self.__getButtonPoz(10.5), y=1)
         self.__Edge_B.bind("<Enter>", self.on_enterEdge)
         self.__Edge_B.bind("<Leave>", self.on_Leave)
 
         self.__imgOpera = ImageTk.PhotoImage(Image.open("icons/opera.png"))
         self.__Opera_B=Button(self.__main, image=self.__imgOpera, width=32, height=32)
-        self.__Opera_B.place(x=4+(self.__buttonSize)*13, y=1)
+        self.__Opera_B.place(x=self.__getButtonPoz(11.5), y=1)
         self.__Opera_B.bind("<Enter>", self.on_enterOpera)
         self.__Opera_B.bind("<Leave>", self.on_Leave)
 
         self.__imgSettings = ImageTk.PhotoImage(Image.open("icons/settings.png"))
         self.__Settings_B=Button(self.__main, image=self.__imgSettings, width=32, height=32)
-        self.__Settings_B.place(x=4+(self.__buttonSize)*15, y=1)
+        self.__Settings_B.place(x=self.__getButtonPoz(12.75), y=1)
         self.__Settings_B.bind("<Enter>", self.on_enterSettings)
         self.__Settings_B.bind("<Leave>", self.on_Leave)
 
+        self.__imgHelp = ImageTk.PhotoImage(Image.open("icons/help.png"))
+        self.__Help_B=Button(self.__main, image=self.__imgHelp, width=32, height=32)
+        self.__Help_B.place(x=self.__getButtonPoz(13.75), y=1)
+        self.__Help_B.bind("<Enter>", self.on_enterHelp)
+        self.__Help_B.bind("<Leave>", self.on_Leave)
+
+        self.__imgAbout = ImageTk.PhotoImage(Image.open("icons/about.png"))
+        self.__About_B=Button(self.__main, image=self.__imgAbout, width=32, height=32)
+        self.__About_B.place(x=self.__getButtonPoz(14.75), y=1)
+        self.__About_B.bind("<Enter>", self.on_enterAbout)
+        self.__About_B.bind("<Leave>", self.on_Leave)
+
         self.CheckIfValid()
 
-        self.Hint_X=4
         self.Hint=StringVar()
         self.HintText = Label(self.__main, textvariable=self.Hint, font=self.__hammerFont)
+
+    def __getButtonPoz(self, num):
+        return(4+(self.__buttonSize)*num)
 
     def CheckIfValid(self):
        if self.__config.get_Element("Chrome")=="":
@@ -427,70 +444,98 @@ class Create_MainWindow_Real(ABC):
         self.__create_Main_Window_size3(size) # Temporal set only!
 
     def __create_Main_Window_size3(self, size):
-        self.__main.geometry("%dx%d+%d+%d" % (1400, 1000, (size[0]/2)-700, (size[1]/2)-550))
+        self.__setMainGeo(1400, 1000, size)
 
     def __create_Main_Window_size4(self, size):
         self.__create_Main_Window_size3(size) # Temporal set only!
 
+    def __setMainGeo(self, w, h, size):
+        self.__main.geometry("%dx%d+%d+%d" % (w, h, (size[0]/2)-(w/2), (size[1]/2)-(h/2)-25))
+
     def on_Leave(self, event):
         self.Hint.set("")
 
+    def __setHintTextLocation(self, num):
+        self.HintText.place(x=4+(self.__buttonSize)*num, y=self.__buttonSize)
+
+
     def on_enterNewB(self, event):
         self.Hint.set(self.__new)
-        self.HintText.place(x=4, y=self.__buttonSize)
+        self.__setHintTextLocation(0)
 
 
     def on_enterOpenB(self, event):
         self.Hint.set(self.__open)
-        self.HintText.place(x=4, y=self.__buttonSize)
+        print(event)
+        self.__setHintTextLocation(0)
 
 
     def on_enterSaveB(self, event):
         self.Hint.set(self.__save)
-        self.HintText.place(x=4, y=self.__buttonSize)
+        self.__setHintTextLocation(0)
 
 
     def on_enterSaveAsB(self, event):
         self.Hint.set(self.__save_as)
-        self.HintText.place(x=4, y=self.__buttonSize)
+        self.__setHintTextLocation(0)
 
 
     def on_enterCopy(self, event):
         self.Hint.set(self.__copy)
-        self.HintText.place(x=4+(self.__buttonSize)*5, y=self.__buttonSize)
+        self.__setHintTextLocation(4.25)
 
 
     def on_enterPaste(self, event):
         self.Hint.set(self.__paste)
-        self.HintText.place(x=4+(self.__buttonSize)*5, y=self.__buttonSize)
+        self.__setHintTextLocation(4.25)
 
     def on_enterHTML(self, event):
         self.Hint.set(self.__HTML)
-        self.HintText.place(x=4+(self.__buttonSize)*8, y=self.__buttonSize)
+        self.__setHintTextLocation(6.5)
 
     def on_enterFastTest(self, event):
         self.Hint.set(self.__FastTest)
-        self.HintText.place(x=4+(self.__buttonSize)*8, y=self.__buttonSize)
+        self.__setHintTextLocation(6.5)
 
     def on_enterFFox(self, event):
-        self.Hint.set(self.__FFoxTest)
-        self.HintText.place(x=4+(self.__buttonSize)*8, y=self.__buttonSize)
+        if self.__config.get_Element("FireFox")=="":
+            self.Hint.set(self.__browserNotSet.replace("#browser#", "Firefox"))
+        else:
+            self.Hint.set(self.__FFoxTest)
+        self.__setHintTextLocation(6.5)
 
     def on_enterChrome(self, event):
-        self.Hint.set(self.__ChromeTest)
-        self.HintText.place(x=4+(self.__buttonSize)*8, y=self.__buttonSize)
+        if self.__config.get_Element("Chrome")=="":
+            self.Hint.set(self.__browserNotSet.replace("#browser#", "Chrome"))
+        else:
+            self.Hint.set(self.__ChromeTest)
+        self.__setHintTextLocation(6.5)
 
     def on_enterEdge(self, event):
-        self.Hint.set(self.__EdgeTest)
-        self.HintText.place(x=4+(self.__buttonSize)*8, y=self.__buttonSize)
+        if self.__config.get_Element("FireFox")=="":
+            self.Hint.set(self.__browserNotSet.replace("#browser#", "Edge"))
+        else:
+            self.Hint.set(self.__EdgeTest)
+        self.__setHintTextLocation(6.5)
 
     def on_enterOpera(self, event):
-        self.Hint.set(self.__OperaTest)
-        self.HintText.place(x=4+(self.__buttonSize)*8, y=self.__buttonSize)
+        if self.__config.get_Element("Opera")=="":
+            self.Hint.set(self.__browserNotSet.replace("#browser#", "Opera"))
+        else:
+            self.Hint.set(self.__OperaTest)
+        self.__setHintTextLocation(6.5)
 
     def on_enterSettings(self, event):
         self.Hint.set(self.__settings)
-        self.HintText.place(x=4+(self.__buttonSize)*15, y=self.__buttonSize)
+        self.__setHintTextLocation(12.75)
+
+    def on_enterHelp(self, event):
+        self.Hint.set(self.__help)
+        self.__setHintTextLocation(12.75)
+
+    def on_enterAbout(self, event):
+        self.Hint.set(self.__about)
+        self.__setHintTextLocation(12.75)
 
 class Create_MainWindow(Create_MainWindow_Real):
 
