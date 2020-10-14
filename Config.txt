@@ -5,3 +5,4 @@ Chrome=
 FireFox=
 Edge=
 Opera=
+StaticSize=0
