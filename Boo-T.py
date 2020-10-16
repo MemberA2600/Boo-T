@@ -4,9 +4,9 @@ import os
 import re
 from tkinter.filedialog import *
 from tkinter import messagebox
-import tkinter.scrolledtext as tkscrolled
 from tkinterhtml import HtmlFrame
 import multiprocessing
+import tkinter.scrolledtext as tkscrolled
 
 
 class Dictionaries_REAL(ABC):
@@ -25,7 +25,7 @@ class Dictionaries_REAL(ABC):
         self.__D[name]={}
 
         for line in lines:
-            self.__D[name][line.split("=")[0]] = line.split("=")[1]
+            self.__D[name][line.split("=")[0]] = line.split("=")[1].replace("\n","")
 
     @abstractmethod
     def getWordFromDict(self, lang, word):
@@ -209,11 +209,11 @@ class DisplayLoading_Real(ABC):
         if size[0]>1600:
             self.__w_Size=800
         elif size[0]>1280:
-            self.__w_Size=650
+            self.__w_Size=800
         elif size[0]>800:
-            self.__w_Size=550
+            self.__w_Size=800
         else:
-            self.__w_Size=400
+            self.__w_Size=640
 
         self.__h_Size=round((self.__w_Size/800)*300)
         self.__Loading_Window=Toplevel()
@@ -241,7 +241,6 @@ class DisplayLoading(DisplayLoading_Real):
     def __init__(self, size):
         super().__init__(size)
 
-
 class Create_MainWindow_Real(ABC):
     """Creating the Main Window, loads data for application."""
     def __init__(self, main):
@@ -250,6 +249,10 @@ class Create_MainWindow_Real(ABC):
         self.__main.geometry("%dx%d+%d+%d" % (1, 1, 1, 1))
         self.__main.overrideredirect(True)
         self.__main.resizable(False, False)
+
+        import pyglet
+        pyglet.font.add_file('HAMMRF.ttf')
+        self.__setFont(1)
 
         self.__dicts = Dictionaries()
         __monitor = Monitor()
@@ -261,6 +264,10 @@ class Create_MainWindow_Real(ABC):
             s=int(self.__config.get_Element("StaticSize"))
 
         self.__size_Num=self.__Create_Main_Window_By_Screen_Size(s, __monitor.get_Screensize(), self.__config.get_Element("Language"))
+
+    def __setFont(self, num):
+        self.__fontSize=7+(num*2)
+        self.__hammerFont=("Hammerfat", self.__fontSize)
 
     def __GetWindowSize(self, size):
         if size[0]>1600:
@@ -274,14 +281,15 @@ class Create_MainWindow_Real(ABC):
         return(s)
 
     def __Create_Main_Window_By_Screen_Size(self, s, size, lang):
+
         if s==4:
-            self.__create_Main_Window_size4(size)
-        elif S==3:
-            self.__create_Main_Window_size3(size)
+            self.__create_Main_Window_size4(size, s)
+        elif s==3:
+            self.__create_Main_Window_size3(size, s)
         elif s==2:
-            self.__create_Main_Window_size2(size)
+            self.__create_Main_Window_size2(size, s)
         else:
-            self.__create_Main_Window_size1(size)
+            self.__create_Main_Window_size1(size, s)
 
         self.__main.title("Boo-T")
         self.__main.overrideredirect(False)
@@ -312,13 +320,11 @@ class Create_MainWindow_Real(ABC):
 
     def __create_Menu(self, lang, size):
         from PIL import ImageTk, Image
-        import pyglet
 
-        pyglet.font.add_file('HAMMRF.ttf')
-        self.defineWords(lang)
-
-        self.__hammerFont=("Hammerfat", 7+(size*2))
         self.__buttonSize=40
+        self.defineWords(lang)
+        self.__setFont(size)
+
 
         self.__imgNew = ImageTk.PhotoImage(Image.open("icons/new.png"))
         self.__new_B=Button(self.__main, image=self.__imgNew, width=32, height=32)
@@ -412,8 +418,8 @@ class Create_MainWindow_Real(ABC):
 
         self.CheckIfValid()
 
-        self.Hint=StringVar()
-        self.HintText = Label(self.__main, textvariable=self.Hint, font=self.__hammerFont)
+        self.__Hint=StringVar()
+        self.__HintText = Label(self.__main, textvariable=self.__Hint, font=self.__hammerFont)
 
     def __getButtonPoz(self, num):
         return(4+(self.__buttonSize)*num)
@@ -437,104 +443,176 @@ class Create_MainWindow_Real(ABC):
        else:
            self.__Opera_B.config(state=NORMAL)
 
-    def __create_Main_Window_size1(self, size):
-        self.__create_Main_Window_size3(size) # Temporal set only!
+    def __create_Main_Window_size1(self, size, s):
+        self.__windowW=640
+        self.__windowH=420
+        self.__setMainGeo(self.__windowW, self.__windowH, size)
+        self.__createCodeBox(self.__hammerFont, 480, 420-(self.__hammerFont[1]*2+55), s)
 
-    def __create_Main_Window_size2(self, size):
-        self.__create_Main_Window_size3(size) # Temporal set only!
 
-    def __create_Main_Window_size3(self, size):
-        self.__setMainGeo(1400, 1000, size)
+    def __create_Main_Window_size2(self, size, s):
+        self.__windowW=800
+        self.__windowH=688
+        self.__setMainGeo(self.__windowW, self.__windowH, size)
+        self.__createCodeBox(self.__hammerFont, 632, 688-(self.__hammerFont[1]*2+55), s)
 
-    def __create_Main_Window_size4(self, size):
-        self.__create_Main_Window_size3(size) # Temporal set only!
+    def __create_Main_Window_size3(self, size, s):
+        self.__windowW=800
+        self.__windowH=1150
+        self.__setMainGeo(self.__windowW, self.__windowH, size)
+        self.__createCodeBox(self.__hammerFont, 632, 1150-(self.__hammerFont[1]*2+55), s)
+
+    def __create_Main_Window_size4(self, size, s):
+        self.__windowW=800
+        self.__windowH=1400
+        self.__setMainGeo(self.__windowW, self.__windowH, size)
+        self.__createCodeBox(self.__hammerFont, 632, 1400-(self.__hammerFont[1]*2+55), s)
 
     def __setMainGeo(self, w, h, size):
         self.__main.geometry("%dx%d+%d+%d" % (w, h, (size[0]/2)-(w/2), (size[1]/2)-(h/2)-25))
 
+    def __createCodeBox(self, baseFont, w, h, s):
+        self.__CodeBox = tkscrolled.ScrolledText(self.__main, width=1, height=1, font=baseFont)
+        self.__updateCodeBox(baseFont[1], w, h, s)
+
+    def __updateCodeBox(self, basefontsize, w, h, s):
+        from tkinter.font import Font
+
+        if (self.__config.get_Element("DarkBox")=="False"):
+            color="white"
+            color2="black"
+        else:
+            color="black"
+            color2="darkgray"
+
+        hammerFont=Font(font='HammerFat')
+        hammerFont.config(size=int(self.__config.get_Element("BoxFontSize")))
+
+        self.__CodeBox.config(font=hammerFont, bg=color, fg=color2,
+                              width=self.__howMany(s),
+                              height=round((h-basefontsize-58)/hammerFont.metrics('linespace')))
+
+        #print(hammerFont.metrics())
+        #print(w, round(w/int(self.__config.get_Element("BoxFontSize"))), int(self.__config.get_Element("BoxFontSize")))
+        #self.__CodeBox.insert(1.0, round(w/int(self.__config.get_Element("BoxFontSize")))*"A")
+        self.__CodeBox.place(x=3, y=basefontsize+56)
+
+    def __howMany(self, s):
+
+        if s>1:
+            numbers={
+                12: 67,
+                13: 67,
+                14: 60,
+                15: 55,
+                16: 55,
+                17: 52,
+                18: 47,
+                19: 47,
+                20: 43,
+                21: 40,
+                22: 40,
+                23: 36,
+                24: 36,
+                25: 34}
+        else:
+            numbers={
+                12: 53,
+                13: 53,
+                14: 48,
+                15: 43,
+                16: 43,
+                17: 40,
+                18: 37,
+                19: 37,
+                20: 34,
+                21: 32,
+                22: 30,
+                23: 28,
+                24: 28,
+                25: 26}
+
+        return(numbers[int(self.__config.get_Element("BoxFontSize"))])
+
+
+
+
     def on_Leave(self, event):
-        self.Hint.set("")
+        self.__Hint.set("")
 
     def __setHintTextLocation(self, num):
-        self.HintText.place(x=4+(self.__buttonSize)*num, y=self.__buttonSize)
-
+        self.__HintText.place(x=4+(self.__buttonSize)*num, y=self.__buttonSize)
 
     def on_enterNewB(self, event):
-        self.Hint.set(self.__new)
+        self.__Hint.set(self.__new)
         self.__setHintTextLocation(0)
-
 
     def on_enterOpenB(self, event):
-        self.Hint.set(self.__open)
-        print(event)
+        self.__Hint.set(self.__open)
         self.__setHintTextLocation(0)
-
 
     def on_enterSaveB(self, event):
-        self.Hint.set(self.__save)
+        self.__Hint.set(self.__save)
         self.__setHintTextLocation(0)
-
 
     def on_enterSaveAsB(self, event):
-        self.Hint.set(self.__save_as)
+        self.__Hint.set(self.__save_as)
         self.__setHintTextLocation(0)
 
-
     def on_enterCopy(self, event):
-        self.Hint.set(self.__copy)
+        self.__Hint.set(self.__copy)
         self.__setHintTextLocation(4.25)
 
-
     def on_enterPaste(self, event):
-        self.Hint.set(self.__paste)
+        self.__Hint.set(self.__paste)
         self.__setHintTextLocation(4.25)
 
     def on_enterHTML(self, event):
-        self.Hint.set(self.__HTML)
+        self.__Hint.set(self.__HTML)
         self.__setHintTextLocation(6.5)
 
     def on_enterFastTest(self, event):
-        self.Hint.set(self.__FastTest)
+        self.__Hint.set(self.__FastTest)
         self.__setHintTextLocation(6.5)
 
     def on_enterFFox(self, event):
         if self.__config.get_Element("FireFox")=="":
-            self.Hint.set(self.__browserNotSet.replace("#browser#", "Firefox"))
+            self.__Hint.set(self.__browserNotSet.replace("#browser#", "Firefox"))
         else:
-            self.Hint.set(self.__FFoxTest)
+            self.__Hint.set(self.__FFoxTest)
         self.__setHintTextLocation(6.5)
 
     def on_enterChrome(self, event):
         if self.__config.get_Element("Chrome")=="":
-            self.Hint.set(self.__browserNotSet.replace("#browser#", "Chrome"))
+            self.__Hint.set(self.__browserNotSet.replace("#browser#", "Chrome"))
         else:
-            self.Hint.set(self.__ChromeTest)
+            self.__Hint.set(self.__ChromeTest)
         self.__setHintTextLocation(6.5)
 
     def on_enterEdge(self, event):
         if self.__config.get_Element("FireFox")=="":
-            self.Hint.set(self.__browserNotSet.replace("#browser#", "Edge"))
+            self.__Hint.set(self.__browserNotSet.replace("#browser#", "Edge"))
         else:
-            self.Hint.set(self.__EdgeTest)
+            self.__Hint.set(self.__EdgeTest)
         self.__setHintTextLocation(6.5)
 
     def on_enterOpera(self, event):
         if self.__config.get_Element("Opera")=="":
-            self.Hint.set(self.__browserNotSet.replace("#browser#", "Opera"))
+            self.__Hint.set(self.__browserNotSet.replace("#browser#", "Opera"))
         else:
-            self.Hint.set(self.__OperaTest)
+            self.__Hint.set(self.__OperaTest)
         self.__setHintTextLocation(6.5)
 
     def on_enterSettings(self, event):
-        self.Hint.set(self.__settings)
+        self.__Hint.set(self.__settings)
         self.__setHintTextLocation(12.75)
 
     def on_enterHelp(self, event):
-        self.Hint.set(self.__help)
+        self.__Hint.set(self.__help)
         self.__setHintTextLocation(12.75)
 
     def on_enterAbout(self, event):
-        self.Hint.set(self.__about)
+        self.__Hint.set(self.__about)
         self.__setHintTextLocation(12.75)
 
 class Create_MainWindow(Create_MainWindow_Real):

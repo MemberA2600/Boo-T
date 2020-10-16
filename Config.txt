@@ -6,3 +6,5 @@ FireFox=
 Edge=
 Opera=
 StaticSize=0
+DarkBox=False
+BoxFontSize=15
