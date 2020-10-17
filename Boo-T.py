@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 from tkinter import *
 from abc import *
 import os
@@ -16,8 +19,6 @@ from Config import *
 from Monitor import *
 from DisplayLoading import *
 
-
-
 class Create_MainWindow_Real(ABC):
     """Creating the Main Window, loads data for application."""
     def __init__(self, main):
@@ -28,7 +29,7 @@ class Create_MainWindow_Real(ABC):
         self.__main.resizable(False, False)
 
         import pyglet
-        pyglet.font.add_file('HAMMRF.ttf')
+        pyglet.font.add_file('HammerFat.ttf')
         self.__setFont(1)
 
         self.__dicts = Dictionaries()
@@ -225,22 +226,24 @@ class Create_MainWindow_Real(ABC):
         self.__windowW=windowW
         self.__windowH=windowH
         self.__setMainGeo(self.__windowW, self.__windowH, size)
-        self.__createCodeBox(self.__hammerFont, boxW, windowH-(self.__hammerFont[1]*2+55), s)
+        self.__createCodeBox(self.__hammerFont, boxW, windowH-((self.__fontSize)*5)-55)
 
     def __setMainGeo(self, w, h, size):
+
         self.__main.geometry("%dx%d+%d+%d" % (w, h, (size[0]/2)-(w/2), (size[1]/2)-(h/2)-25))
 
-    def __createCodeBox(self, baseFont, w, h, s):
-        self.__CodeBox = tkscrolled.ScrolledText(self.__main, width=1, height=1, font=baseFont)
-        self.__bh=h
-        self.__bs=s
-        self.__bf1 = baseFont[1]
+    def __createCodeBox(self, baseFont, w, h):
+        self.Frame_for_CodeBox=Frame(self.__main, width=w, height=h)
+        self.Frame_for_CodeBox.place(x=2, y=baseFont[1]+56)
+        self.Frame_for_CodeBox.pack_propagate(False)
+
+        self.__CodeBox = tkscrolled.ScrolledText(self.Frame_for_CodeBox, width=1, height=1, font=baseFont)
         self.__box_Ctrl_Pressed=False
         self.__CodeBox.bind("<Key>", self.code_Key_Pressed)
         self.__CodeBox.bind("<KeyRelease>", self.code_Key_Released)
         self.__CodeBox.bind("<MouseWheel>", self.mouse_Wheel)
 
-        self.__updateCodeBox(self.__bf1, self.__bh, self.__bs)
+        self.__updateCodeBox()
 
     def code_Key_Pressed(self, event):
         if (event.keysym=="Control_L" or event.keysym=="Control_R"):
@@ -252,16 +255,19 @@ class Create_MainWindow_Real(ABC):
 
     def mouse_Wheel(self, event):
         if self.__box_Ctrl_Pressed:
-            if (event.delta>0 and int(self.__Config.get_Element("BoxFontSize"))<25):
+            if (event.delta>0 and int(self.__Config.get_Element("BoxFontSize"))<48):
                 self.__Config.set_Element("BoxFontSize", str(int(self.__Config.get_Element("BoxFontSize"))+1))
-                self.__updateCodeBox(self.__bf1, self.__bh, self.__bs)
+                self.__updateCodeBox()
+
 
             if (event.delta<0 and int(self.__Config.get_Element("BoxFontSize"))>12):
                 self.__Config.set_Element("BoxFontSize", str(int(self.__Config.get_Element("BoxFontSize"))-1))
-                self.__updateCodeBox(self.__bf1, self.__bh, self.__bs)
+                self.__updateCodeBox()
 
-    def __updateCodeBox(self, basefontsize, h, s):
-        from tkinter.font import Font
+
+    def __updateCodeBox(self):
+        from tkinter.font import Font, families
+
 
         if (self.__Config.get_Element("DarkBox")=="False"):
             color="white"
@@ -274,48 +280,12 @@ class Create_MainWindow_Real(ABC):
         hammerFont.config(size=int(self.__Config.get_Element("BoxFontSize")))
 
         self.__CodeBox.config(font=hammerFont, bg=color, fg=color2,
-                              width=self.__howMany(s),
-                              height=round((h-basefontsize-58)/hammerFont.metrics('linespace')))
+                              width=68,
+                              height=50,
+                              wrap=WORD)
 
-        self.__CodeBox.place(x=2, y=basefontsize+56)
-        self.__CodeBox.frame.pack_propagate()
+        self.__CodeBox.pack()
 
-
-    def __howMany(self, s):
-        if s>1:
-            numbers={
-                12: 67,
-                13: 67,
-                14: 60,
-                15: 55,
-                16: 55,
-                17: 52,
-                18: 47,
-                19: 47,
-                20: 43,
-                21: 40,
-                22: 40,
-                23: 36,
-                24: 36,
-                25: 34}
-        else:
-            numbers={
-                12: 53,
-                13: 53,
-                14: 48,
-                15: 43,
-                16: 43,
-                17: 40,
-                18: 37,
-                19: 37,
-                20: 34,
-                21: 32,
-                22: 30,
-                23: 28,
-                24: 28,
-                25: 26}
-
-        return(numbers[int(self.__Config.get_Element("BoxFontSize"))])
 
     def __on_leave(self, event):
         self.__Hint.set("")
@@ -397,7 +367,7 @@ class Create_MainWindow_Real(ABC):
 
     def __create_StatLabel(self, text):
         self.__StatLabel=Label(self.__main, text=text, font=self.__hammerFont)
-        self.__StatLabel.place(x=3, y=self.__main.winfo_height()-self.__fontSize*2)
+        self.__StatLabel.place(x=3, y=self.__main.winfo_height()-self.__fontSize*2.25)
         self.__StatLabel.after(len(text)*50+1000, self.__destroy_StatLabel)
 
     def __destroy_StatLabel(self):
