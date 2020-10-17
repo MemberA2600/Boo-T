@@ -8,12 +8,15 @@ from tkinter import messagebox
 from tkinterhtml import HtmlFrame
 import multiprocessing
 import tkinter.scrolledtext as tkscrolled
+import time
 
 sys.path.insert(1, "scr/")
 from Dictionaries import *
 from Config import *
 from Monitor import *
 from DisplayLoading import *
+
+
 
 class Create_MainWindow_Real(ABC):
     """Creating the Main Window, loads data for application."""
@@ -31,13 +34,13 @@ class Create_MainWindow_Real(ABC):
         self.__dicts = Dictionaries()
         __monitor = Monitor()
         __loading_Screen = DisplayLoading(__monitor.get_screensize())
-        self.__config = Config(self.__dicts)
-        if self.__config.get_Element("StaticSize")=="0":
+        self.__Config = Config(self.__dicts)
+        if self.__Config.get_Element("StaticSize")=="0":
             s=self.__GetWindowSize(__monitor.get_screensize())
         else:
-            s=int(self.__config.get_Element("StaticSize"))
+            s=int(self.__Config.get_Element("StaticSize"))
 
-        self.__size_Num=self.__Create_Main_Window_By_Screen_Size(s, __monitor.get_screensize(), self.__config.get_Element("Language"))
+        self.__size_Num=self.__Create_Main_Window_By_Screen_Size(s, __monitor.get_screensize(), self.__Config.get_Element("Language"))
 
     def __setFont(self, num):
         self.__fontSize=7+(num*2)
@@ -56,19 +59,20 @@ class Create_MainWindow_Real(ABC):
 
     def __Create_Main_Window_By_Screen_Size(self, s, size, lang):
 
-        if s==4:
-            self.__create_Main_Window_size4(size, s)
-        elif s==3:
-            self.__create_Main_Window_size3(size, s)
+        if s==1:
+            self.__create_Main_Window_by_size(size, s, 640, 420, 480)
         elif s==2:
-            self.__create_Main_Window_size2(size, s)
+            self.__create_Main_Window_by_size(size, s, 800, 688, 632)
+        elif s==3:
+            self.__create_Main_Window_by_size(size, s, 800, 1100, 632)
         else:
-            self.__create_Main_Window_size1(size, s)
+            self.__create_Main_Window_by_size(size, s, 800, 1400, 632)
 
         self.__main.title("Boo-T")
         self.__main.overrideredirect(False)
         self.__main.iconbitmap("icons/Boots.ico")
         self.__create_Menu(lang, s)
+        self.__create_StatLabel("Welcome!")
         return(s)
 
     def defineWords(self, lang):
@@ -103,92 +107,92 @@ class Create_MainWindow_Real(ABC):
         self.__imgNew = ImageTk.PhotoImage(Image.open("icons/new.png"))
         self.__new_B=Button(self.__main, image=self.__imgNew, width=32, height=32)
         self.__new_B.place(x=4, y=1)
-        self.__new_B.bind("<Enter>", self.on_enterNewB)
-        self.__new_B.bind("<Leave>", self.on_Leave)
+        self.__new_B.bind("<Enter>", self.__on_enterNewB)
+        self.__new_B.bind("<Leave>", self.__on_leave)
 
         self.__imgOpen = ImageTk.PhotoImage(Image.open("icons/open.png"))
         self.__open_B=Button(self.__main, image=self.__imgOpen, width=32, height=32)
         self.__open_B.place(x=self.__getButtonPoz(1), y=1)
-        self.__open_B.bind("<Enter>", self.on_enterOpenB)
-        self.__open_B.bind("<Leave>", self.on_Leave)
+        self.__open_B.bind("<Enter>", self.__on_enterOpenB)
+        self.__open_B.bind("<Leave>", self.__on_leave)
 
         self.__imgSave = ImageTk.PhotoImage(Image.open("icons/save.png"))
         self.__save_B=Button(self.__main, image=self.__imgSave, width=32, height=32)
         self.__save_B.place(x=self.__getButtonPoz(2), y=1)
-        self.__save_B.bind("<Enter>", self.on_enterSaveB)
-        self.__save_B.bind("<Leave>", self.on_Leave)
+        self.__save_B.bind("<Enter>", self.__on_enterSaveB)
+        self.__save_B.bind("<Leave>", self.__on_leave)
 
         self.__imgSaveAs = ImageTk.PhotoImage(Image.open("icons/save_as.png"))
         self.__saveAs_B=Button(self.__main, image=self.__imgSaveAs, width=32, height=32)
         self.__saveAs_B.place(x=self.__getButtonPoz(3), y=1)
-        self.__saveAs_B.bind("<Enter>", self.on_enterSaveAsB)
-        self.__saveAs_B.bind("<Leave>", self.on_Leave)
+        self.__saveAs_B.bind("<Enter>", self.__on_enterSaveAsB)
+        self.__saveAs_B.bind("<Leave>", self.__on_leave)
 
         self.__imgCopy = ImageTk.PhotoImage(Image.open("icons/copy.png"))
         self.__saveAs_B=Button(self.__main, image=self.__imgCopy, width=32, height=32)
         self.__saveAs_B.place(x=self.__getButtonPoz(4.25), y=1)
-        self.__saveAs_B.bind("<Enter>", self.on_enterCopy)
-        self.__saveAs_B.bind("<Leave>", self.on_Leave)
+        self.__saveAs_B.bind("<Enter>", self.__on_enterCopy)
+        self.__saveAs_B.bind("<Leave>", self.__on_leave)
 
         self.__imgPaste = ImageTk.PhotoImage(Image.open("icons/paste.png"))
         self.__saveAs_B=Button(self.__main, image=self.__imgPaste, width=32, height=32)
         self.__saveAs_B.place(x=self.__getButtonPoz(5.25), y=1)
-        self.__saveAs_B.bind("<Enter>", self.on_enterPaste)
-        self.__saveAs_B.bind("<Leave>", self.on_Leave)
+        self.__saveAs_B.bind("<Enter>", self.__on_enterPaste)
+        self.__saveAs_B.bind("<Leave>", self.__on_leave)
 
         self.__imgHTML = ImageTk.PhotoImage(Image.open("icons/html.png"))
         self.__HTML_B=Button(self.__main, image=self.__imgHTML, width=32, height=32)
         self.__HTML_B.place(x=self.__getButtonPoz(6.5), y=1)
-        self.__HTML_B.bind("<Enter>", self.on_enterHTML)
-        self.__HTML_B.bind("<Leave>", self.on_Leave)
+        self.__HTML_B.bind("<Enter>", self.__on_enterHTML)
+        self.__HTML_B.bind("<Leave>", self.__on_leave)
 
         self.__imgFastTest = ImageTk.PhotoImage(Image.open("icons/test.png"))
         self.__FTest_B=Button(self.__main, image=self.__imgFastTest, width=32, height=32)
         self.__FTest_B.place(x=self.__getButtonPoz(7.5), y=1)
-        self.__FTest_B.bind("<Enter>", self.on_enterFastTest)
-        self.__FTest_B.bind("<Leave>", self.on_Leave)
+        self.__FTest_B.bind("<Enter>", self.__on_enterFastTest)
+        self.__FTest_B.bind("<Leave>", self.__on_leave)
 
         self.__imgFFox = ImageTk.PhotoImage(Image.open("icons/firefox.png"))
         self.__FFox_B=Button(self.__main, image=self.__imgFFox, width=32, height=32)
         self.__FFox_B.place(x=self.__getButtonPoz(8.5), y=1)
-        self.__FFox_B.bind("<Enter>", self.on_enterFFox)
-        self.__FFox_B.bind("<Leave>", self.on_Leave)
+        self.__FFox_B.bind("<Enter>", self.__on_enterFFox)
+        self.__FFox_B.bind("<Leave>", self.__on_leave)
 
         self.__imgChrome = ImageTk.PhotoImage(Image.open("icons/chrome.png"))
         self.__Chrome_B=Button(self.__main, image=self.__imgChrome, width=32, height=32)
         self.__Chrome_B.place(x=self.__getButtonPoz(9.5), y=1)
-        self.__Chrome_B.bind("<Enter>", self.on_enterChrome)
-        self.__Chrome_B.bind("<Leave>", self.on_Leave)
+        self.__Chrome_B.bind("<Enter>", self.__on_enterChrome)
+        self.__Chrome_B.bind("<Leave>", self.__on_leave)
 
         self.__imgEdge = ImageTk.PhotoImage(Image.open("icons/edge.png"))
         self.__Edge_B=Button(self.__main, image=self.__imgEdge, width=32, height=32)
         self.__Edge_B.place(x=self.__getButtonPoz(10.5), y=1)
-        self.__Edge_B.bind("<Enter>", self.on_enterEdge)
-        self.__Edge_B.bind("<Leave>", self.on_Leave)
+        self.__Edge_B.bind("<Enter>", self.__on_enterEdge)
+        self.__Edge_B.bind("<Leave>", self.__on_leave)
 
         self.__imgOpera = ImageTk.PhotoImage(Image.open("icons/opera.png"))
         self.__Opera_B=Button(self.__main, image=self.__imgOpera, width=32, height=32)
         self.__Opera_B.place(x=self.__getButtonPoz(11.5), y=1)
-        self.__Opera_B.bind("<Enter>", self.on_enterOpera)
-        self.__Opera_B.bind("<Leave>", self.on_Leave)
+        self.__Opera_B.bind("<Enter>", self.__on_enterOpera)
+        self.__Opera_B.bind("<Leave>", self.__on_leave)
 
         self.__imgSettings = ImageTk.PhotoImage(Image.open("icons/settings.png"))
         self.__Settings_B=Button(self.__main, image=self.__imgSettings, width=32, height=32)
         self.__Settings_B.place(x=self.__getButtonPoz(12.75), y=1)
-        self.__Settings_B.bind("<Enter>", self.on_enterSettings)
-        self.__Settings_B.bind("<Leave>", self.on_Leave)
+        self.__Settings_B.bind("<Enter>", self.__on_enterSettings)
+        self.__Settings_B.bind("<Leave>", self.__on_leave)
 
         self.__imgHelp = ImageTk.PhotoImage(Image.open("icons/help.png"))
         self.__Help_B=Button(self.__main, image=self.__imgHelp, width=32, height=32)
         self.__Help_B.place(x=self.__getButtonPoz(13.75), y=1)
-        self.__Help_B.bind("<Enter>", self.on_enterHelp)
-        self.__Help_B.bind("<Leave>", self.on_Leave)
+        self.__Help_B.bind("<Enter>", self.__on_enterHelp)
+        self.__Help_B.bind("<Leave>", self.__on_leave)
 
         self.__imgAbout = ImageTk.PhotoImage(Image.open("icons/about.png"))
         self.__About_B=Button(self.__main, image=self.__imgAbout, width=32, height=32)
         self.__About_B.place(x=self.__getButtonPoz(14.75), y=1)
-        self.__About_B.bind("<Enter>", self.on_enterAbout)
-        self.__About_B.bind("<Leave>", self.on_Leave)
+        self.__About_B.bind("<Enter>", self.__on_enterAbout)
+        self.__About_B.bind("<Leave>", self.__on_leave)
 
         self.CheckIfValid()
 
@@ -199,60 +203,67 @@ class Create_MainWindow_Real(ABC):
         return(4+(self.__buttonSize)*num)
 
     def CheckIfValid(self):
-       if self.__config.get_Element("Chrome")=="":
+       if self.__Config.get_Element("Chrome")=="":
            self.__Chrome_B.config(state=DISABLED)
        else:
            self.__Chrome_B.config(state=NORMAL)
 
-       if self.__config.get_Element("FireFox")=="":
+       if self.__Config.get_Element("FireFox")=="":
            self.__FFox_B.config(state=DISABLED)
        else:
            self.__FFox_B.config(state=NORMAL)
-       if self.__config.get_Element("Edge") == "":
+       if self.__Config.get_Element("Edge") == "":
            self.__Edge_B.config(state=DISABLED)
        else:
            self.__Edge_B.config(state=NORMAL)
-       if self.__config.get_Element("Opera") == "":
+       if self.__Config.get_Element("Opera") == "":
            self.__Opera_B.config(state=DISABLED)
        else:
            self.__Opera_B.config(state=NORMAL)
 
-    def __create_Main_Window_size1(self, size, s):
-        self.__windowW=640
-        self.__windowH=420
+    def __create_Main_Window_by_size(self, size, s, windowW, windowH, boxW):
+        self.__windowW=windowW
+        self.__windowH=windowH
         self.__setMainGeo(self.__windowW, self.__windowH, size)
-        self.__createCodeBox(self.__hammerFont, 480, 420-(self.__hammerFont[1]*2+55), s)
-
-
-    def __create_Main_Window_size2(self, size, s):
-        self.__windowW=800
-        self.__windowH=688
-        self.__setMainGeo(self.__windowW, self.__windowH, size)
-        self.__createCodeBox(self.__hammerFont, 632, 688-(self.__hammerFont[1]*2+55), s)
-
-    def __create_Main_Window_size3(self, size, s):
-        self.__windowW=800
-        self.__windowH=1150
-        self.__setMainGeo(self.__windowW, self.__windowH, size)
-        self.__createCodeBox(self.__hammerFont, 632, 1150-(self.__hammerFont[1]*2+55), s)
-
-    def __create_Main_Window_size4(self, size, s):
-        self.__windowW=800
-        self.__windowH=1400
-        self.__setMainGeo(self.__windowW, self.__windowH, size)
-        self.__createCodeBox(self.__hammerFont, 632, 1400-(self.__hammerFont[1]*2+55), s)
+        self.__createCodeBox(self.__hammerFont, boxW, windowH-(self.__hammerFont[1]*2+55), s)
 
     def __setMainGeo(self, w, h, size):
         self.__main.geometry("%dx%d+%d+%d" % (w, h, (size[0]/2)-(w/2), (size[1]/2)-(h/2)-25))
 
     def __createCodeBox(self, baseFont, w, h, s):
         self.__CodeBox = tkscrolled.ScrolledText(self.__main, width=1, height=1, font=baseFont)
-        self.__updateCodeBox(baseFont[1], w, h, s)
+        self.__bh=h
+        self.__bs=s
+        self.__bf1 = baseFont[1]
+        self.__box_Ctrl_Pressed=False
+        self.__CodeBox.bind("<Key>", self.code_Key_Pressed)
+        self.__CodeBox.bind("<KeyRelease>", self.code_Key_Released)
+        self.__CodeBox.bind("<MouseWheel>", self.mouse_Wheel)
 
-    def __updateCodeBox(self, basefontsize, w, h, s):
+        self.__updateCodeBox(self.__bf1, self.__bh, self.__bs)
+
+    def code_Key_Pressed(self, event):
+        if (event.keysym=="Control_L" or event.keysym=="Control_R"):
+            self.__box_Ctrl_Pressed=True
+
+    def code_Key_Released(self, event):
+        if (event.keysym=="Control_L" or event.keysym=="Control_R"):
+            self.__box_Ctrl_Pressed=False
+
+    def mouse_Wheel(self, event):
+        if self.__box_Ctrl_Pressed:
+            if (event.delta>0 and int(self.__Config.get_Element("BoxFontSize"))<25):
+                self.__Config.set_Element("BoxFontSize", str(int(self.__Config.get_Element("BoxFontSize"))+1))
+                self.__updateCodeBox(self.__bf1, self.__bh, self.__bs)
+
+            if (event.delta<0 and int(self.__Config.get_Element("BoxFontSize"))>12):
+                self.__Config.set_Element("BoxFontSize", str(int(self.__Config.get_Element("BoxFontSize"))-1))
+                self.__updateCodeBox(self.__bf1, self.__bh, self.__bs)
+
+    def __updateCodeBox(self, basefontsize, h, s):
         from tkinter.font import Font
 
-        if (self.__config.get_Element("DarkBox")=="False"):
+        if (self.__Config.get_Element("DarkBox")=="False"):
             color="white"
             color2="black"
         else:
@@ -260,19 +271,17 @@ class Create_MainWindow_Real(ABC):
             color2="darkgray"
 
         hammerFont=Font(font='HammerFat')
-        hammerFont.config(size=int(self.__config.get_Element("BoxFontSize")))
+        hammerFont.config(size=int(self.__Config.get_Element("BoxFontSize")))
 
         self.__CodeBox.config(font=hammerFont, bg=color, fg=color2,
                               width=self.__howMany(s),
                               height=round((h-basefontsize-58)/hammerFont.metrics('linespace')))
 
-        #print(hammerFont.metrics())
-        #print(w, round(w/int(self.__config.get_Element("BoxFontSize"))), int(self.__config.get_Element("BoxFontSize")))
-        #self.__CodeBox.insert(1.0, round(w/int(self.__config.get_Element("BoxFontSize")))*"A")
-        self.__CodeBox.place(x=3, y=basefontsize+56)
+        self.__CodeBox.place(x=2, y=basefontsize+56)
+        self.__CodeBox.frame.pack_propagate()
+
 
     def __howMany(self, s):
-
         if s>1:
             numbers={
                 12: 67,
@@ -306,91 +315,95 @@ class Create_MainWindow_Real(ABC):
                 24: 28,
                 25: 26}
 
-        return(numbers[int(self.__config.get_Element("BoxFontSize"))])
+        return(numbers[int(self.__Config.get_Element("BoxFontSize"))])
 
-
-
-
-    def on_Leave(self, event):
+    def __on_leave(self, event):
         self.__Hint.set("")
 
     def __setHintTextLocation(self, num):
         self.__HintText.place(x=4+(self.__buttonSize)*num, y=self.__buttonSize)
 
-    def on_enterNewB(self, event):
+    def __on_enterNewB(self, event):
         self.__Hint.set(self.__new)
         self.__setHintTextLocation(0)
 
-    def on_enterOpenB(self, event):
+    def __on_enterOpenB(self, event):
         self.__Hint.set(self.__open)
         self.__setHintTextLocation(0)
 
-    def on_enterSaveB(self, event):
+    def __on_enterSaveB(self, event):
         self.__Hint.set(self.__save)
         self.__setHintTextLocation(0)
 
-    def on_enterSaveAsB(self, event):
+    def __on_enterSaveAsB(self, event):
         self.__Hint.set(self.__save_as)
         self.__setHintTextLocation(0)
 
-    def on_enterCopy(self, event):
+    def __on_enterCopy(self, event):
         self.__Hint.set(self.__copy)
         self.__setHintTextLocation(4.25)
 
-    def on_enterPaste(self, event):
+    def __on_enterPaste(self, event):
         self.__Hint.set(self.__paste)
         self.__setHintTextLocation(4.25)
 
-    def on_enterHTML(self, event):
+    def __on_enterHTML(self, event):
         self.__Hint.set(self.__HTML)
         self.__setHintTextLocation(6.5)
 
-    def on_enterFastTest(self, event):
+    def __on_enterFastTest(self, event):
         self.__Hint.set(self.__FastTest)
         self.__setHintTextLocation(6.5)
 
-    def on_enterFFox(self, event):
-        if self.__config.get_Element("FireFox")=="":
+    def __on_enterFFox(self, event):
+        if self.__Config.get_Element("FireFox")=="":
             self.__Hint.set(self.__browserNotSet.replace("#browser#", "Firefox"))
         else:
             self.__Hint.set(self.__FFoxTest)
         self.__setHintTextLocation(6.5)
 
-    def on_enterChrome(self, event):
-        if self.__config.get_Element("Chrome")=="":
+    def __on_enterChrome(self, event):
+        if self.__Config.get_Element("Chrome")=="":
             self.__Hint.set(self.__browserNotSet.replace("#browser#", "Chrome"))
         else:
             self.__Hint.set(self.__ChromeTest)
         self.__setHintTextLocation(6.5)
 
-    def on_enterEdge(self, event):
-        if self.__config.get_Element("FireFox")=="":
+    def __on_enterEdge(self, event):
+        if self.__Config.get_Element("FireFox")=="":
             self.__Hint.set(self.__browserNotSet.replace("#browser#", "Edge"))
         else:
             self.__Hint.set(self.__EdgeTest)
         self.__setHintTextLocation(6.5)
 
-    def on_enterOpera(self, event):
-        if self.__config.get_Element("Opera")=="":
+    def __on_enterOpera(self, event):
+        if self.__Config.get_Element("Opera")=="":
             self.__Hint.set(self.__browserNotSet.replace("#browser#", "Opera"))
         else:
             self.__Hint.set(self.__OperaTest)
         self.__setHintTextLocation(6.5)
 
-    def on_enterSettings(self, event):
+    def __on_enterSettings(self, event):
         self.__Hint.set(self.__settings)
         self.__setHintTextLocation(12.75)
 
-    def on_enterHelp(self, event):
+    def __on_enterHelp(self, event):
         self.__Hint.set(self.__help)
         self.__setHintTextLocation(12.75)
 
-    def on_enterAbout(self, event):
+    def __on_enterAbout(self, event):
         self.__Hint.set(self.__about)
         self.__setHintTextLocation(12.75)
 
-class Create_MainWindow(Create_MainWindow_Real):
+    def __create_StatLabel(self, text):
+        self.__StatLabel=Label(self.__main, text=text, font=self.__hammerFont)
+        self.__StatLabel.place(x=3, y=self.__main.winfo_height()-self.__fontSize*2)
+        self.__StatLabel.after(len(text)*50+1000, self.__destroy_StatLabel)
 
+    def __destroy_StatLabel(self):
+        self.__StatLabel.destroy()
+
+class Create_MainWindow(Create_MainWindow_Real):
     def __init__(self, main):
         super().__init__(main)
 

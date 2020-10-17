@@ -137,7 +137,7 @@ class Config(Config_Real):
         super().__init__(dicts)
 
     def set_Element(self, key, value):
-        super().Set_Element(key, value)
+        super().set_Element(key, value)
 
     def get_Element(self, key):
         return(super().get_Element(key))
