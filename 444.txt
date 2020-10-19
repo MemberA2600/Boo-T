@@ -1,0 +1,13 @@
+"""
+        self.__menuBar = Menu(self.__main)
+        self.__main.config(menu=self.__menuBar)
+
+        
+        self.__fileMenu=Menu(self.__menuBar, tearoff=0, font=self.__fontSize)
+        self.__menuBar.add_cascade(label=self.__file, menu=self.__fileMenu)
+        self.__fileMenu.add_command(label=self.__new)
+        self.__fileMenu.add_command(label=self.__open)
+        self.__fileMenu.add_separator()
+        self.__fileMenu.add_command(label=self.__save)
+        self.__fileMenu.add_command(label=self.__save_as)
+        """
