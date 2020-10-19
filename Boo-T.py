@@ -29,7 +29,7 @@ class Create_MainWindow_Real(ABC):
         self.__main.resizable(False, False)
 
         import pyglet
-        pyglet.font.add_file('HammerFat.ttf')
+        pyglet.font.add_file('Hammerfat.ttf')
         self.__setFont(1)
 
         self.__dicts = Dictionaries()
@@ -45,7 +45,7 @@ class Create_MainWindow_Real(ABC):
 
     def __setFont(self, num):
         self.__fontSize=7+(num*2)
-        self.__hammerFont=("Hammerfat", self.__fontSize)
+        self.__hammerFont=("Hammerfat_Hun", self.__fontSize)
 
     def __GetWindowSize(self, size):
         if size[0]>1600:
@@ -276,7 +276,7 @@ class Create_MainWindow_Real(ABC):
             color="black"
             color2="darkgray"
 
-        hammerFont=Font(font='HammerFat')
+        hammerFont=Font(font='Hammerfat_Hun')
         hammerFont.config(size=int(self.__Config.get_Element("BoxFontSize")))
 
         self.__CodeBox.config(font=hammerFont, bg=color, fg=color2,
