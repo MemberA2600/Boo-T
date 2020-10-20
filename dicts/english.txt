@@ -18,3 +18,4 @@ OperaTest=Open in Opera for Testing
 browserNotSet=#browser# is not set!
 help=Help
 about=About
+recent=Recent Files

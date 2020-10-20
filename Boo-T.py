@@ -222,11 +222,11 @@ class Create_MainWindow_Real(ABC):
        else:
            self.__Opera_B.config(state=NORMAL)
 
-    def __create_Main_Window_by_size(self, size, s, windowW, windowH, boxW):
-        self.__windowW=windowW
-        self.__windowH=windowH
-        self.__setMainGeo(self.__windowW, self.__windowH, size)
-        self.__createCodeBox(self.__hammerFont, boxW, windowH-((self.__fontSize)*5)-55)
+    def __create_Main_Window_by_size(self, __size, s, __windowW, __windowH, boxW):
+        self.__setMainGeo(__windowW, __windowH, __size)
+        self.__createCodeBox(self.__hammerFont, boxW, __windowH-((self.__fontSize)*5)-55)
+        self.__create_RecentList(__windowW, __windowH, s, boxW)
+
 
     def __setMainGeo(self, w, h, size):
 
@@ -277,7 +277,10 @@ class Create_MainWindow_Real(ABC):
             color2="darkgray"
 
         hammerFont=Font(font='Hammerfat_Hun')
-        hammerFont.config(size=int(self.__Config.get_Element("BoxFontSize")))
+        if int(self.__Config.get_Element("BoxFontSize"))==0:
+            hammerFont.config(size=self.__fontSize+4)
+        else:
+            hammerFont.config(size=int(self.__Config.get_Element("BoxFontSize")))
 
         self.__CodeBox.config(font=hammerFont, bg=color, fg=color2,
                               width=68,
@@ -372,6 +375,53 @@ class Create_MainWindow_Real(ABC):
 
     def __destroy_StatLabel(self):
         self.__StatLabel.destroy()
+
+    def __create_RecentList(self, __windowW, __windowH, __size, __boxW):
+        self.__setFont(__size)
+
+        if __size>1:
+            __relativeX=640
+            __relativeY=-2
+        else:
+            __relativeX=490
+            __relativeY=52+self.__hammerFont[1]
+
+        __recentLabel=Label(self.__main, text=self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "recent"))
+        __recentLabel.config(font=self.__hammerFont)
+        __recentLabel.place(x=__relativeX, y=__relativeY)
+        self.__recentList_Frame=Frame(self.__main, width=__windowW-__relativeX-3-17, height=round(__windowH/3-__relativeY-self.__hammerFont[1]*2))
+        self.__recentList_Frame.place(x=__relativeX, y=(__relativeY+self.__hammerFont[1]*2))
+        self.__recentList_Frame.pack_propagate(False)
+
+        self.__recentListScroller_Frame=Frame(self.__main, width=15, height=round(__windowH/3-__relativeY-self.__hammerFont[1]*2))
+        self.__recentListScroller_Frame.place(x=__windowW-19, y=(__relativeY+self.__hammerFont[1]*2))
+        self.__recentListScroller_Frame.pack_propagate(False)
+        self.__recentListScroller=Scrollbar(self.__recentListScroller_Frame)
+
+        self.__recentList=Listbox(self.__recentList_Frame, width=1000, height=1000, yscrollcommand=self.__recentListScroller.set)
+        self.__recentList.config(font=self.__hammerFont)
+        self.__recentList.pack()
+
+        self.__recentListScroller.pack(side=RIGHT, fill=Y)
+        self.__recentListScroller.config(command=self.__recentList.yview)
+
+
+
+        self.__recentButton_Frame=Frame(self.__main, width=__windowW-__relativeX-4, height=25)
+        self.__recentButton_Frame.place(x=__relativeX+1, y=(__relativeY+self.__hammerFont[1]*2)+round(__windowH/3-__relativeY-self.__hammerFont[1]*2)+5)
+        self.__recentButton_Frame.pack_propagate(False)
+
+        self.__loadFromRecentButton=Button(self.__recentButton_Frame, width=1000, text=self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "open"))
+        self.__loadFromRecentButton.pack()
+        self.loadRecent()
+
+    def loadRecent(self):
+        file=open("Recent.txt", "r")
+        self.__recentList.delete(0, END)
+        for item in file.readlines():
+            self.__recentList.insert(END, item)
+
+        file.close()
 
 class Create_MainWindow(Create_MainWindow_Real):
     def __init__(self, main):

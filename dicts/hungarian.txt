@@ -18,3 +18,4 @@ OperaTest=Megnyitás Tesztelésre Operá-ban
 browserNotSet=#browser# nincs beállítva!
 about=Névjegy
 help=Súgó
+recent=Legutóbbi Fájlok
