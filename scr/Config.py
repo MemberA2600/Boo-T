@@ -36,7 +36,7 @@ class Config_Real(ABC):
         text=config_file.readlines()
         config_file.close()
         for line in text:
-            __temp[line.split("=")[0]]=line.split("=")[1].replace("\n","")
+            __temp[line.replace("\r","").replace("\n","").split("=")[0]]=line.replace("\r","").replace("\n","").split("=")[1].replace("\n","")
         return(__temp)
 
     def __CheckBrowsers(self, Chrome, FireFox, Edge, Opera):

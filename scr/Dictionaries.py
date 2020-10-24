@@ -22,7 +22,7 @@ class Dictionaries_REAL(ABC):
         self.__D[name]={}
 
         for line in lines:
-            self.__D[name][line.split("=")[0]] = line.split("=")[1].replace("\n","")
+            self.__D[name][line.replace("\r","").replace("\n","").split("=")[0]] = line.replace("\r","").replace("\n","").split("=")[1].replace("\n","")
 
     @abstractmethod
     def getWordFromDict(self, lang, word):

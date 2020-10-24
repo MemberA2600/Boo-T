@@ -8,3 +8,4 @@ Opera=
 StaticSize=0
 DarkBox=False
 BoxFontSize=0
+MaxRecent=0

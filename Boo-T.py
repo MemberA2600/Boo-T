@@ -19,6 +19,7 @@ from Config import *
 from Monitor import *
 from DisplayLoading import *
 
+
 class Create_MainWindow_Real(ABC):
     """Creating the Main Window, loads data for application."""
     def __init__(self, main):
@@ -27,6 +28,11 @@ class Create_MainWindow_Real(ABC):
         self.__main.geometry("%dx%d+%d+%d" % (1, 1, 1, 1))
         self.__main.overrideredirect(True)
         self.__main.resizable(False, False)
+
+        self.__opened=False
+        self.__modified=False
+        self.__saved=False
+        self.__configChanged=False
 
         import pyglet
         pyglet.font.add_file('Hammerfat.ttf')
@@ -44,6 +50,7 @@ class Create_MainWindow_Real(ABC):
         self.__size_Num=self.__Create_Main_Window_By_Screen_Size(s, __monitor.get_screensize(), self.__Config.get_Element("Language"))
 
     def __setFont(self, num):
+        """The font side is set based on the screensize you got at '__GetWindowSize' """
         self.__fontSize=7+(num*2)
         self.__hammerFont=("Hammerfat_Hun", self.__fontSize)
 
@@ -59,6 +66,8 @@ class Create_MainWindow_Real(ABC):
         return(s)
 
     def __Create_Main_Window_By_Screen_Size(self, s, size, lang):
+        """Based on the screen size, the main window will be created and get it's attributes.
+        Some of them are restored because at the beginning, the window gets a 1x1 size at startup."""
 
         if s==1:
             self.__create_Main_Window_by_size(size, s, 640, 420, 480)
@@ -77,6 +86,8 @@ class Create_MainWindow_Real(ABC):
         return(s)
 
     def defineWords(self, lang):
+        """Words specified at the dictionary are loaded to seperate values."""
+
         self.__new = self.__dicts.getWordFromDict(lang, "new")
         self.__open = self.__dicts.getWordFromDict(lang, "open")
         self.__file = self.__dicts.getWordFromDict(lang, "file")
@@ -98,6 +109,8 @@ class Create_MainWindow_Real(ABC):
 
 
     def __create_Menu(self, lang, size):
+        """Loads the icons amd creates the 32y32 buttons one by one. If the mouse enters
+        an icon, it will display it's puprose. These are static on every window size!"""
         from PIL import ImageTk, Image
 
         self.__buttonSize=40
@@ -106,13 +119,13 @@ class Create_MainWindow_Real(ABC):
 
 
         self.__imgNew = ImageTk.PhotoImage(Image.open("icons/new.png"))
-        self.__new_B=Button(self.__main, image=self.__imgNew, width=32, height=32)
+        self.__new_B=Button(self.__main, image=self.__imgNew, width=32, height=32, command=self.__doNew)
         self.__new_B.place(x=4, y=1)
         self.__new_B.bind("<Enter>", self.__on_enterNewB)
         self.__new_B.bind("<Leave>", self.__on_leave)
 
         self.__imgOpen = ImageTk.PhotoImage(Image.open("icons/open.png"))
-        self.__open_B=Button(self.__main, image=self.__imgOpen, width=32, height=32)
+        self.__open_B=Button(self.__main, image=self.__imgOpen, width=32, height=32, command=self.__doOpen)
         self.__open_B.place(x=self.__getButtonPoz(1), y=1)
         self.__open_B.bind("<Enter>", self.__on_enterOpenB)
         self.__open_B.bind("<Leave>", self.__on_leave)
@@ -200,10 +213,74 @@ class Create_MainWindow_Real(ABC):
         self.__Hint=StringVar()
         self.__HintText = Label(self.__main, textvariable=self.__Hint, font=self.__hammerFont)
 
+    def __doNew(self):
+        """if box was modified, asks if you want to save your file, amd deletes the box."""
+        if self.__modified==True:
+            self.__askForSave()
+        self.__deleteBox()
+
+    def __doOpen(self):
+        """If box was modified, asks for save, then asks for a .boo, .txt or any file that it tries to load. If it fails,
+        it shows you an erre message and prints the exception."""
+
+        if self.__modified==True:
+            self.__askForSave()
+        openname=askopenfilename(initialdir="*", title=self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "open"),
+                         filetypes = (
+                             (self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "fileBoot"), "*.boo"),
+                             (self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "fileTxT"), "*.txt"),
+                             (self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "fileAll"), "*.*"),
+                                      ))
+        try:
+            opened=open(openname, "r")
+            self.__insertBox(opened.read())
+            opened.close()
+            self.__addToRecent(openname)
+
+        except Exception as e:
+            messagebox.showerror(self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "fileOpenErrorTitle"),
+                       self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "fileOpenError").replace("#path#", openname)+"\n"+str(e))
+
+    def __askForSave(self):
+        """Asks if you want to save the file."""
+        M=messagebox.askyesno(self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "Unsaved"),
+                            self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "DoYouSave"))
+
+        if M==True:
+            pass
+
+    def __deleteBox(self):
+        self.__CodeBox.delete(0.0,END)
+
+    def __insertBox(self, text):
+        self.__deleteBox()
+        self.__CodeBox.insert(0.0, text)
+
+    def __addToRecent(self, text):
+        """Saves the recent opened file list, also updates the listbox.
+        If maximum number of recent is exceeded, it will delete the last element before update."""
+
+        file=open("Recent.txt", "w")
+        if text in self.__recentFiles:
+            self.__recentFiles.remove(text)
+            self.__recentList.delete(self.__recentList.get(0, END).index(text.split("/")[-1]))
+
+        if len(self.__recentFiles)==int(self.__Config.get_Element("MaxRecent")) and int(self.__Config.get_Element("MaxRecent"))!=0:
+            self.__recentFiles.pop()
+            self.__recentList.delete(END)
+
+        self.__recentFiles.insert(0, text)
+        for num in range(0, len(self.__recentFiles)):
+            file.write(self.__recentFiles[num].split("/")[-1]+"="+self.__recentFiles[num]+"\n")
+
+        file.close()
+        self.__recentList.insert(0, text.split("/")[-1])
+
     def __getButtonPoz(self, num):
         return(4+(self.__buttonSize)*num)
 
     def CheckIfValid(self):
+       """Disables test in browser buttons if browser path is not enabled."""
        if self.__Config.get_Element("Chrome")=="":
            self.__Chrome_B.config(state=DISABLED)
        else:
@@ -223,16 +300,17 @@ class Create_MainWindow_Real(ABC):
            self.__Opera_B.config(state=NORMAL)
 
     def __create_Main_Window_by_size(self, __size, s, __windowW, __windowH, boxW):
+        """Contains calls for creating the main window size, the container for the textbox and the listboxes."""
         self.__setMainGeo(__windowW, __windowH, __size)
         self.__createCodeBox(self.__hammerFont, boxW, __windowH-((self.__fontSize)*5)-55)
-        self.__create_RecentList(__windowW, __windowH, s, boxW)
+        self.__create_Listboxes(__windowW, __windowH, s, boxW)
 
 
     def __setMainGeo(self, w, h, size):
-
         self.__main.geometry("%dx%d+%d+%d" % (w, h, (size[0]/2)-(w/2), (size[1]/2)-(h/2)-25))
 
     def __createCodeBox(self, baseFont, w, h):
+        """Creates the elements for the main input field."""
         self.Frame_for_CodeBox=Frame(self.__main, width=w, height=h)
         self.Frame_for_CodeBox.place(x=2, y=baseFont[1]+56)
         self.Frame_for_CodeBox.pack_propagate(False)
@@ -246,6 +324,7 @@ class Create_MainWindow_Real(ABC):
         self.__updateCodeBox()
 
     def code_Key_Pressed(self, event):
+        self.__modified=True
         if (event.keysym=="Control_L" or event.keysym=="Control_R"):
             self.__box_Ctrl_Pressed=True
 
@@ -254,6 +333,8 @@ class Create_MainWindow_Real(ABC):
             self.__box_Ctrl_Pressed=False
 
     def mouse_Wheel(self, event):
+        """If ctrl is pressed and the user roll the mouse's wheel, the font size will be changed.
+        Need to call updateCodeBox for the actual change."""
         if self.__box_Ctrl_Pressed:
             if (event.delta>0 and int(self.__Config.get_Element("BoxFontSize"))<48):
                 self.__Config.set_Element("BoxFontSize", str(int(self.__Config.get_Element("BoxFontSize"))+1))
@@ -266,15 +347,17 @@ class Create_MainWindow_Real(ABC):
 
 
     def __updateCodeBox(self):
+        """Changes the light/dark them for the box, also changes the font size.
+        If the listbox are existing, updates their colors too."""
         from tkinter.font import Font, families
 
 
         if (self.__Config.get_Element("DarkBox")=="False"):
-            color="white"
-            color2="black"
+            self.__color="white"
+            self.__color2="black"
         else:
-            color="black"
-            color2="darkgray"
+            self.__color="black"
+            self.__color2="lightgray"
 
         hammerFont=Font(font='Hammerfat_Hun')
         if int(self.__Config.get_Element("BoxFontSize"))==0:
@@ -282,10 +365,16 @@ class Create_MainWindow_Real(ABC):
         else:
             hammerFont.config(size=int(self.__Config.get_Element("BoxFontSize")))
 
-        self.__CodeBox.config(font=hammerFont, bg=color, fg=color2,
+        self.__CodeBox.config(font=hammerFont, bg=self.__color, fg=self.__color2,
                               width=68,
                               height=50,
                               wrap=WORD)
+
+        try:
+            self.__recentList.config(bg=self.__color, fg=self.__color2)
+            self.__syntaxList.config(bg=self.__color, fg=self.__color2)
+        except:
+            pass
 
         self.__CodeBox.pack()
 
@@ -369,6 +458,10 @@ class Create_MainWindow_Real(ABC):
         self.__setHintTextLocation(12.75)
 
     def __create_StatLabel(self, text):
+        try:
+            self.__destroy_StatLabel()
+        except:
+            pass
         self.__StatLabel=Label(self.__main, text=text, font=self.__hammerFont)
         self.__StatLabel.place(x=3, y=self.__main.winfo_height()-self.__fontSize*2.25)
         self.__StatLabel.after(len(text)*50+1000, self.__destroy_StatLabel)
@@ -376,7 +469,10 @@ class Create_MainWindow_Real(ABC):
     def __destroy_StatLabel(self):
         self.__StatLabel.destroy()
 
-    def __create_RecentList(self, __windowW, __windowH, __size, __boxW):
+    def __create_Listboxes(self, __windowW, __windowH, __size, __boxW):
+        """Creates the recent files listbox, also the one containing the syntax used for coding.
+        Elements based on characters while calculating width and height are strictly placed into
+        frames those are calculated in pixels."""
         self.__setFont(__size)
 
         if __size>1:
@@ -386,42 +482,93 @@ class Create_MainWindow_Real(ABC):
             __relativeX=490
             __relativeY=52+self.__hammerFont[1]
 
+
         __recentLabel=Label(self.__main, text=self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "recent"))
         __recentLabel.config(font=self.__hammerFont)
         __recentLabel.place(x=__relativeX, y=__relativeY)
-        self.__recentList_Frame=Frame(self.__main, width=__windowW-__relativeX-3-17, height=round(__windowH/3-__relativeY-self.__hammerFont[1]*2))
+
+        __firstListHeight = round(__windowH/3-__relativeY-self.__hammerFont[1]*2)
+        self.__recentList_Frame=Frame(self.__main, width=__windowW-__relativeX-3-17, height=__firstListHeight)
         self.__recentList_Frame.place(x=__relativeX, y=(__relativeY+self.__hammerFont[1]*2))
         self.__recentList_Frame.pack_propagate(False)
 
-        self.__recentListScroller_Frame=Frame(self.__main, width=15, height=round(__windowH/3-__relativeY-self.__hammerFont[1]*2))
+        self.__recentListScroller_Frame=Frame(self.__main, width=15, height=__firstListHeight)
         self.__recentListScroller_Frame.place(x=__windowW-19, y=(__relativeY+self.__hammerFont[1]*2))
         self.__recentListScroller_Frame.pack_propagate(False)
         self.__recentListScroller=Scrollbar(self.__recentListScroller_Frame)
 
-        self.__recentList=Listbox(self.__recentList_Frame, width=1000, height=1000, yscrollcommand=self.__recentListScroller.set)
+        self.__recentList=Listbox(self.__recentList_Frame, width=1000, height=1000,
+                                  yscrollcommand=self.__recentListScroller.set, selectmode=BROWSE,
+                                  bg=self.__color, fg=self.__color2)
+
+        self.__recentList.bind("<<ListboxSelect>>", self.__printPath)
         self.__recentList.config(font=self.__hammerFont)
         self.__recentList.pack()
 
         self.__recentListScroller.pack(side=RIGHT, fill=Y)
         self.__recentListScroller.config(command=self.__recentList.yview)
 
-
-
         self.__recentButton_Frame=Frame(self.__main, width=__windowW-__relativeX-4, height=25)
-        self.__recentButton_Frame.place(x=__relativeX+1, y=(__relativeY+self.__hammerFont[1]*2)+round(__windowH/3-__relativeY-self.__hammerFont[1]*2)+5)
+        self.__recentButton_Frame.place(x=__relativeX+1, y=(__relativeY+self.__hammerFont[1]*2)+__firstListHeight+5)
         self.__recentButton_Frame.pack_propagate(False)
 
         self.__loadFromRecentButton=Button(self.__recentButton_Frame, width=1000, text=self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "open"))
         self.__loadFromRecentButton.pack()
         self.loadRecent()
 
+        __syntaxLabel=Label(self.__main, text=self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "syntax"))
+        __syntaxLabel.config(font=self.__hammerFont)
+        __syntaxLabel.place(x=__relativeX, y=(__relativeY+self.__hammerFont[1]*2)+__firstListHeight+31)
+        
+        __secondListHeight=round(__windowH/3*1.6-__relativeY-self.__hammerFont[1]*2)
+        self.__syntaxList_Frame=Frame(self.__main, width=__windowW-__relativeX-3-17, height=__secondListHeight)
+        
+        __secondListY=(__relativeY+self.__hammerFont[1]*2)+__firstListHeight+31+self.__hammerFont[1]*2
+        self.__syntaxList_Frame.place(x=__relativeX, y=__secondListY)
+        self.__syntaxList_Frame.pack_propagate(False)
+
+        self.__syntaxListScroller_Frame=Frame(self.__main, width=15, height=__secondListHeight)
+        self.__syntaxListScroller_Frame.place(x=__windowW-19, y=__secondListY)
+        self.__syntaxListScroller_Frame.pack_propagate(False)
+        self.__syntaxListScroller=Scrollbar(self.__syntaxListScroller_Frame)
+
+        self.__syntaxList=Listbox(self.__syntaxList_Frame, width=1000, height=1000,
+                                  yscrollcommand=self.__syntaxListScroller.set, selectmode=BROWSE,
+                                  bg=self.__color, fg=self.__color2)
+        self.__syntaxList.config(font=self.__hammerFont)
+        self.__syntaxList.pack()
+
+        self.__syntaxListScroller.pack(side=RIGHT, fill=Y)
+        self.__syntaxListScroller.config(command=self.__syntaxList.yview)
+
+        self.__syntaxButton_Frame=Frame(self.__main, width=__windowW-__relativeX-4, height=25)
+        self.__syntaxButton_Frame.place(x=__relativeX+1, y=__secondListY+5+__secondListHeight)
+        self.__syntaxButton_Frame.pack_propagate(False)
+
+        self.__loadFromsyntaxButton=Button(self.__syntaxButton_Frame, width=1000, text=self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "paste"))
+        self.__loadFromsyntaxButton.pack()
+
+
+
     def loadRecent(self):
+        """List of recently saved and opened files.
+        If max number of recent files is exceeded, it won't load more."""
+
         file=open("Recent.txt", "r")
+        self.__recentFiles=[]
         self.__recentList.delete(0, END)
         for item in file.readlines():
-            self.__recentList.insert(END, item)
+                try:
+                    if len(self.__recentFiles)<int(self.__Config.get_Element("MaxRecent")) and int(self.__Config.get_Element("MaxRecent"))!=0:
+                        self.__recentList.insert(END, item.replace("\n","").replace("\r","").split("=")[0])
+                        self.__recentFiles.append(item.replace("\n","").replace("\r","").split("=")[1])
 
+                except:
+                    pass
         file.close()
+
+    def __printPath(self, event):
+       self.__create_StatLabel(self.__recentFiles[self.__recentList.curselection()[0]])
 
 class Create_MainWindow(Create_MainWindow_Real):
     def __init__(self, main):

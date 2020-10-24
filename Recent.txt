@@ -1,3 +1,2 @@
-Proba.boo
-Proba2.boo
-Proba3.boo
+readme_de.txt=C:/xampp/readme_de.txt
+readme_en.txt=C:/xampp/readme_en.txt
