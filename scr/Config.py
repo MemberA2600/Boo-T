@@ -31,13 +31,23 @@ class Config_Real(ABC):
 
     def __Load_Config_File(self):
         """Will load the config file located in the root folder."""
+        if os.path.exists("Config.txt"):
+            return(self.__loadDict("Config.txt"))
+        else:
+            return(self.__loadDict("default/Config.txt"))
+
+    def __loadDict(self, config_file):
         __temp={}
-        config_file=open("Config.txt", "r")
+        config_file = open(config_file, "r")
         text=config_file.readlines()
         config_file.close()
         for line in text:
             __temp[line.replace("\r","").replace("\n","").split("=")[0]]=line.replace("\r","").replace("\n","").split("=")[1].replace("\n","")
         return(__temp)
+
+    @abstractmethod
+    def load_Config_Defaults(self):
+        self.__Config=self.__loadDict("default/Config.txt")
 
     def __CheckBrowsers(self, Chrome, FireFox, Edge, Opera):
         """If a browser had no gien path, it will try to find the installed path of application.
@@ -105,7 +115,7 @@ class Config_Real(ABC):
         if QuestionBox==False:
             return("")
         else:
-            return(askopenfilename(initialdir = "*",title = asktitle, filetypes = ((".exe","*.exe"),)))
+            return(askopenfilename(initialdir = "*",title = asktitle, filetypes = ((self.__dicts.getWordFromDict(self.__Config["Language"], "executable"), "*.exe"),)))
 
     def __GetLocation(self, browser):
         import winapps
@@ -141,3 +151,6 @@ class Config(Config_Real):
 
     def get_Element(self, key):
         return(super().get_Element(key))
+
+    def load_Config_Defaults(self):
+        super().load_Config_Defaults()
