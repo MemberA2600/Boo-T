@@ -47,3 +47,6 @@ boxColor=Color Theme:
 dark=dark
 light=light
 recentList=List of recently opened files!
+boxFont=Size of Coding Font:
+maxRecent=Maximum Number of Recent Files:
+infinite=Infinite

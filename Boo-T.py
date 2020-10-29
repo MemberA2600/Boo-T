@@ -615,6 +615,7 @@ class Create_MainWindow_Real(ABC):
                                                                                "paste"))
         self.__loadFromsyntaxButton.pack()
 
+
     def loadRecent(self):
         """List of recently saved and opened files.
         If max number of recent files is exceeded, it won't load more."""

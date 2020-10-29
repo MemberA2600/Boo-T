@@ -98,30 +98,9 @@ class OptionsMenu_REAL(ABC):
 
 
         """ButtonFrame starts here"""
+        self.__createButtonFrame(__w, __h, __s, hammerFont, hammerheight)
 
-        self.__mainButtonaForOptionsFrame = Frame(self.__OptionsM, width=__w - 20, height=hammerheight * 2, )
-        self.__mainButtonaForOptionsFrame.bind("<Enter>", self.__OptionsButFrameLabel)
-        self.__mainButtonaForOptionsFrame.place(x=20, y=__h - (hammerheight * 2))
-        self.__mainButtonaForOptionsFrame.pack_propagate(False)
 
-        third = self.__getAmmountOfChar(round(__w / 3) - 75, hammerFont)
-
-        self.__mainButtonOK = Button(self.__mainButtonaForOptionsFrame, width=third,
-                                     text=self.__dicts.getWordFromDict(self.__Config.get_Element("Language"),
-                                                                       "SettingsOK"), font=hammerFont)
-        self.__mainButtonOK.place(x=0, y=0)
-
-        self.__mainButtonCancel = Button(self.__mainButtonaForOptionsFrame, width=third,
-                                         text=self.__dicts.getWordFromDict(self.__Config.get_Element("Language"),
-                                                                           "Cancel"), font=hammerFont,
-                                         command=self.__destroyWindow)
-        self.__mainButtonCancel.place(x=round(__w / 3), y=0)
-
-        self.__mainButtonDefaults = Button(self.__mainButtonaForOptionsFrame, width=third,
-                                           text=self.__dicts.getWordFromDict(self.__Config.get_Element("Language"),
-                                                                             "Defaults"), font=hammerFont,
-                                           command=self.__loadDef)
-        self.__mainButtonDefaults.place(x=round(__w / 3) * 2, y=0)
 
         self.__OptionsM.wait_window()
 
@@ -252,6 +231,98 @@ class OptionsMenu_REAL(ABC):
         self.__colorOption.place(x=round((__bFrameWidth - 5) / 2.5), y=15 + hammerheight * 2)
         self.__changeOptionColorCOLOR("a", "b", "c")
         self.__boxColorVar.trace_add("write", self.__changeOptionColorCOLOR)
+
+        self.__boxFontLabel=Label(self.__basicSettingsFrame, text=self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "boxFont"), font=self.__hammerFont)
+        self.__boxFontLabel.place(x=5, y=20 + hammerheight * 3)
+
+        self.__boxFontSize=StringVar()
+        self.__boxAuto=BooleanVar()
+        if self.__Config.get_Element("BoxFontSize")=="0":
+            self.__boxAuto.set(True)
+            self.__boxFontSize.set("")
+        else:
+            self.__boxAuto.set(False)
+            self.__boxFontSize.set(self.__Config.get_Element("BoxFontSize"))
+
+        self.__autoBox=Checkbutton(self.__basicSettingsFrame, variable=self.__boxAuto, text="Auto", font=self.__hammerFont)
+        self.__autoBox.place(x=hammerFont.measure(self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "boxFont"))-10
+                           , y=20 + hammerheight * 3)
+        self.__boxAuto.trace_add("write", self.__checkAutoBox)
+
+        self.__entrySize=Entry(self.__basicSettingsFrame, width=2, font=self.__hammerFont,
+                               textvariable=self.__boxFontSize)
+
+        self.__entrySize.place(x=hammerFont.measure(str(self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "boxFont")+"[ ]Auto"))-5
+                           , y=22 + hammerheight * 3)
+        self.__checkAutoBox("a", "b", "c")
+
+        self.__recentLabel=Label(self.__basicSettingsFrame, text=self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "maxRecent"), font=self.__hammerFont)
+        self.__recentLabel.place(x=5, y=22 + hammerheight * 4)
+
+        self.__recentNum=StringVar()
+        self.__boxInf=BooleanVar()
+        if self.__Config.get_Element("MaxRecent")=="0":
+            self.__boxInf.set(True)
+            self.__recentNum.set("")
+        else:
+            self.__boxInf.set(False)
+            self.__recentNum.set(self.__Config.get_Element("MaxRecent"))
+
+        self.__boxInf.trace_add("write", self.__checkInfBox)
+        self.__infBox=Checkbutton(self.__basicSettingsFrame, variable=self.__boxInf, text=self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "infinite"),
+                                  font=self.__hammerFont)
+        self.__infBox.place(x=hammerFont.measure(str(self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "boxFont")+"[ ]Auto"))-20-
+                              hammerFont.measure(str(self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "infinite")))
+                           , y=25 + hammerheight * 5)
+
+        self.__recentEntry=  Entry(self.__basicSettingsFrame, width=2, font=self.__hammerFont,
+                               textvariable=self.__recentNum)
+        self.__recentEntry.place(x=hammerFont.measure(str(self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "boxFont")+"[ ]Auto"))-5
+                           , y=27 + hammerheight * 5)
+
+        self.__checkInfBox("a", "b", "c")
+
+    def __checkAutoBox(self, a, b, c):
+        if self.__boxAuto.get()==False:
+            self.__entrySize.config(state=NORMAL)
+        else:
+            self.__boxFontSize.set("")
+            self.__entrySize.config(state=DISABLED)
+
+    def __checkInfBox(self, a, b, c):
+        if self.__boxInf.get()==False:
+            self.__recentEntry.config(state=NORMAL)
+        else:
+            self.__recentNum.set("")
+            self.__recentEntry.config(state=DISABLED)
+
+
+
+    def __createButtonFrame(self, __w, __h, __s, hammerFont, hammerheight):
+        self.__mainButtonaForOptionsFrame = Frame(self.__OptionsM, width=__w - 20, height=hammerheight * 2, )
+        self.__mainButtonaForOptionsFrame.bind("<Enter>", self.__OptionsButFrameLabel)
+        self.__mainButtonaForOptionsFrame.place(x=20, y=__h - (hammerheight * 2))
+        self.__mainButtonaForOptionsFrame.pack_propagate(False)
+
+        third = self.__getAmmountOfChar(round(__w / 3) - 75, hammerFont)
+
+        self.__mainButtonOK = Button(self.__mainButtonaForOptionsFrame, width=third,
+                                     text=self.__dicts.getWordFromDict(self.__Config.get_Element("Language"),
+                                                                       "SettingsOK"), font=hammerFont)
+        self.__mainButtonOK.place(x=0, y=0)
+
+        self.__mainButtonCancel = Button(self.__mainButtonaForOptionsFrame, width=third,
+                                         text=self.__dicts.getWordFromDict(self.__Config.get_Element("Language"),
+                                                                           "Cancel"), font=hammerFont,
+                                         command=self.__destroyWindow)
+        self.__mainButtonCancel.place(x=round(__w / 3), y=0)
+
+        self.__mainButtonDefaults = Button(self.__mainButtonaForOptionsFrame, width=third,
+                                           text=self.__dicts.getWordFromDict(self.__Config.get_Element("Language"),
+                                                                             "Defaults"), font=hammerFont,
+                                           command=self.__loadDef)
+        self.__mainButtonDefaults.place(x=round(__w / 3) * 2, y=0)
+
 
     def __changeOptionColorCOLOR(self, a, b, c):
         if self.__boxColorVar.get() == "light":
