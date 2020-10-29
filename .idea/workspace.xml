@@ -6,6 +6,8 @@
       <change beforePath="$PROJECT_DIR$/Boo-T.py" beforeDir="false" afterPath="$PROJECT_DIR$/Boo-T.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Config.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Config.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dicts/english.txt" beforeDir="false" afterPath="$PROJECT_DIR$/dicts/english.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dicts/hungarian.txt" beforeDir="false" afterPath="$PROJECT_DIR$/dicts/hungarian.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scr/Config.py" beforeDir="false" afterPath="$PROJECT_DIR$/scr/Config.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scr/OptionsM.py" beforeDir="false" afterPath="$PROJECT_DIR$/scr/OptionsM.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -16,48 +18,75 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/Boo_T$Converter.coverage" NAME="Converter Coverage Results" MODIFIED="1603721156761" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="F:/vidi" />
-    <SUITE FILE_PATH="coverage/Boo_T$OptionsM.coverage" NAME="OptionsM Coverage Results" MODIFIED="1603997688600" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scr" />
+    <SUITE FILE_PATH="coverage/Boo_T$OptionsM.coverage" NAME="OptionsM Coverage Results" MODIFIED="1604005963777" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scr" />
     <SUITE FILE_PATH="coverage/Boo_T$stocks2.coverage" NAME="stocks2 Coverage Results" MODIFIED="1603422107248" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../../projects" />
-    <SUITE FILE_PATH="coverage/Boo_T$Boo_T.coverage" NAME="Boo-T Coverage Results" MODIFIED="1603997692709" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Boo_T$Config.coverage" NAME="Config Coverage Results" MODIFIED="1603884103376" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scr" />
+    <SUITE FILE_PATH="coverage/Boo_T$Boo_T.coverage" NAME="Boo-T Coverage Results" MODIFIED="1604006110411" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Boo_T$Config.coverage" NAME="Config Coverage Results" MODIFIED="1603999625413" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scr" />
   </component>
   <component name="FUSProjectUsageTrigger">
     <session id="-160426118">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="17" />
+          <entry key="project.closed" value="18" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.3" value="13" />
-          <entry key="project.open.time.4" value="5" />
+          <entry key="project.open.time.4" value="6" />
           <entry key="project.open.time.5" value="2" />
           <entry key="project.open.time.6" value="1" />
-          <entry key="project.opened" value="22" />
+          <entry key="project.opened" value="23" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="37" />
+          <entry key="py" value="43" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Python" value="37" />
+          <entry key="Python" value="43" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="19418" />
+          <entry key="py" value="21419" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="19418" />
+          <entry key="Python" value="21419" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Boo-T.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="134">
+              <caret line="369" column="26" selection-start-line="369" selection-start-column="26" selection-end-line="369" selection-end-column="26" />
+              <folding>
+                <element signature="e#47#68#0" expanded="true" />
+                <marker date="1604005995648" expanded="true" signature="29240:29291" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/scr/OptionsM.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="302">
+              <caret line="369" selection-start-line="369" selection-end-line="369" />
+              <folding>
+                <element signature="e#0#21#0" expanded="true" />
+                <marker date="1604006108465" expanded="true" signature="8725:8726" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -68,22 +97,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>button</find>
-      <find>askop</find>
-      <find>askopenfil</find>
-      <find>window_</find>
-      <find>image</find>
-      <find>Config.txt</find>
-      <find>recent</find>
-      <find>&quot;Recent.txt&quot;, &quot;r&quot;</find>
-      <find>pack_propagate()</find>
-      <find>__autoSearch</find>
-      <find>measu</find>
-      <find>__getTex</find>
-      <find>font.measure</find>
-      <find>size</find>
-      <find>gethamm</find>
-      <find>pygl</find>
       <find>getHam</find>
       <find>pyglet</find>
       <find>hammerFont</find>
@@ -98,11 +111,30 @@
       <find>create_stat</find>
       <find>self.__getAmmountOfCha</find>
       <find>self.__getAmmountOfChar</find>
+      <find>dark</find>
+      <find>Config.</find>
+      <find>button</find>
+      <find>config</find>
+      <find>__boxSize</find>
+      <find>defau</find>
+      <find>setwindo</find>
+      <find>__windowSizes</find>
+      <find>wheel</find>
+      <find>update</find>
+      <find>__updateCodeBox</find>
+      <find>setOptionsMenuSize</find>
+      <find>create_StatLabel</find>
+      <find>insertbox</find>
+      <find>creat</find>
+      <find>langvar</find>
     </findStrings>
     <replaceStrings>
       <replace>self.__autoSearch</replace>
       <replace>self.__hammerFont</replace>
       <replace>create_StatLabel</replace>
+      <replace>__windowSize</replace>
+      <replace>updateCodeBox</replace>
+      <replace>self.__windowSize</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -328,8 +360,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-4" y="-4" width="1608" height="1164" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2792041" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.28241336" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -389,20 +422,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scr/Config.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="599">
-          <caret line="154" column="28" lean-forward="true" selection-start-line="154" selection-start-column="8" selection-end-line="154" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/tkinter/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="1704" selection-start-line="1704" selection-end-line="1704" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/scr/Monitor.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -414,28 +433,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/tkinter/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="1704" selection-start-line="1704" selection-end-line="1704" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scr/Config.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="16">
+          <caret line="121" column="36" lean-forward="true" selection-start-line="121" selection-start-column="36" selection-end-line="121" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/scr/OptionsM.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="206">
-          <caret line="261" column="36" lean-forward="true" selection-start-line="261" selection-start-column="36" selection-end-line="261" selection-end-column="36" />
+        <state relative-caret-position="302">
+          <caret line="369" selection-start-line="369" selection-end-line="369" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
-            <marker date="1603997688594" expanded="true" signature="8693:8694" ph="..." />
-            <marker date="1603997688594" expanded="true" signature="12215:17366" ph="..." />
-            <marker date="1603997688594" expanded="true" signature="15202:15640" ph="..." />
-            <marker date="1603997688594" expanded="true" signature="15711:15720" ph="..." />
-            <marker date="1603997688594" expanded="true" signature="15711:17366" ph="..." />
-            <marker date="1603997688594" expanded="true" signature="20868:20869" ph="..." />
+            <marker date="1604006108465" expanded="true" signature="8725:8726" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Boo-T.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="589" lean-forward="true" selection-start-line="589" selection-end-line="589" />
+        <state relative-caret-position="134">
+          <caret line="369" column="26" selection-start-line="369" selection-start-column="26" selection-end-line="369" selection-end-column="26" />
           <folding>
             <element signature="e#47#68#0" expanded="true" />
+            <marker date="1604005995648" expanded="true" signature="29240:29291" ph="..." />
           </folding>
         </state>
       </provider>

@@ -367,7 +367,7 @@ class Create_MainWindow_Real(ABC):
     def __createCodeBox(self, baseFont, w, h):
         """Creates the elements for the main input field."""
         self.Frame_for_CodeBox = Frame(self.__main, width=w, height=h)
-        self.Frame_for_CodeBox.place(x=2, y=baseFont[1] + 56)
+        self.Frame_for_CodeBox.place(x=2, y=baseFont[1] + 58)
         self.Frame_for_CodeBox.pack_propagate(False)
 
         self.__CodeBox = tkscrolled.ScrolledText(self.Frame_for_CodeBox, width=1, height=1, font=baseFont)
@@ -376,7 +376,8 @@ class Create_MainWindow_Real(ABC):
         self.__CodeBox.bind("<KeyRelease>", self.code_Key_Released)
         self.__CodeBox.bind("<MouseWheel>", self.mouse_Wheel)
 
-        self.__updateCodeBox()
+        self.__loadQuickSave()
+        self.updateCodeBox()
 
     def code_Key_Pressed(self, event):
         self.__modified = True
@@ -393,11 +394,11 @@ class Create_MainWindow_Real(ABC):
         if self.__box_Ctrl_Pressed:
             if (event.delta > 0 and int(self.__Config.get_Element("BoxFontSize")) < 48):
                 self.__Config.set_Element("BoxFontSize", str(int(self.__Config.get_Element("BoxFontSize")) + 1))
-                self.__updateCodeBox()
+                self.updateCodeBox()
 
             if (event.delta < 0 and int(self.__Config.get_Element("BoxFontSize")) > 12):
                 self.__Config.set_Element("BoxFontSize", str(int(self.__Config.get_Element("BoxFontSize")) - 1))
-                self.__updateCodeBox()
+                self.updateCodeBox()
 
     def __getHammerFont(self):
         from tkinter.font import Font, families
@@ -410,7 +411,8 @@ class Create_MainWindow_Real(ABC):
 
         return (hammerFont)
 
-    def __updateCodeBox(self):
+    @abstractmethod
+    def updateCodeBox(self):
         """Changes the light/dark them for the box, also changes the font size.
         If the listbox are existing, updates their colors too."""
 
@@ -644,9 +646,23 @@ class Create_MainWindow_Real(ABC):
 
     def __OptionsMenu(self):
         OptionsM=OptionsMenu(self.__dicts, self.__Config, self.__hammerFont,
-                             self.__imgChrome, self.__imgFFox, self.__imgEdge, self.__imgOpera, self)
+                             self.__imgChrome, self.__imgFFox, self.__imgEdge, self.__imgOpera, self, self.__main)
 
+    def __getCodeFromBox(self):
+        return(self.__CodeBox.get(0.0, END))
 
+    def __loadQuickSave(self):
+        if os.path.exists("QuickSave.txt"):
+            file=open("QuickSave.txt", "r")
+            self.__insertBox(file.read())
+            file.close()
+            os.remove("QuickSave.txt")
+
+    @abstractmethod
+    def saveQuickSave(self):
+        file = open("QuickSave.txt", "w")
+        file.write(self.__getCodeFromBox())
+        file.close()
 
 class Create_MainWindow(Create_MainWindow_Real):
     def __init__(self, main):
@@ -654,6 +670,13 @@ class Create_MainWindow(Create_MainWindow_Real):
 
     def create_StatLabel(master, text):
         super().create_StatLabel(text)
+
+    def updateCodeBox(master):
+        super().updateCodeBox()
+
+    def saveQuickSave(master):
+        super().saveQuickSave()
+
 
 if __name__ == "__main__":
     Main_Window = Tk()

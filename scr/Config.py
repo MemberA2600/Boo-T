@@ -139,6 +139,13 @@ class Config_Real(ABC):
                     return(str(root + "/" + file).replace("\\", "/"))
         return("")
 
+    @abstractmethod
+    def saveConfig(self):
+        file=open("Config.txt", "w")
+        for key in self.__Config:
+            file.write(key+"="+self.__Config[key]+"\n")
+        file.close()
+
 class Config(Config_Real):
     """This is the class that can be accessed directly for the
     configuration."""
@@ -154,3 +161,6 @@ class Config(Config_Real):
 
     def load_Config_Defaults(self):
         super().load_Config_Defaults()
+
+    def saveConfig(self):
+        super().saveConfig()

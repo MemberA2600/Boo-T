@@ -18,7 +18,7 @@ from Monitor import *
 class OptionsMenu_REAL(ABC):
 
     @abstractmethod
-    def __init__(self, dicts, config, hammer, imgChrome, imgFFox, imgEdge, imgOpera, master):
+    def __init__(self, dicts, config, hammer, imgChrome, imgFFox, imgEdge, imgOpera, master, main):
 
         self.__dicts=dicts
         self.__Config=config
@@ -30,6 +30,8 @@ class OptionsMenu_REAL(ABC):
         self.__imgOpera=imgOpera
 
         self.master=master
+
+        self.__main=main
 
         self.__OptionsM = Toplevel()
         self.__OptionsM.title(self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "settings"))
@@ -190,7 +192,6 @@ class OptionsMenu_REAL(ABC):
         self.__labelLanguage.place(x=5, y=5)
 
         self.__langVar = StringVar()
-        self.__langVar.set(self.__Config.get_Element("Language"))
         self.__languageOption = OptionMenu(self.__basicSettingsFrame, self.__langVar, *tuple(__languages))
         self.__languageOption.config(font=(self.__hammerFont[0], self.__hammerFont[1] - 2), width=__w_Of_Options,
                                      justify=LEFT)
@@ -201,12 +202,11 @@ class OptionsMenu_REAL(ABC):
                                     font=self.__hammerFont)
         self.__labelBoxSize.place(x=5, y=10 + hammerheight)
 
-        __boxSizes = tuple(["Auto", "1 (640x480)", "2 (800x600)", "3 (1600x1200)", "4"])
+        self.__windowSSize = tuple(["Auto", "1 (640x480)", "2 (800x600)", "3 (1600x1200)", "4"])
 
-        self.__langBSize = StringVar()
-        self.__langBSize.set(__boxSizes[int(self.__Config.get_Element("StaticSize"))])
+        self.__windowSize = StringVar()
 
-        self.__boxOption = OptionMenu(self.__basicSettingsFrame, self.__langBSize, *__boxSizes)
+        self.__boxOption = OptionMenu(self.__basicSettingsFrame, self.__windowSize, *self.__windowSSize)
         self.__boxOption.config(font=(self.__hammerFont[0], self.__hammerFont[1] - 2), width=__w_Of_Options,
                                 justify=LEFT)
 
@@ -220,12 +220,10 @@ class OptionsMenu_REAL(ABC):
         self.__labelBColor.place(x=5, y=15 + hammerheight * 2)
 
         self.__boxColorVar = StringVar()
-        if self.__Config.get_Element("DarkBox") == "True":
-            self.__boxColorVar.set("dark")
-        else:
-            self.__boxColorVar.set("light")
 
-        self.__colorOption = OptionMenu(self.__basicSettingsFrame, self.__boxColorVar, *tuple(["light", "dark"]))
+        self.__colorOption = OptionMenu(self.__basicSettingsFrame, self.__boxColorVar, *tuple([
+            self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "light"),
+            self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "dark")]))
         self.__colorOption.config(font=(self.__hammerFont[0], self.__hammerFont[1] - 2), width=__w_Of_Options,
                                   justify=LEFT)
         self.__colorOption.place(x=round((__bFrameWidth - 5) / 2.5), y=15 + hammerheight * 2)
@@ -237,22 +235,17 @@ class OptionsMenu_REAL(ABC):
 
         self.__boxFontSize=StringVar()
         self.__boxAuto=BooleanVar()
-        if self.__Config.get_Element("BoxFontSize")=="0":
-            self.__boxAuto.set(True)
-            self.__boxFontSize.set("")
-        else:
-            self.__boxAuto.set(False)
-            self.__boxFontSize.set(self.__Config.get_Element("BoxFontSize"))
+
 
         self.__autoBox=Checkbutton(self.__basicSettingsFrame, variable=self.__boxAuto, text="Auto", font=self.__hammerFont)
-        self.__autoBox.place(x=hammerFont.measure(self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "boxFont"))-10
+        self.__autoBox.place(x=hammerFont.measure(self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "boxFont"))-20
                            , y=20 + hammerheight * 3)
         self.__boxAuto.trace_add("write", self.__checkAutoBox)
 
         self.__entrySize=Entry(self.__basicSettingsFrame, width=2, font=self.__hammerFont,
                                textvariable=self.__boxFontSize)
 
-        self.__entrySize.place(x=hammerFont.measure(str(self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "boxFont")+"[ ]Auto"))-5
+        self.__entrySize.place(x=hammerFont.measure(str(self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "boxFont")+"[ ]Auto"))-15
                            , y=22 + hammerheight * 3)
         self.__checkAutoBox("a", "b", "c")
 
@@ -261,26 +254,46 @@ class OptionsMenu_REAL(ABC):
 
         self.__recentNum=StringVar()
         self.__boxInf=BooleanVar()
-        if self.__Config.get_Element("MaxRecent")=="0":
-            self.__boxInf.set(True)
-            self.__recentNum.set("")
-        else:
-            self.__boxInf.set(False)
-            self.__recentNum.set(self.__Config.get_Element("MaxRecent"))
 
         self.__boxInf.trace_add("write", self.__checkInfBox)
         self.__infBox=Checkbutton(self.__basicSettingsFrame, variable=self.__boxInf, text=self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "infinite"),
                                   font=self.__hammerFont)
-        self.__infBox.place(x=hammerFont.measure(str(self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "boxFont")+"[ ]Auto"))-20-
+        self.__infBox.place(x=hammerFont.measure(str(self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "boxFont")+"[ ]Auto"))-30-
                               hammerFont.measure(str(self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "infinite")))
                            , y=25 + hammerheight * 5)
 
         self.__recentEntry=  Entry(self.__basicSettingsFrame, width=2, font=self.__hammerFont,
                                textvariable=self.__recentNum)
-        self.__recentEntry.place(x=hammerFont.measure(str(self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "boxFont")+"[ ]Auto"))-5
+        self.__recentEntry.place(x=hammerFont.measure(str(self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "boxFont")+"[ ]Auto"))-15
                            , y=27 + hammerheight * 5)
 
         self.__checkInfBox("a", "b", "c")
+        self.__recentNum.trace_add("write", self.__recemtCheck)
+        self.__boxFontSize.trace_add("write", self.__fontSizeCheck)
+        self.__setWindowLayout()
+
+    def __fontSizeCheck(self, a, b, c):
+        if len(self.__boxFontSize.get())>2:
+            self.__boxFontSize.set(self.__boxFontSize.get()[:2])
+        try:
+            temp=int(self.__boxFontSize.get()[-1])
+            if len(self.__boxFontSize.get())>1:
+                if int(self.__boxFontSize.get())>48:
+                    self.__boxFontSize.set("48")
+                elif int(self.__boxFontSize.get())<12:
+                    self.__boxFontSize.set("12")
+
+        except:
+            self.__boxFontSize.set(self.__boxFontSize.get()[:-2])
+
+    def __recemtCheck(self, a, b, c):
+        if len(self.__recentNum.get())>2:
+            self.__recentNum.set(self.__recentNum.get()[:2])
+        try:
+            temp=int(self.__recentNum.get()[-1])
+        except:
+            self.__recentNum.set(self.__recentNum.get()[:-2])
+
 
     def __checkAutoBox(self, a, b, c):
         if self.__boxAuto.get()==False:
@@ -296,8 +309,6 @@ class OptionsMenu_REAL(ABC):
             self.__recentNum.set("")
             self.__recentEntry.config(state=DISABLED)
 
-
-
     def __createButtonFrame(self, __w, __h, __s, hammerFont, hammerheight):
         self.__mainButtonaForOptionsFrame = Frame(self.__OptionsM, width=__w - 20, height=hammerheight * 2, )
         self.__mainButtonaForOptionsFrame.bind("<Enter>", self.__OptionsButFrameLabel)
@@ -308,7 +319,8 @@ class OptionsMenu_REAL(ABC):
 
         self.__mainButtonOK = Button(self.__mainButtonaForOptionsFrame, width=third,
                                      text=self.__dicts.getWordFromDict(self.__Config.get_Element("Language"),
-                                                                       "SettingsOK"), font=hammerFont)
+                                                                       "SettingsOK"), font=hammerFont,
+                                         command=self.__saveSettings)
         self.__mainButtonOK.place(x=0, y=0)
 
         self.__mainButtonCancel = Button(self.__mainButtonaForOptionsFrame, width=third,
@@ -325,12 +337,63 @@ class OptionsMenu_REAL(ABC):
 
 
     def __changeOptionColorCOLOR(self, a, b, c):
-        if self.__boxColorVar.get() == "light":
+        if self.__boxColorVar.get() ==  self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "light"):
             self.__colorOption.config(bg="white", fg="black", activebackground="white", activeforeground="black")
         else:
             self.__colorOption.config(bg="black", fg="lightgray", activebackground="black",
                                       activeforeground="lightgray")
 
+    def __saveSettings(self):
+        self.__saveSettingsToConfig()
+        self.__Config.saveConfig()
+        self.__setWindowLayout()
+        self.__destroyWindow()
+        if self.__haveToRestart==True:
+            m=messagebox.showinfo(self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "restartTitle"),
+                                  self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "restartText"))
+            self.master.saveQuickSave()
+            os.execl(sys.executable, os.path.abspath(__file__), *sys.argv)
+
+    def __saveSettingsToConfig(self):
+        self.__haveToRestart=False
+
+        if self.__intCompiler.get()==1:
+            self.__Config.set_Element("FortranCompiler", "False")
+        else:
+            self.__Config.set_Element("FortranCompiler", "True")
+
+        if self.__autoSearch.get()==0:
+            self.__Config.set_Element("AutoCheckForInstalledBrowsers" , "False")
+        else:
+            self.__Config.set_Element("AutoCheckForInstalledBrowsers" , "True")
+
+        if self.__boxColorVar.get()==self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "light"):
+            self.__Config.set_Element("DarkBox", "False")
+        else:
+            self.__Config.set_Element("DarkBox", "True")
+
+        temp=self.__Config.get_Element("Language")
+        self.__Config.set_Element("Language", self.__langVar.get())
+        if temp!=self.__Config.get_Element("Language"):
+            self.__haveToRestart=True
+
+        temp=self.__Config.get_Element("StaticSize")
+        if self.__windowSize.get()=="Auto":
+            self.__Config.set_Element("StaticSize", "0")
+        else:
+            self.__Config.set_Element("StaticSize", self.__windowSize.get()[0])
+        if temp!=self.__Config.get_Element("StaticSize"):
+            self.__haveToRestart=True
+
+        if self.__boxAuto.get()==True:
+            self.__Config.set_Element("BoxFontSize", "0")
+        else:
+            self.__Config.set_Element("BoxFontSize", self.__boxFontSize.get())
+
+        if self.__boxInf.get()==True:
+            self.__Config.set_Element("MaxRecent", "0")
+        else:
+            self.__Config.set_Element("MaxRecent", self.__recentNum.get())
 
     def __getLongest(self, __list):
         num = 0
@@ -364,7 +427,6 @@ class OptionsMenu_REAL(ABC):
         self.__Config.load_Config_Defaults()
         self.__setWindowLayout()
 
-
     def __setWindowLayout(self):
         if self.__Config.get_Element("FortranCompiler") == "True":
             self.__intCompiler.set(2)
@@ -375,6 +437,29 @@ class OptionsMenu_REAL(ABC):
             self.__autoSearch.set(1)
         else:
             self.__autoSearch.set(0)
+
+        self.__langVar.set(self.__Config.get_Element("Language"))
+
+        self.__windowSize.set(self.__windowSSize[int(self.__Config.get_Element("StaticSize"))])
+        if self.__Config.get_Element("DarkBox") == "True":
+            self.__boxColorVar.set(self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "dark"))
+        else:
+            self.__boxColorVar.set(self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "light"))
+
+        if self.__Config.get_Element("BoxFontSize")=="0":
+            self.__boxAuto.set(True)
+            self.__boxFontSize.set("")
+        else:
+            self.__boxAuto.set(False)
+            self.__boxFontSize.set(self.__Config.get_Element("BoxFontSize"))
+
+        if self.__Config.get_Element("MaxRecent")=="0":
+            self.__boxInf.set(True)
+            self.__recentNum.set("")
+        else:
+            self.__boxInf.set(False)
+            self.__recentNum.set(self.__Config.get_Element("MaxRecent"))
+        self.master.updateCodeBox()
 
 
     def __setOptionsMenuSize(self, w, h, size):
@@ -435,5 +520,5 @@ class OptionsMenu_REAL(ABC):
 
 class OptionsMenu(OptionsMenu_REAL):
 
-    def __init__(self, dicts, config, hammer, imgChrome, imgFFox, imgEdge, imgOpera, master):
-        super().__init__(dicts, config, hammer, imgChrome, imgFFox, imgEdge, imgOpera, master)
+    def __init__(self, dicts, config, hammer, imgChrome, imgFFox, imgEdge, imgOpera, master, main):
+        super().__init__(dicts, config, hammer, imgChrome, imgFFox, imgEdge, imgOpera, master, main)
