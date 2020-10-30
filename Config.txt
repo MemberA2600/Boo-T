@@ -1,11 +1,12 @@
 FortranCompiler=False
 AutoCheckForInstalledBrowsers=True
 Language=english
-Chrome=C:/Program Files/Google/Chrome/Application/chrome.exe
-FireFox=C:/Program Files/Mozilla Firefox/firefox.exe
-Edge=C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe
-Opera=C:\Users\Member\AppData\Local\Programs\Opera\launcher.exe
+Chrome=
+FireFox=
+Edge=
+Opera=
 StaticSize=0
-DarkBox=True
+DarkBox=False
 BoxFontSize=0
 MaxRecent=0
+AutoSave=2

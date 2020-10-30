@@ -52,3 +52,6 @@ maxRecent=Legutóbbi Fájlok Maximális Száma:
 infinite=Végtelen
 restartTitle=Alkalmazás újraindítása szükséges!
 restartText=Egyes beállítások érvényesítése az alkalmazás újraindítását igényli! A munkája ideiglenes mentésre került!
+autoSave=Automatikus mentés:
+minutes=Percenként
+autoSaveDone=Gyorsmentés megtörtént!

@@ -9,3 +9,4 @@ StaticSize=0
 DarkBox=False
 BoxFontSize=0
 MaxRecent=0
+AutoSave=2

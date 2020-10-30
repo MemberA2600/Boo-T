@@ -52,3 +52,6 @@ maxRecent=Maximum Number of Recent Files:
 infinite=Infinite
 restartTitle=Have to restart application
 restartText=Some changes require to restart the application! You work will be saved temporaly during the process!
+autoSave=Enable Quicksaves:
+minutes=minutes
+autoSaveDone=QuickSave completed!

@@ -53,6 +53,18 @@ class Create_MainWindow_Real(ABC):
         self.__size_Num = self.__Create_Main_Window_By_Screen_Size(s, __monitor.get_screensize(),
                                                                    self.__Config.get_Element("Language"))
 
+        self.updateCodeBox() #Needed for the correct text-size, reason unknown!
+        self.__main.after(int(self.__Config.get_Element("AutoSave"))*60000, self.autoS)
+
+    def autoS(self):
+        """Recursively calls itself and does autosave in the given period."""
+        if int(self.__Config.get_Element("AutoSave"))>0:
+            self.create_StatLabel(self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "autoSaveDone"))
+            self.saveQuickSave()
+            self.__main.after(int(self.__Config.get_Element("AutoSave")) * 60000, self.autoS)
+        else:
+            self.__main.after(60000, self.autoS)
+
     def __setFont(self, num):
         """The font side is set based on the screensize you got at '__GetWindowSize' """
         self.__fontSize = 7 + (num * 2)
@@ -292,8 +304,9 @@ class Create_MainWindow_Real(ABC):
             if savename.endswith(".boo") == False or savename.endswith(".txt"):
                 savename += ".boo"
             opened = open(savename, "w")
-            opened.write(self.__CodeBox.get(0.0, END))
+            opened.write(self.__getCodeFromBox())
             opened.close()
+            self.saveQuickSave()
             self.__addToRecent(savename)
             self.__opened = True
             self.__path = savename
@@ -302,8 +315,7 @@ class Create_MainWindow_Real(ABC):
             messagebox.showerror(
                 self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "fileSaveErrorTitle"),
                 self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "fileSaveError").replace("#path#",
-                                                                                                             savename) + "\n" + str(
-                    e))
+                    savename) + "\n" + str(e))
 
     def __doPaste(self):
         self.__CodeBox.insert(INSERT, clipboard.paste())
@@ -405,9 +417,10 @@ class Create_MainWindow_Real(ABC):
 
         hammerFont = Font(font='Hammerfat_Hun')
         if int(self.__Config.get_Element("BoxFontSize")) == 0:
-            hammerFont.config(size=self.__fontSize + 4)
+            hammerFont.config(size=self.__fontSize+4)
         else:
             hammerFont.config(size=int(self.__Config.get_Element("BoxFontSize")))
+
 
         return (hammerFont)
 
@@ -428,11 +441,12 @@ class Create_MainWindow_Real(ABC):
         hammerFont = self.__getHammerFont()
 
 
-        self.__CodeBox.config(font=hammerFont, bg=self.__color, fg=self.__color2,
+        self.__CodeBox.config(bg=self.__color, fg=self.__color2,
                               width=68,
                               height=50,
                               wrap=WORD)
 
+        self.__CodeBox.config(font=hammerFont)
         try:
             self.__recentList.config(bg=self.__color, fg=self.__color2)
             self.__syntaxList.config(bg=self.__color, fg=self.__color2)
@@ -578,7 +592,7 @@ class Create_MainWindow_Real(ABC):
 
         self.__loadFromRecentButton = Button(self.__recentButton_Frame, width=1000,
                                              text=self.__dicts.getWordFromDict(self.__Config.get_Element("Language"),
-                                                                               "open"))
+                                                                               "open"),font=self.__hammerFont)
         self.__loadFromRecentButton.pack()
         self.loadRecent()
 
@@ -614,7 +628,7 @@ class Create_MainWindow_Real(ABC):
 
         self.__loadFromsyntaxButton = Button(self.__syntaxButton_Frame, width=1000,
                                              text=self.__dicts.getWordFromDict(self.__Config.get_Element("Language"),
-                                                                               "paste"))
+                                                                               "paste"), font=self.__hammerFont)
         self.__loadFromsyntaxButton.pack()
 
 
@@ -646,7 +660,7 @@ class Create_MainWindow_Real(ABC):
 
     def __OptionsMenu(self):
         OptionsM=OptionsMenu(self.__dicts, self.__Config, self.__hammerFont,
-                             self.__imgChrome, self.__imgFFox, self.__imgEdge, self.__imgOpera, self, self.__main)
+                             self.__imgChrome, self.__imgFFox, self.__imgEdge, self.__imgOpera, self, self.__main, self.__fontSize)
 
     def __getCodeFromBox(self):
         return(self.__CodeBox.get(0.0, END))

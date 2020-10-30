@@ -18,7 +18,7 @@ from Monitor import *
 class OptionsMenu_REAL(ABC):
 
     @abstractmethod
-    def __init__(self, dicts, config, hammer, imgChrome, imgFFox, imgEdge, imgOpera, master, main):
+    def __init__(self, dicts, config, hammer, imgChrome, imgFFox, imgEdge, imgOpera, master, main, fontSize):
 
         self.__dicts=dicts
         self.__Config=config
@@ -47,10 +47,10 @@ class OptionsMenu_REAL(ABC):
             __h = 380
 
         self.__setOptionsMenuSize(__w, __h, __s)
-        self.__OptionsCreateMenu(__w, __h, __s)
+        self.__OptionsCreateMenu(__w, __h, __s, fontSize, hammer)
 
 
-    def __OptionsCreateMenu(self, __w, __h, __s):
+    def __OptionsCreateMenu(self, __w, __h, __s, fontSize, hammer):
         """Creates the menu where you can change the config file on GUI."""
 
         from tkinter.font import Font, families
@@ -58,7 +58,7 @@ class OptionsMenu_REAL(ABC):
 
         self.__OptionsM.pack_propagate(False)
         hammerFont = Font(font='Hammerfat_Hun')
-        hammerFont.config(size=self.__hammerFont[1]+4)
+        hammerFont.config(size=fontSize+4)
 
 
         hammerheight = hammerFont.metrics("linespace")
@@ -102,7 +102,7 @@ class OptionsMenu_REAL(ABC):
         """ButtonFrame starts here"""
         self.__createButtonFrame(__w, __h, __s, hammerFont, hammerheight)
 
-
+        self.__setWindowLayout()
 
         self.__OptionsM.wait_window()
 
@@ -267,10 +267,33 @@ class OptionsMenu_REAL(ABC):
         self.__recentEntry.place(x=hammerFont.measure(str(self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "boxFont")+"[ ]Auto"))-15
                            , y=27 + hammerheight * 5)
 
-        self.__checkInfBox("a", "b", "c")
-        self.__recentNum.trace_add("write", self.__recemtCheck)
+        #self.__checkInfBox("a", "b", "c")
+        self.__recentNum.trace_add("write", self.__recentCheck)
         self.__boxFontSize.trace_add("write", self.__fontSizeCheck)
-        self.__setWindowLayout()
+
+        self.__boxQuick=BooleanVar()
+        self.__quickNum=StringVar()
+        self.__quickBox = Checkbutton(self.__basicSettingsFrame, variable=self.__boxQuick,
+                                    text=self.__dicts.getWordFromDict(self.__Config.get_Element("Language"),
+                                                                      "autoSave"),
+                                    font=self.__hammerFont)
+        self.__quickBox.place(x=5, y=32 + hammerheight * 6)
+
+        self.__quickEntry = Entry(self.__basicSettingsFrame, width=2, font=self.__hammerFont,
+                                   textvariable=self.__quickNum)
+        self.__quickEntry.place(x=hammerFont.measure(
+            str(self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "autoSave")+"A")) - 15
+                                 , y=30 + hammerheight * 6)
+
+        self.__minutesLabel=Label(self.__basicSettingsFrame, text=self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "minutes"), font=self.__hammerFont)
+        self.__minutesLabel.place(x=hammerFont.measure(
+            str(self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "autoSave")+"A[ ]")) - 15, y=32 + hammerheight * 6)
+
+        self.__boxQuick.trace_add("write", self.__checkQuickBox)
+        self.__quickNum.trace_add("write", self.__quickCheck)
+
+        #self.__checkQuickBox("a", "b", "c")
+
 
     def __fontSizeCheck(self, a, b, c):
         if len(self.__boxFontSize.get())>2:
@@ -286,7 +309,7 @@ class OptionsMenu_REAL(ABC):
         except:
             self.__boxFontSize.set(self.__boxFontSize.get()[:-2])
 
-    def __recemtCheck(self, a, b, c):
+    def __recentCheck(self, a, b, c):
         if len(self.__recentNum.get())>2:
             self.__recentNum.set(self.__recentNum.get()[:2])
         try:
@@ -294,6 +317,14 @@ class OptionsMenu_REAL(ABC):
         except:
             self.__recentNum.set(self.__recentNum.get()[:-2])
 
+
+    def __quickCheck(self, a, b, c):
+        if len(self.__quickNum.get())>2:
+            self.__quickNum.set(self.__quickNum.get()[:2])
+        try:
+            temp=int(self.__quickNum.get()[-1])
+        except:
+            self.__quickNum.set(self.__quickNum.get()[:-2])
 
     def __checkAutoBox(self, a, b, c):
         if self.__boxAuto.get()==False:
@@ -308,6 +339,13 @@ class OptionsMenu_REAL(ABC):
         else:
             self.__recentNum.set("")
             self.__recentEntry.config(state=DISABLED)
+
+    def __checkQuickBox(self, a, b, c):
+        if self.__boxQuick.get()==True:
+            self.__quickEntry.config(state=NORMAL)
+        else:
+            self.__quickNum.set("")
+            self.__quickEntry.config(state=DISABLED)
 
     def __createButtonFrame(self, __w, __h, __s, hammerFont, hammerheight):
         self.__mainButtonaForOptionsFrame = Frame(self.__OptionsM, width=__w - 20, height=hammerheight * 2, )
@@ -349,10 +387,7 @@ class OptionsMenu_REAL(ABC):
         self.__setWindowLayout()
         self.__destroyWindow()
         if self.__haveToRestart==True:
-            m=messagebox.showinfo(self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "restartTitle"),
-                                  self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "restartText"))
-            self.master.saveQuickSave()
-            os.execl(sys.executable, os.path.abspath(__file__), *sys.argv)
+            self.__resStart()
 
     def __saveSettingsToConfig(self):
         self.__haveToRestart=False
@@ -395,6 +430,11 @@ class OptionsMenu_REAL(ABC):
         else:
             self.__Config.set_Element("MaxRecent", self.__recentNum.get())
 
+        if self.__boxQuick.get() == False:
+            self.__Config.set_Element("AutoSave", "0")
+        else:
+            self.__Config.set_Element("AutoSave", self.__quickNum.get())
+
     def __getLongest(self, __list):
         num = 0
         for item in __list:
@@ -424,8 +464,23 @@ class OptionsMenu_REAL(ABC):
 
 
     def __loadDef(self):
+
+        temp=self.__Config.get_Element("Language")
+        temp2=self.__Config.get_Element("StaticSize")
+
         self.__Config.load_Config_Defaults()
+        self.__Config.saveConfig()
         self.__setWindowLayout()
+
+        if temp!=self.__Config.get_Element("Language") or temp2!=self.__Config.get_Element("StaticSize"):
+            self.__resStart()
+
+
+    def __resStart(self):
+        m = messagebox.showinfo(self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "restartTitle"),
+                                self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "restartText"))
+        self.master.saveQuickSave()
+        os.execl(sys.executable, os.path.abspath(__file__), *sys.argv)
 
     def __setWindowLayout(self):
         if self.__Config.get_Element("FortranCompiler") == "True":
@@ -459,6 +514,14 @@ class OptionsMenu_REAL(ABC):
         else:
             self.__boxInf.set(False)
             self.__recentNum.set(self.__Config.get_Element("MaxRecent"))
+
+        if self.__Config.get_Element("AutoSave")=="0":
+            self.__boxQuick.set(False)
+            self.__recentNum.set("")
+        else:
+            self.__boxQuick.set(True)
+            self.__quickNum.set(self.__Config.get_Element("AutoSave"))
+
         self.master.updateCodeBox()
 
 
@@ -520,5 +583,5 @@ class OptionsMenu_REAL(ABC):
 
 class OptionsMenu(OptionsMenu_REAL):
 
-    def __init__(self, dicts, config, hammer, imgChrome, imgFFox, imgEdge, imgOpera, master, main):
-        super().__init__(dicts, config, hammer, imgChrome, imgFFox, imgEdge, imgOpera, master, main)
+    def __init__(self, dicts, config, hammer, imgChrome, imgFFox, imgEdge, imgOpera, master, main, fontsize):
+        super().__init__(dicts, config, hammer, imgChrome, imgFFox, imgEdge, imgOpera, master, main, fontsize)
