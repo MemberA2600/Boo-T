@@ -13,6 +13,7 @@ class Config_Real(ABC):
 
     @abstractmethod
     def __init__(self, dicts):
+        self.__os_Name=self.get_OS()
         self.__dicts=dicts
         self.__Config=self.__Load_Config_File()
         if self.__Config["AutoCheckForInstalledBrowsers"]=="True":
@@ -24,6 +25,14 @@ class Config_Real(ABC):
     @abstractmethod
     def set_Element(self, key, value):
         self.__Config[key]=value
+
+    def get_OS(self):
+        import platform
+        return(platform.system())
+
+    @abstractmethod
+    def get_OS_Name(self):
+        return(self.__os_Name)
 
     @abstractmethod
     def get_Element(self, key):
@@ -58,6 +67,7 @@ class Config_Real(ABC):
         self.__CheckEdge(Edge)
         self.__CheckOpera(Opera)
 
+
     def __pathExists(self, path):
         if os.path.exists(path):
             return(path)
@@ -65,20 +75,39 @@ class Config_Real(ABC):
 
     def __CheckEdge(self, Edge):
         if Edge=="":
-            self.__Config["Edge"]=self.__GetLocation("Edge")
-            if self.__Config["Edge"] == "":
-                self.__Config["Edge"] = self.__pathExists("C:\Program Files\Microsoft\Edge\Application\msedge.exe")
-            if self.__Config["Edge"] == "":
-                self.__Config["Edge"] = self.__pathExists("C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe")
+            if self.get_OS()=="Windows":
+                self.__Config["Edge"]=self.__GetLocation("Edge")
+                if self.__Config["Edge"] == "":
+                    self.__Config["Edge"] = self.__pathExists("C:\Program Files\Microsoft\Edge\Application\msedge.exe")
+                if self.__Config["Edge"] == "":
+                    self.__Config["Edge"] = self.__pathExists("C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe")
+            else:
+                self.__Config["Edge"]=self.__LinuxFindLocation("Edge")
+                if self.__Config["Edge"] == "":
+                    self.__Config["Edge"] = self.__LinuxFindLocation("microsoft-edge")
+
             if self.__Config["Edge"] == "":
                 self.__Config["Edge"] = self.__Browser_Search_Window("Edge")
 
+    def __LinuxFindLocation(self, app):
+        temp=""
+        temp = self.__LinuxFindCode(app)
+        if temp == "":
+            temp = self.__LinuxFindCode(app.lower())
+
+        return(temp)
+
+    def __LinuxFindCode(self, codepart):
+        return((os.popen(str("whereis "+ codepart)).read()).split(":")[1].replace("\n", ""))
 
     def __CheckOpera(self, Opera):
         if Opera=="":
-            self.__Config["Opera"]=self.__GetLocation("Opera")
-            if self.__Config["Opera"] == "":
-                self.__Config["Opera"] = self.__pathExists("C:\\Users\\"+os.getlogin()+"\AppData\Local\Programs\Opera\launcher.exe")
+            if self.get_OS()=="Windows":
+                self.__Config["Opera"]=self.__GetLocation("Opera")
+                if self.__Config["Opera"] == "":
+                    self.__Config["Opera"] = self.__pathExists("C:\\Users\\"+os.getlogin()+"\AppData\Local\Programs\Opera\launcher.exe")
+            else:
+                self.__Config["Opera"] = self.__LinuxFindLocation("Opera")
 
             if self.__Config["Opera"] == "":
                 self.__Config["Opera"] = self.__Browser_Search_Window("Opera")
@@ -86,21 +115,31 @@ class Config_Real(ABC):
 
     def __CheckFireFox(self, FireFox):
         if FireFox=="":
-            self.__Config["FireFox"]=self.__GetLocation("FireFox")
-            if self.__Config["FireFox"]=="":
-                self.__Config["FireFox"] = self.__pathExists("C:\Program Files\Mozilla Firefox\firefox.exe")
-            if self.__Config["FireFox"]=="":
-                self.__Config["FireFox"] = self.__pathExists("C:\Program Files (x86)\Mozilla Firefox\firefox.exe")
+            if self.get_OS()=="Windows":
+                self.__Config["FireFox"]=self.__GetLocation("FireFox")
+                if self.__Config["FireFox"]=="":
+                    self.__Config["FireFox"] = self.__pathExists("C:\Program Files\Mozilla Firefox\firefox.exe")
+                if self.__Config["FireFox"]=="":
+                    self.__Config["FireFox"] = self.__pathExists("C:\Program Files (x86)\Mozilla Firefox\firefox.exe")
+            else:
+                self.__Config["FireFox"] = self.__LinuxFindLocation("Firefox")
+
             if self.__Config["FireFox"]=="":
                 self.__Config["FireFox"] = self.__Browser_Search_Window("FireFox")
 
     def __CheckChrome(self, Chrome):
         if Chrome=="":
-            self.__Config["Chrome"]=self.__GetLocation("Chrome")
-            if self.__Config["Chrome"]=="":
-                self.__Config["Crome"] = self.__pathExists("C:\Program Files\Google\Chrome\Application\chrome.exe")
-            if self.__Config["Chrome"]=="":
-                self.__Config["Crome"] = self.__pathExists("C:\Program Files (x86)\Google\Chrome\Application\chrome.exe")
+            if self.get_OS() == "Windows":
+                self.__Config["Chrome"]=self.__GetLocation("Chrome")
+                if self.__Config["Chrome"]=="":
+                    self.__Config["Crome"] = self.__pathExists("C:\Program Files\Google\Chrome\Application\chrome.exe")
+                if self.__Config["Chrome"]=="":
+                    self.__Config["Crome"] = self.__pathExists("C:\Program Files (x86)\Google\Chrome\Application\chrome.exe")
+            else:
+                self.__Config["Chrome"] = self.__LinuxFindLocation("Chrome")
+                if self.__Config["Chrome"] == "":
+                    self.__Config["Chrome"] = self.__LinuxFindLocation("google-chrome")
+
             if self.__Config["Chrome"] == "":
                 self.__Config["Chrome"] = self.__Browser_Search_Window("Chrome")
 
@@ -115,7 +154,11 @@ class Config_Real(ABC):
         if QuestionBox==False:
             return("")
         else:
-            return(askopenfilename(initialdir = "*",title = asktitle, filetypes = ((self.__dicts.getWordFromDict(self.__Config["Language"], "executable"), "*.exe"),)))
+            if self.get_OS()=="Windows":
+                return(askopenfilename(initialdir = "C:\\",title = asktitle, filetypes = ((self.__dicts.getWordFromDict(self.__Config["Language"], "executable"), "*.exe"),)))
+            else:
+                return(askopenfilename(initialdir = "/usr/bin/",title = asktitle, filetypes = ((self.__dicts.getWordFromDict(self.__Config["Language"], "executable"), "*.*"),)))
+
 
     def __GetLocation(self, browser):
         import winapps
@@ -164,3 +207,6 @@ class Config(Config_Real):
 
     def saveConfig(self):
         super().saveConfig()
+
+    def get_OS_Name(self):
+        return(super().get_OS_Name())

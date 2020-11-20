@@ -27,7 +27,8 @@ class Create_MainWindow_Real(ABC):
     def __init__(self, main):
 
         self.__main = main
-        self.__main.geometry("%dx%d+%d+%d" % (1, 1, 1, 1))
+        #self.__main.geometry("%dx%d+%d+%d" % (1, 1, 1, 1))
+        self.__main.withdraw()
         self.__main.overrideredirect(True)
         self.__main.resizable(False, False)
 
@@ -37,14 +38,31 @@ class Create_MainWindow_Real(ABC):
         self.__configChanged = False
         self.__path = ""
 
+        self.__dicts = Dictionaries()
+        self.__Config = Config(self.__dicts)
+
+        __monitor = Monitor(self.__Config.get_OS())
+        __loading_Screen = DisplayLoading(__monitor.get_screensize())
+
         import pyglet
-        pyglet.font.add_file('Hammerfat.ttf')
+        pyglet.font.add_file('HammerFat.ttf')
+        #pyglet.resource.add_font('HammerFat.ttf')
+        if self.__Config.get_OS()=="Linux":
+            from tkinter import font
+            if "HammerFat_Hun" not in font.families():
+
+                ham=messagebox.askyesno("HammerFat_Hun", self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "linuxFontError"))
+                if ham==True:
+                    if ((os.popen(str("whereis gnome-font-viewer")).read()).split(":")[1].replace("\n", "")) != "":
+                        os.popen('gnome-font-viewer "'+os.getcwd()+'/HammerFat.ttf"')
+                    else:
+                        messagebox.showerror('gnome-font-viewer',
+                                             self.__dicts.getWordFromDict(self.__Config.get_Element("Language"),
+                                                                          "linuxNoGnome").replace("#path#",
+                                                                                                  '"' + os.getcwd() + '/HammerFat.ttf"'))
+
         self.__setFont(1)
 
-        self.__dicts = Dictionaries()
-        __monitor = Monitor()
-        __loading_Screen = DisplayLoading(__monitor.get_screensize())
-        self.__Config = Config(self.__dicts)
         if self.__Config.get_Element("StaticSize") == "0":
             s = self.__GetWindowSize(__monitor.get_screensize())
         else:
@@ -53,8 +71,13 @@ class Create_MainWindow_Real(ABC):
         self.__size_Num = self.__Create_Main_Window_By_Screen_Size(s, __monitor.get_screensize(),
                                                                    self.__Config.get_Element("Language"))
 
+
         self.updateCodeBox() #Needed for the correct text-size, reason unknown!
+
+        self.__main.deiconify()
+        self.create_StatLabel("Welcome!")
         self.__main.after(int(self.__Config.get_Element("AutoSave"))*60000, self.autoS)
+
 
     def autoS(self):
         """Recursively calls itself and does autosave in the given period."""
@@ -68,7 +91,7 @@ class Create_MainWindow_Real(ABC):
     def __setFont(self, num):
         """The font side is set based on the screensize you got at '__GetWindowSize' """
         self.__fontSize = 7 + (num * 2)
-        self.__hammerFont = ("Hammerfat_Hun", self.__fontSize)
+        self.__hammerFont = ("HammerFat_Hun", self.__fontSize)
 
     def __GetWindowSize(self, size):
         if size[0] > 1600:
@@ -96,9 +119,15 @@ class Create_MainWindow_Real(ABC):
 
         self.__main.title("Boo-T")
         self.__main.overrideredirect(False)
-        self.__main.iconbitmap("icons/Boots.ico")
+        try:
+            self.__main.iconbitmap("icons/Boots.ico")
+        except:
+            """Linux cannot handle ico-s"""
+            from tkinter import PhotoImage
+            self.__main.iconphoto(True, PhotoImage("icons/Boots.png"))
+
         self.__create_Menu(lang, s)
-        self.create_StatLabel("Welcome!")
+
         return (s)
 
     def defineWords(self, lang):
@@ -376,6 +405,7 @@ class Create_MainWindow_Real(ABC):
     def __setMainGeo(self, w, h, size):
         self.__main.geometry("%dx%d+%d+%d" % (w, h, (size[0] / 2) - (w / 2), (size[1] / 2) - (h / 2) - 25))
 
+
     def __createCodeBox(self, baseFont, w, h):
         """Creates the elements for the main input field."""
         self.Frame_for_CodeBox = Frame(self.__main, width=w, height=h)
@@ -415,7 +445,7 @@ class Create_MainWindow_Real(ABC):
     def __getHammerFont(self):
         from tkinter.font import Font, families
 
-        hammerFont = Font(font='Hammerfat_Hun')
+        hammerFont = Font(font='HammerFat_Hun')
         if int(self.__Config.get_Element("BoxFontSize")) == 0:
             hammerFont.config(size=self.__fontSize+4)
         else:
@@ -695,5 +725,6 @@ class Create_MainWindow(Create_MainWindow_Real):
 if __name__ == "__main__":
     Main_Window = Tk()
     Creator = Create_MainWindow(Main_Window)
+
     Main_Window.mainloop()
 

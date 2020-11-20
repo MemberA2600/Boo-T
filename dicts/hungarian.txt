@@ -55,3 +55,5 @@ restartText=Egyes beállítások érvényesítése az alkalmazás újraindítását igényli!
 autoSave=Automatikus mentés:
 minutes=Percenként
 autoSaveDone=Gyorsmentés megtörtént!
+linuxFontError=Nem található meg a 'HammerFat_Hun' betûtípus! A megfelelõ megjelenítés érdekében telepítése szükséges. Telepíti?
+linuxNoGnome='gnome-font-viewer' nem található!! Másold a #path# fájlt a rendszer/felhasználó betûtípusok mappájába!

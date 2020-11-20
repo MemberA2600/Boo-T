@@ -16,9 +16,18 @@ class Dictionaries_REAL(ABC):
                 self.__LoadDict(root+file, file.replace(".txt",""))
 
     def __LoadDict(self, path, name):
-        f = open(path, "r")
-        lines = f.readlines()
-        f.close()
+        try:
+            f = open(path, "r")
+            lines = f.readlines()
+            f.close()
+        except:
+            """Added another method because in Linux, it throws UnicodeDecodeError."""
+            f = open(path, "r", encoding="latin1")
+            lines = f.readlines()
+            for num in range(0, len(lines)-1):
+                lines[num]=lines[num].replace("\n", "")
+            f.close()
+
         self.__D[name]={}
 
         for line in lines:

@@ -37,7 +37,7 @@ class OptionsMenu_REAL(ABC):
         self.__OptionsM.title(self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "settings"))
         self.__OptionsM.resizable(False, False)
 
-        __monitor = Monitor()
+        __monitor = Monitor(self.__Config.get_OS())
         __s = __monitor.get_screensize()
         if __s[0] < 800:
             __w = 480
@@ -77,14 +77,14 @@ class OptionsMenu_REAL(ABC):
         self.__compilerPython.place(x=10, y=round(hammerheight / 4))
         self.__imgPython = ImageTk.PhotoImage(Image.open("icons/python.png"))
         self.__imgPythonLabel = Label(self.__compilerFrame, image=self.__imgPython)
-        self.__imgPythonLabel.place(x=22 + hammerFont.measure("Python"), y=hammerheight / 4 - 10)
+        self.__imgPythonLabel.place(x=25 + hammerFont.measure("Python"), y=hammerheight / 4 - 10)
 
         self.__compilerFortran = Radiobutton(self.__compilerFrame, variable=self.__intCompiler, value=2,
                                              text="Fortran", font=self.__hammerFont)
         self.__compilerFortran.place(x=round((__w) / 4), y=round(hammerheight / 4))
         self.__imgFortran = ImageTk.PhotoImage(Image.open("icons/fortran.png"))
         self.__imgFortranLabel = Label(self.__compilerFrame, image=self.__imgFortran)
-        self.__imgFortranLabel.place(x=round((__w) / 4) + 12 + hammerFont.measure("Fortran"),
+        self.__imgFortranLabel.place(x=round((__w) / 4) + 15 + hammerFont.measure("Fortran"),
                                      y=(round(hammerheight / 4 - 10)))
 
         """Browserframe starts here"""
@@ -350,7 +350,7 @@ class OptionsMenu_REAL(ABC):
     def __createButtonFrame(self, __w, __h, __s, hammerFont, hammerheight):
         self.__mainButtonaForOptionsFrame = Frame(self.__OptionsM, width=__w - 20, height=hammerheight * 2, )
         self.__mainButtonaForOptionsFrame.bind("<Enter>", self.__OptionsButFrameLabel)
-        self.__mainButtonaForOptionsFrame.place(x=20, y=__h - (hammerheight * 2))
+        self.__mainButtonaForOptionsFrame.place(x=17, y=__h - (hammerheight * 2))
         self.__mainButtonaForOptionsFrame.pack_propagate(False)
 
         third = self.__getAmmountOfChar(round(__w / 3) - 75, hammerFont)

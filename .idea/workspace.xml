@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3910d8e7-84ad-4a90-b5d4-8893b99ff487" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Boo-T.py" beforeDir="false" afterPath="$PROJECT_DIR$/Boo-T.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Config.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Config.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/default/Config.txt" beforeDir="false" afterPath="$PROJECT_DIR$/default/Config.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dicts/english.txt" beforeDir="false" afterPath="$PROJECT_DIR$/dicts/english.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dicts/hungarian.txt" beforeDir="false" afterPath="$PROJECT_DIR$/dicts/hungarian.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scr/OptionsM.py" beforeDir="false" afterPath="$PROJECT_DIR$/scr/OptionsM.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -26,13 +21,13 @@
     <session id="-160426118">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="19" />
+          <entry key="project.closed" value="23" />
           <entry key="project.open.time.0" value="1" />
-          <entry key="project.open.time.3" value="14" />
-          <entry key="project.open.time.4" value="6" />
+          <entry key="project.open.time.3" value="16" />
+          <entry key="project.open.time.4" value="8" />
           <entry key="project.open.time.5" value="2" />
           <entry key="project.open.time.6" value="1" />
-          <entry key="project.opened" value="24" />
+          <entry key="project.opened" value="28" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -66,8 +61,6 @@
               <caret line="55" column="79" selection-start-line="55" selection-start-column="79" selection-end-line="55" selection-end-column="79" />
               <folding>
                 <element signature="e#47#68#0" expanded="true" />
-                <marker date="1604051731203" expanded="true" signature="1927:2242" ph="..." />
-                <marker date="1604051731203" expanded="true" signature="29886:29937" ph="..." />
               </folding>
             </state>
           </provider>
@@ -76,7 +69,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/scr/OptionsM.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
+            <state relative-caret-position="4192">
               <caret line="271" column="61" selection-start-line="271" selection-start-column="46" selection-end-line="271" selection-end-column="61" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
@@ -363,7 +356,7 @@
     <frame x="-4" y="-4" width="1608" height="1164" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2856226" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.30038512" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -448,18 +441,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scr/OptionsM.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="271" column="61" selection-start-line="271" selection-start-column="46" selection-end-line="271" selection-end-column="61" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-            <marker date="1604050993654" expanded="true" signature="8791:8792" ph="..." />
-            <marker date="1604050993654" expanded="true" signature="23324:23670" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Boo-T.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="228">
@@ -468,6 +449,18 @@
             <element signature="e#47#68#0" expanded="true" />
             <marker date="1604051731203" expanded="true" signature="1927:2242" ph="..." />
             <marker date="1604051731203" expanded="true" signature="29886:29937" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scr/OptionsM.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4192">
+          <caret line="271" column="61" selection-start-line="271" selection-start-column="46" selection-end-line="271" selection-end-column="61" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+            <marker date="1604050993654" expanded="true" signature="8791:8792" ph="..." />
+            <marker date="1604050993654" expanded="true" signature="23324:23670" ph="..." />
           </folding>
         </state>
       </provider>
