@@ -9,7 +9,6 @@ from tkinterhtml import HtmlFrame
 import multiprocessing
 import tkinter.scrolledtext as tkscrolled
 
-sys.path.insert(1, "scr/")
 from Dictionaries import *
 from Config import *
 from Monitor import *
@@ -565,9 +564,13 @@ class OptionsMenu_REAL(ABC):
         default_path = self.__Config.get_Element(browser)
         path = ""
         if default_path == "":
-            startdir = "*"
+            if self.__Config.get_OS()=="Windows":
+                startdir = "C:\\"
+            else:
+                startdir = "/usr/bin/"
         else:
             startdir = "/".join(default_path.split("/")[:-1])
+
 
         path = askopenfilename(initialdir=startdir,
                                title=self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "open"),

@@ -20,6 +20,7 @@ from Config import *
 from Monitor import *
 from DisplayLoading import *
 from OptionsM import *
+from About import *
 
 class Create_MainWindow_Real(ABC):
     """Creating the Main Window, loads data for application."""
@@ -49,14 +50,19 @@ class Create_MainWindow_Real(ABC):
         #pyglet.resource.add_font('HammerFat.ttf')
         if self.__Config.get_OS()=="Linux":
             from tkinter import font
-            if "HammerFat_Hun" not in font.families():
+            if "HammerFat_Hun" in font.families():
 
                 ham=messagebox.askyesno("HammerFat_Hun", self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "linuxFontError"))
                 if ham==True:
-                    if ((os.popen(str("whereis gnome-font-viewer")).read()).split(":")[1].replace("\n", "")) != "":
-                        os.popen('gnome-font-viewer "'+os.getcwd()+'/HammerFat.ttf"')
-                    else:
-                        messagebox.showerror('gnome-font-viewer',
+                    Done=self.__linuxTryToOpenFontViewer("font-manager")
+                    if Done==False:
+                        Done=self.__linuxTryToOpenFontViewer("gnome-font-viewer")
+                    if Done==False:
+                        Done=self.__linuxTryToOpenFontViewer("display")
+
+                    if Done==False:
+                        messagebox.showerror(self.__dicts.getWordFromDict(self.__Config.get_Element("Language"),
+                                                                          "noFontApp"),
                                              self.__dicts.getWordFromDict(self.__Config.get_Element("Language"),
                                                                           "linuxNoGnome").replace("#path#",
                                                                                                   '"' + os.getcwd() + '/HammerFat.ttf"'))
@@ -77,6 +83,13 @@ class Create_MainWindow_Real(ABC):
         self.__main.deiconify()
         self.create_StatLabel("Welcome!")
         self.__main.after(int(self.__Config.get_Element("AutoSave"))*60000, self.autoS)
+
+    def __linuxTryToOpenFontViewer(self, app):
+        if ((os.popen(str("whereis "+app)).read()).split(":")[1].replace("\n", "")) != "":
+            os.popen(app + ' "' + os.getcwd() + '/HammerFat.ttf"')
+            return (True)
+        else:
+            return (False)
 
 
     def autoS(self):
@@ -247,7 +260,7 @@ class Create_MainWindow_Real(ABC):
         self.__Help_B.bind("<Leave>", self.__on_leave)
 
         self.__imgAbout = ImageTk.PhotoImage(Image.open("icons/about.png"))
-        self.__About_B = Button(self.__main, image=self.__imgAbout, width=32, height=32)
+        self.__About_B = Button(self.__main, image=self.__imgAbout, width=32, height=32, command=self.__AboutMenu)
         self.__About_B.place(x=self.__getButtonPoz(14.75), y=1)
         self.__About_B.bind("<Enter>", self.__on_enterAbout)
         self.__About_B.bind("<Leave>", self.__on_leave)
@@ -691,6 +704,9 @@ class Create_MainWindow_Real(ABC):
     def __OptionsMenu(self):
         OptionsM=OptionsMenu(self.__dicts, self.__Config, self.__hammerFont,
                              self.__imgChrome, self.__imgFFox, self.__imgEdge, self.__imgOpera, self, self.__main, self.__fontSize)
+
+    def __AboutMenu(self):
+        AboutM=AboutMenu(self.__dicts, self.__Config, self.__hammerFont, self, self.__main, self.__fontSize)
 
     def __getCodeFromBox(self):
         return(self.__CodeBox.get(0.0, END))

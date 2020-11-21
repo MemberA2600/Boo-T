@@ -57,3 +57,5 @@ minutes=minutes
 autoSaveDone=QuickSave completed!
 linuxFontError=Couldn't find 'HammerFat_Hun' font! For proper display it is strongly recommended to install it. Would you install is?
 linuxNoGnome=No 'gnome-font-viewer' found! Copy #path# to your system's/user's font folder!
+noFontApp=No application for font management!
+author=Created by:
