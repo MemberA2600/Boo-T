@@ -252,9 +252,14 @@ class MainWindow_Real(ABC):
         """if box was modified, asks if you want to save your file, amd deletes the box."""
         if self.__modified == True:
             self.__askForSave()
+
         self.__deleteBox()
         self.__opened = False
         self.__path = ""
+
+        if os.path.exists("default/new_file.txt") and self.__Config.get_Element("loadTemplate")=="True":
+            self.__openFile("default/new_file.txt", False)
+
 
     def __doOpen(self):
         """If box was modified, asks for save, then asks for a .boo, .txt or any file that it tries to load. If it fails,
@@ -273,19 +278,22 @@ class MainWindow_Real(ABC):
                                         "*.*"),
                                    ))
         try:
-            opened = open(openname, "r")
-            self.__insertBox(opened.read())
-            opened.close()
-            self.__addToRecent(openname)
-            self.__opened = True
-            self.__path = openname
+            self.__openFile(openname,True)
 
         except Exception as e:
             messagebox.showerror(
                 self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "fileOpenErrorTitle"),
                 self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "fileOpenError").replace("#path#",
-                                                                                                             openname) + "\n" + str(
-                    e))
+                                                                                                             openname) + "\n" + str(e))
+
+    def __openFile(self, openname, addRecent):
+        opened = open(openname, "r")
+        self.__insertBox(opened.read())
+        opened.close()
+        if addRecent==True:
+            self.__addToRecent(openname)
+        self.__opened = True
+        self.__path = openname
 
     def __askForSave(self):
         """Asks if you want to save the file."""
@@ -348,7 +356,7 @@ class MainWindow_Real(ABC):
         """Saves the recent opened file list, also updates the listbox.
         If maximum number of recent is exceeded, it will delete the last element before update."""
 
-        file = open("Recent.txt", "w")
+        file = open("default/Recent.txt", "w")
         if text in self.__recentFiles:
             self.__recentFiles.remove(text)
             self.__recentList.delete(self.__recentList.get(0, END).index(text.split("/")[-1]))
@@ -665,8 +673,8 @@ class MainWindow_Real(ABC):
     def loadRecent(self):
         """List of recently saved and opened files.
         If max number of recent files is exceeded, it won't load more."""
-        if os.path.exists("Recent.txt"):
-            file = open("Recent.txt", "r")
+        if os.path.exists("default/Recent.txt"):
+            file = open("default/Recent.txt", "r")
             self.__recentFiles = []
             self.__recentList.delete(0, END)
             for item in file.readlines():
@@ -679,7 +687,7 @@ class MainWindow_Real(ABC):
                 except:
                     pass
         else:
-            file = open("Recent.txt", "w")
+            file = open("default/Recent.txt", "w")
         file.close()
 
     def __printPath(self, event):

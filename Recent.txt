@@ -1,2 +1,0 @@
-11.boo=C:/Users/Member/Desktop/11.boo
-44.boo=C:/Users/Member/Desktop/44.boo

@@ -1,0 +1,6 @@
+author(Tassadar)
+language(en)
+keywords(protoss, Aiur, High Templar)
+description(Savior of the Templar)
+charset(UTF-8)
+title(En taro Adun!)

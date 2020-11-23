@@ -61,3 +61,4 @@ noFontApp=No application for font management!
 author=Created by:
 noLoadingScreen=Show Loading Screen at startup
 wheel=Use the Mousewheel, Luke!
+template=Load template as New File

@@ -178,7 +178,7 @@ class OptionsMenu_REAL(ABC):
     def __createBasicSettingsFrame(self, __w, __h, __s, __relative1, __bFrameWidth, hammerFont, hammerheight):
         """Set basic settings for the application."""
 
-        self.__basicSettingsFrame = LabelFrame(self.__OptionsM, width=__bFrameWidth - 5, height=__h - 86,
+        self.__basicSettingsFrame = LabelFrame(self.__OptionsM, width=__bFrameWidth - 5, height=__h - 65,
                                                text=self.__dicts.getWordFromDict(self.__Config.get_Element("Language"),
                                                                                  "basicSettings"),
                                                font=self.__hammerFont)
@@ -205,7 +205,7 @@ class OptionsMenu_REAL(ABC):
                                     font=self.__hammerFont)
         self.__labelBoxSize.place(x=5, y=10 + hammerheight)
 
-        self.__windowSSize = tuple(["Auto", "1 (640x480)", "2 (800x600)", "3 (1600x1200)", "4"])
+        self.__windowSSize = tuple(["Auto", "1 (640x480)", "2 (800x600)", "3 (1600x1200)", "4 (XXL)"])
 
         self.__windowSize = StringVar()
 
@@ -263,12 +263,12 @@ class OptionsMenu_REAL(ABC):
                                   font=self.__hammerFont)
         self.__infBox.place(x=hammerFont.measure(str(self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "boxFont")+"[ ]Auto"))-30-
                               hammerFont.measure(str(self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "infinite")))
-                           , y=25 + hammerheight * 5)
+                           , y=20 + hammerheight * 5)
 
         self.__recentEntry=  Entry(self.__basicSettingsFrame, width=2, font=self.__hammerFont,
                                textvariable=self.__recentNum)
         self.__recentEntry.place(x=hammerFont.measure(str(self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "boxFont")+"[ ]Auto"))-15
-                           , y=27 + hammerheight * 5)
+                           , y=22 + hammerheight * 5)
 
         #self.__checkInfBox("a", "b", "c")
         self.__recentNum.trace_add("write", self.__recentCheck)
@@ -276,35 +276,39 @@ class OptionsMenu_REAL(ABC):
 
         self.__boxQuick=BooleanVar()
         self.__quickNum=StringVar()
-        self.__quickBox = Checkbutton(self.__basicSettingsFrame, variable=self.__boxQuick,
-                                    text=self.__dicts.getWordFromDict(self.__Config.get_Element("Language"),
-                                                                      "autoSave"),
-                                    font=self.__hammerFont)
-        self.__quickBox.place(x=5, y=32 + hammerheight * 6)
+        self.__quickBox = self.__createBox(self.__boxQuick,
+                          self.__dicts.getWordFromDict(self.__Config.get_Element("Language"),"autoSave"), 32 + hammerheight * 6)
 
         self.__loadDisplay = BooleanVar()
-        self.__loadDisplayBox = Checkbutton(self.__basicSettingsFrame, variable=self.__loadDisplay,
-                                    text=self.__dicts.getWordFromDict(self.__Config.get_Element("Language"),
-                                                                      "noLoadingScreen"),
-                                    font=self.__hammerFont)
-
-        self.__loadDisplayBox.place(x=5, y=32 + hammerheight * 7)
+        self.__loadDisplayBox = self.__createBox(self.__loadDisplay,
+                                self.__dicts.getWordFromDict(self.__Config.get_Element("Language"),"noLoadingScreen"),
+                                32 + hammerheight * 7)
 
         self.__quickEntry = Entry(self.__basicSettingsFrame, width=2, font=self.__hammerFont,
                                    textvariable=self.__quickNum)
         self.__quickEntry.place(x=hammerFont.measure(
             str(self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "autoSave")+"A")) - 15
-                                 , y=30 + hammerheight * 6)
+                                 , y=32 + hammerheight * 6)
 
         self.__minutesLabel=Label(self.__basicSettingsFrame, text=self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "minutes"), font=self.__hammerFont)
         self.__minutesLabel.place(x=hammerFont.measure(
             str(self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "autoSave")+"A[ ]")) - 15, y=32 + hammerheight * 6)
+
+        self.__loadTemplate = BooleanVar()
+        self.__loadTemplateBox = self.__createBox(self.__loadTemplate,
+                                 self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "template"), 32 + hammerheight * 8)
 
         self.__boxQuick.trace_add("write", self.__checkQuickBox)
         self.__quickNum.trace_add("write", self.__quickCheck)
 
         #self.__checkQuickBox("a", "b", "c")
 
+    def __createBox(self, var, text, Y):
+        """Helps to set attributes for the three very alike checkboxes."""
+
+        box = Checkbutton(self.__basicSettingsFrame, variable=var, text=text, font=self.__hammerFont)
+        box.place(x=5, y=Y)
+        return(box)
 
     def __formatXY(self, the_V):
         """This prevents the user to set a not allowed value for the box.
@@ -466,6 +470,11 @@ class OptionsMenu_REAL(ABC):
         else:
             self.__Config.set_Element("noLoading", "False")
 
+        if self.__loadTemplate.get() == True:
+            self.__Config.set_Element("loadTemplate", "True")
+        else:
+            self.__Config.set_Element("loadTemplate", "False")
+
     def __getLongest(self, __list):
         num = 0
         for item in __list:
@@ -557,6 +566,11 @@ class OptionsMenu_REAL(ABC):
             self.__loadDisplay.set(True)
         else:
             self.__loadDisplay.set(False)
+
+        if self.__Config.get_Element("loadTemplate")=="True":
+            self.__loadTemplate.set(True)
+        else:
+            self.__loadTemplate.set(False)
 
         self.master.updateCodeBox()
 
