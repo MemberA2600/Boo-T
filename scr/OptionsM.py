@@ -18,6 +18,7 @@ class OptionsMenu_REAL(ABC):
 
     @abstractmethod
     def __init__(self, dicts, config, hammer, imgChrome, imgFFox, imgEdge, imgOpera, master, main, fontSize):
+        """The most importan elemets are inherited from the main window."""
 
         self.__dicts=dicts
         self.__Config=config
@@ -36,7 +37,9 @@ class OptionsMenu_REAL(ABC):
         self.__OptionsM.title(self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "settings"))
         self.__OptionsM.resizable(False, False)
 
-        __monitor = Monitor(self.__Config.get_OS())
+        """The OptiomMen has only two sizes, one for extra small screens and a normal."""
+
+        __monitor = Monitor(self.__Config.get_OS_Name())
         __s = __monitor.get_screensize()
         if __s[0] < 800:
             __w = 480
@@ -104,9 +107,10 @@ class OptionsMenu_REAL(ABC):
         self.__setWindowLayout()
 
         self.__OptionsM.wait_window()
-
+        self.__OptionsM.wait_window()
 
     def __createCompilerFrame(self, __w, __h, __s):
+        """Contains the two radiobuttons with the Python and Fortran logos."""
         self.__compilerFrame = LabelFrame(self.__OptionsM, width=round((__w) / 2) - 10,
                                           height=round(__h / 10) + self.__hammerFont[1] * 2,
                                           text=self.__dicts.getWordFromDict(self.__Config.get_Element("Language"),
@@ -116,6 +120,8 @@ class OptionsMenu_REAL(ABC):
         self.__compilerFrame.pack_propagate(False)
 
     def __createBrowserFrame(self, __w, __h, __s, __relative1, __bFrameWidth, hammerFont, hammerheight):
+        """In this frame, the user can change location of the browsers., also change the autosearch option at startup."""
+
         self.__browserFrame = LabelFrame(self.__OptionsM, width=__bFrameWidth,
                                          height=round(__h / 2) + self.__hammerFont[1] * 3,
                                          text=self.__dicts.getWordFromDict(self.__Config.get_Element("Language"),
@@ -174,6 +180,8 @@ class OptionsMenu_REAL(ABC):
             (32 - hammerheight / 2) / 8) + 120)
 
     def __createBasicSettingsFrame(self, __w, __h, __s, __relative1, __bFrameWidth, hammerFont, hammerheight):
+        """Set basic settings for the application."""
+
         self.__basicSettingsFrame = LabelFrame(self.__OptionsM, width=__bFrameWidth - 5, height=__h - 86,
                                                text=self.__dicts.getWordFromDict(self.__Config.get_Element("Language"),
                                                                                  "basicSettings"),
@@ -278,6 +286,14 @@ class OptionsMenu_REAL(ABC):
                                     font=self.__hammerFont)
         self.__quickBox.place(x=5, y=32 + hammerheight * 6)
 
+        self.__loadDisplay = BooleanVar()
+        self.__loadDisplayBox = Checkbutton(self.__basicSettingsFrame, variable=self.__loadDisplay,
+                                    text=self.__dicts.getWordFromDict(self.__Config.get_Element("Language"),
+                                                                      "noLoadingScreen"),
+                                    font=self.__hammerFont)
+
+        self.__loadDisplayBox.place(x=5, y=32 + hammerheight * 7)
+
         self.__quickEntry = Entry(self.__basicSettingsFrame, width=2, font=self.__hammerFont,
                                    textvariable=self.__quickNum)
         self.__quickEntry.place(x=hammerFont.measure(
@@ -294,57 +310,72 @@ class OptionsMenu_REAL(ABC):
         #self.__checkQuickBox("a", "b", "c")
 
 
-    def __fontSizeCheck(self, a, b, c):
-        if len(self.__boxFontSize.get())>2:
-            self.__boxFontSize.set(self.__boxFontSize.get()[:2])
-        try:
-            temp=int(self.__boxFontSize.get()[-1])
-            if len(self.__boxFontSize.get())>1:
-                if int(self.__boxFontSize.get())>48:
-                    self.__boxFontSize.set("48")
-                elif int(self.__boxFontSize.get())<12:
-                    self.__boxFontSize.set("12")
+    def __formatXY(self, the_V):
+        """This prevents the user to set a not allowed value for the box.
+        If a non-number character is entered, it wil be deleted, also the characters above 2 are deleted
+        as well. If the user enters 0X, 0 is removed."""
 
+        if len(the_V)>2:
+            the_V=the_V[:2]
+        try:
+            temp=int(the_V[-1])
         except:
-            self.__boxFontSize.set(self.__boxFontSize.get()[:-2])
+            the_V=the_V[:-2]
+        if len(the_V)==2 and the_V[0]=="0":
+           the_V=the_V[1]
+
+        return(the_V)
+
+
+    def __fontSizeCheck(self, a, b, c):
+        """Checks if the entered characters are correct.
+        Also won't let entering less than 12 and more then 48."""
+
+        self.__boxFontSize.set(self.__formatXY(self.__boxFontSize.get()))
+
+        if len(self.__boxFontSize.get())>0:
+            if int(self.__boxFontSize.get())>48:
+                self.__boxFontSize.set("48")
+            elif int(self.__boxFontSize.get())<12:
+                self.__boxFontSize.set("12")
+
+
 
     def __recentCheck(self, a, b, c):
-        if len(self.__recentNum.get())>2:
-            self.__recentNum.set(self.__recentNum.get()[:2])
-        try:
-            temp=int(self.__recentNum.get()[-1])
-        except:
-            self.__recentNum.set(self.__recentNum.get()[:-2])
+        """Checks if the entered characters are correct."""
+
+        self.__recentNum.set(self.__formatXY(self.__recentNum.get()))
 
 
     def __quickCheck(self, a, b, c):
-        if len(self.__quickNum.get())>2:
-            self.__quickNum.set(self.__quickNum.get()[:2])
-        try:
-            temp=int(self.__quickNum.get()[-1])
-        except:
-            self.__quickNum.set(self.__quickNum.get()[:-2])
+        """Checks if the entered characters are correct."""
+
+        self.__quickNum.set(self.__formatXY(self.__quickNum.get()))
+
+
 
     def __checkAutoBox(self, a, b, c):
-        if self.__boxAuto.get()==False:
-            self.__entrySize.config(state=NORMAL)
-        else:
-            self.__boxFontSize.set("")
-            self.__entrySize.config(state=DISABLED)
+        self.__enableDisableBox(True, self.__boxAuto.get(), self.__entrySize, self.__boxFontSize)
 
     def __checkInfBox(self, a, b, c):
-        if self.__boxInf.get()==False:
-            self.__recentEntry.config(state=NORMAL)
-        else:
-            self.__recentNum.set("")
-            self.__recentEntry.config(state=DISABLED)
+        self.__enableDisableBox(True, self.__boxInf.get(), self.__recentEntry, self.__recentNum)
 
     def __checkQuickBox(self, a, b, c):
-        if self.__boxQuick.get()==True:
-            self.__quickEntry.config(state=NORMAL)
+        self.__enableDisableBox(False, self.__boxQuick.get(), self.__quickEntry, self.__quickNum)
+
+
+    def __enableDisableBox(self, reverse, val, entry, num):
+        """Sets entry if checkbox is changed."""
+
+        if reverse==True:
+            val = not val
+
+        if val==True:
+            entry.config(state=NORMAL)
         else:
-            self.__quickNum.set("")
-            self.__quickEntry.config(state=DISABLED)
+            num.set("")
+            entry.config(state=DISABLED)
+
 
     def __createButtonFrame(self, __w, __h, __s, hammerFont, hammerheight):
         self.__mainButtonaForOptionsFrame = Frame(self.__OptionsM, width=__w - 20, height=hammerheight * 2, )
@@ -434,6 +465,11 @@ class OptionsMenu_REAL(ABC):
         else:
             self.__Config.set_Element("AutoSave", self.__quickNum.get())
 
+        if self.__loadDisplay.get() == False:
+            self.__Config.set_Element("noLoading", "True")
+        else:
+            self.__Config.set_Element("noLoading", "False")
+
     def __getLongest(self, __list):
         num = 0
         for item in __list:
@@ -520,6 +556,11 @@ class OptionsMenu_REAL(ABC):
         else:
             self.__boxQuick.set(True)
             self.__quickNum.set(self.__Config.get_Element("AutoSave"))
+
+        if self.__Config.get_Element("noLoading")=="False":
+            self.__loadDisplay.set(True)
+        else:
+            self.__loadDisplay.set(False)
 
         self.master.updateCodeBox()
 

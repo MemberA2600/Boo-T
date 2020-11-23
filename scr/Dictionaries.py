@@ -31,6 +31,8 @@ class Dictionaries_REAL(ABC):
         self.__D[name]={}
 
         for line in lines:
+            """Loads the line, splits it at the eq mark, then both parts get any unneccessery elements removed.
+            The first part will became the key, the second the value in the dictionary. """
             self.__D[name][line.replace("\r","").replace("\n","").split("=")[0]] = line.replace("\r","").replace("\n","").split("=")[1].replace("\n","")
 
     @abstractmethod

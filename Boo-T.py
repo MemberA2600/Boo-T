@@ -28,8 +28,7 @@ class Create_MainWindow_Real(ABC):
     def __init__(self, main):
 
         self.__main = main
-        #self.__main.geometry("%dx%d+%d+%d" % (1, 1, 1, 1))
-        self.__main.withdraw()
+        self.__main.withdraw() #The Window is hidded while the
         self.__main.overrideredirect(True)
         self.__main.resizable(False, False)
 
@@ -42,13 +41,24 @@ class Create_MainWindow_Real(ABC):
         self.__dicts = Dictionaries()
         self.__Config = Config(self.__dicts)
 
-        __monitor = Monitor(self.__Config.get_OS())
-        __loading_Screen = DisplayLoading(__monitor.get_screensize())
+        """Creates monitor object for getting the actual screensize, so the most
+        suitable window sizes can be created.
+        
+        Here we create the Loading Screen that is only for show and presented for a short time.
+        Setting 'noLoading' True will prevent this display."""
+        __monitor = Monitor(self.__Config.get_OS_Name())
+        if self.__Config.get_Element("noLoading")=="False":
+            __loading_Screen = DisplayLoading(__monitor.get_screensize())
 
-        import pyglet
-        pyglet.font.add_file('HammerFat.ttf')
-        #pyglet.resource.add_font('HammerFat.ttf')
-        if self.__Config.get_OS()=="Linux":
+        from pyglet import font as PyFont
+        PyFont.add_file('HammerFat.ttf')
+
+        if self.__Config.get_OS_Name()=="Linux":
+            """On Linux, you can only use fonts those are already installed in the system, so
+            the appliaction checks if it is installed, then asks the user if he want to install it
+             foe the better display. Also it tries to use three kind of linux font viewer
+             to install the font manually."""
+
             from tkinter import font
             if "HammerFat_Hun" in font.families():
 
@@ -74,17 +84,22 @@ class Create_MainWindow_Real(ABC):
         else:
             s = int(self.__Config.get_Element("StaticSize"))
 
+
+        """This function will start builing up the main window."""
         self.__size_Num = self.__Create_Main_Window_By_Screen_Size(s, __monitor.get_screensize(),
                                                                    self.__Config.get_Element("Language"))
 
 
         self.updateCodeBox() #Needed for the correct text-size, reason unknown!
 
+        "Makes the main window visible again."
         self.__main.deiconify()
         self.create_StatLabel("Welcome!")
         self.__main.after(int(self.__Config.get_Element("AutoSave"))*60000, self.autoS)
 
     def __linuxTryToOpenFontViewer(self, app):
+        """If the selected font viewer is present in Linux, open our font in it, allowing the user to install it."""
+
         if ((os.popen(str("whereis "+app)).read()).split(":")[1].replace("\n", "")) != "":
             os.popen(app + ' "' + os.getcwd() + '/HammerFat.ttf"')
             return (True)
@@ -175,100 +190,63 @@ class Create_MainWindow_Real(ABC):
         self.__setFont(size)
 
         self.__imgNew = ImageTk.PhotoImage(Image.open("icons/new.png"))
-        self.__new_B = Button(self.__main, image=self.__imgNew, width=32, height=32, command=self.__doNew)
-        self.__new_B.place(x=4, y=1)
-        self.__new_B.bind("<Enter>", self.__on_enterNewB)
-        self.__new_B.bind("<Leave>", self.__on_leave)
+        self.__new_B = self.__createButton(self.__imgNew, self.__doNew, self.__on_enterNewB, 0)
 
         self.__imgOpen = ImageTk.PhotoImage(Image.open("icons/open.png"))
-        self.__open_B = Button(self.__main, image=self.__imgOpen, width=32, height=32, command=self.__doOpen)
-        self.__open_B.place(x=self.__getButtonPoz(1), y=1)
-        self.__open_B.bind("<Enter>", self.__on_enterOpenB)
-        self.__open_B.bind("<Leave>", self.__on_leave)
+        self.__open_B = self.__createButton(self.__imgOpen, self.__doOpen, self.__on_enterOpenB, 1)
 
         self.__imgSave = ImageTk.PhotoImage(Image.open("icons/save.png"))
-        self.__save_B = Button(self.__main, image=self.__imgSave, width=32, height=32, command=self.__doSave)
-        self.__save_B.place(x=self.__getButtonPoz(2), y=1)
-        self.__save_B.bind("<Enter>", self.__on_enterSaveB)
-        self.__save_B.bind("<Leave>", self.__on_leave)
+        self.__save_B = self.__createButton(self.__imgSave, self.__doSave, self.__on_enterSaveB, 2)
 
         self.__imgSaveAs = ImageTk.PhotoImage(Image.open("icons/save_as.png"))
-        self.__saveAs_B = Button(self.__main, image=self.__imgSaveAs, width=32, height=32, command=self.__doSaveAs)
-        self.__saveAs_B.place(x=self.__getButtonPoz(3), y=1)
-        self.__saveAs_B.bind("<Enter>", self.__on_enterSaveAsB)
-        self.__saveAs_B.bind("<Leave>", self.__on_leave)
+        self.__saveAs_B = self.__createButton(self.__imgSaveAs, self.__doSaveAs, self.__on_enterSaveAsB, 3)
 
         self.__imgCopy = ImageTk.PhotoImage(Image.open("icons/copy.png"))
-        self.__saveAs_B = Button(self.__main, image=self.__imgCopy, width=32, height=32, command=self.__doCopy)
-        self.__saveAs_B.place(x=self.__getButtonPoz(4.25), y=1)
-        self.__saveAs_B.bind("<Enter>", self.__on_enterCopy)
-        self.__saveAs_B.bind("<Leave>", self.__on_leave)
+        self.__Copy_B = self.__createButton(self.__imgCopy, self.__doCopy, self.__on_enterCopy, 4.25)
 
         self.__imgPaste = ImageTk.PhotoImage(Image.open("icons/paste.png"))
-        self.__saveAs_B = Button(self.__main, image=self.__imgPaste, width=32, height=32, command=self.__doPaste)
-        self.__saveAs_B.place(x=self.__getButtonPoz(5.25), y=1)
-        self.__saveAs_B.bind("<Enter>", self.__on_enterPaste)
-        self.__saveAs_B.bind("<Leave>", self.__on_leave)
+        self.__Paste_B = self.__createButton(self.__imgPaste, self.__doPaste, self.__on_enterPaste, 5.25)
 
         self.__imgHTML = ImageTk.PhotoImage(Image.open("icons/html.png"))
-        self.__HTML_B = Button(self.__main, image=self.__imgHTML, width=32, height=32)
-        self.__HTML_B.place(x=self.__getButtonPoz(6.5), y=1)
-        self.__HTML_B.bind("<Enter>", self.__on_enterHTML)
-        self.__HTML_B.bind("<Leave>", self.__on_leave)
+        self.__HTML_B = self.__createButton(self.__imgHTML, None, self.__on_enterHTML, 6.5)
 
         self.__imgFastTest = ImageTk.PhotoImage(Image.open("icons/test.png"))
-        self.__FTest_B = Button(self.__main, image=self.__imgFastTest, width=32, height=32)
-        self.__FTest_B.place(x=self.__getButtonPoz(7.5), y=1)
-        self.__FTest_B.bind("<Enter>", self.__on_enterFastTest)
-        self.__FTest_B.bind("<Leave>", self.__on_leave)
+        self.__FTest_B = self.__createButton(self.__imgFastTest, None, self.__on_enterFastTest, 7.5)
 
         self.__imgFFox = ImageTk.PhotoImage(Image.open("icons/firefox.png"))
-        self.__FFox_B = Button(self.__main, image=self.__imgFFox, width=32, height=32)
-        self.__FFox_B.place(x=self.__getButtonPoz(8.5), y=1)
-        self.__FFox_B.bind("<Enter>", self.__on_enterFFox)
-        self.__FFox_B.bind("<Leave>", self.__on_leave)
+        self.__FFox_B = self.__createButton(self.__imgFFox, None, self.__on_enterFFox, 8.5)
 
         self.__imgChrome = ImageTk.PhotoImage(Image.open("icons/chrome.png"))
-        self.__Chrome_B = Button(self.__main, image=self.__imgChrome, width=32, height=32)
-        self.__Chrome_B.place(x=self.__getButtonPoz(9.5), y=1)
-        self.__Chrome_B.bind("<Enter>", self.__on_enterChrome)
-        self.__Chrome_B.bind("<Leave>", self.__on_leave)
+        self.__Chrome_B = self.__createButton(self.__imgChrome, None, self.__on_enterChrome, 9.5)
 
         self.__imgEdge = ImageTk.PhotoImage(Image.open("icons/edge.png"))
-        self.__Edge_B = Button(self.__main, image=self.__imgEdge, width=32, height=32)
-        self.__Edge_B.place(x=self.__getButtonPoz(10.5), y=1)
-        self.__Edge_B.bind("<Enter>", self.__on_enterEdge)
-        self.__Edge_B.bind("<Leave>", self.__on_leave)
+        self.__Edge_B = self.__createButton(self.__imgEdge, None, self.__on_enterEdge, 10.5)
 
         self.__imgOpera = ImageTk.PhotoImage(Image.open("icons/opera.png"))
-        self.__Opera_B = Button(self.__main, image=self.__imgOpera, width=32, height=32)
-        self.__Opera_B.place(x=self.__getButtonPoz(11.5), y=1)
-        self.__Opera_B.bind("<Enter>", self.__on_enterOpera)
-        self.__Opera_B.bind("<Leave>", self.__on_leave)
+        self.__Opera_B = self.__createButton(self.__imgOpera, None, self.__on_enterOpera, 11.5)
 
         self.__imgSettings = ImageTk.PhotoImage(Image.open("icons/settings.png"))
-        self.__Settings_B = Button(self.__main, image=self.__imgSettings, width=32, height=32,
-                                   command=self.__OptionsMenu)
-        self.__Settings_B.place(x=self.__getButtonPoz(12.75), y=1)
-        self.__Settings_B.bind("<Enter>", self.__on_enterSettings)
-        self.__Settings_B.bind("<Leave>", self.__on_leave)
+        self.__Settings_B = self.__createButton(self.__imgSettings, self.__OptionsMenu, self.__on_enterSettings, 12.75)
 
         self.__imgHelp = ImageTk.PhotoImage(Image.open("icons/help.png"))
-        self.__Help_B = Button(self.__main, image=self.__imgHelp, width=32, height=32)
-        self.__Help_B.place(x=self.__getButtonPoz(13.75), y=1)
-        self.__Help_B.bind("<Enter>", self.__on_enterHelp)
-        self.__Help_B.bind("<Leave>", self.__on_leave)
+        self.__Help_B = self.__createButton(self.__imgHelp, None, self.__on_enterHelp, 13.75)
 
         self.__imgAbout = ImageTk.PhotoImage(Image.open("icons/about.png"))
-        self.__About_B = Button(self.__main, image=self.__imgAbout, width=32, height=32, command=self.__AboutMenu)
-        self.__About_B.place(x=self.__getButtonPoz(14.75), y=1)
-        self.__About_B.bind("<Enter>", self.__on_enterAbout)
-        self.__About_B.bind("<Leave>", self.__on_leave)
+        self.__About_B = self.__createButton(self.__imgAbout, self.__AboutMenu, self.__on_enterAbout, 14.75)
 
         self.CheckIfValid()
 
         self.__Hint = StringVar()
         self.__HintText = Label(self.__main, textvariable=self.__Hint, font=self.__hammerFont)
+
+    def __createButton(self, image, command, on_Enter, buttonpoz):
+        """Generates Button from given data. Image, cannad and enter-message generation is unique."""
+
+        button = Button(self.__main, image=image, width=32, height=32, command=command)
+        button.place(x=self.__getButtonPoz(buttonpoz), y=1)
+        button.bind("<Enter>", on_Enter)
+        button.bind("<Leave>", self.__on_leave)
+        return(button)
 
     def __doNew(self):
         """if box was modified, asks if you want to save your file, amd deletes the box."""
@@ -325,6 +303,7 @@ class Create_MainWindow_Real(ABC):
         self.__CodeBox.insert(0.0, text)
 
     def __doSave(self):
+        """Calls saver directly, if a file is already opened."""
         if self.__opened == True:
             savename = self.__path
             self.__Saver(savename)
@@ -387,6 +366,7 @@ class Create_MainWindow_Real(ABC):
         self.__recentList.insert(0, text.split("/")[-1])
 
     def __getButtonPoz(self, num):
+        """Returns X position for the menu button"""
         return (4 + (self.__buttonSize) * num)
 
     def CheckIfValid(self):
@@ -416,6 +396,7 @@ class Create_MainWindow_Real(ABC):
         self.__create_Listboxes(__windowW, __windowH, s, boxW)
 
     def __setMainGeo(self, w, h, size):
+        """Sets the size of the main window."""
         self.__main.geometry("%dx%d+%d+%d" % (w, h, (size[0] / 2) - (w / 2), (size[1] / 2) - (h / 2) - 25))
 
 
@@ -435,11 +416,13 @@ class Create_MainWindow_Real(ABC):
         self.updateCodeBox()
 
     def code_Key_Pressed(self, event):
+        """Neded for the usual ctrl + mousewheel combnation for resizing textbox font."""
         self.__modified = True
         if (event.keysym == "Control_L" or event.keysym == "Control_R"):
             self.__box_Ctrl_Pressed = True
 
     def code_Key_Released(self, event):
+        """Neded for the usual ctrl + mousewheel combnation for resizing textbox font."""
         if (event.keysym == "Control_L" or event.keysym == "Control_R"):
             self.__box_Ctrl_Pressed = False
 
@@ -456,6 +439,8 @@ class Create_MainWindow_Real(ABC):
                 self.updateCodeBox()
 
     def __getHammerFont(self):
+        """Sets font for the code box section"""
+
         from tkinter.font import Font, families
 
         hammerFont = Font(font='HammerFat_Hun')
@@ -471,8 +456,6 @@ class Create_MainWindow_Real(ABC):
     def updateCodeBox(self):
         """Changes the light/dark them for the box, also changes the font size.
         If the listbox are existing, updates their colors too."""
-
-        from tkinter.font import Font, families
 
         if (self.__Config.get_Element("DarkBox") == "False"):
             self.__color = "white"
@@ -502,7 +485,10 @@ class Create_MainWindow_Real(ABC):
         self.__Hint.set("")
 
     def __setHintTextLocation(self, num):
+        """Places the tint text of file men to the right place"""
         self.__HintText.place(x=4 + (self.__buttonSize) * num, y=self.__buttonSize)
+
+    """Hints X locations are set manually because of tkinter's strict event handling."""
 
     def __on_enterNewB(self, event):
         self.__Hint.set(self.__new)
@@ -578,6 +564,7 @@ class Create_MainWindow_Real(ABC):
 
     @abstractmethod
     def create_StatLabel(self, text):
+        "Because other objects can display message on the main window, the method has an abstract call."
         try:
             self.__destroy_StatLabel()
         except:
@@ -696,6 +683,7 @@ class Create_MainWindow_Real(ABC):
         file.close()
 
     def __printPath(self, event):
+        """Uses the hint label to print out selected file's path"""
         try:
             self.create_StatLabel(self.__recentFiles[self.__recentList.curselection()[0]])
         except:
@@ -706,12 +694,14 @@ class Create_MainWindow_Real(ABC):
                              self.__imgChrome, self.__imgFFox, self.__imgEdge, self.__imgOpera, self, self.__main, self.__fontSize)
 
     def __AboutMenu(self):
+        """Opens the men abouth the program and the author."""
         AboutM=AboutMenu(self.__dicts, self.__Config, self.__hammerFont, self, self.__main, self.__fontSize)
 
     def __getCodeFromBox(self):
         return(self.__CodeBox.get(0.0, END))
 
     def __loadQuickSave(self):
+        """Loads quicksave file if present."""
         if os.path.exists("QuickSave.txt"):
             file=open("QuickSave.txt", "r")
             self.__insertBox(file.read())

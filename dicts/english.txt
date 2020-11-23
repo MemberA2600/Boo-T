@@ -59,3 +59,5 @@ linuxFontError=Couldn't find 'HammerFat_Hun' font! For proper display it is stro
 linuxNoGnome=No 'gnome-font-viewer' found! Copy #path# to your system's/user's font folder!
 noFontApp=No application for font management!
 author=Created by:
+noLoadingScreen=Show Loading Screen at startup
+wheel=Use the Mousewheel, Luke!

@@ -6,6 +6,8 @@ class Monitor_Real(ABC):
 
     @abstractmethod
     def __init__(self, system):
+        """Has different methods to get the main monitor's metrics on the two OS."""
+
         if system=="Windows":
             import ctypes as ctypes
 

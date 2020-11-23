@@ -31,7 +31,7 @@ class AboutMenu_REAL(ABC):
         self.__AboutM.title(self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "about"))
         self.__AboutM.resizable(False, False)
 
-        __monitor = Monitor(self.__Config.get_OS())
+        __monitor = Monitor(self.__Config.get_OS_Name())
         size=__monitor.get_screensize()
 
         self.__AboutM.geometry("%dx%d+%d+%d" % (400, 350, size[0]/2-200, size[1]/2-300))
@@ -76,6 +76,8 @@ class AboutMenu_REAL(ABC):
         self.__AboutM.bind("<r>", self.__resetThings)
         self.__AboutM.bind("<S>", self.__soundChange2)
         self.__AboutM.bind("<s>", self.__soundChange2)
+        self.__AboutM.bind("<MouseWheel>", self.__wheel)
+
 
         self.__imageOff=ImageTk.PhotoImage(Image.open("icons/sound-off.png"))
         self.__imageOn=ImageTk.PhotoImage(Image.open("icons/sound-on.png"))
@@ -83,9 +85,17 @@ class AboutMenu_REAL(ABC):
         self.__soundButton=Button(self.__AboutM, image=self.__imageOff, width=32, height=32, command=self.__soundChange, relief=FLAT)
         self.__soundButton.place(x=355, y=285)
 
+        self.master.create_StatLabel(self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "wheel"))
+
         self.__AboutM.focus()
         self.__AboutM.after(20, self.__Animation)
         self.__AboutM.wait_window()
+
+    def __wheel(self, event):
+        if event.delta>0:
+            self.__upPressed("123")
+        elif event.delta<0:
+            self.__downPressed("123")
 
     def __soundChange2(self, event):
         self.__soundChange()
@@ -203,22 +213,28 @@ class AboutMenu_REAL(ABC):
                 playsound("p/p3.wav")
 
             if self.__ballDir==1:
+                num2 = random.randint(-3, 3)
+
                 if num==-1:
                     self.__ballDir=4
                 else:
                     self.__ballDir=3
             elif self.__ballDir==7:
+                num2 = random.randint(-3, 3)
+
                 if num==-1:
                     self.__ballDir=4
                 else:
                     self.__ballDir=5
             elif self.__ballDir==0:
-                if num==-1:
+                num2 = random.randint(-10, 10)
+
+                if num2<0:
                     self.__ballDir=3
-                elif num==0:
-                    self.__ballDir=4
-                else:
+                elif num2>0:
                     self.__ballDir=5
+                else:
+                    self.__ballDir=4
 
 
         elif self.__ballXY[1]>240:
@@ -228,22 +244,28 @@ class AboutMenu_REAL(ABC):
                 playsound("p/p3.wav")
 
             if self.__ballDir==3:
+                num2 = random.randint(-3, 3)
+
                 if num==-1:
                     self.__ballDir=0
                 else:
                     self.__ballDir=7
             elif self.__ballDir==5:
+                num2 = random.randint(-3, 3)
+
                 if num==-1:
                     self.__ballDir=0
                 else:
                     self.__ballDir=1
             elif self.__ballDir==4:
-                if num==-1:
+                num2 = random.randint(-10, 10)
+
+                if num2<0:
                     self.__ballDir=1
-                elif num==0:
-                    self.__ballDir=0
-                else:
+                elif num2>0:
                     self.__ballDir=7
+                else:
+                    self.__ballDir=0
 
         elif (abs((self.__bat1XY[0]+5)-(self.__ballXY[0]+5))<5) and (abs((self.__bat1XY[1]+20)-(self.__ballXY[1]+5))<25):
             self.__collisionDelay = 10
@@ -255,7 +277,6 @@ class AboutMenu_REAL(ABC):
                 self.__ballDir=7
             else:
                 self.__ballDir=6
-            print(((self.__bat1XY[1]+20)-(self.__ballXY[1]+5)))
 
 
         elif (abs((self.__bat2XY[0]+5)-(self.__ballXY[0]+5))<5) and (abs((self.__bat2XY[1]+20)-(self.__ballXY[1]+5))<25):
@@ -268,7 +289,6 @@ class AboutMenu_REAL(ABC):
                 self.__ballDir=1
             else:
                 self.__ballDir=2
-            print(((self.__bat2XY[1]+20)-(self.__ballXY[1]+5)))
 
 
         elif self.__ballXY[0]<-10:

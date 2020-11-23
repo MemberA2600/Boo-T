@@ -59,3 +59,5 @@ linuxFontError=Nem található meg a 'HammerFat_Hun' betûtípus! A megfelelõ megjel
 linuxNoGnome='gnome-font-viewer' nem található!! Másold a #path# fájlt a rendszer/felhasználó betûtípusok mappájába!
 noFontApp=Nem érhetõ el betûtípus kezelõ!
 author=Készítette:
+noLoadingScreen=Betöltõ képernyõ induláskor
+wheel=Használd az egérgörgõt, Luke!
