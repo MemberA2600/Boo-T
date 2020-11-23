@@ -1,13 +1,6 @@
 from tkinter import *
 from abc import *
-import os
-import sys
-import re
 from tkinter.filedialog import *
-from tkinter import messagebox
-from tkinterhtml import HtmlFrame
-import multiprocessing
-import tkinter.scrolledtext as tkscrolled
 
 from Dictionaries import *
 from Config import *

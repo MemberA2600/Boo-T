@@ -22,7 +22,7 @@ from DisplayLoading import *
 from OptionsM import *
 from About import *
 
-class Create_MainWindow_Real(ABC):
+class MainWindow_Real(ABC):
     """Creating the Main Window, loads data for application."""
 
     def __init__(self, main):
@@ -714,7 +714,7 @@ class Create_MainWindow_Real(ABC):
         file.write(self.__getCodeFromBox())
         file.close()
 
-class Create_MainWindow(Create_MainWindow_Real):
+class MainWindow(MainWindow_Real):
     def __init__(self, main):
         super().__init__(main)
 
@@ -730,7 +730,7 @@ class Create_MainWindow(Create_MainWindow_Real):
 
 if __name__ == "__main__":
     Main_Window = Tk()
-    Creator = Create_MainWindow(Main_Window)
+    Creator = MainWindow(Main_Window)
 
     Main_Window.mainloop()
 

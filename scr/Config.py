@@ -1,7 +1,6 @@
 from tkinter import *
 from abc import *
 import os
-import sys
 import re
 from tkinter.filedialog import *
 from tkinter import messagebox
