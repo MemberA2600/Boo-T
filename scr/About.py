@@ -17,7 +17,7 @@ from Monitor import *
 class AboutMenu_REAL(ABC):
 
     @abstractmethod
-    def __init__(self, dicts, config, hammer, master, main, fontSize):
+    def __init__(self, dicts, config, hammer, master, main, fontSize, monitor):
         from PIL import ImageTk, Image
 
 
@@ -31,7 +31,7 @@ class AboutMenu_REAL(ABC):
         self.__AboutM.title(self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "about"))
         self.__AboutM.resizable(False, False)
 
-        __monitor = Monitor(self.__Config.get_OS_Name())
+        __monitor = monitor
         size=__monitor.get_screensize()
 
         self.__AboutM.geometry("%dx%d+%d+%d" % (400, 350, size[0]/2-200, size[1]/2-300))
@@ -353,5 +353,5 @@ class AboutMenu_REAL(ABC):
 
 class AboutMenu(AboutMenu_REAL):
 
-    def __init__(self, dicts, config, hammer, master, main, fontSize):
-        super().__init__(dicts, config, hammer, master, main, fontSize)
+    def __init__(self, dicts, config, hammer, master, main, fontSize, monitor):
+        super().__init__(dicts, config, hammer, master, main, fontSize, monitor)

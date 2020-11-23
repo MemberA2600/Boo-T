@@ -17,7 +17,7 @@ from Monitor import *
 class OptionsMenu_REAL(ABC):
 
     @abstractmethod
-    def __init__(self, dicts, config, hammer, imgChrome, imgFFox, imgEdge, imgOpera, master, main, fontSize):
+    def __init__(self, dicts, config, hammer, imgChrome, imgFFox, imgEdge, imgOpera, master, main, fontSize, monitor):
         """The most importan elemets are inherited from the main window."""
 
         self.__dicts=dicts
@@ -39,7 +39,7 @@ class OptionsMenu_REAL(ABC):
 
         """The OptiomMen has only two sizes, one for extra small screens and a normal."""
 
-        __monitor = Monitor(self.__Config.get_OS_Name())
+        __monitor = monitor
         __s = __monitor.get_screensize()
         if __s[0] < 800:
             __w = 480
@@ -106,7 +106,6 @@ class OptionsMenu_REAL(ABC):
 
         self.__setWindowLayout()
 
-        self.__OptionsM.wait_window()
         self.__OptionsM.wait_window()
 
     def __createCompilerFrame(self, __w, __h, __s):
@@ -627,5 +626,5 @@ class OptionsMenu_REAL(ABC):
 
 class OptionsMenu(OptionsMenu_REAL):
 
-    def __init__(self, dicts, config, hammer, imgChrome, imgFFox, imgEdge, imgOpera, master, main, fontsize):
-        super().__init__(dicts, config, hammer, imgChrome, imgFFox, imgEdge, imgOpera, master, main, fontsize)
+    def __init__(self, dicts, config, hammer, imgChrome, imgFFox, imgEdge, imgOpera, master, main, fontsize, monitor):
+        super().__init__(dicts, config, hammer, imgChrome, imgFFox, imgEdge, imgOpera, master, main, fontsize, monitor)

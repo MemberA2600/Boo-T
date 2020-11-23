@@ -46,9 +46,9 @@ class Create_MainWindow_Real(ABC):
         
         Here we create the Loading Screen that is only for show and presented for a short time.
         Setting 'noLoading' True will prevent this display."""
-        __monitor = Monitor(self.__Config.get_OS_Name())
+        self.__monitor = Monitor(self.__Config.get_OS_Name())
         if self.__Config.get_Element("noLoading")=="False":
-            __loading_Screen = DisplayLoading(__monitor.get_screensize())
+            __loading_Screen = DisplayLoading(self.__monitor.get_screensize())
 
         from pyglet import font as PyFont
         PyFont.add_file('HammerFat.ttf')
@@ -80,13 +80,13 @@ class Create_MainWindow_Real(ABC):
         self.__setFont(1)
 
         if self.__Config.get_Element("StaticSize") == "0":
-            s = self.__GetWindowSize(__monitor.get_screensize())
+            s = self.__GetWindowSize(self.__monitor.get_screensize())
         else:
             s = int(self.__Config.get_Element("StaticSize"))
 
 
         """This function will start builing up the main window."""
-        self.__size_Num = self.__Create_Main_Window_By_Screen_Size(s, __monitor.get_screensize(),
+        self.__size_Num = self.__Create_Main_Window_By_Screen_Size(s, self.__monitor.get_screensize(),
                                                                    self.__Config.get_Element("Language"))
 
 
@@ -691,11 +691,11 @@ class Create_MainWindow_Real(ABC):
 
     def __OptionsMenu(self):
         OptionsM=OptionsMenu(self.__dicts, self.__Config, self.__hammerFont,
-                             self.__imgChrome, self.__imgFFox, self.__imgEdge, self.__imgOpera, self, self.__main, self.__fontSize)
+                             self.__imgChrome, self.__imgFFox, self.__imgEdge, self.__imgOpera, self, self.__main, self.__fontSize, self.__monitor)
 
     def __AboutMenu(self):
         """Opens the men abouth the program and the author."""
-        AboutM=AboutMenu(self.__dicts, self.__Config, self.__hammerFont, self, self.__main, self.__fontSize)
+        AboutM=AboutMenu(self.__dicts, self.__Config, self.__hammerFont, self, self.__main, self.__fontSize, self.__monitor)
 
     def __getCodeFromBox(self):
         return(self.__CodeBox.get(0.0, END))
