@@ -4,30 +4,22 @@
 from tkinter import *
 from abc import *
 import os
-import sys
-import re
+
 from tkinter.filedialog import *
 from tkinter import messagebox
 from tkinterhtml import HtmlFrame
 import multiprocessing
-import tkinter.scrolledtext as tkscrolled
 import time
-import clipboard
 
-sys.path.insert(1, "scr/")
-from Dictionaries import *
-from Config import *
-from Monitor import *
-from DisplayLoading import *
-from OptionsM import *
-from About import *
+from sys import path
+path.insert(1, "scr/")
 
 class MainWindow_Real(ABC):
     """Creating the Main Window, loads data for application."""
 
-    def __init__(self, main):
+    def __init__(self):
 
-        self.__main = main
+        self.__main = Tk()
         self.__main.withdraw() #The Window is hidded while the
         self.__main.overrideredirect(True)
         self.__main.resizable(False, False)
@@ -38,17 +30,24 @@ class MainWindow_Real(ABC):
         self.__configChanged = False
         self.__path = ""
 
-        self.__dicts = Dictionaries()
-        self.__Config = Config(self.__dicts)
+        import Dictionaries
+        import Config
+
+        self.__dicts = Dictionaries.Dictionaries()
+        self.__Config = Config.Config(self.__dicts)
 
         """Creates monitor object for getting the actual screensize, so the most
         suitable window sizes can be created.
         
         Here we create the Loading Screen that is only for show and presented for a short time.
         Setting 'noLoading' True will prevent this display."""
-        self.__monitor = Monitor(self.__Config.get_OS_Name())
+        import Monitor
+
+        self.__monitor = Monitor.Monitor(self.__Config.get_OS_Name())
         if self.__Config.get_Element("noLoading")=="False":
-            __loading_Screen = DisplayLoading(self.__monitor.get_screensize())
+            import DisplayLoading
+
+            __loading_Screen = DisplayLoading.DisplayLoading(self.__monitor.get_screensize())
 
         from pyglet import font as PyFont
         PyFont.add_file('HammerFat.ttf')
@@ -96,12 +95,16 @@ class MainWindow_Real(ABC):
         self.__main.deiconify()
         self.create_StatLabel("Welcome!")
         self.__main.after(int(self.__Config.get_Element("AutoSave"))*60000, self.autoS)
+        self.__main.mainloop()
 
     def __linuxTryToOpenFontViewer(self, app):
         """If the selected font viewer is present in Linux, open our font in it, allowing the user to install it."""
 
         if ((os.popen(str("whereis "+app)).read()).split(":")[1].replace("\n", "")) != "":
-            os.popen(app + ' "' + os.getcwd() + '/HammerFat.ttf"')
+            #os.popen(app + ' "' + os.getcwd() + '/HammerFat.ttf"')
+            import subprocess
+            subprocess.run(app + ' "' + os.getcwd() + '/HammerFat.ttf"')
+
             return (True)
         else:
             return (False)
@@ -158,35 +161,12 @@ class MainWindow_Real(ABC):
 
         return (s)
 
-    def defineWords(self, lang):
-        """Words specified at the dictionary are loaded to seperate values."""
-
-        self.__new = self.__dicts.getWordFromDict(lang, "new")
-        self.__open = self.__dicts.getWordFromDict(lang, "open")
-        self.__file = self.__dicts.getWordFromDict(lang, "file")
-        self.__save = self.__dicts.getWordFromDict(lang, "save")
-        self.__save_as = self.__dicts.getWordFromDict(lang, "save_as")
-        self.__copy = self.__dicts.getWordFromDict(lang, "copy")
-        self.__paste = self.__dicts.getWordFromDict(lang, "paste")
-
-        self.__HTML = self.__dicts.getWordFromDict(lang, "HTMLCode")
-        self.__settings = self.__dicts.getWordFromDict(lang, "settings")
-        self.__FastTest = self.__dicts.getWordFromDict(lang, "fastTest")
-        self.__FFoxTest = self.__dicts.getWordFromDict(lang, "FFoxTest")
-        self.__ChromeTest = self.__dicts.getWordFromDict(lang, "ChromeTest")
-        self.__EdgeTest = self.__dicts.getWordFromDict(lang, "EdgeTest")
-        self.__OperaTest = self.__dicts.getWordFromDict(lang, "OperaTest")
-        self.__browserNotSet = self.__dicts.getWordFromDict(lang, "browserNotSet")
-        self.__help = self.__dicts.getWordFromDict(lang, "help")
-        self.__about = self.__dicts.getWordFromDict(lang, "about")
-
     def __create_Menu(self, lang, size):
         """Loads the icons amd creates the 32y32 buttons one by one. If the mouse enters
         an icon, it will display it's puprose. These are static on every window size!"""
         from PIL import ImageTk, Image
 
         self.__buttonSize = 40
-        self.defineWords(lang)
         self.__setFont(size)
 
         self.__imgNew = ImageTk.PhotoImage(Image.open("icons/new.png"))
@@ -347,9 +327,13 @@ class MainWindow_Real(ABC):
                     savename) + "\n" + str(e))
 
     def __doPaste(self):
+        import clipboard
+
         self.__CodeBox.insert(INSERT, clipboard.paste())
 
     def __doCopy(self):
+        import clipboard
+
         clipboard.copy(self.__CodeBox.selection_get())
 
     def __addToRecent(self, text):
@@ -409,6 +393,8 @@ class MainWindow_Real(ABC):
 
 
     def __createCodeBox(self, baseFont, w, h):
+        import tkinter.scrolledtext as tkscrolled
+
         """Creates the elements for the main input field."""
         self.Frame_for_CodeBox = Frame(self.__main, width=w, height=h)
         self.Frame_for_CodeBox.place(x=2, y=baseFont[1] + 58)
@@ -499,75 +485,75 @@ class MainWindow_Real(ABC):
     """Hints X locations are set manually because of tkinter's strict event handling."""
 
     def __on_enterNewB(self, event):
-        self.__Hint.set(self.__new)
+        self.__Hint.set(self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "new"))
         self.__setHintTextLocation(0)
 
     def __on_enterOpenB(self, event):
-        self.__Hint.set(self.__open)
+        self.__Hint.set(self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "open"))
         self.__setHintTextLocation(0)
 
     def __on_enterSaveB(self, event):
-        self.__Hint.set(self.__save)
+        self.__Hint.set(self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "save"))
         self.__setHintTextLocation(0)
 
     def __on_enterSaveAsB(self, event):
-        self.__Hint.set(self.__save_as)
+        self.__Hint.set(self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "save_as"))
         self.__setHintTextLocation(0)
 
     def __on_enterCopy(self, event):
-        self.__Hint.set(self.__copy)
+        self.__Hint.set(self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "copy"))
         self.__setHintTextLocation(4.25)
 
     def __on_enterPaste(self, event):
-        self.__Hint.set(self.__paste)
+        self.__Hint.set(self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "paste"))
         self.__setHintTextLocation(4.25)
 
     def __on_enterHTML(self, event):
-        self.__Hint.set(self.__HTML)
+        self.__Hint.set(self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "HTMLCode"))
         self.__setHintTextLocation(6.5)
 
     def __on_enterFastTest(self, event):
-        self.__Hint.set(self.__FastTest)
+        self.__Hint.set(self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "fastTest"))
         self.__setHintTextLocation(6.5)
 
     def __on_enterFFox(self, event):
         if self.__Config.get_Element("FireFox") == "":
-            self.__Hint.set(self.__browserNotSet.replace("#browser#", "Firefox"))
+            self.__Hint.set(self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "browserNotSet").replace("#browser#", "Firefox"))
         else:
-            self.__Hint.set(self.__FFoxTest)
+            self.__Hint.set(self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "FFoxTest"))
         self.__setHintTextLocation(6.5)
 
     def __on_enterChrome(self, event):
         if self.__Config.get_Element("Chrome") == "":
-            self.__Hint.set(self.__browserNotSet.replace("#browser#", "Chrome"))
+            self.__Hint.set(self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "browserNotSet").replace("#browser#", "Chrome"))
         else:
-            self.__Hint.set(self.__ChromeTest)
+            self.__Hint.set(self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "ChromeTest"))
         self.__setHintTextLocation(6.5)
 
     def __on_enterEdge(self, event):
-        if self.__Config.get_Element("FireFox") == "":
-            self.__Hint.set(self.__browserNotSet.replace("#browser#", "Edge"))
+        if self.__Config.get_Element("Edge") == "":
+            self.__Hint.set(self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "browserNotSet").replace("#browser#", "Edge"))
         else:
-            self.__Hint.set(self.__EdgeTest)
+            self.__Hint.set(self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "EdgeTest"))
         self.__setHintTextLocation(6.5)
 
     def __on_enterOpera(self, event):
         if self.__Config.get_Element("Opera") == "":
-            self.__Hint.set(self.__browserNotSet.replace("#browser#", "Opera"))
+            self.__Hint.set(self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "browserNotSet").replace("#browser#", "Opera"))
         else:
-            self.__Hint.set(self.__OperaTest)
+            self.__Hint.set(self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "OperaTest"))
         self.__setHintTextLocation(6.5)
 
     def __on_enterSettings(self, event):
-        self.__Hint.set(self.__settings)
+        self.__Hint.set(self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "settings"))
         self.__setHintTextLocation(12.75)
 
     def __on_enterHelp(self, event):
-        self.__Hint.set(self.__help)
+        self.__Hint.set(self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "help"))
         self.__setHintTextLocation(12.75)
 
     def __on_enterAbout(self, event):
-        self.__Hint.set(self.__about)
+        self.__Hint.set(self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "about"))
         self.__setHintTextLocation(12.75)
 
     @abstractmethod
@@ -698,12 +684,16 @@ class MainWindow_Real(ABC):
             self.create_StatLabel(self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "recentList"))
 
     def __OptionsMenu(self):
-        OptionsM=OptionsMenu(self.__dicts, self.__Config, self.__hammerFont,
+        import OptionsM
+
+        OptionsM=OptionsM.OptionsMenu(self.__dicts, self.__Config, self.__hammerFont,
                              self.__imgChrome, self.__imgFFox, self.__imgEdge, self.__imgOpera, self, self.__main, self.__fontSize, self.__monitor)
 
     def __AboutMenu(self):
         """Opens the men abouth the program and the author."""
-        AboutM=AboutMenu(self.__dicts, self.__Config, self.__hammerFont, self, self.__main, self.__fontSize, self.__monitor)
+        import About
+
+        AboutM=About.AboutMenu(self.__dicts, self.__Config, self.__hammerFont, self, self.__main, self.__fontSize, self.__monitor)
 
     def __getCodeFromBox(self):
         return(self.__CodeBox.get(0.0, END))
@@ -723,8 +713,8 @@ class MainWindow_Real(ABC):
         file.close()
 
 class MainWindow(MainWindow_Real):
-    def __init__(self, main):
-        super().__init__(main)
+    def __init__(self):
+        super().__init__()
 
     def create_StatLabel(master, text):
         super().create_StatLabel(text)
@@ -737,8 +727,4 @@ class MainWindow(MainWindow_Real):
 
 
 if __name__ == "__main__":
-    Main_Window = Tk()
-    Creator = MainWindow(Main_Window)
-
-    Main_Window.mainloop()
-
+    MainWindow()

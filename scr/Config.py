@@ -1,7 +1,6 @@
 from tkinter import *
 from abc import *
 import os
-import re
 from tkinter.filedialog import *
 from tkinter import messagebox
 
@@ -27,8 +26,8 @@ class Config_Real(ABC):
 
 
     def __get_OS(self):
-        import platform
-        return(platform.system())
+        from platform import system
+        return(system())
 
     @abstractmethod
     def get_OS_Name(self):
@@ -184,6 +183,7 @@ class Config_Real(ABC):
         return("")
 
     def __Regex_Get_Install_Location(self, app):
+        import re
         """Searches for the application's path in winapps result list"""
         FindRegex = re.findall(r"install_location=WindowsPath\(\'[a-zA-Z0-9:\/\s\(\)]+\'\)", str(app))
         if len(FindRegex) > 0:

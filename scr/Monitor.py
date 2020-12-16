@@ -9,9 +9,9 @@ class Monitor_Real(ABC):
         """Has different methods to get the main monitor's metrics on the two OS."""
 
         if system=="Windows":
-            import ctypes as ctypes
+            from ctypes import windll as windll
 
-            user32 = ctypes.windll.user32
+            user32 = windll.user32
             self.__screensize = user32.GetSystemMetrics(0), user32.GetSystemMetrics(1)
         else:
             from Xlib.display import Display

@@ -1,15 +1,16 @@
+
 from tkinter import *
 from abc import *
 import os
-import sys
 import re
 from tkinter.filedialog import *
 from tkinter import messagebox
 
+"""
 from Dictionaries import *
 from Config import *
 from Monitor import *
-
+"""
 
 class OptionsMenu_REAL(ABC):
 
@@ -46,14 +47,13 @@ class OptionsMenu_REAL(ABC):
             __h = 380
 
         self.__setOptionsMenuSize(__w, __h, __s)
-        self.__OptionsCreateMenu(__w, __h, __s, fontSize, hammer)
+        self.__OptionsCreateMenu(__w, __h, __s, fontSize)
 
 
-    def __OptionsCreateMenu(self, __w, __h, __s, fontSize, hammer):
+    def __OptionsCreateMenu(self, __w, __h, __s, fontSize):
         """Creates the menu where you can change the config file on GUI."""
 
         from tkinter.font import Font, families
-        from PIL import ImageTk, Image
 
         self.__OptionsM.pack_propagate(False)
         hammerFont = Font(font='Hammerfat_Hun')
@@ -71,20 +71,9 @@ class OptionsMenu_REAL(ABC):
         else:
             self.__intCompiler.set(1)
 
-        self.__compilerPython = Radiobutton(self.__compilerFrame, variable=self.__intCompiler, value=1,
-                                            text="Python", font=self.__hammerFont)
-        self.__compilerPython.place(x=10, y=round(hammerheight / 4))
-        self.__imgPython = ImageTk.PhotoImage(Image.open("icons/python.png"))
-        self.__imgPythonLabel = Label(self.__compilerFrame, image=self.__imgPython)
-        self.__imgPythonLabel.place(x=25 + hammerFont.measure("Python"), y=hammerheight / 4 - 10)
-
-        self.__compilerFortran = Radiobutton(self.__compilerFrame, variable=self.__intCompiler, value=2,
-                                             text="Fortran", font=self.__hammerFont)
-        self.__compilerFortran.place(x=round((__w) / 4), y=round(hammerheight / 4))
-        self.__imgFortran = ImageTk.PhotoImage(Image.open("icons/fortran.png"))
-        self.__imgFortranLabel = Label(self.__compilerFrame, image=self.__imgFortran)
-        self.__imgFortranLabel.place(x=round((__w) / 4) + 15 + hammerFont.measure("Fortran"),
-                                     y=(round(hammerheight / 4 - 10)))
+        """Had to put these two here, instead of '__createCompilerFrame', they don't work properly that way, reason unknown"""
+        self.__compilerPython, self.__imgPython, self.__imgPythonLabel = self.__compilerLabelButton(1, "Python", 10, hammerheight, hammerFont, "icons/python.png")
+        self.__compilerFortran, self.__imgFortran, self.__imgFortranLabel = self.__compilerLabelButton(2, "Fortran", round((__w) / 4), hammerheight, hammerFont, "icons/fortran.png")
 
         """Browserframe starts here"""
         __relative1 = round(__h / 10) + self.__hammerFont[1] * 2 + 5
@@ -104,6 +93,21 @@ class OptionsMenu_REAL(ABC):
         self.__setWindowLayout()
 
         self.__OptionsM.wait_window()
+
+    def __compilerLabelButton(self, value, text, placeX, hammerheight, hammerFont, imgpath):
+        """Creates the radiobutton, label of images and texts for the compiler choices."""
+
+
+        from PIL import ImageTk, Image
+
+        radio = Radiobutton(self.__compilerFrame, variable=self.__intCompiler, value=value,
+                                            text=text, font=self.__hammerFont)
+        radio.place(x=placeX, y=round(hammerheight / 4))
+        img = ImageTk.PhotoImage(Image.open(imgpath))
+        label = Label(self.__compilerFrame, image=img)
+        label.place(x=placeX + 15 + hammerFont.measure(text), y=hammerheight / 4 - 10)
+
+        return(radio, img, label)
 
     def __createCompilerFrame(self, __w, __h, __s):
         """Contains the two radiobuttons with the Python and Fortran logos."""
@@ -139,41 +143,32 @@ class OptionsMenu_REAL(ABC):
 
         __buttonWidth = self.__getAmmountOfChar(__bFrameWidth, hammerFont)
 
-        self.__iconChrome = Label(self.__browserFrame, image=self.__imgChrome, width=32, height=32)
-        self.__iconChrome.place(x=5, y=round(hammerheight / 4) + hammerheight)
-        self.__buttonSettingsChrome = Button(self.__browserFrame, width=__buttonWidth, command=self.__setPathChrome,
-                                             text=self.__dicts.getWordFromDict(self.__Config.get_Element("Language"),
-                                                                               "browserPathButtonText").replace(
-                                                 "#browser#", "Chrome"), font=self.__hammerFont)
-        self.__buttonSettingsChrome.place(x=44,
-                                          y=round(hammerheight / 4) + hammerheight + round((32 - hammerheight / 2) / 8))
+        self.__iconFireChrome, self.__buttonSettingsChrome = self.__createBrowserLabelButton(
+            self.__imgChrome, hammerheight, __buttonWidth, 0, self.__setPathChrome, "Chrome")
 
-        self.__iconFireFox = Label(self.__browserFrame, image=self.__imgFFox, width=32, height=32)
-        self.__iconFireFox.place(x=5, y=round(hammerheight / 4) + hammerheight + 40)
-        self.__buttonSettingsFireFox = Button(self.__browserFrame, width=__buttonWidth, command=self.__setPathFireFox,
-                                              text=self.__dicts.getWordFromDict(self.__Config.get_Element("Language"),
-                                                                                "browserPathButtonText").replace(
-                                                  "#browser#", "FireFox"), font=self.__hammerFont)
-        self.__buttonSettingsFireFox.place(x=44, y=round(hammerheight / 4) + hammerheight + round(
-            (32 - hammerheight / 2) / 8) + 40)
+        self.__iconFireFox, self.__buttonSettingsFireFox = self.__createBrowserLabelButton(
+            self.__imgFFox, hammerheight, __buttonWidth, 40, self.__setPathFireFox, "Firefox")
 
-        self.__iconEdge = Label(self.__browserFrame, image=self.__imgEdge, width=32, height=32)
-        self.__iconEdge.place(x=5, y=round(hammerheight / 4) + hammerheight + 80)
-        self.__buttonSettingsEdge = Button(self.__browserFrame, width=__buttonWidth, command=self.__setPathEdge,
-                                           text=self.__dicts.getWordFromDict(self.__Config.get_Element("Language"),
-                                                                             "browserPathButtonText").replace(
-                                               "#browser#", "Edge"), font=self.__hammerFont)
-        self.__buttonSettingsEdge.place(x=44, y=round(hammerheight / 4) + hammerheight + round(
-            (32 - hammerheight / 2) / 8) + 80)
+        self.__iconEdge, self.__buttonSettingsEdge = self.__createBrowserLabelButton(
+            self.__imgEdge, hammerheight, __buttonWidth, 80, self.__setPathEdge, "Edge")
 
-        self.__iconOpera = Label(self.__browserFrame, image=self.__imgOpera, width=32, height=32)
-        self.__iconOpera.place(x=5, y=round(hammerheight / 4) + hammerheight + 120)
-        self.__buttonSettingsOpera = Button(self.__browserFrame, width=__buttonWidth, command=self.__setPathOpera,
+        self.__iconOpera, self.__buttonSettingsOpera = self.__createBrowserLabelButton(
+            self.__imgOpera, hammerheight, __buttonWidth, 120, self.__setPathOpera, "Opera")
+
+    def __createBrowserLabelButton(self, image, hammerheight, w, plus, command, browsername):
+        """Creates the browser icon label and the button that allows the user
+        to set the path to the tester browsers."""
+
+        icon = Label(self.__browserFrame, image=image, width=32, height=32)
+        icon.place(x=5, y=round(hammerheight / 4) + hammerheight + plus)
+        button = Button(self.__browserFrame, width=w, command=command,
                                             text=self.__dicts.getWordFromDict(self.__Config.get_Element("Language"),
                                                                               "browserPathButtonText").replace(
-                                                "#browser#", "Opera"), font=self.__hammerFont)
-        self.__buttonSettingsOpera.place(x=44, y=round(hammerheight / 4) + hammerheight + round(
-            (32 - hammerheight / 2) / 8) + 120)
+                                                "#browser#", browsername), font=self.__hammerFont)
+        button.place(x=44, y=round(hammerheight / 4) + hammerheight + round(
+            (32 - hammerheight / 2) / 8) + plus)
+        return(icon, button)
+
 
     def __createBasicSettingsFrame(self, __w, __h, __s, __relative1, __bFrameWidth, hammerFont, hammerheight):
         """Set basic settings for the application."""
@@ -185,51 +180,27 @@ class OptionsMenu_REAL(ABC):
         self.__basicSettingsFrame.place(x=round(__w / 2) + 5, y=5)
         self.__basicSettingsFrame.pack_propagate(False)
 
-        __languages = self.__getLanguages()
         __w_Of_Options = self.__getAmmountOfChar(round(__bFrameWidth - 5 - round((__bFrameWidth - 5) / 2.5)),
                                                  hammerFont)
 
-        self.__labelLanguage = Label(self.__basicSettingsFrame,
-                                     text=self.__dicts.getWordFromDict(self.__Config.get_Element("Language"),
-                                                                       "language"), font=self.__hammerFont)
-        self.__labelLanguage.place(x=5, y=5)
+        __languages = self.__getLanguages()
 
-        self.__langVar = StringVar()
-        self.__languageOption = OptionMenu(self.__basicSettingsFrame, self.__langVar, *tuple(__languages))
-        self.__languageOption.config(font=(self.__hammerFont[0], self.__hammerFont[1] - 2), width=__w_Of_Options,
-                                     justify=LEFT)
-        self.__languageOption.place(x=round((__bFrameWidth - 5) / 2.5), y=3)
+        self.__labelLanguage, self.__langVar, self.__languageOption = \
+            self.__createLabelOptionMenu(__w_Of_Options, __bFrameWidth, "language", hammerheight, 1, self.__getLanguages())
 
-        self.__labelBoxSize = Label(self.__basicSettingsFrame,
-                                    text=self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "boxSize"),
-                                    font=self.__hammerFont)
-        self.__labelBoxSize.place(x=5, y=10 + hammerheight)
 
         self.__windowSSize = tuple(["Auto", "1 (640x480)", "2 (800x600)", "3 (1600x1200)", "4 (XXL)"])
 
-        self.__windowSize = StringVar()
+        self.__labelBoxSize, self.__windowSize, self.__boxOption = \
+            self.__createLabelOptionMenu(__w_Of_Options, __bFrameWidth, "boxSize", hammerheight, 2, self.__windowSSize)
 
-        self.__boxOption = OptionMenu(self.__basicSettingsFrame, self.__windowSize, *self.__windowSSize)
-        self.__boxOption.config(font=(self.__hammerFont[0], self.__hammerFont[1] - 2), width=__w_Of_Options,
-                                justify=LEFT)
+        self.__labelBColor, self.__boxColorVar, self.__colorOption = \
+        self.__createLabelOptionMenu(__w_Of_Options, __bFrameWidth, "boxColor", hammerheight, 3, tuple([
+                                             self.__dicts.getWordFromDict(self.__Config.get_Element("Language"),
+                                                                          "light"),
+                                             self.__dicts.getWordFromDict(self.__Config.get_Element("Language"),
+                                                                          "dark")]))
 
-        self.__boxOption.place(
-            x=round((__bFrameWidth - 5) / 2.5),
-            y=10 + hammerheight)
-
-        self.__labelBColor = Label(self.__basicSettingsFrame,
-                                   text=self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "boxColor"),
-                                   font=self.__hammerFont)
-        self.__labelBColor.place(x=5, y=15 + hammerheight * 2)
-
-        self.__boxColorVar = StringVar()
-
-        self.__colorOption = OptionMenu(self.__basicSettingsFrame, self.__boxColorVar, *tuple([
-            self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "light"),
-            self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "dark")]))
-        self.__colorOption.config(font=(self.__hammerFont[0], self.__hammerFont[1] - 2), width=__w_Of_Options,
-                                  justify=LEFT)
-        self.__colorOption.place(x=round((__bFrameWidth - 5) / 2.5), y=15 + hammerheight * 2)
         self.__changeOptionColorCOLOR("a", "b", "c")
         self.__boxColorVar.trace_add("write", self.__changeOptionColorCOLOR)
 
@@ -302,6 +273,25 @@ class OptionsMenu_REAL(ABC):
         self.__quickNum.trace_add("write", self.__quickCheck)
 
         #self.__checkQuickBox("a", "b", "c")
+
+    def __createLabelOptionMenu(self, __w_Of_Options, __bFrameWidth, word, hammerheight, multi, tuple):
+        """Creates text label with optionmenu and the choices included."""
+
+        label = Label(self.__basicSettingsFrame,
+                                    text=self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), word),
+                                    font=self.__hammerFont)
+        label.place(x=5, y=5*multi + hammerheight * (multi-1))
+
+        var = StringVar()
+
+        option = OptionMenu(self.__basicSettingsFrame, var, *tuple)
+        option.config(font=(self.__hammerFont[0], self.__hammerFont[1] - 2), width=__w_Of_Options,
+                                justify=LEFT)
+
+        option.place(
+            x=round((__bFrameWidth - 5) / 2.5), y=5*multi + hammerheight * (multi-1))
+
+        return(label, var, option)
 
     def __createBox(self, var, text, Y):
         """Helps to set attributes for the three very alike checkboxes."""
@@ -378,6 +368,8 @@ class OptionsMenu_REAL(ABC):
 
 
     def __createButtonFrame(self, __w, __h, __s, hammerFont, hammerheight):
+        """Creates the three buttons at the bottom of the window."""
+
         self.__mainButtonaForOptionsFrame = Frame(self.__OptionsM, width=__w - 20, height=hammerheight * 2, )
         self.__mainButtonaForOptionsFrame.bind("<Enter>", self.__OptionsButFrameLabel)
         self.__mainButtonaForOptionsFrame.place(x=17, y=__h - (hammerheight * 2))
@@ -385,26 +377,23 @@ class OptionsMenu_REAL(ABC):
 
         third = self.__getAmmountOfChar(round(__w / 3) - 75, hammerFont)
 
-        self.__mainButtonOK = Button(self.__mainButtonaForOptionsFrame, width=third,
+        self.__mainButtonOK = self.__createBottomButton(third, "SettingsOK", hammerFont, self.__saveSettings, 0, __w)
+        self.__mainButtonCancel = self.__createBottomButton(third, "Cancel", hammerFont, self.__destroyWindow, 1, __w)
+        self.__mainButtonDefaults = self.__createBottomButton(third, "Defaults", hammerFont, self.__loadDef, 2, __w)
+
+
+    def __createBottomButton(self, third, word, hammerFont, command, multi, __w):
+        """Creating a button."""
+
+        button = Button(self.__mainButtonaForOptionsFrame, width=third,
                                      text=self.__dicts.getWordFromDict(self.__Config.get_Element("Language"),
-                                                                       "SettingsOK"), font=hammerFont,
-                                         command=self.__saveSettings)
-        self.__mainButtonOK.place(x=0, y=0)
-
-        self.__mainButtonCancel = Button(self.__mainButtonaForOptionsFrame, width=third,
-                                         text=self.__dicts.getWordFromDict(self.__Config.get_Element("Language"),
-                                                                           "Cancel"), font=hammerFont,
-                                         command=self.__destroyWindow)
-        self.__mainButtonCancel.place(x=round(__w / 3), y=0)
-
-        self.__mainButtonDefaults = Button(self.__mainButtonaForOptionsFrame, width=third,
-                                           text=self.__dicts.getWordFromDict(self.__Config.get_Element("Language"),
-                                                                             "Defaults"), font=hammerFont,
-                                           command=self.__loadDef)
-        self.__mainButtonDefaults.place(x=round(__w / 3) * 2, y=0)
-
+                                                                       word), font=hammerFont,
+                                     command=command)
+        button.place(x=round(__w / 3) * multi, y=0)
+        return(button)
 
     def __changeOptionColorCOLOR(self, a, b, c):
+        """Changes color of the optionmenu to white or black, depending on it's value"""
         if self.__boxColorVar.get() ==  self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "light"):
             self.__colorOption.config(bg="white", fg="black", activebackground="white", activeforeground="black")
         else:
@@ -517,10 +506,14 @@ class OptionsMenu_REAL(ABC):
 
 
     def __resStart(self):
+        """Restarts application."""
+
         m = messagebox.showinfo(self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "restartTitle"),
                                 self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "restartText"))
         self.master.saveQuickSave()
-        os.execl(sys.executable, os.path.abspath(__file__), *sys.argv)
+        from sys import executable
+
+        os.execl(executable, os.path.abspath(__file__), *sys.argv)
 
     def __setWindowLayout(self):
         if self.__Config.get_Element("FortranCompiler") == "True":
@@ -580,14 +573,17 @@ class OptionsMenu_REAL(ABC):
 
 
     def __OptionsCompFrameLabel(self, event):
+        """Writes the label of the main window to show info about the frame."""
         self.master.create_StatLabel(self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "compilerLabel"))
 
 
     def __OptionsBrowFrameLabel(self, event):
+        """Writes the label of the main window to show info about the frame."""
         self.master.create_StatLabel(self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "browserLabel"))
 
 
     def __OptionsButFrameLabel(self, event):
+        """Writes the label of the main window to show info about the frame."""
         self.master.create_StatLabel(self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "buttonLabel"))
 
 

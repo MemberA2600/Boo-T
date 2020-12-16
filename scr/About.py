@@ -2,11 +2,6 @@ from tkinter import *
 from abc import *
 from tkinter.filedialog import *
 
-from Dictionaries import *
-from Config import *
-from Monitor import *
-
-
 class AboutMenu_REAL(ABC):
 
     @abstractmethod
