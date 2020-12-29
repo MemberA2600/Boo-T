@@ -62,3 +62,5 @@ author=Készítette:
 noLoadingScreen=Betöltõ képernyõ induláskor
 wheel=Használd az egérgörgõt, Luke!
 template=Séma betöltése Új Fájl esetén
+generateCode=HTTP Code Generálása
+copyToClipBoard=Vágólapra másolás

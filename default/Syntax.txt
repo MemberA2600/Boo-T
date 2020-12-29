@@ -1,0 +1,4 @@
+basics=author,language,charset,palette
+keywords=
+description=
+title=

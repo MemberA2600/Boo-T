@@ -188,7 +188,7 @@ class MainWindow_Real(ABC):
         self.__Paste_B = self.__createButton(self.__imgPaste, self.__doPaste, self.__on_enterPaste, 5.25)
 
         self.__imgHTML = ImageTk.PhotoImage(Image.open("icons/html.png"))
-        self.__HTML_B = self.__createButton(self.__imgHTML, None, self.__on_enterHTML, 6.5)
+        self.__HTML_B = self.__createButton(self.__imgHTML, self.__getCodeOnly, self.__on_enterHTML, 6.5)
 
         self.__imgFastTest = ImageTk.PhotoImage(Image.open("icons/test.png"))
         self.__FTest_B = self.__createButton(self.__imgFastTest, None, self.__on_enterFastTest, 7.5)
@@ -336,6 +336,7 @@ class MainWindow_Real(ABC):
 
         clipboard.copy(self.__CodeBox.selection_get())
 
+
     def __addToRecent(self, text):
         """Saves the recent opened file list, also updates the listbox.
         If maximum number of recent is exceeded, it will delete the last element before update."""
@@ -450,6 +451,11 @@ class MainWindow_Real(ABC):
     def updateCodeBox(self):
         """Changes the light/dark them for the box, also changes the font size.
         If the listbox are existing, updates their colors too."""
+
+        if int(self.__Config.get_Element("BoxFontSize")) > 48:
+            self.__Config.set_Element("BoxFontSize", "48")
+        if int(self.__Config.get_Element("BoxFontSize")) < 12:
+            self.__Config.set_Element("BoxFontSize", "12")
 
         if (self.__Config.get_Element("DarkBox") == "False"):
             self.__color = "white"
@@ -694,6 +700,12 @@ class MainWindow_Real(ABC):
         import About
 
         AboutM=About.AboutMenu(self.__dicts, self.__Config, self.__hammerFont, self, self.__main, self.__fontSize, self.__monitor)
+
+
+    def __getCodeOnly(self):
+        import GetCodeOnly
+
+        GetCodeOnly = GetCodeOnly.GetCodeOnly(self.__dicts, self.__Config, self.__hammerFont, self, self.__main, self.__fontSize, self.__monitor, self.__getCodeFromBox())
 
     def __getCodeFromBox(self):
         return(self.__CodeBox.get(0.0, END))
