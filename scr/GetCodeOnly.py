@@ -42,7 +42,9 @@ class GetCodeOnly_REAL(ABC):
         self.__codebox.config(bg=self.__color, fg=self.__color2, wrap=WORD)
 
         self.__buttonsFrame1 = self.__createButtonFrame(0)
-        self.__buttonsFrame2 = self.__createButtonFrame(250)
+        self.__buttonsFrame2 = self.__createButtonFrame(166)
+        self.__buttonsFrame3 = self.__createButtonFrame(332)
+
 
         self.__copyButton = self.__createButton(self.__buttonsFrame1, self.__dicts.getWordFromDict(
             self.__Config.get_Element("Language"),
@@ -50,13 +52,19 @@ class GetCodeOnly_REAL(ABC):
             self.__doCopy
         )
 
-        self.__cancelButton = self.__createButton(self.__buttonsFrame2, self.__dicts.getWordFromDict(
+        self.__saveButton = self.__createButton(self.__buttonsFrame2, self.__dicts.getWordFromDict(
+            self.__Config.get_Element("Language"),
+            "save"),
+            self.__doSaveAs
+        )
+
+        self.__cancelButton = self.__createButton(self.__buttonsFrame3, self.__dicts.getWordFromDict(
             self.__Config.get_Element("Language"),
             "Cancel"),
             self.__destroyWindow
         )
-        self.__getCode(code)
 
+        self.__getCode(code)
         self.__TheBox.focus()
         self.__TheBox.wait_window()
 
@@ -65,7 +73,7 @@ class GetCodeOnly_REAL(ABC):
 
         if self.__Config.get_Element("FortranCompiler")=="False":
             import PythonCompiler
-            Compiler = PythonCompiler.Compiler(code)
+            Compiler = PythonCompiler.Compiler(code, self.__Config, self.__dicts)
             code = Compiler.compiled
 
         else:
@@ -76,7 +84,7 @@ class GetCodeOnly_REAL(ABC):
 
 
     def __createButtonFrame(self, x):
-        frame = Frame(self.__TheBox, width=250, height=50)
+        frame = Frame(self.__TheBox, width=166, height=50)
         frame.place(x=x, y=410)
         frame.pack_propagate(False)
         return(frame)
@@ -94,6 +102,27 @@ class GetCodeOnly_REAL(ABC):
 
     def __destroyWindow(self):
         self.__TheBox.destroy()
+
+    def __doSaveAs(self):
+        savename = asksaveasfilename(initialdir="*",
+                                     title=self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "save"),
+                                     filetypes=((self.__dicts.getWordFromDict(self.__Config.get_Element("Language"),
+                                                                              "fileHTML"), "*.html"),
+                                                (self.__dicts.getWordFromDict(self.__Config.get_Element("Language"),
+                                                                              "fileTxT"), "*.txt")))
+
+        try:
+            if savename.endswith(".html") == False or savename.endswith(".txt"):
+                savename += ".html"
+            opened = open(savename, "w")
+            opened.write(self.__codebox.get(0.0, END))
+            opened.close()
+
+        except Exception as e:
+            messagebox.showerror(
+                self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "fileSaveErrorTitle"),
+                self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "fileSaveError").replace("#path#",
+                    savename) + "\n" + str(e))
 
 class GetCodeOnly(GetCodeOnly_REAL):
 

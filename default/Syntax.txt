@@ -2,3 +2,5 @@ basics=author,language,charset,palette
 keywords=
 description=
 title=
+background=gradient,color,image
+banner=image,animation,size,text,height

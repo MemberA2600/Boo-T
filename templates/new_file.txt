@@ -7,7 +7,7 @@ title(En taro Adun!) %%
 
 %% These are the basic layout settings!
 
-background(gradient=HOR) %%
+background(gradient=HOR) 
 
 %% Valid variants:
 %% color
@@ -20,6 +20,4 @@ background(gradient=HOR) %%
 banner(animation(20s,example1.jpg,example2.jpg,example3.jpg),
        text("Psyonic Storm",20,center),
        size=contain,
-       height=400) %%
-
-
+       height=400)

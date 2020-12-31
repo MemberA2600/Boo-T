@@ -1,6 +1,0 @@
-%% These are the basic settings and this is how you can make a comment!
-
-basics(author=Tassadar,language=en, charset=UTF-8, palette=red) %%
-keywords(protoss, Aiur, High Templar) %%
-description(Savior of the Templar) %%
-title(En taro Adun!) %%

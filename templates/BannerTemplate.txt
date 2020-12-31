@@ -1,0 +1,7 @@
+    <!-- Banner starts -->
+    <div class="row d-none d-sm-block">
+	<div class="col-12" id="Banner"> 
+		#bannertext#
+	</div>
+    </div>
+    <!-- Banner ends -->

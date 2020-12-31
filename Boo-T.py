@@ -237,8 +237,8 @@ class MainWindow_Real(ABC):
         self.__opened = False
         self.__path = ""
 
-        if os.path.exists("default/new_file.txt") and self.__Config.get_Element("loadTemplate")=="True":
-            self.__openFile("default/new_file.txt", False)
+        if os.path.exists("templates/new_file.txt") and self.__Config.get_Element("loadTemplate")=="True":
+            self.__openFile("templates/new_file.txt", False)
 
 
     def __doOpen(self):
