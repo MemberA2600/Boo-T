@@ -5,8 +5,8 @@ body
  	margin-right: auto;
     	margin-left: auto;
     	display: block;
-    	width: 90%;
-	border-radius: 20px;
+    	width: 100%;
+	border-radius: 15px;
 	}
 
 #bannerCSS#

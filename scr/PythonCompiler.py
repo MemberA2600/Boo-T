@@ -196,7 +196,7 @@ class Compiler_REAL(ABC):
                         else:
                             self.__argumentError(args, "background")
 
-                        data = data + "#Color1#, #Color2#. #Color1#"
+                        data = data + "#Color1#, #Color2#, #Color1#"
 
                         self.__background = self.__background.replace("#Data#", data)
 
@@ -206,7 +206,7 @@ class Compiler_REAL(ABC):
                 elif args.startswith("image"):
                     args=self.__splitComma(args.split("=",1)[1])
                     if len(args) == 1:
-                        args.append("contain")
+                        args.append("cover")
 
                     self.__background = "background-image: url('"+ args[0] +"');"+os.linesep
                     self.__background = self.__background + "\tbackground-repeat: no-repeat;" + os.linesep \
@@ -218,10 +218,12 @@ class Compiler_REAL(ABC):
                     self.__argumentError(args, "background")
 
             elif line[0] == "banner":
+                self.__bannerTemplateChanged = True
+
                 self.__splitComma(args)
                 args = self.__splitComma(args)
-                self.__bannerSize="contain"
-                self.__bannerTextSize="1em"
+                self.__bannerSize="cover"
+                self.__bannerTextSize="3em"
                 self.__bannerTextAlign="center"
                 self.__bannerData=""
                 self.__bannerAnimation=""
@@ -273,14 +275,22 @@ class Compiler_REAL(ABC):
                     else:
                         self.__argumentError(subArg, "banner")
 
+                self.__bannerData += "\tdisplay: flex;" + os.linesep
+                self.__bannerData += "\talign-items: flex-end;" + os.linesep
+
                 self.__bannerData += "\tbackground-size: "+self.__bannerSize+";" + os.linesep
                 self.__bannerData += "\tfont-size: " + self.__bannerTextSize +";" +os.linesep
-                self.__bannerData += "\ttext-align: "+self.__bannerTextAlign +";" +os.linesep
-                self.__bannerData += "\theight: "+self.__bannerHeight +";" +os.linesep
+                self.__bannerData += "\tjustify-content: "+self.__bannerTextAlign.replace("left", "flex-start").replace("right", "flex-end") +";" +os.linesep
+                self.__bannerData += "\theight: "+self.__bannerHeight +"px;" +os.linesep
                 self.__bannerData += "\tvertical-align: bottom;"+os.linesep
                 self.__bannerData += "\tbackground-position-x: center;"+os.linesep
                 self.__bannerData += "\tmargin-left: auto;"+os.linesep
                 self.__bannerData += "\tmargin-right: auto;"+os.linesep
+                self.__bannerData += "\tborder-radius: 15px 15px 0px 0px;"+os.linesep
+                self.__bannerData += "\ttext-shadow: #Color1# 10px 10px 10px;"+os.linesep
+
+
+
                 if self.__bannerAnimation!="":
                     self.__bannerData += "\tanimation-name: bannerAnimation;"+os.linesep
                     self.__bannerData += "\tanimation-duration: " + self.__time + ";"+os.linesep
