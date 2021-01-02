@@ -69,3 +69,5 @@ errorBasic=#error# a #number#. valós sorban!
 errorInvalidCommand=Hibás parancs (#line#)
 errorColorPalette=A '#Value#' színpaletta nem található
 errorInvalidArgument=Hibás argumentum (#Key#) a '#All#' parancsnál
+errorNot12=Nem 12 a bootstrap arányszámok összege
+errorNoMatch=A soron belüli oszlopok száma hibás

@@ -1,0 +1,38 @@
+	.row-item
+		{
+		color: #Color4#;
+		background-color: #Color2#;
+		}
+
+	.row-item h1
+		{
+		font-weight: 600;
+		color: #Color3#;
+		text-shadow: #Color1# 5px 5px 5px;
+		font-size: 2.5em;
+		}
+
+
+	.row-item img
+		{
+		border-radius: 10px;
+		filter: saturate(0.25) blur(3px);
+    		transition: 0.25s;
+		}
+
+	.row-item img:hover
+		{
+		filter: saturate(1) blur(0px);
+		}
+
+
+	/* smartphones, touchscreens */
+	@media (hover: none) and (pointer: coarse) .row-item
+		{
+		filter: saturate(1) blur(0px);
+		}
+
+	.row-item img:hover
+		{
+		filter: saturate(1) blur(0px);
+		}

@@ -1,6 +1,9 @@
     <!-- Banner starts -->
     <div class="row d-none d-sm-block">
-	<div class="col-12" id="Banner"> 
+	<div class="col-12" id="Banner" > 
+		
+	</div>
+	<div class="col-12" id="BannerText" > 
 		#bannertext#
 	</div>
     </div>

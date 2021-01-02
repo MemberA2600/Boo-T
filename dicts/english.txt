@@ -69,3 +69,5 @@ errorBasic=#error# at valid line #number#!
 errorInvalidCommand=Invalid Command (#line#)
 errorColorPalette=Color Palette '#Value#' not found
 errorInvalidArgument=Invalid Argument (#Key#) for '#All#'
+errorNot12=Sum of bootstrap rate arguments is not 12
+errorNoMatch=Number of columns does not match in row

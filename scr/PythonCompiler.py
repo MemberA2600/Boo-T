@@ -12,7 +12,7 @@ class Compiler_REAL(ABC):
         self.__Colors = ColorPalettes.ColorPalettes()
         self.__Config=config
         self.__dicts=dicts
-
+        self.__fontfamily='"Arial"'
 
         """Basic Variables"""
         self.__author=""
@@ -25,6 +25,16 @@ class Compiler_REAL(ABC):
         self.__background = ""
         self.__bannerText = ""
         self.__bannerCSS = ""
+        self.__navBarCSS = ""
+        self.__navbarOpacity = 1.0
+        self.__tableOpacity = 1.0
+        self.__rowOpacity = 1.0
+
+
+        self.__mainBody=""
+        self.__tableCSS = ""
+        self.__rowCSS = ""
+
 
         """Formatting the code, getting the full, perfect lines before reading it"""
         code = self.__removeComments(code)
@@ -72,8 +82,12 @@ class Compiler_REAL(ABC):
     def __replaceCompiled(self):
         self.compiled = self.compiled.replace("#background#", self.__background)
         self.compiled = self.compiled.replace("#bannerCSS#", self.__bannerCSS)
+        self.compiled = self.compiled.replace("#navBarCSS#", self.__navBarCSS)
         self.compiled = self.compiled.replace("#bannertext#", self.__bannerText)
-
+        self.compiled = self.compiled.replace("#font#", self.__fontfamily)
+        self.compiled = self.compiled.replace("#tableCSS#", self.__tableCSS)
+        self.compiled = self.compiled.replace("#rowCSS#", self.__rowCSS)
+        self.compiled = self.compiled.replace("#body#", self.__mainBody)
 
     def __createCompiled(self):
         if self.__error!=False:
@@ -116,6 +130,9 @@ class Compiler_REAL(ABC):
             else:
                 self.compiled = self.compiled.replace("#style#", "")
 
+            self.compiled = self.compiled.replace("#font#", self.__fontfamily)
+
+
     def __removeComments(self, code):
         return(re.sub(r"%%.*\n", "%%", code))
 
@@ -152,6 +169,8 @@ class Compiler_REAL(ABC):
                 self.__keywords = args
             elif line[0] == "description":
                 self.__description = args
+            elif line[0] == "font-family":
+                self.__fontfamily = args
             elif line[0] == "title":
                 self.__title = args
             elif line[0] == "basics":
@@ -169,7 +188,14 @@ class Compiler_REAL(ABC):
                     elif Key == "palette":
                         if Value not in self.__Colors.getColors():
                             try:
-                                num=int(Value)
+                                if Value == "random":
+                                    import random
+                                    import datetime
+                                    random.seed(int(str(datetime.datetime.now())[-4:]))
+
+                                    num = random.randint(0,28)
+                                else:
+                                    num=int(Value)
                                 Value=list(self.__Colors.getColors())[num]
                             except:
                                 self.__error = self.__dicts.getWordFromDict(
@@ -220,12 +246,12 @@ class Compiler_REAL(ABC):
             elif line[0] == "banner":
                 self.__bannerTemplateChanged = True
 
-                self.__splitComma(args)
                 args = self.__splitComma(args)
                 self.__bannerSize="cover"
                 self.__bannerTextSize="3em"
                 self.__bannerTextAlign="center"
                 self.__bannerData=""
+                self.__bannerTextData=""
                 self.__bannerAnimation=""
                 self.__bannerHeight = 200
                 self.__bannerCSS = open("templates/BannerCSSTemplate.txt").read()
@@ -248,7 +274,7 @@ class Compiler_REAL(ABC):
 
                     elif subArg.startswith("animation"):
                         self.__bannerAnimation = open("templates/bannerAnimationTemplate.txt").read()
-                        animpart = "\t\t#number#%{	background-image: url('#img#');	}" + os.linesep
+                        #animpart = "\t\t#number#%{	background-image: url('#img#');	}" + os.linesep
 
                         __replacer = ""
 
@@ -259,6 +285,7 @@ class Compiler_REAL(ABC):
                         still = 100//(len(stuff)-1) - move
                         number = 0
 
+                        """
                         for imageNum in range(1, len(stuff)):
                             __replacer+=animpart.replace("#number#", str(number)).replace("#img#", stuff[imageNum])
                             number+=still
@@ -266,6 +293,23 @@ class Compiler_REAL(ABC):
                             number+=move
 
                         __replacer+=animpart.replace("#number#", "100").replace("#img#", stuff[1])
+                        """
+                        animpart = "\t\t#number#%{	background-image: url('#img#');	filter: saturate(#sat#) blur(#blur#px) ;}" + os.linesep
+
+
+                        for imageNum in range(1, len(stuff)):
+                            __replacer+=animpart.replace("#number#", str(number)).replace("#img#", stuff[imageNum]).replace("#blur#", "3").replace("#sat#", "0.25")
+                            __replacer+=animpart.replace("#number#", str(number+move)).replace("#img#", stuff[imageNum]).replace("#blur#", "0").replace("#sat#", "1")
+
+                            number+=still
+
+                            __replacer+=animpart.replace("#number#", str(number-move)).replace("#img#", stuff[imageNum]).replace("#blur#", "0").replace("#sat#", "1")
+                            __replacer+=animpart.replace("#number#", str(number)).replace("#img#", stuff[imageNum]).replace("#blur#", "3").replace("#sat#", "0.25")
+                            number+=move
+
+                        __replacer+=animpart.replace("#number#", "100").replace("#img#", stuff[1]).replace("#blur#", "3").replace("#sat#", "0.25")
+
+
 
                         self.__bannerAnimation = self.__bannerAnimation.replace("#animationThings#", __replacer)
 
@@ -278,17 +322,25 @@ class Compiler_REAL(ABC):
                 self.__bannerData += "\tdisplay: flex;" + os.linesep
                 self.__bannerData += "\talign-items: flex-end;" + os.linesep
 
+                self.__bannerTextData += "\tdisplay: flex;" + os.linesep
+                self.__bannerTextData += "\talign-items: flex-end;" + os.linesep
+
                 self.__bannerData += "\tbackground-size: "+self.__bannerSize+";" + os.linesep
-                self.__bannerData += "\tfont-size: " + self.__bannerTextSize +";" +os.linesep
-                self.__bannerData += "\tjustify-content: "+self.__bannerTextAlign.replace("left", "flex-start").replace("right", "flex-end") +";" +os.linesep
+                self.__bannerTextData += "\tfont-size: " + self.__bannerTextSize +";" +os.linesep
+                self.__bannerTextData += "\tjustify-content: "+self.__bannerTextAlign.replace("left", "flex-start").replace("right", "flex-end") +";" +os.linesep
                 self.__bannerData += "\theight: "+self.__bannerHeight +"px;" +os.linesep
+                self.__bannerTextData += "\theight: 0px;" +os.linesep
+
                 self.__bannerData += "\tvertical-align: bottom;"+os.linesep
+                self.__bannerTextData += "\tvertical-align: bottom;"+os.linesep
+
                 self.__bannerData += "\tbackground-position-x: center;"+os.linesep
                 self.__bannerData += "\tmargin-left: auto;"+os.linesep
                 self.__bannerData += "\tmargin-right: auto;"+os.linesep
                 self.__bannerData += "\tborder-radius: 15px 15px 0px 0px;"+os.linesep
-                self.__bannerData += "\ttext-shadow: #Color1# 10px 10px 10px;"+os.linesep
-
+                self.__bannerTextData += "\ttext-shadow: #Color1# 5px 5px 5px;"+os.linesep
+                self.__bannerTextData += "\tpadding-bottom: "+self.__bannerHeight +"px;" +os.linesep
+                self.__bannerTextData += "\tmargin-bottom: -"+self.__bannerHeight +"px;" +os.linesep
 
 
                 if self.__bannerAnimation!="":
@@ -299,8 +351,153 @@ class Compiler_REAL(ABC):
 
 
 
-                self.__bannerCSS = self.__bannerCSS.replace("#bannerData#", self.__bannerData)
+                self.__bannerCSS = self.__bannerCSS.replace("#bannerData#", self.__bannerData).replace("#bannerTextData#", self.__bannerTextData)
                 self.__bannerCSS = self.__bannerCSS.replace("#BannerAnimation#", self.__bannerAnimation)
+
+            elif line[0] == "navbar":
+                self.__navBarTemplateChanged = True
+                __brandName = "Brand"
+                __items = []
+                __sticky = ""
+
+                args = self.__splitComma(args)
+                self.__navBarCSS = open("templates/NavBarCSSTemplate.txt").read()
+                self.__navItemTemplate = open("templates/NavItemTemplate.txt").read()
+                for item in args:
+                    if item.startswith("brand"):
+                        inside=self.__Command_and_Argument(item)[1][1:-1]
+                        if inside.startswith('"'):
+                            __brandName = inside[1:-1]
+                        else:
+                            url=inside.split("=")[1]
+                            __brandName = "<img class='img-fluid' src='" + url +  "'>"
+                    elif item.startswith("opacity"):
+                        self.__navbarOpacity=float(item.split("=")[1])
+
+                    elif item.startswith("item"):
+                        subargs = self.__splitComma(self.__Command_and_Argument(item)[1][1:-1])
+                        temp = self.__navItemTemplate
+                        temp=temp.replace("#text#", subargs[0][1:-1]).replace("#link#", subargs[1])
+                        __items.append(temp)
+
+                    elif item=="sticky":
+                        __sticky="sticky-top"
+
+                    else:
+                        self.__argumentError(item, "navbar")
+
+                if self.__navbarOpacity!=1:
+                    self.__navBarTemplate = self.__navBarTemplate.replace("#Color2#", "#NavbarOpacityColor2#")
+
+                self.__navBarTemplate=self.__navBarTemplate.replace("#brand#", __brandName).replace("#navItems#", os.linesep.join(__items)).replace("#sticky#", __sticky)
+
+            elif line[0] == "table":
+                self.__containerTemplateChanged = True
+                __tableTemplate = open("templates/TableTemplate.txt").read()
+                __headTemplate = "\t\t\t\t<th scope='col'>#column#</th>"
+                self.__tableCSS = open("templates/TableCSSTemplate.txt").read()
+                tempcolumns = []
+                temprows = []
+                __dark=""
+                __id=""
+
+                args = self.__splitComma(args)
+                for item in args:
+                    if item.startswith("opacity"):
+                        self.__tableOpacity = float(item.split("=")[1])
+                    elif item=="inverted":
+                        __dark = "table-dark"
+                    elif item.startswith("id"):
+                        __id = item.split("=")[1]
+                    elif item.startswith("columns"):
+                        columns = self.__Command_and_Argument(item)[1][1:-1]
+                        for column in self.__splitComma(columns):
+                            tempcolumns.append(__headTemplate.replace("#column#", column[1:-1]))
+                    elif item.startswith("row"):
+                        row = self.__Command_and_Argument(item)[1][1:-1]
+                        temprow = []
+                        temprow_string="\t\t\t<tr>" + os.linesep
+                        for r in self.__splitComma(row):
+                            temprow.append(r[1:-1])
+
+                        for num in range(0, len(temprow)):
+                            if num == 0:
+                                temprow_string+=str("\t\t\t\t<th scope='row'>#value#</th>" + os.linesep).replace("#value#", temprow[0])
+                            else:
+                                temprow_string+=str("\t\t\t\t<td>#value#</td>" + os.linesep).replace("#value#", temprow[num])
+                        temprow_string+="\t\t\t</tr>" + os.linesep
+                        temprows.append(temprow_string)
+
+                    else:
+                        self.__argumentError(item, "table")
+
+                __tableTemplate=__tableTemplate.replace("#headItems#", os.linesep.join(tempcolumns)).replace("#rowItems#", os.linesep.join(temprows)).replace("#dark#", __dark).replace("#id#", str("id='"+__id+"'"))
+
+                self.__mainBody+=__tableTemplate
+
+                if self.__tableOpacity!=1.0:
+                    self.__tableCSS =self.__tableCSS.replace("Color2", "TableOpacityColor2")
+            elif line[0] == "row":
+                self.__containerTemplateChanged = True
+                __rowTemplate = open("templates/RowTemplate.txt").read()
+                __rowItemTemplate = open("templates/RowItemTemplate.txt").read()
+                __articleTemplate = open("templates/ArticleTemplate.txt").read()
+                self.__rowCSS = open("templates/RowCSSTemplate.txt").read()
+                __id=""
+                __rates= []
+                __rowItems=[]
+                __titleAlign="center"
+
+                args = self.__splitComma(args)
+                for item in args:
+                    if item.startswith("opacity"):
+                        self.__rowOpacity = float(item.split("=")[1])
+                    elif item.startswith("id"):
+                        __id = item.split("=")[1]
+                    elif item.startswith("rate"):
+                        __rates = self.__splitComma(self.__Command_and_Argument(item)[1][1:-1])
+                        sum=0
+                        for number in __rates:
+                            sum+=int(number)
+                        if sum!=12:
+                            self.__error = self.__dicts.getWordFromDict(
+                                self.__Config.get_Element("Language"), "errorNot12")
+
+                    elif item.startswith("image"):
+                        __image = str("\t\t\t\t<a href='"+item.split("=")[1]+"'><img class='img-fluid img-animate' src='"+item.split("=")[1] + "'></a>")
+                        __rowItems.append(__rowItemTemplate.replace("#number#", __rates[len(__rowItems)]).replace("#data#", __image))
+
+                    elif item.startswith("article"):
+                        __article=__articleTemplate
+                        __title=""
+                        __text=""
+                        for ehhh in self.__splitComma(self.__Command_and_Argument(item)[1][1:-1]):
+                            if ehhh.startswith("title-align"):
+                                __titleAlign = ehhh.split("=")[1]
+
+                            elif ehhh.startswith("title"):
+                                __title = ehhh.split("=")[1][1:-1]
+
+                            elif ehhh.startswith("rawtext"):
+                                __text = ehhh.split("=")[1][1:-1]
+
+                            else:
+                                self.__argumentError(item, "artitle")
+
+                        __article = __article.replace("#title#", __title).replace("#text#", __text).replace("#align#", __titleAlign)
+                        __rowItems.append(__rowItemTemplate.replace("#number#", __rates[len(__rowItems)]).replace("#data#", __article))
+                    else:
+                        self.__argumentError(item, "row")
+
+                if len(__rowItems)!=len(__rates):
+                    self.__error = self.__dicts.getWordFromDict(
+                        self.__Config.get_Element("Language"), "errorNoMatch")
+
+                __rowTemplate = __rowTemplate.replace("#rowitems#", os.linesep.join(__rowItems)).replace("#id#", str("id='"+__id+"'"))
+                self.__mainBody+=__rowTemplate
+
+                if self.__tableOpacity!=1.0:
+                    self.__rowCSS =self.__rowCSS.replace("Color2", "RowOpacityColor2")
 
 
     def __argumentError(self, Key, All):
@@ -359,6 +556,9 @@ class Compiler_REAL(ABC):
         for number in range(0,4):
             if self.__palette!="":
                 self.compiled = self.compiled.replace("#Color"+str(number+1)+"#", self.__Colors.getPalette(self.__palette)[number])
+                self.compiled = self.compiled.replace("#NavbarOpacityColor"+str(number+1)+"#", str("rgba(" + self.__Colors.getRGBA(self.__Colors.getPalette(self.__palette)[number]) + "," + str(self.__navbarOpacity) + ")"))
+                self.compiled = self.compiled.replace("#TableOpacityColor"+str(number+1)+"#", str("rgba(" + self.__Colors.getRGBA(self.__Colors.getPalette(self.__palette)[number]) + "," + str(self.__tableOpacity) + ")"))
+                self.compiled = self.compiled.replace("#RowOpacityColor"+str(number+1)+"#", str("rgba(" + self.__Colors.getRGBA(self.__Colors.getPalette(self.__palette)[number]) + "," + str(self.__tableOpacity) + ")"))
 
 
 class Compiler(Compiler_REAL):

@@ -123,6 +123,7 @@ class GetCodeOnly_REAL(ABC):
                 self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "fileSaveErrorTitle"),
                 self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "fileSaveError").replace("#path#",
                     savename) + "\n" + str(e))
+        self.__destroyWindow()
 
 class GetCodeOnly(GetCodeOnly_REAL):
 
