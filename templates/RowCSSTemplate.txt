@@ -2,6 +2,7 @@
 		{
 		color: #Color4#;
 		background-color: #Color2#;
+    		transition: 0.25s;
 		}
 
 	.row-item h1
@@ -16,6 +17,10 @@
 	.row-item img
 		{
 		border-radius: 10px;
+		}
+
+	.row-item .img-animate
+		{
 		filter: saturate(0.25) blur(3px);
     		transition: 0.25s;
 		}
@@ -25,6 +30,13 @@
 		filter: saturate(1) blur(0px);
 		}
 
+	.row-item:hover
+		{
+		color: #Color3#;
+		background-color: #Color1#;
+		border-radius: 15px;
+		}
+
 
 	/* smartphones, touchscreens */
 	@media (hover: none) and (pointer: coarse) .row-item
@@ -32,7 +44,7 @@
 		filter: saturate(1) blur(0px);
 		}
 
-	.row-item img:hover
+	.row-item .img-animate:hover
 		{
 		filter: saturate(1) blur(0px);
 		}

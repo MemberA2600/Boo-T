@@ -19,8 +19,8 @@
 
 body
 	{
-	background-image: linear-gradient(to right, blue, royalblue, blue);
-        color: silver;
+	background-image: linear-gradient(to right, snow, seashell, snow);
+        color: salmon;
  	margin-right: auto;
     	margin-left: auto;
     	display: block;
@@ -31,8 +31,8 @@ body
 
 .container 
 	{
-	background-color: rgba(65,105,225,0.75);
-
+	background-color: rgba(255,245,238,0.75);
+	border-radius: 15px;
 	}
 
 #Banner 
@@ -40,93 +40,226 @@ body
 	display: flex;
 	align-items: flex-end;
 	background-size: cover;
-	font-size: 5em;
-	justify-content: center;
-	height: 400px;
+	height: 300px;
 	vertical-align: bottom;
 	background-position-x: center;
 	margin-left: auto;
 	margin-right: auto;
 	border-radius: 15px 15px 0px 0px;
-	text-shadow: blue 10px 10px 10px;
 	animation-name: bannerAnimation;
 	animation-duration: 20s;
 	animation-timing-function: ease-in-out;
 	animation-iteration-count: infinite;
 
 	}
+#BannerText
+	{
+	display: flex;
+	align-items: flex-end;
+	font-size: 4em;
+	justify-content: center;
+	height: 0px;
+	vertical-align: bottom;
+	text-shadow: snow 5px 5px 5px;
+	padding-bottom: 300px;
+	margin-bottom: -300px;
+
+	}
 
 @keyframes bannerAnimation
 	{
-		0%{	background-image: url('01.jpg');	}
-		30%{	background-image: url('01.jpg');	}
-		33%{	background-image: url('02.jpg');	}
-		63%{	background-image: url('02.jpg');	}
-		66%{	background-image: url('03.jpg');	}
-		96%{	background-image: url('03.jpg');	}
-		100%{	background-image: url('01.jpg');	}
+		0%{	background-image: url('01.jpg');	filter: saturate(0.25) blur(3px) ;}
+		3%{	background-image: url('01.jpg');	filter: saturate(1) blur(0px) ;}
+		27%{	background-image: url('01.jpg');	filter: saturate(1) blur(0px) ;}
+		30%{	background-image: url('01.jpg');	filter: saturate(0.25) blur(3px) ;}
+		33%{	background-image: url('02.jpg');	filter: saturate(0.25) blur(3px) ;}
+		36%{	background-image: url('02.jpg');	filter: saturate(1) blur(0px) ;}
+		60%{	background-image: url('02.jpg');	filter: saturate(1) blur(0px) ;}
+		63%{	background-image: url('02.jpg');	filter: saturate(0.25) blur(3px) ;}
+		66%{	background-image: url('03.jpg');	filter: saturate(0.25) blur(3px) ;}
+		69%{	background-image: url('03.jpg');	filter: saturate(1) blur(0px) ;}
+		93%{	background-image: url('03.jpg');	filter: saturate(1) blur(0px) ;}
+		96%{	background-image: url('03.jpg');	filter: saturate(0.25) blur(3px) ;}
+		100%{	background-image: url('01.jpg');	filter: saturate(0.25) blur(3px) ;}
 
 	}
 	navbar
 	{
-		color: silver !important;
+		color: salmon !important;
 
 	}
 
 	a
 	{
-		color: silver !important;
+		color: salmon !important;
 	}
 
 	.nav-link:hover, .navbar-brand:hover, .navbar-toggler:hover
 	{
-		background-color: slateblue;
+		background-color: tan;
 		border-radius: 10px;
 	
 	}
 
-
-
-
 	thead
 		{
 
-		background-color: slateblue;
-		color: blue;
+		background-color: tan;
+		color: snow;
 		font-weight: 600;
 		}
 
 	tbody
 		{
 
-		background-color: rgba(65,105,225,0.5);
+		background-color: rgba(255,245,238,0.5);
 		font-weight: 300;
-		color: silver;
+		color: salmon;
 		}
 
 	tr:hover
 		{
-		background-color: slateblue;
-		color: blue;
+		background-color: tan;
+		color: snow;
 		}
 
 
-</style>
+	.row-item
+		{
+		color: salmon;
+		background-color: rgba(255,245,238,0.5);
+    		transition: 0.25s;
+		}
+
+	.row-item h1
+		{
+		font-weight: 600;
+		color: tan;
+		text-shadow: snow 5px 5px 5px;
+		font-size: 2.5em;
+		}
+
+
+	.row-item img
+		{
+		border-radius: 10px;
+		}
+
+	.row-item .img-animate
+		{
+		filter: saturate(0.25) blur(3px);
+    		transition: 0.25s;
+		}
+
+	.row-item img:hover
+		{
+		filter: saturate(1) blur(0px);
+		}
+
+	.row-item:hover
+		{
+		color: tan;
+		background-color: snow;
+		border-radius: 15px;
+		}
+
+
+	/* smartphones, touchscreens */
+	@media (hover: none) and (pointer: coarse) .row-item
+		{
+		filter: saturate(1) blur(0px);
+		}
+
+	.row-item .img-animate:hover
+		{
+		filter: saturate(1) blur(0px);
+		}
+	Footer Button
+		{
+		background-color: tan !important;
+		color: salmon !important; 
+		border-color: salmon !important;
+		}
+
+	Footer Button:hover
+		{
+		background-color: salmon !important;
+		color: snow !important; 
+		border-color: snow !important;
+		}
+
+	#copyright
+		{
+		background-color: tan !important;
+		font-weight: 700px;
+		font-size: 1.5em;
+		border-radius: 0px 0px 15px 15px;
+		}
+
+	#copyright p
+		{
+		display: block;
+		margin-top: 10px;
+		margin-bottom: 10px;
+    		animation-name: moveCopy;
+    		animation-duration: 2s;
+		text-align: center;
+    		animation-timing-function: ease-in-out;
+    		animation-iteration-count: infinite;
+    		animation-direction: alternate;
+		}
+
+	#copyright a, #copyright a:visited, #copyright a:active, #copyright a:hover
+		{
+ 		color: snow !important;
+		text-decoration: none;
+		}
+
+	@keyframes moveCopy
+		{
+		0% { transform: translateX(-40px) ; }
+		100% { transform: translateX(40px)) ; }
+		}
+
+	#socials
+		{
+		margin-top: 15px;
+		background-color: tan !important;
+		border-radius: 15px 15px 0px 0px;
+
+		}
+	#socials img
+		{
+			text-align: center;
+			margin-top: 25px;
+			margin-bottom: 15px;
+
+		}
+
+	#socials div:hover
+		{
+		background-color: salmon;
+		border-radius: 200px;
+		
+		}</style>
   </head>
   <body>
     <div class="container">
 
         <!-- Banner starts -->
     <div class="row d-none d-sm-block">
-	<div class="col-12" id="Banner" style="font-weight: 600;"> 
+	<div class="col-12" id="Banner" > 
+		
+	</div>
+	<div class="col-12" id="BannerText" > 
 		Psyonic Storm
 	</div>
     </div>
     <!-- Banner ends -->
         <!-- NavBar starts -->
 
-	<nav class="navbar navbar-expand-lg navbar-light sticky-top" style="background-color: rgba(65,105,225,0.75) !important; font-size: 1.5em !important; margin: 0px -15px !important; padding: 0px 10px !important">
-		<a class="navbar-brand" href="#"><span style="font-size: 1.5em;"><img class='img-fluid' src='logo.png'></span></a>
+	<nav class="navbar navbar-expand-lg navbar-light sticky-top" style="background-color: rgba(255,245,238,0.75) !important; font-size: 1.5em !important; margin: 0px -15px !important; padding: 0px 10px !important">
+		<a class="navbar-brand" href="#"><span style="font-size: 1.5em;"><img class='img-fluid' target='_blank' src='logo.png'></span></a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       			<span class="navbar-toggler-icon"></span>
   		</button>
@@ -149,7 +282,7 @@ body
     <!-- NavBar ends -->
         <!-- Container starts -->
 		<div class="table-responsive">
-		<table class="table table-sm ">
+		<table class="table table-sm " id='One'>
 			<thead>
     			<tr>
 				<th scope='col'>Unit</th>
@@ -195,14 +328,71 @@ body
 
   			</tbody>
 		</table>
+		</div>		<div class="row" id='Two'>
+		<div class="col-12 col-md-3 row-item">
+				<a href='05.jpg'><img class='img-fluid #filter#' src='05.jpg'></a>
+		</div>
+		<div class="col-12 col-md-6 row-item">
+			<h1 style="text-align: center;">This is the Title!</h1>
+			<br>
+			<p style="text-align: justify">And this is some really awesome text! Can be <b>bold</b>,<i>italic</i> and all the classic things!</p>
+		</div>
+		<div class="col-12 col-md-3 row-item">
+				<a href='06.jpg'><img class='img-fluid #filter#' src='06.jpg'></a>
+		</div>
 		</div>
     <!-- Container Ends -->
-     
+    	<!-- Footer Starts here -->
+	<footer id='Three'>
+		<div class="row" id="socials">
+			<div class='col-3 col-md'>
+				<a  href='#' target='_blank'><img src='img/facebook.png' class='img-fluid'></a>
+</div>
+			<div class='col-3 col-md'>
+				<a  href='#' target='_blank'><img src='img/youtube.png' class='img-fluid'></a>
+</div>
+			<div class='col-3 col-md'>
+				<a  href='#' target='_blank'><img src='img/twitter.png' class='img-fluid'></a>
+</div>
+			<div class='col-3 col-md'>
+				<a  href='#' target='_blank'><img src='img/vk.png' class='img-fluid'></a>
+</div>
+			<div class='col-3 col-md'>
+				<a  href='#' target='_blank'><img src='img/instagram.png' class='img-fluid'></a>
+</div>
+			<div class='col-3 col-md'>
+				<a  href='#' target='_blank'><img src='img/google-plus.png' class='img-fluid'></a>
+</div>
+			<div class='col-3 col-md'>
+				<a  href='#' target='_blank'><img src='img/linkedin.png' class='img-fluid'></a>
+</div>
+			<div class='col-3 col-md'>
+				<a  href='#' target='_blank'><img src='img/github.png' class='img-fluid'></a>
+</div>
+
+		</div>
+		<div class="row">
+			<div class="col-12" id="copyright">
+				<p>Made with <a style="color: snow;" href="https://github.com/MemberA2600/Boo-T"> Boo-T </a> in 2021!</p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12" style="padding: 15px;">
+				<button type="button" class="btn btn-primary btn-lg btn-block" onclick="topFunction(); return false;" >SCROLL BACK!!</button>
+			</div>
+
+		</div>
+
+	</footer> 
+	<!-- Footer Ends here --> 
     </div> 
   </body>
     <!-- Optional JavaScript -->
     <script>document.addEventListener("touchstart", function() {}, true);</script>
-
+    <script>function topFunction() {
+  document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}</script>	
  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 </html>

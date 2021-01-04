@@ -26,9 +26,11 @@ class Compiler_REAL(ABC):
         self.__bannerText = ""
         self.__bannerCSS = ""
         self.__navBarCSS = ""
+        self.__footerCSS = ""
         self.__navbarOpacity = 1.0
         self.__tableOpacity = 1.0
         self.__rowOpacity = 1.0
+        self.__footerOpacity = 1.0
 
 
         self.__mainBody=""
@@ -88,6 +90,8 @@ class Compiler_REAL(ABC):
         self.compiled = self.compiled.replace("#tableCSS#", self.__tableCSS)
         self.compiled = self.compiled.replace("#rowCSS#", self.__rowCSS)
         self.compiled = self.compiled.replace("#body#", self.__mainBody)
+        self.compiled = self.compiled.replace("#footerCSS#", self.__footerCSS)
+
 
     def __createCompiled(self):
         if self.__error!=False:
@@ -191,9 +195,9 @@ class Compiler_REAL(ABC):
                                 if Value == "random":
                                     import random
                                     import datetime
-                                    random.seed(int(str(datetime.datetime.now())[-4:]))
+                                    random.seed(int(str(datetime.datetime.now()).split(".")[1]))
 
-                                    num = random.randint(0,28)
+                                    num = random.randint(0,27)
                                 else:
                                     num=int(Value)
                                 Value=list(self.__Colors.getColors())[num]
@@ -335,6 +339,8 @@ class Compiler_REAL(ABC):
                 self.__bannerTextData += "\tvertical-align: bottom;"+os.linesep
 
                 self.__bannerData += "\tbackground-position-x: center;"+os.linesep
+                self.__bannerData += "\tbackground-position-y: center;"+os.linesep
+
                 self.__bannerData += "\tmargin-left: auto;"+os.linesep
                 self.__bannerData += "\tmargin-right: auto;"+os.linesep
                 self.__bannerData += "\tborder-radius: 15px 15px 0px 0px;"+os.linesep
@@ -370,14 +376,14 @@ class Compiler_REAL(ABC):
                             __brandName = inside[1:-1]
                         else:
                             url=inside.split("=")[1]
-                            __brandName = "<img class='img-fluid' src='" + url +  "'>"
+                            __brandName = "<img class='img-fluid' target='_blank' src='" + url +  "'>"
                     elif item.startswith("opacity"):
                         self.__navbarOpacity=float(item.split("=")[1])
 
                     elif item.startswith("item"):
                         subargs = self.__splitComma(self.__Command_and_Argument(item)[1][1:-1])
                         temp = self.__navItemTemplate
-                        temp=temp.replace("#text#", subargs[0][1:-1]).replace("#link#", subargs[1])
+                        temp=temp.replace("#text#", subargs[0][1:-1]).replace("#link#", str("#"+subargs[1]))
                         __items.append(temp)
 
                     elif item=="sticky":
@@ -447,6 +453,7 @@ class Compiler_REAL(ABC):
                 __rates= []
                 __rowItems=[]
                 __titleAlign="center"
+                __imgfilter=""
 
                 args = self.__splitComma(args)
                 for item in args:
@@ -464,8 +471,11 @@ class Compiler_REAL(ABC):
                                 self.__Config.get_Element("Language"), "errorNot12")
 
                     elif item.startswith("image"):
-                        __image = str("\t\t\t\t<a href='"+item.split("=")[1]+"'><img class='img-fluid img-animate' src='"+item.split("=")[1] + "'></a>")
+                        __image = str("\t\t\t\t<a href='"+item.split("=")[1]+"'><img class='img-fluid #filter#' src='"+item.split("=")[1] + "'></a>")
                         __rowItems.append(__rowItemTemplate.replace("#number#", __rates[len(__rowItems)]).replace("#data#", __image))
+
+                    elif item.strip()=="imgfilter":
+                        __imgfilter="img-animate"
 
                     elif item.startswith("article"):
                         __article=__articleTemplate
@@ -494,17 +504,76 @@ class Compiler_REAL(ABC):
                         self.__Config.get_Element("Language"), "errorNoMatch")
 
                 __rowTemplate = __rowTemplate.replace("#rowitems#", os.linesep.join(__rowItems)).replace("#id#", str("id='"+__id+"'"))
+                __rowTemplate = __rowTemplate.replace("#filter#", __imgfilter)
                 self.__mainBody+=__rowTemplate
 
                 if self.__tableOpacity!=1.0:
                     self.__rowCSS =self.__rowCSS.replace("Color2", "RowOpacityColor2")
+            elif line[0]=="footer":
+                self.__footerTemplateChanged = True
+                self.__footerCSS = open("templates/FooterCSSTemplate.txt").read()
+                __footerData = ""
+                __buttonText = "Go to Top"
+                __socials = {}
+                __icons = []
 
+                __id=""
+                args = self.__splitComma(args)
+                for item in args:
+                    if item.startswith("opacity"):
+                        self.__footerOpacity = float(item.split("=")[1])
+                    elif item.startswith("id"):
+                        __id = item.split("=")[1]
+                    elif item.startswith("button"):
+                        __buttonText = item.split("=")[1][1:-1].strip()
+                    elif item.startswith("facebook"):
+                        __socials["facebook"] = item.split("=")[1].strip()
+                    elif item.startswith("youtube"):
+                        __socials["youtube"] = item.split("=")[1].strip()
+                    elif item.startswith("twitter"):
+                        __socials["twitter"] = item.split("=")[1].strip()
+                    elif item.startswith("vkontakte"):
+                        __socials["vkontakte"] = item.split("=")[1].strip()
+                    elif item.startswith("instagram"):
+                        __socials["instagram"] = item.split("=")[1].strip()
+                    elif item.startswith("googleplus"):
+                        __socials["googleplus"] = item.split("=")[1].strip()
+                    elif item.startswith("linkedin"):
+                        __socials["linkedin"] = item.split("=")[1].strip()
+                    elif item.startswith("github"):
+                        __socials["github"] = item.split("=")[1].strip()
+                    else:
+                        self.__argumentError(item, "footer")
+
+                if "facebook" in __socials.keys():
+                    __icons.append(str("\t\t\t<div class='col-3 col-md'>"+os.linesep+"\t\t\t\t<a  href='" + __socials["facebook"] + "' target='_blank'><img src='img/facebook.png' class='img-fluid'></a>"+os.linesep+"</div>" ))
+                if "youtube" in __socials.keys():
+                    __icons.append(str("\t\t\t<div class='col-3 col-md'>"+os.linesep+"\t\t\t\t<a  href='" + __socials["youtube"] + "' target='_blank'><img src='img/youtube.png' class='img-fluid'></a>"+os.linesep+"</div>" ))
+                if "twitter" in __socials.keys():
+                    __icons.append(str("\t\t\t<div class='col-3 col-md'>"+os.linesep+"\t\t\t\t<a  href='" + __socials["twitter"] + "' target='_blank'><img src='img/twitter.png' class='img-fluid'></a>"+os.linesep+"</div>" ))
+                if "vkontakte" in __socials.keys():
+                    __icons.append(str("\t\t\t<div class='col-3 col-md'>"+os.linesep+"\t\t\t\t<a  href='" + __socials["vkontakte"] + "' target='_blank'><img src='img/vk.png' class='img-fluid'></a>"+os.linesep+"</div>" ))
+                if "instagram" in __socials.keys():
+                    __icons.append(str("\t\t\t<div class='col-3 col-md'>"+os.linesep+"\t\t\t\t<a  href='" + __socials["instagram"] + "' target='_blank'><img src='img/instagram.png' class='img-fluid'></a>"+os.linesep+"</div>" ))
+                if "googleplus" in __socials.keys():
+                    __icons.append(str("\t\t\t<div class='col-3 col-md'>"+os.linesep+"\t\t\t\t<a  href='" + __socials["googleplus"] + "' target='_blank'><img src='img/google-plus.png' class='img-fluid'></a>"+os.linesep+"</div>" ))
+                if "linkedin" in __socials.keys():
+                    __icons.append(str("\t\t\t<div class='col-3 col-md'>"+os.linesep+"\t\t\t\t<a  href='" + __socials["linkedin"] + "' target='_blank'><img src='img/linkedin.png' class='img-fluid'></a>"+os.linesep+"</div>" ))
+                if "github" in __socials.keys():
+                    __icons.append(str("\t\t\t<div class='col-3 col-md'>"+os.linesep+"\t\t\t\t<a  href='" + __socials["github"] + "' target='_blank'><img src='img/github.png' class='img-fluid'></a>"+os.linesep+"</div>" ))
+
+                import datetime
+                self.__footerTemplate = self.__footerTemplate.replace("#ButtonText#", __buttonText).replace("#id#", str("id='"+__id+"'")).replace("#year#", str(datetime.datetime.now()).split("-")[0]).replace("#icons#", os.linesep.join(__icons))
+
+                if self.__footerOpacity!=1.0:
+                    self.__footerCSS =self.__footerCSS.replace("Color2", "FooterOpacityColor2")
 
     def __argumentError(self, Key, All):
         self.__error = self.__dicts.getWordFromDict(
             self.__Config.get_Element("Language"), "errorInvalidArgument").replace("#Key#",
                                                                                    Key).replace(
             "#All#", All)
+
 
     def __Command_and_Argument(self, line):
         return(line.split("(",1)[0], line.replace(line.split("(",1)[0], ""))
@@ -559,6 +628,7 @@ class Compiler_REAL(ABC):
                 self.compiled = self.compiled.replace("#NavbarOpacityColor"+str(number+1)+"#", str("rgba(" + self.__Colors.getRGBA(self.__Colors.getPalette(self.__palette)[number]) + "," + str(self.__navbarOpacity) + ")"))
                 self.compiled = self.compiled.replace("#TableOpacityColor"+str(number+1)+"#", str("rgba(" + self.__Colors.getRGBA(self.__Colors.getPalette(self.__palette)[number]) + "," + str(self.__tableOpacity) + ")"))
                 self.compiled = self.compiled.replace("#RowOpacityColor"+str(number+1)+"#", str("rgba(" + self.__Colors.getRGBA(self.__Colors.getPalette(self.__palette)[number]) + "," + str(self.__tableOpacity) + ")"))
+                self.compiled = self.compiled.replace("#FooterOpacityColor"+str(number+1)+"#", str("rgba(" + self.__Colors.getRGBA(self.__Colors.getPalette(self.__palette)[number]) + "," + str(self.__footerOpacity) + ")"))
 
 
 class Compiler(Compiler_REAL):

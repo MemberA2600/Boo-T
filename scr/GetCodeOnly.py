@@ -118,12 +118,35 @@ class GetCodeOnly_REAL(ABC):
             opened.write(self.__codebox.get(0.0, END))
             opened.close()
 
+            if self.__Config.get_OS_Name() == "Windows":
+                filepath = "/".join(savename.split("/")[0:-1]) + "/"
+                sep="/"
+            else:
+                filepath = "\\"[0].join(savename.split("\\"[0])[0:-1]) + "\\"[0]
+                sep = "\\"[0]
+
+            if os.path.exists(filepath+"img")==False:
+                os.mkdir(filepath+"img")
+            for img in ["facebook.png", "youtube.png", "instagram.png", "vk.png", "google-plus.png", "linkedin.png", "twitter.png", "github.png"]:
+                self.__copyFile(str(filepath+"img"+ sep), img, sep)
+
+
         except Exception as e:
             messagebox.showerror(
                 self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "fileSaveErrorTitle"),
                 self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "fileSaveError").replace("#path#",
                     savename) + "\n" + str(e))
+
         self.__destroyWindow()
+
+    def __copyFile(self, dir, file,sep):
+        from shutil import copyfile
+        src = os.path.abspath(os.getcwd())+sep+"icons"+sep+file
+        dest = str(dir + file).replace("\\"[0], sep)
+
+        if os.path.exists(dest) == False:
+            copyfile(src, dest)
+
 
 class GetCodeOnly(GetCodeOnly_REAL):
 

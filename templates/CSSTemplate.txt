@@ -25,3 +25,4 @@ body
 #navBarCSS#
 #tableCSS#
 #rowCSS#
+#footerCSS#
