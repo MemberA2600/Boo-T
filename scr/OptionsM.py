@@ -179,6 +179,8 @@ class OptionsMenu_REAL(ABC):
                                                font=self.__hammerFont)
         self.__basicSettingsFrame.place(x=round(__w / 2) + 5, y=5)
         self.__basicSettingsFrame.pack_propagate(False)
+        self.__basicSettingsFrame.bind("<Enter>", self.__BasicSettingsFrameLabel)
+
 
         __w_Of_Options = self.__getAmmountOfChar(round(__bFrameWidth - 5 - round((__bFrameWidth - 5) / 2.5)),
                                                  hammerFont)
@@ -586,6 +588,9 @@ class OptionsMenu_REAL(ABC):
         """Writes the label of the main window to show info about the frame."""
         self.master.create_StatLabel(self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "buttonLabel"))
 
+    def __BasicSettingsFrameLabel(self, event):
+        """Writes the label of the main window to show info about the frame."""
+        self.master.create_StatLabel(self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "basicSettings"))
 
     def __setPathChrome(self):
         self.__Config.set_Element("Chrome", self.__openToGetPath("Chrome"))

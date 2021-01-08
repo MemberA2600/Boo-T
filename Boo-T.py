@@ -93,7 +93,7 @@ class MainWindow_Real(ABC):
 
         "Makes the main window visible again."
         self.__main.deiconify()
-        self.create_StatLabel("Welcome!")
+        self.create_StatLabel(self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "welcome"))
         self.__main.after(int(self.__Config.get_Element("AutoSave"))*60000, self.autoS)
         self.__main.mainloop()
 
@@ -142,7 +142,7 @@ class MainWindow_Real(ABC):
         if s == 1:
             self.__create_Main_Window_by_size(size, s, 640, 420, 480)
         elif s == 2:
-            self.__create_Main_Window_by_size(size, s, 800, 688, 632)
+            self.__create_Main_Window_by_size(size, s, 800, 580, 632)
         elif s == 3:
             self.__create_Main_Window_by_size(size, s, 800, 1100, 632)
         else:
@@ -626,20 +626,37 @@ class MainWindow_Real(ABC):
         self.__loadFromRecentButton.pack()
         self.loadRecent()
 
+        __secondListY = (__relativeY + self.__hammerFont[1] * 2) + __firstListHeight + 51 + self.__hammerFont[1] * 2
+
+        __loadImageFrame = Frame(self.__main, width=__windowW - __relativeX - 5, height=40)
+        __loadImageFrame.place(x=__relativeX, y=__secondListY-40)
+        __loadImageFrame.pack_propagate(False)
+        __loadImageFrame.bind("<Enter>", self.__imgPrintOutLabel)
+
+        from PIL import ImageTk, Image
+        self.__imgImg = ImageTk.PhotoImage(Image.open("icons/Image.png"))
+        self.__imgLabel = Label(__loadImageFrame, image=self.__imgImg)
+        self.__imgLabel.pack(side=LEFT)
+
+        self.__imgButton = Button(__loadImageFrame, width=1000, command=self.__loadImagePath,
+                                             text=self.__dicts.getWordFromDict(self.__Config.get_Element("Language"),
+                                                                               "imgImport"),font=self.__hammerFont)
+        self.__imgButton.pack(side=RIGHT)
+
+
         __syntaxLabel = Label(self.__main,
                               text=self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "syntax"))
         __syntaxLabel.config(font=self.__hammerFont)
-        __syntaxLabel.place(x=__relativeX, y=(__relativeY + self.__hammerFont[1] * 2) + __firstListHeight + 31)
+        __syntaxLabel.place(x=__relativeX, y=(__relativeY + self.__hammerFont[1] * 2) + __firstListHeight + 75)
 
-        __secondListHeight = round(__windowH / 3 * 1.6 - __relativeY - self.__hammerFont[1] * 2)
+        __secondListHeight = round(__windowH / 3 * 1.4 - __relativeY - self.__hammerFont[1] * 2)
         self.__syntaxList_Frame = Frame(self.__main, width=__windowW - __relativeX - 3 - 17, height=__secondListHeight)
 
-        __secondListY = (__relativeY + self.__hammerFont[1] * 2) + __firstListHeight + 31 + self.__hammerFont[1] * 2
-        self.__syntaxList_Frame.place(x=__relativeX, y=__secondListY)
+        self.__syntaxList_Frame.place(x=__relativeX, y=__secondListY+25)
         self.__syntaxList_Frame.pack_propagate(False)
 
         self.__syntaxListScroller_Frame = Frame(self.__main, width=15, height=__secondListHeight)
-        self.__syntaxListScroller_Frame.place(x=__windowW - 19, y=__secondListY)
+        self.__syntaxListScroller_Frame.place(x=__windowW - 19, y=__secondListY+20)
         self.__syntaxListScroller_Frame.pack_propagate(False)
         self.__syntaxListScroller = Scrollbar(self.__syntaxListScroller_Frame)
 
@@ -653,13 +670,38 @@ class MainWindow_Real(ABC):
         self.__syntaxListScroller.config(command=self.__syntaxList.yview)
 
         self.__syntaxButton_Frame = Frame(self.__main, width=__windowW - __relativeX - 4, height=25)
-        self.__syntaxButton_Frame.place(x=__relativeX + 1, y=__secondListY + 5 + __secondListHeight)
+        self.__syntaxButton_Frame.place(x=__relativeX + 1, y=__secondListY + 35 + __secondListHeight)
         self.__syntaxButton_Frame.pack_propagate(False)
 
         self.__loadFromsyntaxButton = Button(self.__syntaxButton_Frame, width=1000,
                                              text=self.__dicts.getWordFromDict(self.__Config.get_Element("Language"),
                                                                                "paste"), font=self.__hammerFont)
         self.__loadFromsyntaxButton.pack()
+
+    def __loadImagePath(self):
+        path = askopenfilename(initialdir="*", title=self.__dicts.getWordFromDict(self.__Config.get_Element("Language"),"openImage"),
+                               filetypes=[
+                                   (self.__dicts.getWordFromDict(self.__Config.get_Element("Language"),"imgFiles"), "*.png"),
+                                   (self.__dicts.getWordFromDict(self.__Config.get_Element("Language"),"imgFiles"), "*.jpg"),
+                                   (self.__dicts.getWordFromDict(self.__Config.get_Element("Language"),"imgFiles"), "*.gif"),
+                                   (self.__dicts.getWordFromDict(self.__Config.get_Element("Language"),"imgFiles"), "*.jpeg"),
+                                   (self.__dicts.getWordFromDict(self.__Config.get_Element("Language"),"imgFiles"), "*.bmp"),
+                                   (self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "imgFiles"),
+                                    "*.tiff"),
+                                   (self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "imgFiles"),
+                                    "*.apng"),
+                                   (self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "imgFiles"),
+                                    "*.svg"),
+                                   (self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "imgFiles"),
+                                    "*.avif"),
+                                   (self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "imgFiles"),
+                                    "*.webp"),
+                                   (self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "imgFiles"),
+                                    "*.ico"),
+                                   (self.__dicts.getWordFromDict(self.__Config.get_Element("Language"),"fileAll"), "*.*"),
+                               ])
+        if path!="":
+            self.__CodeBox.insert(INSERT, path)
 
 
     def loadRecent(self):
@@ -688,6 +730,9 @@ class MainWindow_Real(ABC):
             self.create_StatLabel(self.__recentFiles[self.__recentList.curselection()[0]])
         except:
             self.create_StatLabel(self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "recentList"))
+
+    def __imgPrintOutLabel(self, event):
+        self.create_StatLabel(self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "imgLabel"))
 
     def __OptionsMenu(self):
         import OptionsM
