@@ -1,1 +1,1 @@
-.boo=.boo
+Myself.boo=E:/PyCharm/P/Boo-T/Final_Tests/Myself/Myself.boo

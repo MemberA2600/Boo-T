@@ -1,70 +1,18 @@
-%% These are the basic settings and this is how you can make a comment!
+basics(author=Member,
+       language=hu, 
+       palette=2) %%
 
-basics(author=Tassadar,
-       language=en, 
-       charset=UTF-8,
-       palette=random) %%
+keywords(Fehér János Zoltán, Member, Atarian) %%
+description(Csak egy weblap) %%
+title(Én) %%
 
-keywords(protoss, Aiur, High Templar) %%
-description(Savior of the Templar) %%
-title(En taro Adun!) %%
+background(image=D:/Archieve-Copy/MEMBER/chess.gif) %%
+font-family(Impact) %%
 
-%% These are the basic layout settings!
-
-background(gradient=HOR) %%
-font-family("Arial","Comic Sans") %% [default: "Arial"]
-
-
-%% Valid variants:
-%% color
-%% gradient={HOR,VER,DIG}
-%% image=link,optional: {cover,contain, etc..., [default: cover]}
-
-%% This is how you setup the banner!
-%% {image=link, animation(time, link1, link2, ...)},text("string",size,alignment),size, height}
-
-banner(animation(20s,01.jpg,02.jpg,03.jpg),
-       text("Psyonic Storm",4em,center),
-       size=cover,
-       height=300)
-
-%% This is the way for creating the navbar!
-%% {brand({"string"/image=url}, item1("string", "#id" [id of a row you want to scroll to!]), item2, item3, etc..., optional: opacity=float [default=1]}
-
-navbar(brand(image=logo.png),
-       item("Link1", One),
-       item("Link2", Two),
-       item("Link3", Three),
-       opacity=0.75,
-       sticky)
-
-%% Making the main body is more interesting. It can have tables and rows.
-%% Opacity affects all the tables!
-%% You have to use "strings".
-%% You can add "inverted" argument to invert the table!
-
-table(id=One, columns("Unit","HP/Shield","Mana","Mineral","Gas"),
-      opacity=0.5,
-      row("Zealot","100/60","0","100","0"),
-      row("Dragoon","100/80","0","125","50"),
-      row("High Templar","40/40","250","50","150"),
-      row("Dark Templar","80/40","0","125","100")
-)
-
-%% And this is how you make the rows of the body.
-%% As you gave the numbers slicing the row, they must add up to 12!
-%% You must have as many blocks as many numbers you set!
-%% You can have only one element for each block that can be an image or article.
-
-row(id=Two, rate(3,6,3), imgfilter,
-    image=05.jpg,
-    article(title="This is the Title!", title-align=center,
-            rawtext="And this is some really awesome text! Can be <b>bold</b>, <i>italic</i> and all the classic things!"),
-    image=06.jpg
- ) %%
+banner(image=D:/Archieve-Copy/MEMBER/pet.jpg,
+	text("Member is cool!", 5em, center),
+	height=250)
 
 
-%% And, for last, there is the footer, which is also based on bootstrap.
 
-footer(opacity=0.75, id=Three, button="SCROLL BACK!!",
-	facebook=#,instagram=#,twitter=#,youtube=#,linkedin=#,googleplus=#,vkontakte=#, github=#) %%
+

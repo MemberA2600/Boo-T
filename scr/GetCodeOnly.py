@@ -5,7 +5,7 @@ from tkinter.filedialog import *
 class GetCodeOnly_REAL(ABC):
 
     @abstractmethod
-    def __init__(self, dicts, config, hammer, master, main, fontSize, monitor, code):
+    def __init__(self, dicts, config, hammer, master, main, fontSize, monitor, code, syntax):
         import tkinter.scrolledtext as tkscrolled
 
         self.__dicts = dicts
@@ -14,6 +14,7 @@ class GetCodeOnly_REAL(ABC):
         self.master = master
         self.__main = main
         self.__code = code
+        self.__Syntax = syntax
 
         __monitor = monitor
         size = __monitor.get_screensize()
@@ -73,7 +74,7 @@ class GetCodeOnly_REAL(ABC):
 
         if self.__Config.get_Element("FortranCompiler")=="False":
             import PythonCompiler
-            Compiler = PythonCompiler.Compiler(code, self.__Config, self.__dicts)
+            Compiler = PythonCompiler.Compiler(code, self.__Config, self.__dicts, self.__Syntax)
             code = Compiler.compiled
 
         else:
@@ -110,5 +111,5 @@ class GetCodeOnly_REAL(ABC):
 
 class GetCodeOnly(GetCodeOnly_REAL):
 
-    def __init__(self, dicts, config, hammer, master, main, fontSize, monitor, code):
-        super().__init__(dicts, config, hammer, master, main, fontSize, monitor, code)
+    def __init__(self, dicts, config, hammer, master, main, fontSize, monitor, code, syntax):
+        super().__init__(dicts, config, hammer, master, main, fontSize, monitor, code, syntax)

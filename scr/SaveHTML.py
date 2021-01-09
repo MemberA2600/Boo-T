@@ -36,7 +36,7 @@ class SaveHTML_Real(ABC):
             opened.write(code)
             opened.close()
 
-            for img in ["facebook.png", "youtube.png", "instagram.png", "vk.png", "google-plus.png", "linkedin.png", "twitter.png", "github.png"]:
+            for img in ["facebook.png", "youtube.png", "instagram.png", "vkontakte.png", "googleplus.png", "linkedin.png", "twitter.png", "github.png"]:
                 self.__copyFile(str(filepath+"img"+ sep), img, sep, str(os.path.abspath(os.getcwd())+sep+"icons"))
 
             for root, dirs, files in os.walk("bootstrap/"):
@@ -44,6 +44,8 @@ class SaveHTML_Real(ABC):
                     self.__copyFile(str(filepath+"bootstrap"+ sep), file, sep, str(os.path.abspath(os.getcwd())+sep+"bootstrap"))
 
         except Exception as e:
+            from tkinter import messagebox
+
             messagebox.showerror(
                 self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "fileSaveErrorTitle"),
                 self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "fileSaveError").replace("#path#",
@@ -60,8 +62,8 @@ class SaveHTML_Real(ABC):
 
     def __searchForImagesPaths(self, code, sep, filepath):
         import re
-        regex=re.findall(r"src=\'[:a-zA-Z0-9\.\/\\]+\'", code)
-        regex2=re.findall(r"url\(\'[:a-zA-Z0-9\.\/\\]+\'\)", code)
+        regex=re.findall(r"src=\'[\-:a-zA-Z0-9\.\/\\]+\'", code)
+        regex2=re.findall(r"url\(\'[\-:a-zA-Z0-9\.\/\\]+\'\)", code)
 
         for item in regex:
             temp = item.replace("src=","").replace("'","")
@@ -80,6 +82,15 @@ class SaveHTML_Real(ABC):
 
             if (temp.split(".")[-1] in img_types) and temp.startswith("http") == False and (temp.startswith("/") or temp[1:3] == ":/"):
                 filename=temp.split(sep)[-1]
+                num = 1
+                """If path exists, add underline and a 3 digit number with leading zeros to name."""
+
+                fullpath=str(filepath + filename).replace("\\"[0], sep)
+                if (os.path.exists(fullpath)):
+                    fullpath += "_000"
+                while (os.path.exists(fullpath)):
+                    fullpath[:-3] + str(f'{num:03d}')
+
                 self.__copyFile(str(filepath+"img"+sep), filename, sep, sep.join(temp.split(sep)[0:-1]))
                 code =code.replace(item, "url('img/" + filename + "')" )
 

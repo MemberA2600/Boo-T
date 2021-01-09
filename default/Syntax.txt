@@ -8,4 +8,4 @@ navbar=brand,item,opacity,sticky,image
 font-family=
 table=opacity,columns,row,inverted,id
 row=id,rate,image,article,title,title-align,rawtext,imgfilter
-footer=opacity,button,id,facebook,instagram,twitter,youtube,linkedin,googleplus,vkontakte
+footer=opacity,button,id,facebook,instagram,twitter,youtube,linkedin,googleplus,vkontakte,github

@@ -32,9 +32,11 @@ class MainWindow_Real(ABC):
 
         import Dictionaries
         import Config
+        import SyntaxList
 
         self.__dicts = Dictionaries.Dictionaries()
         self.__Config = Config.Config(self.__dicts)
+        self.__Syntax = SyntaxList.SyntaxList()
 
         """Creates monitor object for getting the actual screensize, so the most
         suitable window sizes can be created.
@@ -259,7 +261,6 @@ class MainWindow_Real(ABC):
                                    ))
         try:
             self.__openFile(openname,True)
-
         except Exception as e:
             messagebox.showerror(
                 self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "fileOpenErrorTitle"),
@@ -267,12 +268,20 @@ class MainWindow_Real(ABC):
                                                                                                              openname) + "\n" + str(e))
 
     def __openFile(self, openname, addRecent):
+        if "new_file" in openname:
+            addRecent = False
+            self.__opened = False
+
+        else:
+            self.__opened = True
+
         opened = open(openname, "r")
         self.__insertBox(opened.read())
+        self.updateCodeBox()
+
         opened.close()
         if addRecent==True:
             self.__addToRecent(openname)
-        self.__opened = True
         self.__path = openname
 
     def __askForSave(self):
@@ -309,16 +318,20 @@ class MainWindow_Real(ABC):
         self.__Saver(savename)
 
     def __Saver(self, savename):
+
+
         try:
-            if savename.endswith(".boo") == False or savename.endswith(".txt"):
-                savename += ".boo"
-            opened = open(savename, "w")
-            opened.write(self.__getCodeFromBox())
-            opened.close()
-            self.saveQuickSave()
-            self.__addToRecent(savename)
-            self.__opened = True
-            self.__path = savename
+
+            if savename!="" and ("new_file" not in savename):
+                if savename.endswith(".boo") == False or savename.endswith(".txt"):
+                    savename += ".boo"
+                opened = open(savename, "w")
+                opened.write(self.__getCodeFromBox())
+                opened.close()
+                #self.saveQuickSave()
+                self.__addToRecent(savename)
+                self.__opened = True
+                self.__path = savename
 
         except Exception as e:
             messagebox.showerror(
@@ -346,8 +359,7 @@ class MainWindow_Real(ABC):
             self.__recentFiles.remove(text)
             self.__recentList.delete(self.__recentList.get(0, END).index(text.split("/")[-1]))
 
-        if len(self.__recentFiles) == int(self.__Config.get_Element("MaxRecent")) and int(
-                self.__Config.get_Element("MaxRecent")) != 0:
+        if len(self.__recentFiles) == int(self.__Config.get_Element("MaxRecent")) and self.__Config.get_Element("MaxRecent") != "0":
             self.__recentFiles.pop()
             self.__recentList.delete(END)
 
@@ -418,6 +430,8 @@ class MainWindow_Real(ABC):
 
     def code_Key_Released(self, event):
         """Neded for the usual ctrl + mousewheel combnation for resizing textbox font."""
+        self.__highLighter()
+
         if (event.keysym == "Control_L" or event.keysym == "Control_R"):
             self.__box_Ctrl_Pressed = False
 
@@ -463,7 +477,6 @@ class MainWindow_Real(ABC):
         else:
             self.__color = "black"
             self.__color2 = "lightgray"
-
         hammerFont = self.__getHammerFont()
 
 
@@ -475,8 +488,25 @@ class MainWindow_Real(ABC):
         self.__CodeBox.config(font=hammerFont)
         try:
             self.__recentList.config(bg=self.__color, fg=self.__color2)
-            self.__syntaxList.config(bg=self.__color, fg=self.__color2)
-        except:
+            self.__syntaxList.config(bg=self.__color)
+
+            if (self.__Config.get_Element("DarkBox") == "False"):
+
+                self.__syntaxList.config(fg="blue")
+                for num in range(0, self.__syntaxList.size()-1):
+                    if self.__SYN[num] in self.__Syntax.getKeys():
+                        self.__syntaxList.itemconfig(num, {"fg": "green"})
+
+
+            else:
+                self.__syntaxList.config(fg="light sky blue")
+
+                for num in range(0, self.__syntaxList.size()-1):
+                    if self.__SYN[num] in self.__Syntax.getKeys():
+                        self.__syntaxList.itemconfig(num, {"fg": "lime"})
+
+            self.__highLighter()
+        except Exception as e:
             pass
 
         self.__CodeBox.pack()
@@ -622,7 +652,7 @@ class MainWindow_Real(ABC):
 
         self.__loadFromRecentButton = Button(self.__recentButton_Frame, width=1000,
                                              text=self.__dicts.getWordFromDict(self.__Config.get_Element("Language"),
-                                                                               "open"),font=self.__hammerFont)
+                                                                               "open"),font=self.__hammerFont, command=self.__openRecentFile)
         self.__loadFromRecentButton.pack()
         self.loadRecent()
 
@@ -675,8 +705,10 @@ class MainWindow_Real(ABC):
 
         self.__loadFromsyntaxButton = Button(self.__syntaxButton_Frame, width=1000,
                                              text=self.__dicts.getWordFromDict(self.__Config.get_Element("Language"),
-                                                                               "paste"), font=self.__hammerFont)
+                                                                               "paste"), font=self.__hammerFont,
+                                                                                command=self.__insertSyntax)
         self.__loadFromsyntaxButton.pack()
+        self.__fillSyntaxList()
 
     def __loadImagePath(self):
         path = askopenfilename(initialdir="*", title=self.__dicts.getWordFromDict(self.__Config.get_Element("Language"),"openImage"),
@@ -713,8 +745,8 @@ class MainWindow_Real(ABC):
             self.__recentList.delete(0, END)
             for item in file.readlines():
                 try:
-                    if len(self.__recentFiles) < int(self.__Config.get_Element("MaxRecent")) and int(
-                            self.__Config.get_Element("MaxRecent")) != 0:
+                    if len(self.__recentFiles) < int(self.__Config.get_Element("MaxRecent")) or int(
+                            self.__Config.get_Element("MaxRecent")) == 0:
                         self.__recentList.insert(END, item.replace("\n", "").replace("\r", "").split("=")[0])
                         self.__recentFiles.append(item.replace("\n", "").replace("\r", "").split("=")[1])
 
@@ -730,9 +762,6 @@ class MainWindow_Real(ABC):
             self.create_StatLabel(self.__recentFiles[self.__recentList.curselection()[0]])
         except:
             self.create_StatLabel(self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "recentList"))
-
-    def __imgPrintOutLabel(self, event):
-        self.create_StatLabel(self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "imgLabel"))
 
     def __OptionsMenu(self):
         import OptionsM
@@ -750,7 +779,7 @@ class MainWindow_Real(ABC):
     def __getCodeOnly(self):
         import GetCodeOnly
 
-        GetCodeOnly = GetCodeOnly.GetCodeOnly(self.__dicts, self.__Config, self.__hammerFont, self, self.__main, self.__fontSize, self.__monitor, self.__getCodeFromBox())
+        GetCodeOnly = GetCodeOnly.GetCodeOnly(self.__dicts, self.__Config, self.__hammerFont, self, self.__main, self.__fontSize, self.__monitor, self.__getCodeFromBox(), self.__Syntax)
 
     def __getCodeFromBox(self):
         return(self.__CodeBox.get(0.0, END))
@@ -768,6 +797,96 @@ class MainWindow_Real(ABC):
         file = open("QuickSave.txt", "w")
         file.write(self.__getCodeFromBox())
         file.close()
+
+    def __imgPrintOutLabel(self, event):
+        self.create_StatLabel(self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "imgLabel"))
+
+    def __openRecentFile(self):
+        self.__openFile(self.__recentFiles[self.__recentList.curselection()[0]], False)
+
+    def __insertSyntax(self):
+        self.__CodeBox.insert(INSERT, self.__SYN[self.__syntaxList.curselection()[0]])
+
+    def __fillSyntaxList(self):
+        the_list = []
+        for item in self.__Syntax.getKeys():
+            the_list.append(item)
+            templist = self.__Syntax.getValueOfKey(item)
+            for subItem in templist:
+                the_list.append(subItem)
+        the_list = list(set(the_list))
+        the_list.sort()
+        self.__SYN = []
+        for i in range(1, len(the_list)):
+            self.__SYN.append(the_list[i])
+            self.__syntaxList.insert(END, the_list[i])
+
+    def __highLighter(self):
+        for tag in self.__CodeBox.tag_names():
+            self.__CodeBox.tag_delete(tag)
+
+        self.__standard_tinting("subArg", self.__SYN)
+
+        if (self.__Config.get_Element("DarkBox") == "False"):
+            self.__CodeBox.tag_config("Arg", foreground="green", font=("HammerFat_Hun", self.__Config.get_Element("BoxFontSize"), "bold", "underline"))
+            self.__CodeBox.tag_config("subArg", foreground="blue", font=("HammerFat_Hun", self.__Config.get_Element("BoxFontSize"), "bold"))
+            self.__CodeBox.tag_config("string", foreground="lightgray", background="black", font=("HammerFat_Hun", self.__Config.get_Element("BoxFontSize")))
+            self.__CodeBox.tag_config("comment", background="white", foreground="plum4", font=("HammerFat_Hun", self.__Config.get_Element("BoxFontSize"), "italic",))
+
+        else:
+            self.__CodeBox.tag_config("Arg", foreground="lime", font=("HammerFat_Hun", self.__Config.get_Element("BoxFontSize"), "bold", "underline"))
+            self.__CodeBox.tag_config("subArg", foreground="light sky blue", font=("HammerFat_Hun", self.__Config.get_Element("BoxFontSize"), "bold"))
+            self.__CodeBox.tag_config("string", foreground="black", background="white", font=("HammerFat_Hun", self.__Config.get_Element("BoxFontSize")))
+            self.__CodeBox.tag_config("comment", background="black", foreground="plum1", font=("HammerFat_Hun", self.__Config.get_Element("BoxFontSize"), "italic",))
+
+        self.__standard_tinting("Arg", self.__Syntax.getKeys())
+        self.__between_tinting("string", "'")
+        self.__between_tinting("string", '"')
+        self.__comment_tinting()
+
+
+    def __standard_tinting(self, tag, refList):
+        lines=self.__CodeBox.get("1.0", END).splitlines()
+        for linenum in range(0, len(lines)):
+            x = 0
+            temp=""
+            for charnum in range(0, len(lines[linenum])):
+                if lines[linenum][charnum].isalpha()==False and lines[linenum][charnum]!="-":
+                    if temp in refList:
+                        self.__CodeBox.tag_add(tag, str(linenum+1) + "." + str(x), str(linenum+1)+"."+str(charnum))
+                    x=charnum+1
+                    temp=""
+                else:
+                    temp+=lines[linenum][charnum]
+            if temp in refList:
+                self.__CodeBox.tag_add(tag, str(linenum + 1) + "." + str(x), str(linenum + 1) + "." + str(len(lines[linenum])))
+
+    def __between_tinting(self, tag, char):
+        lines=self.__CodeBox.get("1.0", END).splitlines()
+        for linenum in range(0, len(lines)):
+            x = 0
+            on = False
+            for charnum in range(0, len(lines[linenum])):
+                if lines[linenum][charnum] == char:
+                    if on == False:
+                        on = True
+                        x = charnum
+                    else:
+                        on = False
+                        self.__CodeBox.tag_add(tag, str(linenum + 1) + "." + str(x),
+                                               str(linenum + 1) + "." + str(charnum+1))
+
+    def __comment_tinting(self):
+        lines=self.__CodeBox.get("1.0", END).splitlines()
+        if len(lines)>1:
+            for linenum in range(0, len(lines)):
+                for charnum in range(0, len(lines[linenum])-1):
+                    if lines[linenum][charnum] == "%" and lines[linenum][charnum+1] == "%":
+
+                        self.__CodeBox.tag_add("comment", str(linenum + 1) + "." + str(charnum),
+                                                   str(linenum + 1) + "." + str(len(lines[linenum])))
+                        break
+
 
 class MainWindow(MainWindow_Real):
     def __init__(self):
