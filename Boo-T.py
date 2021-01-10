@@ -93,6 +93,24 @@ class MainWindow_Real(ABC):
 
         self.updateCodeBox() #Needed for the correct text-size, reason unknown!
 
+        "Bind function keys for hotkeys."
+        self.__main.bind("<F1>", self.__F1)
+        self.__main.bind("<F2>", self.__F2)
+        self.__main.bind("<F3>", self.__F3)
+        self.__main.bind("<F4>", self.__F4)
+        self.__main.bind("<F5>", self.__F5)
+        self.__main.bind("<F6>", self.__F6)
+        self.__main.bind("<F7>", self.__F7)
+
+
+        """
+        self.__main.bind("<F8>", self.__F8)
+        self.__main.bind("<F9>", self.__F9)
+        self.__main.bind("<F10>", self.__F10)
+        self.__main.bind("<F11>", self.__F11)
+        self.__main.bind("<F12>", self.__F12)
+        """
+
         "Makes the main window visible again."
         self.__main.deiconify()
         self.create_StatLabel(self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "welcome"))
@@ -418,6 +436,7 @@ class MainWindow_Real(ABC):
         self.__CodeBox.bind("<Key>", self.code_Key_Pressed)
         self.__CodeBox.bind("<KeyRelease>", self.code_Key_Released)
         self.__CodeBox.bind("<MouseWheel>", self.mouse_Wheel)
+
 
         self.__loadQuickSave()
         self.updateCodeBox()
@@ -887,6 +906,33 @@ class MainWindow_Real(ABC):
                                                    str(linenum + 1) + "." + str(len(lines[linenum])))
                         break
 
+    def __lightDark(self):
+        if self.__Config.get_Element("DarkBox") == "True":
+            self.__Config.set_Element("DarkBox", "False")
+        else:
+            self.__Config.set_Element("DarkBox", "True")
+        self.updateCodeBox()
+
+    def __F1(self, event):
+        self.__doNew()
+
+    def __F2(self, event):
+        self.__doOpen()
+
+    def __F3(self, event):
+        self.__doSave()
+
+    def __F4(self, event):
+        self.__getCodeOnly()
+
+    def __F5(self, event):
+        self.__loadImagePath()
+
+    def __F6(self, event):
+        self.__OptionsMenu()
+
+    def __F7(self, event):
+        self.__lightDark()
 
 class MainWindow(MainWindow_Real):
     def __init__(self):
