@@ -2,11 +2,11 @@
 
 	<nav class="navbar navbar-expand-lg navbar-light #sticky#" style="background-color: #Color2# !important; font-size: 1.5em !important; margin: 0px -15px !important; padding: 0px 10px !important">
 		<a class="navbar-brand" href="#"><span style="font-size: 1.5em;">#brand#</span></a>
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-      			<span class="navbar-toggler-icon"></span>
+  		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    			<span class="navbar-toggler-icon"></span>
   		</button>
 
-		<div class="collapse navbar-collapse" id="navbarNavDropdown">
+		<div class="collapse navbar-collapse" id="collapsibleNavbar">
     		<ul class="navbar-nav">
 #navItems#
 		</ul>

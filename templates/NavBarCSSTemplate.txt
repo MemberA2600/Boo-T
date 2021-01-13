@@ -1,6 +1,7 @@
-	navbar
+	.navbar
 	{
 		color: #Color4# !important;
+		background-attachment: scroll !important;
 
 	}
 
@@ -15,3 +16,5 @@
 		border-radius: 10px;
 	
 	}
+
+	

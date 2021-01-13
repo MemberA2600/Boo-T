@@ -1,6 +1,6 @@
     <!-- Banner starts -->
     <div class="row d-none d-sm-block">
-	<div class="col-12" id="Banner" > 
+	<div class="col-12" id="Banner" style="background-attachment: scroll !important; " > 
 		
 	</div>
 	<div class="col-12" id="BannerText" > 

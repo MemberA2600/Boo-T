@@ -112,6 +112,10 @@ class MainWindow_Real(ABC):
         """
 
         "Makes the main window visible again."
+
+        self.__main.bind("<Key>", self.code_Key_Pressed)
+        self.__main.bind("<KeyRelease>", self.code_Key_Released)
+
         self.__main.deiconify()
         self.create_StatLabel(self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "welcome"))
         self.__main.after(int(self.__Config.get_Element("AutoSave"))*60000, self.autoS)
@@ -350,6 +354,9 @@ class MainWindow_Real(ABC):
                 self.__addToRecent(savename)
                 self.__opened = True
                 self.__path = savename
+                self.__deleteQuick()
+
+
 
         except Exception as e:
             messagebox.showerror(
@@ -427,14 +434,12 @@ class MainWindow_Real(ABC):
         import tkinter.scrolledtext as tkscrolled
 
         """Creates the elements for the main input field."""
-        self.Frame_for_CodeBox = Frame(self.__main, width=w, height=h)
-        self.Frame_for_CodeBox.place(x=2, y=baseFont[1] + 58)
-        self.Frame_for_CodeBox.pack_propagate(False)
+        self.__Frame_for_CodeBox = Frame(self.__main, width=w, height=h)
+        self.__Frame_for_CodeBox.place(x=2, y=baseFont[1] + 58)
+        self.__Frame_for_CodeBox.pack_propagate(False)
 
-        self.__CodeBox = tkscrolled.ScrolledText(self.Frame_for_CodeBox, width=1, height=1, font=baseFont)
+        self.__CodeBox = tkscrolled.ScrolledText(self.__Frame_for_CodeBox, width=1, height=1, font=baseFont)
         self.__box_Ctrl_Pressed = False
-        self.__CodeBox.bind("<Key>", self.code_Key_Pressed)
-        self.__CodeBox.bind("<KeyRelease>", self.code_Key_Released)
         self.__CodeBox.bind("<MouseWheel>", self.mouse_Wheel)
 
 
@@ -446,6 +451,7 @@ class MainWindow_Real(ABC):
         self.__modified = True
         if (event.keysym == "Control_L" or event.keysym == "Control_R"):
             self.__box_Ctrl_Pressed = True
+
 
     def code_Key_Released(self, event):
         """Neded for the usual ctrl + mousewheel combnation for resizing textbox font."""
@@ -502,7 +508,7 @@ class MainWindow_Real(ABC):
         self.__CodeBox.config(bg=self.__color, fg=self.__color2,
                               width=68,
                               height=50,
-                              wrap=WORD)
+                              wrap=CHAR)
 
         self.__CodeBox.config(font=hammerFont)
         try:
@@ -803,13 +809,16 @@ class MainWindow_Real(ABC):
     def __getCodeFromBox(self):
         return(self.__CodeBox.get(0.0, END))
 
+    def __deleteQuick(self):
+        if os.path.exists("QuickSave.txt"):
+            os.remove("QuickSave.txt")
+
     def __loadQuickSave(self):
         """Loads quicksave file if present."""
         if os.path.exists("QuickSave.txt"):
             file=open("QuickSave.txt", "r")
             self.__insertBox(file.read())
             file.close()
-            os.remove("QuickSave.txt")
 
     @abstractmethod
     def saveQuickSave(self):
@@ -817,14 +826,22 @@ class MainWindow_Real(ABC):
         file.write(self.__getCodeFromBox())
         file.close()
 
+
     def __imgPrintOutLabel(self, event):
         self.create_StatLabel(self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "imgLabel"))
 
     def __openRecentFile(self):
-        self.__openFile(self.__recentFiles[self.__recentList.curselection()[0]], False)
+        try:
+            self.__openFile(self.__recentFiles[self.__recentList.curselection()[0]], False)
+        except:
+            pass
 
     def __insertSyntax(self):
-        self.__CodeBox.insert(INSERT, self.__SYN[self.__syntaxList.curselection()[0]])
+        try:
+            self.__CodeBox.insert(INSERT, self.__SYN[self.__syntaxList.curselection()[0]])
+        except:
+            pass
+
 
     def __fillSyntaxList(self):
         the_list = []
@@ -849,14 +866,16 @@ class MainWindow_Real(ABC):
         if (self.__Config.get_Element("DarkBox") == "False"):
             self.__CodeBox.tag_config("Arg", foreground="green", font=("HammerFat_Hun", self.__Config.get_Element("BoxFontSize"), "bold", "underline"))
             self.__CodeBox.tag_config("subArg", foreground="blue", font=("HammerFat_Hun", self.__Config.get_Element("BoxFontSize"), "bold"))
-            self.__CodeBox.tag_config("string", foreground="lightgray", background="black", font=("HammerFat_Hun", self.__Config.get_Element("BoxFontSize")))
+            self.__CodeBox.tag_config("string", foreground="red", background="yellow", font=("HammerFat_Hun", self.__Config.get_Element("BoxFontSize")))
             self.__CodeBox.tag_config("comment", background="white", foreground="plum4", font=("HammerFat_Hun", self.__Config.get_Element("BoxFontSize"), "italic",))
+            self.__CodeBox.config(insertbackground="black")
 
         else:
             self.__CodeBox.tag_config("Arg", foreground="lime", font=("HammerFat_Hun", self.__Config.get_Element("BoxFontSize"), "bold", "underline"))
             self.__CodeBox.tag_config("subArg", foreground="light sky blue", font=("HammerFat_Hun", self.__Config.get_Element("BoxFontSize"), "bold"))
-            self.__CodeBox.tag_config("string", foreground="black", background="white", font=("HammerFat_Hun", self.__Config.get_Element("BoxFontSize")))
+            self.__CodeBox.tag_config("string", foreground="yellow", background="red", font=("HammerFat_Hun", self.__Config.get_Element("BoxFontSize")))
             self.__CodeBox.tag_config("comment", background="black", foreground="plum1", font=("HammerFat_Hun", self.__Config.get_Element("BoxFontSize"), "italic",))
+            self.__CodeBox.config(insertbackground="lightgray")
 
         self.__standard_tinting("Arg", self.__Syntax.getKeys())
         self.__between_tinting("string", "'")
@@ -892,8 +911,8 @@ class MainWindow_Real(ABC):
                         x = charnum
                     else:
                         on = False
-                        self.__CodeBox.tag_add(tag, str(linenum + 1) + "." + str(x),
-                                               str(linenum + 1) + "." + str(charnum+1))
+                        self.__CodeBox.tag_add(tag, str(linenum + 1) + "." + str(x+1),
+                                               str(linenum + 1) + "." + str(charnum))
 
     def __comment_tinting(self):
         lines=self.__CodeBox.get("1.0", END).splitlines()
@@ -950,3 +969,6 @@ class MainWindow(MainWindow_Real):
 
 if __name__ == "__main__":
     MainWindow()
+    if os.path.exists("Quicksave.txt"):
+        os.remove("Quicksave.txt")
+

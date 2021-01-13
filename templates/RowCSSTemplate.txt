@@ -1,8 +1,11 @@
 	.row-item
 		{
 		color: #Color4#;
-		background-color: #Color2#;
     		transition: 0.25s;
+  		display: flex;
+  		justify-content: center;
+  		align-items: center;
+		
 		}
 
 	.row-item h1
@@ -13,10 +16,22 @@
 		font-size: 2.5em;
 		}
 
+	.bootrow
+		{
+		padding: 10px;
+		background-color: #Color2#;
+		}
 
 	.row-item img
 		{
 		border-radius: 10px;
+		}
+
+	.row-item a
+		{
+		color: #Color1#;
+		text-decoration: none;
+
 		}
 
 	.row-item .img-animate

@@ -10,7 +10,6 @@ title() %%
 background() %%
 font-family("Arial") %%
 
-
 banner() %%
 
 navbar() %%

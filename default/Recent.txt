@@ -1,1 +1,2 @@
+Altair.boo=E:/PyCharm/P/Boo-T/Final_Tests/Altair8800/Altair.boo
 Myself.boo=E:/PyCharm/P/Boo-T/Final_Tests/Myself/Myself.boo

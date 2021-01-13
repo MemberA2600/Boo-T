@@ -71,7 +71,12 @@ class Compiler_REAL(ABC):
             self.__number+=1
             """Don't compile empty lines."""
             if re.findall(r"[a-zA-Z]", line)!=[]:
-                self.__compile(line)
+                try:
+                    self.__compile(line)
+                except Exception as e:
+                    self.__error = self.__dicts.getWordFromDict(
+                        self.__Config.get_Element("Language"), "syntaxError").replace("#python#",str(e))
+
             if self.__error!=False:
                 break
 
@@ -135,6 +140,7 @@ class Compiler_REAL(ABC):
         line=line.strip()
         line=self.__Command_and_Argument(line)
 
+
         if line[0] not in self.__Syntax.getKeys():
             """If the main command is invalid, rise error."""
             self.__error = self.__dicts.getWordFromDict(
@@ -144,6 +150,7 @@ class Compiler_REAL(ABC):
             """Setting the most basic things in the first 5 cases for HTML header."""
             args=line[1][1:-1]
             if line[0] == "keywords":
+
                 self.__keywords = args
             elif line[0] == "description":
                 self.__description = args
@@ -322,7 +329,7 @@ class Compiler_REAL(ABC):
                             __brandName = inside[1:-1]
                         else:
                             url=self.__splitByEQ(inside, 1)
-                            __brandName = "<img class='img-fluid' target='_blank' src='" + url +  "'>"
+                            __brandName = "<img class='img-fluid' target='_blank' style='max-width: 300px; max-height: 200px' src='" + url +  "'>"
                     elif item.startswith("opacity"):
                         self.__navbarOpacity=float(self.__splitByEQ(item, 1))
 
@@ -388,7 +395,7 @@ class Compiler_REAL(ABC):
 
                 if self.__tableOpacity!=1.0:
                     self.__tableCSS =self.__tableCSS.replace("Color2", "TableOpacityColor2")
-            elif line[0] == "row":
+            elif line[0] == "bootrow":
                 """Adds a bootstrap row to the container part of the body."""
 
                 self.__containerTemplateChanged = True
@@ -397,7 +404,7 @@ class Compiler_REAL(ABC):
                 __articleTemplate = self.__templateLoader("ArticleTemplate")
                 self.__rowCSS = self.__templateLoader("RowCSSTemplate")
                 __id=""
-                __rates= []
+                __rates= "auto"
                 __rowItems=[]
                 __titleAlign="center"
                 __imgfilter=""
@@ -409,17 +416,24 @@ class Compiler_REAL(ABC):
                     elif item.startswith("id"):
                         __id = self.__splitByEQ(item, 1)
                     elif item.startswith("rate"):
-                        __rates = self.__splitComma(self.__Command_and_Argument(item)[1][1:-1])
-                        sum=0
-                        for number in __rates:
-                            sum+=int(number)
-                        if sum!=12:
-                            self.__error = self.__dicts.getWordFromDict(
-                                self.__Config.get_Element("Language"), "errorNot12")
+                        if item=="rate(auto)":
+                            __rates="auto"
+                        else:
+                            __rates = self.__splitComma(self.__Command_and_Argument(item)[1][1:-1])
+                            sum=0
+                            for number in __rates:
+                                sum+=int(number)
+                            if sum!=12:
+                                self.__error = self.__dicts.getWordFromDict(
+                                    self.__Config.get_Element("Language"), "errorNot12")
 
                     elif item.startswith("image"):
                         __image = str("\t\t\t\t<a href='"+self.__splitByEQ(item, 1)+"'><img class='img-fluid #filter#' src='"+self.__splitByEQ(item, 1) + "'></a>")
-                        __rowItems.append(__rowItemTemplate.replace("#number#", __rates[len(__rowItems)]).replace("#data#", __image))
+                        if __rates != "auto":
+                            __rowItems.append(__rowItemTemplate.replace("#number#", str("-"+__rates[len(__rowItems)])).replace("#data#", __image))
+                        else:
+                            __rowItems.append(__rowItemTemplate.replace("#number#", "").replace("#data#", __image))
+
 
                     elif item.strip()=="imgfilter":
                         __imgfilter="img-animate"
@@ -432,7 +446,7 @@ class Compiler_REAL(ABC):
                             if ehhh.startswith("title-align"):
                                 __titleAlign = self.__splitByEQ(ehhh, 1)
 
-                            elif ehhh.startswith("title"):
+                            elif ehhh.startswith("artitle"):
                                 __title = self.__splitByEQ(ehhh, 1)[1:-1]
 
                             elif ehhh.startswith("rawtext"):
@@ -442,19 +456,24 @@ class Compiler_REAL(ABC):
                                 self.__argumentError(item, "artitle")
 
                         __article = __article.replace("#title#", __title).replace("#text#", __text).replace("#align#", __titleAlign)
-                        __rowItems.append(__rowItemTemplate.replace("#number#", __rates[len(__rowItems)]).replace("#data#", __article))
+                        if __rates != "auto":
+                            __rowItems.append(__rowItemTemplate.replace("#number#", str("-"+__rates[len(__rowItems)])).replace("#data#", __article))
+                        else:
+                            __rowItems.append(__rowItemTemplate.replace("#number#", "").replace("#data#", __article))
+
                     else:
                         self.__argumentError(item, "row")
 
-                if len(__rowItems)!=len(__rates):
+                if __rates!="auto" and len(__rowItems)!=len(__rates):
                     self.__error = self.__dicts.getWordFromDict(
                         self.__Config.get_Element("Language"), "errorNoMatch")
 
                 __rowTemplate = __rowTemplate.replace("#rowitems#", os.linesep.join(__rowItems)).replace("#id#", str("id='"+__id+"'")).replace("#filter#", __imgfilter)
                 self.__mainBody+=__rowTemplate
 
-                if self.__tableOpacity!=1.0:
+                if self.__rowOpacity!=1.0:
                     self.__rowCSS =self.__rowCSS.replace("Color2", "RowOpacityColor2")
+
             elif line[0]=="footer":
                 """Sets the footer for the site."""
 
@@ -482,9 +501,16 @@ class Compiler_REAL(ABC):
                     else:
                         self.__argumentError(item, "footer")
 
+                if len(__socials) < 5:
+                    xs = int(12/len(__socials))
+                elif len(__socials) < 7:
+                    xs = 4
+                elif len(__socials) > 6 :
+                    xs = 3
+
                 for media in social_icons:
                     if media in __socials.keys():
-                        __icons.append(str("\t\t\t<div class='col-3 col-md'>" + os.linesep + "\t\t\t\t<a  href='" + __socials[media] + "' target='_blank'><img src='img/"+media+".png' class='img-fluid'></a>" + os.linesep + "</div>"))
+                        __icons.append(str("\t\t\t<div class='col-"+str(xs)+" col-md'>" + os.linesep + "\t\t\t\t<a  href='" + __socials[media] + "' target='_blank'><img src='img/"+media+".png' class='img-fluid'></a>" + os.linesep + "</div>"))
 
                 import datetime
                 self.__footerTemplate = self.__footerTemplate.replace("#ButtonText#", __buttonText).replace("#id#", str("id='"+__id+"'")).replace("#year#", str(datetime.datetime.now()).split("-")[0]).replace("#icons#", os.linesep.join(__icons))
@@ -497,7 +523,11 @@ class Compiler_REAL(ABC):
             self.__Config.get_Element("Language"), "errorInvalidArgument").replace("#Key#",
                                                                                    Key).replace(
             "#All#", All)
-
+    """
+    def __formulaError(self, bad, good, command):
+        self.__error = self.__dicts.getWordFromDict(
+            self.__Config.get_Element("Language"), "formulaError").replace("#bad#", bad).replace("#good#", good).replace("#command#", command)
+    """
 
     def __Command_and_Argument(self, line):
         return(line.split("(",1)[0], line.replace(line.split("(",1)[0], ""))
@@ -519,7 +549,7 @@ class Compiler_REAL(ABC):
                 lines2.append(tempstring)
                 tempstring=""
             else:
-                tempstring+=","
+                tempstring+=", "
 
         tempstring=""
 
@@ -551,7 +581,7 @@ class Compiler_REAL(ABC):
                 self.__compiledReplacer("#Color"+str(number+1)+"#", self.__Colors.getPalette(self.__palette)[number])
                 self.__compiledReplacer("#NavbarOpacityColor"+str(number+1)+"#", str("rgba(" + self.__Colors.getRGBA(self.__Colors.getPalette(self.__palette)[number]) + "," + str(self.__navbarOpacity) + ")"))
                 self.__compiledReplacer("#TableOpacityColor"+str(number+1)+"#", str("rgba(" + self.__Colors.getRGBA(self.__Colors.getPalette(self.__palette)[number]) + "," + str(self.__tableOpacity) + ")"))
-                self.__compiledReplacer("#RowOpacityColor"+str(number+1)+"#", str("rgba(" + self.__Colors.getRGBA(self.__Colors.getPalette(self.__palette)[number]) + "," + str(self.__tableOpacity) + ")"))
+                self.__compiledReplacer("#RowOpacityColor"+str(number+1)+"#", str("rgba(" + self.__Colors.getRGBA(self.__Colors.getPalette(self.__palette)[number]) + "," + str(self.__rowOpacity) + ")"))
                 self.__compiledReplacer("#FooterOpacityColor"+str(number+1)+"#", str("rgba(" + self.__Colors.getRGBA(self.__Colors.getPalette(self.__palette)[number]) + "," + str(self.__footerOpacity) + ")"))
 
     def __splitByEQ(self, item, part):

@@ -70,18 +70,19 @@ class GetCodeOnly_REAL(ABC):
         self.__TheBox.wait_window()
 
     def __getCode(self, code):
-        self.__codebox.delete(0.0, END)
+            self.__codebox.delete(0.0, END)
 
-        if self.__Config.get_Element("FortranCompiler")=="False":
-            import PythonCompiler
-            Compiler = PythonCompiler.Compiler(code, self.__Config, self.__dicts, self.__Syntax)
-            code = Compiler.compiled
+            if self.__Config.get_Element("FortranCompiler")=="False":
+                import PythonCompiler
+                Compiler = PythonCompiler.Compiler(code, self.__Config, self.__dicts, self.__Syntax)
+                code = Compiler.compiled
 
-        else:
-            import subprocess
-            subprocess.call("TODO", creationflags=0x08000000)
+            else:
+                import subprocess
+                subprocess.call("TODO", creationflags=0x08000000)
 
-        self.__codebox.insert(0.0, code)
+            self.__codebox.insert(0.0, code)
+
 
 
     def __createButtonFrame(self, x):
