@@ -37,7 +37,7 @@ class SaveHTML_Real(ABC):
             code = code
             code = self.__searchForImagesPaths(code, sep, filepath)
 
-            opened = open(savename, "w")
+            opened = open(savename, "w", encoding='utf8')
             opened.write(code)
             opened.close()
 

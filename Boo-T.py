@@ -822,7 +822,7 @@ class MainWindow_Real(ABC):
 
     @abstractmethod
     def saveQuickSave(self):
-        file = open("QuickSave.txt", "w")
+        file = open("QuickSave.txt", "w", encoding='utf8')
         file.write(self.__getCodeFromBox())
         file.close()
 

@@ -12,17 +12,13 @@ class Compiler_REAL(ABC):
         self.__Colors = ColorPalettes.ColorPalettes()
         self.__Config=config
         self.__dicts=dicts
-        self.__fontfamily='"Arial"'
         self.__Syntax = syntax
 
         """Basic Variables"""
         self.__author=""
         self.__title=""
-        self.__lang=""
         self.__description=""
-        self.__charset=""
         self.__keywords=""
-        self.__palette=""
         self.__background = ""
         self.__bannerText = ""
         self.__bannerCSS = ""
@@ -32,6 +28,11 @@ class Compiler_REAL(ABC):
         self.__tableOpacity = 1.0
         self.__rowOpacity = 1.0
         self.__footerOpacity = 1.0
+
+        self.__fontfamily='"Arial"'
+        self.__lang="en"
+        self.__charset="UTF-8"
+        self.__palette="random"
 
         self.__mainBody=""
         self.__tableCSS = ""
@@ -244,15 +245,17 @@ class Compiler_REAL(ABC):
 
                 for subArg in args:
                     subArg=subArg.strip()
-                    subArgs = subArg.split("=", 1)
                     if subArg.startswith("image"):
+                        subArgs = subArg.split("=", 1)
                         self.__bannerData += self.__setBackGroundData(subArgs, 1)
 
                     elif subArg.startswith("size"):
+                        subArgs = subArg.split("=", 1)
                         self.__bannerSize=subArgs[1]
 
                     elif subArg.startswith("text"):
-                        textstuff = self.__splitComma(self.__Command_and_Argument(args[1])[1][1:-1])
+                        textstuff = self.__splitComma(self.__Command_and_Argument(subArg)[1][1:-1])
+
                         self.__bannerText=textstuff[0][1:-1]
                         self.__bannerTextSize=textstuff[1]
                         self.__bannerTextAlign = textstuff[2]
@@ -285,6 +288,7 @@ class Compiler_REAL(ABC):
                         self.__bannerAnimation = self.__bannerAnimation.replace("#animationThings#", __replacer)
 
                     elif subArg.startswith("height"):
+                        subArgs = subArg.split("=", 1)
                         self.__bannerHeight=subArgs[1]
                     else:
                         self.__argumentError(subArg, "banner")
@@ -510,7 +514,7 @@ class Compiler_REAL(ABC):
 
                 for media in social_icons:
                     if media in __socials.keys():
-                        __icons.append(str("\t\t\t<div class='col-"+str(xs)+" col-md'>" + os.linesep + "\t\t\t\t<a  href='" + __socials[media] + "' target='_blank'><img src='img/"+media+".png' class='img-fluid'></a>" + os.linesep + "</div>"))
+                        __icons.append(str("\t\t\t<div class='col-"+str(xs)+" col-md text-center'>" + os.linesep + "\t\t\t\t<a  href='" + __socials[media] + "' target='_blank'><img src='img/"+media+".png' class='img-fluid'></a>" + os.linesep + "</div>"))
 
                 import datetime
                 self.__footerTemplate = self.__footerTemplate.replace("#ButtonText#", __buttonText).replace("#id#", str("id='"+__id+"'")).replace("#year#", str(datetime.datetime.now()).split("-")[0]).replace("#icons#", os.linesep.join(__icons))
