@@ -6,13 +6,15 @@ import os
 class Compiler_REAL(ABC):
 
     @abstractmethod
-    def __init__(self, code, config, dicts, syntax):
+    def __init__(self, code, config, dicts, syntax, master):
 
         import ColorPalettes
         self.__Colors = ColorPalettes.ColorPalettes()
         self.__Config=config
         self.__dicts=dicts
         self.__Syntax = syntax
+
+        self.__master = master
 
         """Basic Variables"""
         self.__author=""
@@ -41,7 +43,8 @@ class Compiler_REAL(ABC):
         """Formatting the code, getting the full, perfect lines before reading it"""
         code = self.__removeComments(code)
         code = self.__removeNewLines(code)
-        code=code.split("%%")
+
+        code=code.split(self.__master.getDeliminator())
         try:
             code.remove("")
         except:
@@ -86,6 +89,7 @@ class Compiler_REAL(ABC):
             self.__replaceCompiled()
             self.__addColors()
 
+
     def __replaceCompiled(self):
         self.__compiledReplacer("#background#", self.__background)
         self.__compiledReplacer("#bannerCSS#", self.__bannerCSS)
@@ -129,7 +133,7 @@ class Compiler_REAL(ABC):
             self.__compiledReplacer(s, "")
 
     def __removeComments(self, code):
-        return(re.sub(r"%%.*\n", "%%", code))
+        return(re.sub(rf"{self.__master.getDeliminator()}.*\n", self.__master.getDeliminator(), code))
 
     def __removeNewLines(self, code):
         return(code.replace("\n", ""))
@@ -610,5 +614,5 @@ class Compiler_REAL(ABC):
 
 class Compiler(Compiler_REAL):
 
-    def __init__(self, code, config, dicts, syntax):
-        return(super().__init__(code, config, dicts, syntax))
+    def __init__(self, code, config, dicts, syntax, main):
+        return(super().__init__(code, config, dicts, syntax, main))

@@ -11,7 +11,6 @@ class GetCodeOnly_REAL(ABC):
         self.__dicts = dicts
         self.__Config = config
         self.__hammerFont = hammer
-        self.master = master
         self.__main = main
         self.__code = code
         self.__Syntax = syntax
@@ -65,16 +64,16 @@ class GetCodeOnly_REAL(ABC):
             self.__destroyWindow
         )
 
-        self.__getCode(code)
+        self.__getCode(code, master)
         self.__TheBox.focus()
         self.__TheBox.wait_window()
 
-    def __getCode(self, code):
+    def __getCode(self, code, master):
             self.__codebox.delete(0.0, END)
 
             if self.__Config.get_Element("FortranCompiler")=="False":
                 import PythonCompiler
-                Compiler = PythonCompiler.Compiler(code, self.__Config, self.__dicts, self.__Syntax)
+                Compiler = PythonCompiler.Compiler(code, self.__Config, self.__dicts, self.__Syntax, master)
                 code = Compiler.compiled
 
             else:

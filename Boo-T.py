@@ -29,6 +29,7 @@ class MainWindow_Real(ABC):
         self.__saved = False
         self.__configChanged = False
         self.__path = ""
+        self.__deliminator = "%%"
 
         import Dictionaries
         import Config
@@ -863,6 +864,8 @@ class MainWindow_Real(ABC):
 
         self.__standard_tinting("subArg", self.__SYN)
 
+        self.__deliminator=self.__getDeliminator()
+
         if (self.__Config.get_Element("DarkBox") == "False"):
             self.__CodeBox.tag_config("Arg", foreground="green", font=("HammerFat_Hun", self.__Config.get_Element("BoxFontSize"), "bold", "underline"))
             self.__CodeBox.tag_config("subArg", foreground="blue", font=("HammerFat_Hun", self.__Config.get_Element("BoxFontSize"), "bold"))
@@ -882,6 +885,14 @@ class MainWindow_Real(ABC):
         self.__between_tinting("string", '"')
         self.__comment_tinting()
 
+
+    def __getDeliminator(self):
+        try:
+            if self.__CodeBox.get("1.0", END).startswith("deliminator"):
+                regex = re.findall(r"deliminator\s.+", self.__CodeBox.get("1.0", END))[0]
+                return(regex[12:])
+        except:
+            return(self.__deliminator)
 
     def __standard_tinting(self, tag, refList):
         lines=self.__CodeBox.get("1.0", END).splitlines()
@@ -916,14 +927,25 @@ class MainWindow_Real(ABC):
 
     def __comment_tinting(self):
         lines=self.__CodeBox.get("1.0", END).splitlines()
-        if len(lines)>1:
-            for linenum in range(0, len(lines)):
-                for charnum in range(0, len(lines[linenum])-1):
-                    if lines[linenum][charnum] == "%" and lines[linenum][charnum+1] == "%":
 
-                        self.__CodeBox.tag_add("comment", str(linenum + 1) + "." + str(charnum),
-                                                   str(linenum + 1) + "." + str(len(lines[linenum])))
-                        break
+
+
+        if len(lines)>1:
+            try:
+                for linenum in range(0, len(lines)):
+                    self.__comment_tinting_lines(lines)
+
+            except:
+                self.__deliminator="%%"
+                self.__comment_tinting_lines(lines)
+
+    def __comment_tinting_lines(self, lines):
+        for linenum in range(0, len(lines)):
+            for charnum in range(0, len(lines[linenum]) - 1):
+                if lines[linenum][charnum:charnum + len(self.__deliminator)] == self.__deliminator:
+                    self.__CodeBox.tag_add("comment", str(linenum + 1) + "." + str(charnum),
+                                           str(linenum + 1) + "." + str(len(lines[linenum])))
+                    break
 
     def __lightDark(self):
         if self.__Config.get_Element("DarkBox") == "True":
@@ -953,6 +975,10 @@ class MainWindow_Real(ABC):
     def __F7(self, event):
         self.__lightDark()
 
+    @abstractmethod
+    def getDeliminator(self):
+        return(self.__deliminator)
+
 class MainWindow(MainWindow_Real):
     def __init__(self):
         super().__init__()
@@ -966,6 +992,8 @@ class MainWindow(MainWindow_Real):
     def saveQuickSave(master):
         super().saveQuickSave()
 
+    def getDeliminator(master):
+        return(super().getDeliminator())
 
 if __name__ == "__main__":
     MainWindow()

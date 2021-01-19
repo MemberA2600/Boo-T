@@ -9,3 +9,4 @@ font-family=
 table=opacity,columns,row,inverted,id
 bootrow=id,rate,image,article,artitle,title-align,rawtext,imgfilter,auto
 footer=opacity,button,id,facebook,instagram,twitter,youtube,linkedin,googleplus,vkontakte,github
+deliminator=
