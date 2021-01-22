@@ -5,7 +5,7 @@
   		display: flex;
   		justify-content: center;
   		align-items: center;
-		
+		border-radius: 15px;
 		}
 
 	.row-item h1
@@ -19,8 +19,13 @@
 	.bootrow
 		{
 		padding: 10px;
+		}
+
+	.container
+		{
 		background-color: #Color2#;
 		}
+
 
 	.row-item img
 		{
@@ -49,17 +54,15 @@
 		{
 		color: #Color3#;
 		background-color: #Color1#;
-		border-radius: 15px;
+		
 		}
 
 
 	/* smartphones, touchscreens */
-	@media (hover: none) and (pointer: coarse) .row-item
+	@media (hover: none) and (pointer: coarse) 
 		{
-		filter: saturate(1) blur(0px);
-		}
-
-	.row-item .img-animate:hover
-		{
-		filter: saturate(1) blur(0px);
-		}
+		.row-item
+			{
+			filter: saturate(1) blur(0px);
+			}
+	}

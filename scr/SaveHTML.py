@@ -3,10 +3,11 @@ from tkinter.filedialog import *
 
 class SaveHTML_Real(ABC):
 
-    def __init__(self, code, config, dicts):
+    def __init__(self, code, config, dicts, savename):
         self.__dicts=dicts
         self.__Config = config
-        savename = asksaveasfilename(initialdir="*",
+        if savename == "":
+            savename = asksaveasfilename(initialdir="*",
                                      title=self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "save"),
                                      filetypes=((self.__dicts.getWordFromDict(self.__Config.get_Element("Language"),
                                                                               "fileHTML"), "*.html"),
@@ -20,6 +21,8 @@ class SaveHTML_Real(ABC):
             else:
                 filepath = "\\"[0].join(savename.split("\\"[0])[0:-1]) + "\\"[0]
                 sep = "\\"[0]
+            if savename == "temp/temp.html":
+                filepath=os.getcwd()+sep+"temp"+sep
 
             if os.path.exists(filepath+"img")==False:
                 pass
@@ -31,6 +34,7 @@ class SaveHTML_Real(ABC):
             if os.path.exists(filepath+"bootstrap")==False:
                 os.mkdir(filepath+"bootstrap")
 
+
             if savename.endswith(".html") == False or savename.endswith(".txt"):
                 savename += ".html"
 
@@ -41,7 +45,7 @@ class SaveHTML_Real(ABC):
             opened.write(code)
             opened.close()
 
-            for img in ["facebook.png", "youtube.png", "instagram.png", "vkontakte.png", "googleplus.png", "linkedin.png", "twitter.png", "github.png"]:
+            for img in ["email.png","phone.png","skype.png","facebook.png", "youtube.png", "instagram.png", "vkontakte.png", "googleplus.png", "linkedin.png", "twitter.png", "github.png"]:
                 self.__copyFile(str(filepath+"img"+ sep), img, sep, str(os.path.abspath(os.getcwd())+sep+"icons"), img)
 
             for root, dirs, files in os.walk("bootstrap/"):
@@ -61,7 +65,6 @@ class SaveHTML_Real(ABC):
         from shutil import copyfile
         src = sourcedir+sep+file
         dest = str(dir + destfile).replace("\\"[0], sep)
-
         copyfile(src, dest)
 
     def __searchForImagesPaths(self, code, sep, filepath, ):
@@ -131,5 +134,5 @@ class SaveHTML_Real(ABC):
 
 class SaveHTML(SaveHTML_Real):
 
-    def __init__(self, code, config, dicts):
-        super().__init__(code, config, dicts)
+    def __init__(self, code, config, dicts, savename):
+        super().__init__(code, config, dicts, savename)

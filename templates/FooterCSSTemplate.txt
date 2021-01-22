@@ -12,6 +12,7 @@
 		border-color: #Color1# !important;
 		}
 
+
 	#copyright
 		{
 		background-color: #Color3# !important;
@@ -57,7 +58,6 @@
 			text-align: center;
 			margin-top: 25px;
 			margin-bottom: 15px;
-			max-width: 300px;
 
 		}
 
@@ -67,3 +67,12 @@
 		border-radius: 200px;
 		
 		}
+
+	@media only screen and (min-width: 767px)
+	{
+		#footerbutton {
+			position: relative; 
+		}
+
+	}
+

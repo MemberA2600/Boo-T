@@ -16,7 +16,7 @@ path.insert(1, "scr/")
 
 class MainWindow_Real(ABC):
     """Creating the Main Window, loads data for application."""
-
+    @abstractmethod
     def __init__(self):
 
         self.__main = Tk()
@@ -24,12 +24,14 @@ class MainWindow_Real(ABC):
         self.__main.overrideredirect(True)
         self.__main.resizable(False, False)
 
+        self.__checkAllLines = False
         self.__opened = False
         self.__modified = False
         self.__saved = False
         self.__configChanged = False
         self.__path = ""
         self.__deliminator = "%%"
+        self.__tempDeliminator = self.__deliminator
 
         import Dictionaries
         import Config
@@ -102,12 +104,11 @@ class MainWindow_Real(ABC):
         self.__main.bind("<F5>", self.__F5)
         self.__main.bind("<F6>", self.__F6)
         self.__main.bind("<F7>", self.__F7)
-
-
-        """
         self.__main.bind("<F8>", self.__F8)
         self.__main.bind("<F9>", self.__F9)
         self.__main.bind("<F10>", self.__F10)
+
+        """
         self.__main.bind("<F11>", self.__F11)
         self.__main.bind("<F12>", self.__F12)
         """
@@ -133,6 +134,7 @@ class MainWindow_Real(ABC):
             return (True)
         else:
             return (False)
+
 
 
     def autoS(self):
@@ -212,29 +214,34 @@ class MainWindow_Real(ABC):
         self.__imgPaste = ImageTk.PhotoImage(Image.open("icons/paste.png"))
         self.__Paste_B = self.__createButton(self.__imgPaste, self.__doPaste, self.__on_enterPaste, 5.25)
 
-        self.__imgHTML = ImageTk.PhotoImage(Image.open("icons/html.png"))
-        self.__HTML_B = self.__createButton(self.__imgHTML, self.__getCodeOnly, self.__on_enterHTML, 6.5)
+        self.__imgUndo = ImageTk.PhotoImage(Image.open("icons/undo.png"))
+        self.__Undo_B = self.__createButton(self.__imgUndo, self.__doUndo, self.__on_enterUndo, 6.25)
 
-        self.__imgFastTest = ImageTk.PhotoImage(Image.open("icons/test.png"))
-        self.__FTest_B = self.__createButton(self.__imgFastTest, None, self.__on_enterFastTest, 7.5)
+        self.__Undo_B.config(state=DISABLED)
+        import UndoBuffer
+        self.__Undo = UndoBuffer.UndoBuffer(self.__Undo_B)
+
+
+        self.__imgHTML = ImageTk.PhotoImage(Image.open("icons/html.png"))
+        self.__HTML_B = self.__createButton(self.__imgHTML, self.__getCodeOnly, self.__on_enterHTML, 7.5)
 
         self.__imgFFox = ImageTk.PhotoImage(Image.open("icons/firefox.png"))
-        self.__FFox_B = self.__createButton(self.__imgFFox, None, self.__on_enterFFox, 8.5)
+        self.__FFox_B = self.__createButton(self.__imgFFox, self.__doViewFireFox, self.__on_enterFFox, 8.5)
 
         self.__imgChrome = ImageTk.PhotoImage(Image.open("icons/chrome.png"))
-        self.__Chrome_B = self.__createButton(self.__imgChrome, None, self.__on_enterChrome, 9.5)
+        self.__Chrome_B = self.__createButton(self.__imgChrome, self.__doViewChrome, self.__on_enterChrome, 9.5)
 
         self.__imgEdge = ImageTk.PhotoImage(Image.open("icons/edge.png"))
-        self.__Edge_B = self.__createButton(self.__imgEdge, None, self.__on_enterEdge, 10.5)
+        self.__Edge_B = self.__createButton(self.__imgEdge, self.__doViewEdge, self.__on_enterEdge, 10.5)
 
         self.__imgOpera = ImageTk.PhotoImage(Image.open("icons/opera.png"))
-        self.__Opera_B = self.__createButton(self.__imgOpera, None, self.__on_enterOpera, 11.5)
+        self.__Opera_B = self.__createButton(self.__imgOpera, self.__doViewOpera, self.__on_enterOpera, 11.5)
 
         self.__imgSettings = ImageTk.PhotoImage(Image.open("icons/settings.png"))
         self.__Settings_B = self.__createButton(self.__imgSettings, self.__OptionsMenu, self.__on_enterSettings, 12.75)
 
         self.__imgHelp = ImageTk.PhotoImage(Image.open("icons/help.png"))
-        self.__Help_B = self.__createButton(self.__imgHelp, None, self.__on_enterHelp, 13.75)
+        self.__Help_B = self.__createButton(self.__imgHelp, self.__doHelp, self.__on_enterHelp, 13.75)
 
         self.__imgAbout = ImageTk.PhotoImage(Image.open("icons/about.png"))
         self.__About_B = self.__createButton(self.__imgAbout, self.__AboutMenu, self.__on_enterAbout, 14.75)
@@ -272,6 +279,7 @@ class MainWindow_Real(ABC):
 
         if self.__modified == True:
             self.__askForSave()
+
         openname = askopenfilename(initialdir="*",
                                    title=self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "open"),
                                    filetypes=(
@@ -284,6 +292,7 @@ class MainWindow_Real(ABC):
                                    ))
         try:
             self.__openFile(openname,True)
+
         except Exception as e:
             messagebox.showerror(
                 self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "fileOpenErrorTitle"),
@@ -291,6 +300,7 @@ class MainWindow_Real(ABC):
                                                                                                              openname) + "\n" + str(e))
 
     def __openFile(self, openname, addRecent):
+        self.__checkAllLines = True
         if "new_file" in openname:
             addRecent = False
             self.__opened = False
@@ -369,6 +379,7 @@ class MainWindow_Real(ABC):
         import clipboard
 
         self.__CodeBox.insert(INSERT, clipboard.paste())
+        self.__checkAllLines = True
 
     def __doCopy(self):
         import clipboard
@@ -442,9 +453,16 @@ class MainWindow_Real(ABC):
         self.__CodeBox = tkscrolled.ScrolledText(self.__Frame_for_CodeBox, width=1, height=1, font=baseFont)
         self.__box_Ctrl_Pressed = False
         self.__CodeBox.bind("<MouseWheel>", self.mouse_Wheel)
+        self.__CodeBox.bind("v", self.__Pasted)
+        self.__CodeBox.bind("<space>", self.__addBuffer)
+        self.__CodeBox.bind("<Return>", self.__addBuffer)
+        self.__CodeBox.bind("<Delete>", self.__addBuffer)
+        self.__CodeBox.bind("x", self.__addBuffer)
+        self.__CodeBox.bind("<BackSpace>", self.__addBuffer)
 
 
         self.__loadQuickSave()
+        self.__checkAllLines = True
         self.updateCodeBox()
 
     def code_Key_Pressed(self, event):
@@ -534,8 +552,31 @@ class MainWindow_Real(ABC):
             self.__highLighter()
         except Exception as e:
             pass
-
+        self.__addTags()
         self.__CodeBox.pack()
+
+    def __addTags(self):
+        if (self.__Config.get_Element("DarkBox") == "False"):
+            self.__CodeBox.tag_config("subArg", foreground="blue",
+                                      font=("HammerFat_Hun", self.__Config.get_Element("BoxFontSize"), "bold"))
+            self.__CodeBox.tag_config("Arg", foreground="green", font=(
+            "HammerFat_Hun", self.__Config.get_Element("BoxFontSize"), "bold", "underline"))
+            self.__CodeBox.tag_config("string", foreground="red", background="yellow",
+                                      font=("HammerFat_Hun", self.__Config.get_Element("BoxFontSize")))
+            self.__CodeBox.tag_config("comment", background=None, foreground="plum4",
+                                      font=("HammerFat_Hun", self.__Config.get_Element("BoxFontSize"), "italic",))
+            self.__CodeBox.config(insertbackground="black")
+
+        else:
+            self.__CodeBox.tag_config("subArg", foreground="light sky blue",
+                                      font=("HammerFat_Hun", self.__Config.get_Element("BoxFontSize"), "bold"))
+            self.__CodeBox.tag_config("Arg", foreground="lime", font=(
+            "HammerFat_Hun", self.__Config.get_Element("BoxFontSize"), "bold", "underline"))
+            self.__CodeBox.tag_config("string", foreground="yellow", background="red",
+                                      font=("HammerFat_Hun", self.__Config.get_Element("BoxFontSize")))
+            self.__CodeBox.tag_config("comment", background=None, foreground="plum1",
+                                      font=("HammerFat_Hun", self.__Config.get_Element("BoxFontSize"), "italic",))
+            self.__CodeBox.config(insertbackground="lightgray")
 
     def __on_leave(self, event):
         self.__Hint.set("")
@@ -574,9 +615,9 @@ class MainWindow_Real(ABC):
         self.__Hint.set(self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "HTMLCode"))
         self.__setHintTextLocation(6.5)
 
-    def __on_enterFastTest(self, event):
-        self.__Hint.set(self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "fastTest"))
-        self.__setHintTextLocation(6.5)
+    def __on_enterUndo(self, event):
+        self.__Hint.set(self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "Undo"))
+        self.__setHintTextLocation(4.25)
 
     def __on_enterFFox(self, event):
         if self.__Config.get_Element("FireFox") == "":
@@ -804,8 +845,10 @@ class MainWindow_Real(ABC):
 
     def __getCodeOnly(self):
         import GetCodeOnly
-
-        GetCodeOnly = GetCodeOnly.GetCodeOnly(self.__dicts, self.__Config, self.__hammerFont, self, self.__main, self.__fontSize, self.__monitor, self.__getCodeFromBox(), self.__Syntax)
+        try:
+            GetCodeOnly = GetCodeOnly.GetCodeOnly(self.__dicts, self.__Config, self.__hammerFont, self, self.__main, self.__fontSize, self.__monitor, self.__getCodeFromBox(), self.__Syntax)
+        except Exception as e:
+            messagebox.showerror(title=self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "testError"), message=e)
 
     def __getCodeFromBox(self):
         return(self.__CodeBox.get(0.0, END))
@@ -859,77 +902,85 @@ class MainWindow_Real(ABC):
             self.__syntaxList.insert(END, the_list[i])
 
     def __highLighter(self):
-        for tag in self.__CodeBox.tag_names():
-            self.__CodeBox.tag_delete(tag)
+        currentline=int((self.__CodeBox.index(INSERT)).split(".")[0])-1
+        lines = self.__CodeBox.get("1.0", END).splitlines()
 
-        self.__standard_tinting("subArg", self.__SYN)
+        if self.__deliminator!=self.__tempDeliminator:
+            self.__checkAllLines = True
+            self.__tempDeliminator=self.__deliminator
+
+        for tag in self.__CodeBox.tag_names():
+            if self.__checkAllLines==True:
+                self.__CodeBox.tag_remove(tag, "0.0", END)
+
+            else:
+                self.__CodeBox.tag_remove(tag, str(currentline+1)+".0", str(currentline+1)+"."+ str(len(lines[currentline])))
+
 
         self.__deliminator=self.__getDeliminator()
+        self.__standard_tinting("subArg", self.__SYN, currentline, lines, "Arg")
+        self.__standard_tinting("Arg", self.__Syntax.getKeys(), currentline, lines, "subArg")
 
-        if (self.__Config.get_Element("DarkBox") == "False"):
-            self.__CodeBox.tag_config("Arg", foreground="green", font=("HammerFat_Hun", self.__Config.get_Element("BoxFontSize"), "bold", "underline"))
-            self.__CodeBox.tag_config("subArg", foreground="blue", font=("HammerFat_Hun", self.__Config.get_Element("BoxFontSize"), "bold"))
-            self.__CodeBox.tag_config("string", foreground="red", background="yellow", font=("HammerFat_Hun", self.__Config.get_Element("BoxFontSize")))
-            self.__CodeBox.tag_config("comment", background="white", foreground="plum4", font=("HammerFat_Hun", self.__Config.get_Element("BoxFontSize"), "italic",))
-            self.__CodeBox.config(insertbackground="black")
+        self.__between_tinting("string", "'", currentline, lines)
+        self.__between_tinting("string", '"', currentline, lines)
+        self.__comment_tinting(lines)
 
-        else:
-            self.__CodeBox.tag_config("Arg", foreground="lime", font=("HammerFat_Hun", self.__Config.get_Element("BoxFontSize"), "bold", "underline"))
-            self.__CodeBox.tag_config("subArg", foreground="light sky blue", font=("HammerFat_Hun", self.__Config.get_Element("BoxFontSize"), "bold"))
-            self.__CodeBox.tag_config("string", foreground="yellow", background="red", font=("HammerFat_Hun", self.__Config.get_Element("BoxFontSize")))
-            self.__CodeBox.tag_config("comment", background="black", foreground="plum1", font=("HammerFat_Hun", self.__Config.get_Element("BoxFontSize"), "italic",))
-            self.__CodeBox.config(insertbackground="lightgray")
-
-        self.__standard_tinting("Arg", self.__Syntax.getKeys())
-        self.__between_tinting("string", "'")
-        self.__between_tinting("string", '"')
-        self.__comment_tinting()
-
+        self.__checkAllLines = False
 
     def __getDeliminator(self):
         try:
-            if self.__CodeBox.get("1.0", END).startswith("deliminator"):
+            if self.__CodeBox.get("1.0", 2.0).startswith("deliminator"):
                 regex = re.findall(r"deliminator\s.+", self.__CodeBox.get("1.0", END))[0]
                 return(regex[12:])
         except:
             return(self.__deliminator)
 
-    def __standard_tinting(self, tag, refList):
-        lines=self.__CodeBox.get("1.0", END).splitlines()
-        for linenum in range(0, len(lines)):
-            x = 0
-            temp=""
-            for charnum in range(0, len(lines[linenum])):
-                if lines[linenum][charnum].isalpha()==False and lines[linenum][charnum]!="-":
-                    if temp in refList:
-                        self.__CodeBox.tag_add(tag, str(linenum+1) + "." + str(x), str(linenum+1)+"."+str(charnum))
-                    x=charnum+1
-                    temp=""
+    def __standard_tinting(self, tag, refList, currentline, lines, remove):
+        if self.__checkAllLines==True:
+            for linenum in range(0, len(lines)):
+                self.__addTagStandard(lines, linenum, tag, refList, remove)
+        else:
+            self.__addTagStandard(lines, currentline, tag, refList, remove)
+
+    def __addTagStandard(self, lines, linenum, tag, refList, remove):
+        temp = ""
+        x = 0
+        for charnum in range(0, len(lines[linenum])):
+            if lines[linenum][charnum].isalpha() == False and lines[linenum][charnum] != "-":
+                if temp in refList:
+                    self.__CodeBox.tag_remove(remove, str(linenum + 1) + "." + str(x), str(linenum + 1) + "." + str(charnum))
+                    self.__CodeBox.tag_add(tag, str(linenum + 1) + "." + str(x), str(linenum + 1) + "." + str(charnum))
+                x = charnum + 1
+                temp = ""
+                if tag=="Arg" and lines[linenum][charnum] == "(":
+                    break
+            else:
+                temp += lines[linenum][charnum]
+        if temp in refList:
+            self.__CodeBox.tag_add(tag, str(linenum + 1) + "." + str(x),
+                                   str(linenum + 1) + "." + str(len(lines[linenum])))
+
+    def __between_tinting(self, tag, char, currentline, lines):
+        if self.__checkAllLines==True:
+            for linenum in range(0, len(lines)):
+                self.__addTagBetween(lines, linenum, tag, char)
+        else:
+            self.__addTagBetween(lines, currentline, tag, char)
+
+    def __addTagBetween(self, lines, linenum, tag, char):
+        x = 0
+        on = False
+        for charnum in range(0, len(lines[linenum])):
+            if lines[linenum][charnum] == char:
+                if on == False:
+                    on = True
+                    x = charnum
                 else:
-                    temp+=lines[linenum][charnum]
-            if temp in refList:
-                self.__CodeBox.tag_add(tag, str(linenum + 1) + "." + str(x), str(linenum + 1) + "." + str(len(lines[linenum])))
+                    on = False
+                    self.__CodeBox.tag_add(tag, str(linenum + 1) + "." + str(x + 1),
+                                           str(linenum + 1) + "." + str(charnum))
 
-    def __between_tinting(self, tag, char):
-        lines=self.__CodeBox.get("1.0", END).splitlines()
-        for linenum in range(0, len(lines)):
-            x = 0
-            on = False
-            for charnum in range(0, len(lines[linenum])):
-                if lines[linenum][charnum] == char:
-                    if on == False:
-                        on = True
-                        x = charnum
-                    else:
-                        on = False
-                        self.__CodeBox.tag_add(tag, str(linenum + 1) + "." + str(x+1),
-                                               str(linenum + 1) + "." + str(charnum))
-
-    def __comment_tinting(self):
-        lines=self.__CodeBox.get("1.0", END).splitlines()
-
-
-
+    def __comment_tinting(self, lines):
         if len(lines)>1:
             try:
                 for linenum in range(0, len(lines)):
@@ -941,7 +992,7 @@ class MainWindow_Real(ABC):
 
     def __comment_tinting_lines(self, lines):
         for linenum in range(0, len(lines)):
-            for charnum in range(0, len(lines[linenum]) - 1):
+            for charnum in range(0, len(lines[linenum])):
                 if lines[linenum][charnum:charnum + len(self.__deliminator)] == self.__deliminator:
                     self.__CodeBox.tag_add("comment", str(linenum + 1) + "." + str(charnum),
                                            str(linenum + 1) + "." + str(len(lines[linenum])))
@@ -953,6 +1004,13 @@ class MainWindow_Real(ABC):
         else:
             self.__Config.set_Element("DarkBox", "True")
         self.updateCodeBox()
+
+    def __insertDeliminator(self):
+        try:
+            self.__CodeBox.insert(INSERT, self.__deliminator)
+        except:
+            self.__CodeBox.insert(INSERT, "%%")
+            self.__deliminator="%%"
 
     def __F1(self, event):
         self.__doNew()
@@ -970,14 +1028,123 @@ class MainWindow_Real(ABC):
         self.__loadImagePath()
 
     def __F6(self, event):
-        self.__OptionsMenu()
+        self.__lightDark()
 
     def __F7(self, event):
-        self.__lightDark()
+        self.__doUndo()
+
+    def __F8(self, event):
+        self.__insertDeliminator()
+
+    def __F9(self, event):
+        self.__OptionsMenu()
+
+    def __F10(self, event):
+        self.__doViewDefault()
+
+    def __Pasted(self, even):
+        self.__checkAllLines = True
 
     @abstractmethod
     def getDeliminator(self):
         return(self.__deliminator)
+
+    def __doHelp(self):
+        done = False
+        try:
+            self.__openWithDefaulBrowser(os.getcwd() + os.sep + "examples/Help/Help.html")
+            done = True
+
+        except:
+            pass
+
+        if done == False:
+            for browser in ["Chrome", "FireFox", "Edge", "Opera"]:
+                if (self.__Config.get_Element(browser) != ""):
+                    self.__openSiteWithBrowser(browser, "examples/Help/Help.html")
+                    done=True
+                    break
+        if done == False:
+            messagebox.showerror(self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "noBrowser"), self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "noBrowserError"))
+
+    def __openWithDefaulBrowser(self, site):
+        import webbrowser
+        webbrowser.open(site)
+
+    def __doViewChrome(self):
+        try:
+            self.__removeTemp()
+            self.__createTempAndViewItInBrowser("Chrome")
+        except Exception as e:
+            messagebox.showerror(title=self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "testError"), message=e)
+
+    def __removeTemp(self):
+        if os.path.exists("temp"):
+            import shutil
+            shutil.rmtree("temp")
+
+    def __doViewFireFox(self):
+        try:
+            self.__removeTemp()
+            self.__createTempAndViewItInBrowser("FireFox")
+        except Exception as e:
+            messagebox.showerror(title=self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "testError"), message=e)
+
+    def __doViewOpera(self):
+        try:
+            self.__removeTemp()
+            self.__createTempAndViewItInBrowser("Opera")
+        except Exception as e:
+            messagebox.showerror(title=self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "testError"), message=e)
+
+    def __doViewEdge(self):
+        try:
+            self.__removeTemp()
+            self.__createTempAndViewItInBrowser("Edge")
+        except Exception as e:
+            messagebox.showerror(title=self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "testError"), message=e)
+
+    def __doViewDefault(self):
+        try:
+            self.__removeTemp()
+            self.__generateTemp()
+            self.__openWithDefaulBrowser(os.getcwd()+os.sep+"temp/temp.html")
+        except Exception as e:
+            messagebox.showerror(title=self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "testError"),
+                                 message=e)
+
+    def __createTempAndViewItInBrowser(self, browser):
+        self.__generateTemp()
+        self.__openSiteWithBrowser(browser, os.getcwd()+os.sep+"temp"+os.sep+"temp.html")
+
+    def __openSiteWithBrowser(self, browser, site):
+        import subprocess
+        subprocess.Popen(str(self.__Config.get_Element(browser) + " "+ site))
+
+    def __generateTemp(self):
+        import SaveHTML
+        os.mkdir("temp")
+        SaveHTML = SaveHTML.SaveHTML(self.compileCode(), self.__Config, self.__dicts, str("temp/temp.html"))
+
+    @abstractmethod
+    def compileCode(self):
+        if self.__Config.get_Element("FortranCompiler") == "False":
+            import PythonCompiler
+            Compiler = PythonCompiler.Compiler(self.__CodeBox.get(0.0, END), self.__Config, self.__dicts, self.__Syntax, self)
+            return Compiler.compiled
+
+        else:
+            import subprocess
+            subprocess.call("TODO", creationflags=0x08000000)
+
+    def __doUndo(self):
+        temp=self.__Undo.undo()
+        if temp!=False:
+            self.__CodeBox.delete(1.0, END)
+            self.__CodeBox.insert(1.0, temp)
+
+    def __addBuffer(self, event):
+        self.__Undo.saveBox(self.__CodeBox.get(0.0, END)[:-1])
 
 class MainWindow(MainWindow_Real):
     def __init__(self):
@@ -995,8 +1162,14 @@ class MainWindow(MainWindow_Real):
     def getDeliminator(master):
         return(super().getDeliminator())
 
+    def compileCode(self):
+        return(super().compileCode())
+
 if __name__ == "__main__":
     MainWindow()
-    if os.path.exists("Quicksave.txt"):
-        os.remove("Quicksave.txt")
+    if os.path.exists("QuickSave.txt"):
+        os.remove("QuickSave.txt")
+    if os.path.exists("temp"):
+        import shutil
+        shutil.rmtree("temp")
 

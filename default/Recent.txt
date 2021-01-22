@@ -1,3 +1,4 @@
 Roka.boo=E:/PyCharm/P/Boo-T/Final_Tests/SivatagiRoka/Roka.boo
+Help.boo=E:/PyCharm/P/Boo-T/Final_Tests/Help/Help.boo
 Altair.boo=E:/PyCharm/P/Boo-T/Final_Tests/Altair8800/Altair.boo
 Myself.boo=E:/PyCharm/P/Boo-T/Final_Tests/Myself/Myself.boo

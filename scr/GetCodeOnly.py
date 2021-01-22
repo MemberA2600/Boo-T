@@ -71,14 +71,7 @@ class GetCodeOnly_REAL(ABC):
     def __getCode(self, code, master):
             self.__codebox.delete(0.0, END)
 
-            if self.__Config.get_Element("FortranCompiler")=="False":
-                import PythonCompiler
-                Compiler = PythonCompiler.Compiler(code, self.__Config, self.__dicts, self.__Syntax, master)
-                code = Compiler.compiled
-
-            else:
-                import subprocess
-                subprocess.call("TODO", creationflags=0x08000000)
+            code = master.compileCode()
 
             self.__codebox.insert(0.0, code)
 
@@ -106,7 +99,7 @@ class GetCodeOnly_REAL(ABC):
 
     def __doSaveAs(self):
         import SaveHTML
-        SaveHTML = SaveHTML.SaveHTML(self.__codebox.get(0.0, END), self.__Config, self.__dicts)
+        SaveHTML = SaveHTML.SaveHTML(self.__codebox.get(0.0, END), self.__Config, self.__dicts, "")
         self.__destroyWindow()
 
 class GetCodeOnly(GetCodeOnly_REAL):

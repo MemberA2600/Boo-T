@@ -43,6 +43,7 @@ class Compiler_REAL(ABC):
         """Formatting the code, getting the full, perfect lines before reading it"""
         code = self.__removeComments(code)
         code = self.__removeNewLines(code)
+        code = self.__spaceTags(code)
 
         code=code.split(self.__master.getDeliminator())
         try:
@@ -155,8 +156,25 @@ class Compiler_REAL(ABC):
             """Setting the most basic things in the first 5 cases for HTML header."""
             args=line[1][1:-1]
             if line[0] == "keywords":
-
                 self.__keywords = args
+            elif line[0] == "opacity":
+                args = self.__splitComma(args)
+                for arg in args:
+                    Key = self.__splitByEQ(arg, 0)
+                    Value = self.__splitByEQ(arg, 1)
+
+                    if Key=="container":
+                        self.__rowOpacity=float(Value)
+                    elif Key == "navbar":
+                        self.__navbarOpacity = float(Value)
+                    elif Key == "table":
+                        self.__tableOpacity = float(Value)
+                    elif Key == "footer":
+                        self.__footerOpacity = float(Value)
+                    else:
+                        self.__argumentError(args, "opacity")
+
+
             elif line[0] == "description":
                 self.__description = args
             elif line[0] == "font-family":
@@ -193,9 +211,13 @@ class Compiler_REAL(ABC):
                             except:
                                 self.__error = self.__dicts.getWordFromDict(
                                                self.__Config.get_Element("Language"), "errorColorPalette").replace("#Value#", Value)
+
                         if self.__error==False:
                             self.__cssTemplateChanged=True
                         self.__palette = Value
+                    else:
+                        self.__argumentError(args, "basics")
+
             elif line[0] == "background":
                 "Settings of global background for the whole site."
 
@@ -326,7 +348,7 @@ class Compiler_REAL(ABC):
                 __brandName = "Brand"
                 __items = []
                 __sticky = ""
-
+                __expand = "-lg"
                 args = self.__splitComma(args)
                 self.__navBarCSS = self.__templateLoader("NavBarCSSTemplate")
                 self.__navItemTemplate = self.__templateLoader("NavItemTemplate")
@@ -338,8 +360,6 @@ class Compiler_REAL(ABC):
                         else:
                             url=self.__splitByEQ(inside, 1)
                             __brandName = "<img class='img-fluid' target='_blank' style='max-width: 300px; max-height: 200px' src='" + url +  "'>"
-                    elif item.startswith("opacity"):
-                        self.__navbarOpacity=float(self.__splitByEQ(item, 1))
 
                     elif item.startswith("item"):
                         subargs = self.__splitComma(self.__Command_and_Argument(item)[1][1:-1])
@@ -347,13 +367,22 @@ class Compiler_REAL(ABC):
 
                     elif item=="sticky":
                         __sticky="sticky-top"
+                    elif item.startswith("expand"):
+                        sizes={"0": "", "1": "-sm", "2": "-md", "3": "-lg", "4": "-xl"}
+                        size = self.__splitByEQ(item, 1)
+                        if size in sizes:
+                            __expand=sizes[size]
+                        else:
+                            __expand = "-"+size
+
+
+
                     else:
                         self.__argumentError(item, "navbar")
 
-                if self.__navbarOpacity!=1:
                     self.__navBarTemplate = self.__navBarTemplate.replace("#Color2#", "#NavbarOpacityColor2#")
 
-                self.__navBarTemplate=self.__navBarTemplate.replace("#brand#", __brandName).replace("#navItems#", os.linesep.join(__items)).replace("#sticky#", __sticky)
+                self.__navBarTemplate=self.__navBarTemplate.replace("#brand#", __brandName).replace("#navItems#", os.linesep.join(__items)).replace("#sticky#", __sticky).replace("#expand#", __expand)
 
             elif line[0] == "table":
                 """Adds a table content to the container body of the site"""
@@ -369,9 +398,7 @@ class Compiler_REAL(ABC):
 
                 args = self.__splitComma(args)
                 for item in args:
-                    if item.startswith("opacity"):
-                        self.__tableOpacity = float(self.__splitByEQ(item, 1))
-                    elif item=="inverted":
+                    if item=="inverted":
                         __dark = "table-dark"
                     elif item.startswith("id"):
                         __id = self.__splitByEQ(item, 1)
@@ -401,8 +428,7 @@ class Compiler_REAL(ABC):
 
                 self.__mainBody+=__tableTemplate
 
-                if self.__tableOpacity!=1.0:
-                    self.__tableCSS =self.__tableCSS.replace("Color2", "TableOpacityColor2")
+                self.__tableCSS =self.__tableCSS.replace("Color2", "TableOpacityColor2")
             elif line[0] == "bootrow":
                 """Adds a bootstrap row to the container part of the body."""
 
@@ -419,9 +445,7 @@ class Compiler_REAL(ABC):
 
                 args = self.__splitComma(args)
                 for item in args:
-                    if item.startswith("opacity"):
-                        self.__rowOpacity = float(self.__splitByEQ(item, 1))
-                    elif item.startswith("id"):
+                    if item.startswith("id"):
                         __id = self.__splitByEQ(item, 1)
                     elif item.startswith("rate"):
                         if item=="rate(auto)":
@@ -454,14 +478,14 @@ class Compiler_REAL(ABC):
                             if ehhh.startswith("title-align"):
                                 __titleAlign = self.__splitByEQ(ehhh, 1)
 
-                            elif ehhh.startswith("artitle"):
+                            elif ehhh.startswith("title"):
                                 __title = self.__splitByEQ(ehhh, 1)[1:-1]
 
                             elif ehhh.startswith("rawtext"):
                                 __text = self.__splitByEQ(ehhh, 1)[1:-1]
 
                             else:
-                                self.__argumentError(item, "artitle")
+                                self.__argumentError(item, "title")
 
                         __article = __article.replace("#title#", __title).replace("#text#", __text).replace("#align#", __titleAlign)
                         if __rates != "auto":
@@ -479,8 +503,7 @@ class Compiler_REAL(ABC):
                 __rowTemplate = __rowTemplate.replace("#rowitems#", os.linesep.join(__rowItems)).replace("#id#", str("id='"+__id+"'")).replace("#filter#", __imgfilter)
                 self.__mainBody+=__rowTemplate
 
-                if self.__rowOpacity!=1.0:
-                    self.__rowCSS =self.__rowCSS.replace("Color2", "RowOpacityColor2")
+                self.__rowCSS =self.__rowCSS.replace("Color2", "RowOpacityColor2")
 
             elif line[0]=="footer":
                 """Sets the footer for the site."""
@@ -495,12 +518,10 @@ class Compiler_REAL(ABC):
                 __id=""
                 args = self.__splitComma(args)
 
-                social_icons = ["facebook", "youtube", "twitter", "vkontakte", "instagram", "googleplus", "linkedin", "github"]
+                social_icons = ["facebook", "youtube", "twitter", "vkontakte", "instagram", "googleplus", "linkedin", "github", "skype", "email", "phone"]
 
                 for item in args:
-                    if item.startswith("opacity"):
-                        self.__footerOpacity = float(self.__splitByEQ(item, 1))
-                    elif item.startswith("id"):
+                    if item.startswith("id"):
                         __id = self.__splitByEQ(item, 1)
                     elif item.startswith("button"):
                         __buttonText = self.__splitByEQ(item, 1)[1:-1]
@@ -509,22 +530,27 @@ class Compiler_REAL(ABC):
                     else:
                         self.__argumentError(item, "footer")
 
-                if len(__socials) < 5:
+                if len(__socials) == 0:
+                    xs=12
+                elif len(__socials) < 5:
                     xs = int(12/len(__socials))
                 elif len(__socials) < 7:
                     xs = 4
                 elif len(__socials) > 6 :
                     xs = 3
-
                 for media in social_icons:
                     if media in __socials.keys():
                         __icons.append(str("\t\t\t<div class='col-"+str(xs)+" col-md text-center'>" + os.linesep + "\t\t\t\t<a  href='" + __socials[media] + "' target='_blank'><img src='img/"+media+".png' class='img-fluid'></a>" + os.linesep + "</div>"))
 
                 import datetime
-                self.__footerTemplate = self.__footerTemplate.replace("#ButtonText#", __buttonText).replace("#id#", str("id='"+__id+"'")).replace("#year#", str(datetime.datetime.now()).split("-")[0]).replace("#icons#", os.linesep.join(__icons))
+                self.__footerTemplate = self.__footerTemplate.replace("#ButtonText#", __buttonText).replace("#id#", str("id='" + __id + "'")).replace("#year#", str(datetime.datetime.now()).split("-")[0])
 
-                if self.__footerOpacity!=1.0:
-                    self.__footerCSS =self.__footerCSS.replace("Color2", "FooterOpacityColor2")
+                if len(__socials)>0:
+                    self.__footerTemplate = self.__footerTemplate.replace("#icons#", os.linesep.join(__icons))
+                else:
+                    self.__footerTemplate = self.__footerTemplate.replace("#icons#", "")
+
+                self.__footerCSS =self.__footerCSS.replace("Color2", "FooterOpacityColor2")
 
     def __argumentError(self, Key, All):
         self.__error = self.__dicts.getWordFromDict(
@@ -538,7 +564,7 @@ class Compiler_REAL(ABC):
     """
 
     def __Command_and_Argument(self, line):
-        return(line.split("(",1)[0], line.replace(line.split("(",1)[0], ""))
+        return(line.split("(",1)[0], line.replace(line.split("(",1)[0], "", 1))
 
     def __splitComma(self, line):
         listOfArgs=[]
@@ -611,6 +637,13 @@ class Compiler_REAL(ABC):
                 + "\talign-items: flex-end;" + os.linesep \
                 + "\theight: " + num + "px;" + os.linesep \
                 + "\tvertical-align: bottom;" + os.linesep
+
+    def __spaceTags(self, code):
+        import re
+        parts= re.findall(r"<space:\d+>", code)
+        for item in parts:
+            code=code.replace("<space:"+item[7:-1]+">", "&nbsp;" * int(item[7:-1]))
+        return(code)
 
 class Compiler(Compiler_REAL):
 
