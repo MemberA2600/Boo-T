@@ -1,5 +1,5 @@
 deliminator hullahopp
-basics(author=FehÈr J·nos Zolt·n (Member),
+basics(author=Feh√©r J√°nos Zolt√°n (Member),
        language=en, 
        charset=utf-8,
        palette=27) hullahopp
@@ -130,3 +130,4 @@ footer(button="Scroll back to top!",
 	github=https://github.com/MemberA2600,
 	youtube=https://www.youtube.com/user/M3MB3Rrr,
 	linkedin=https://www.linkedin.com/in/j%C3%A1nos-zolt%C3%A1n-feh%C3%A9r-4378828b/) hullahopp
+

@@ -406,12 +406,14 @@ class OptionsMenu_REAL(ABC):
         self.__saveSettingsToConfig()
         self.__Config.saveConfig()
         self.__setWindowLayout()
+        if self.__haveToReSize==True:
+            self.__setSizeAgain()
+
         self.__destroyWindow()
-        if self.__haveToRestart==True:
-            self.__resStart()
+
 
     def __saveSettingsToConfig(self):
-        self.__haveToRestart=False
+        self.__haveToReSize=False
 
         if self.__intCompiler.get()==1:
             self.__Config.set_Element("FortranCompiler", "False")
@@ -430,8 +432,6 @@ class OptionsMenu_REAL(ABC):
 
         temp=self.__Config.get_Element("Language")
         self.__Config.set_Element("Language", self.__langVar.get())
-        if temp!=self.__Config.get_Element("Language"):
-            self.__haveToRestart=True
 
         temp=self.__Config.get_Element("StaticSize")
         if self.__windowSize.get()=="Auto":
@@ -439,7 +439,7 @@ class OptionsMenu_REAL(ABC):
         else:
             self.__Config.set_Element("StaticSize", self.__windowSize.get()[0])
         if temp!=self.__Config.get_Element("StaticSize"):
-            self.__haveToRestart=True
+            self.__haveToReSize=True
 
         if self.__boxAuto.get()==True:
             self.__Config.set_Element("BoxFontSize", "0")
@@ -496,26 +496,17 @@ class OptionsMenu_REAL(ABC):
 
     def __loadDef(self):
 
-        temp=self.__Config.get_Element("Language")
-        temp2=self.__Config.get_Element("StaticSize")
+        temp=self.__Config.get_Element("StaticSize")
 
         self.__Config.load_Config_Defaults()
         self.__Config.saveConfig()
         self.__setWindowLayout()
+        if temp != self.__Config.get_Element("StaticSize"):
+            self.__setSizeAgain()
 
-        if temp!=self.__Config.get_Element("Language") or temp2!=self.__Config.get_Element("StaticSize"):
-            self.__resStart()
+    def __setSizeAgain(self):
+        self.master.createMainWindow()
 
-
-    def __resStart(self):
-        """Restarts application."""
-
-        m = messagebox.showinfo(self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "restartTitle"),
-                                self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "restartText"))
-        self.master.saveQuickSave()
-        from sys import executable
-
-        os.execl(executable, os.path.abspath(__file__), *sys.argv)
 
     def __setWindowLayout(self):
         if self.__Config.get_Element("FortranCompiler") == "True":

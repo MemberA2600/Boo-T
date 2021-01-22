@@ -7,7 +7,6 @@ import os
 
 from tkinter.filedialog import *
 from tkinter import messagebox
-from tkinterhtml import HtmlFrame
 import multiprocessing
 import time
 
@@ -54,9 +53,6 @@ class MainWindow_Real(ABC):
 
             __loading_Screen = DisplayLoading.DisplayLoading(self.__monitor.get_screensize())
 
-        from pyglet import font as PyFont
-        PyFont.add_file('HammerFat.ttf')
-
         if self.__Config.get_OS_Name()=="Linux":
             """On Linux, you can only use fonts those are already installed in the system, so
             the appliaction checks if it is installed, then asks the user if he want to install it
@@ -64,7 +60,7 @@ class MainWindow_Real(ABC):
              to install the font manually."""
 
             from tkinter import font
-            if "HammerFat_Hun" in font.families():
+            if "HammerFat_Hun" not in font.families():
 
                 ham=messagebox.askyesno("HammerFat_Hun", self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "linuxFontError"))
                 if ham==True:
@@ -79,22 +75,20 @@ class MainWindow_Real(ABC):
                                                                           "noFontApp"),
                                              self.__dicts.getWordFromDict(self.__Config.get_Element("Language"),
                                                                           "linuxNoGnome").replace("#path#",
-                                                                                                  '"' + os.getcwd() + '/HammerFat.ttf"'))
+                                                                                                  '"' + os.getcwd() + os.sep + 'HammerFat.ttf"'))
+                    if Done==True:
+                        try:
+                            os.execv(sys.executable, ['python'] + sys.argv)
+                        except:
+                            os.execl(sys.executable, os.path.abspath(__file__), *sys.argv)
+
+        from pyglet import font as PyFont
+        PyFont.add_file('HammerFat.ttf')
 
         self.__setFont(1)
 
-        if self.__Config.get_Element("StaticSize") == "0":
-            s = self.__GetWindowSize(self.__monitor.get_screensize())
-        else:
-            s = int(self.__Config.get_Element("StaticSize"))
 
-
-        """This function will start builing up the main window."""
-        self.__size_Num = self.__Create_Main_Window_By_Screen_Size(s, self.__monitor.get_screensize(),
-                                                                   self.__Config.get_Element("Language"))
-
-
-        self.updateCodeBox() #Needed for the correct text-size, reason unknown!
+        self.createMainWindow()
 
         "Bind function keys for hotkeys."
         self.__main.bind("<F1>", self.__F1)
@@ -123,19 +117,58 @@ class MainWindow_Real(ABC):
         self.__main.after(int(self.__Config.get_Element("AutoSave"))*60000, self.autoS)
         self.__main.mainloop()
 
+    def __deleteWidgets(self):
+        temp=""
+        try:
+            temp = self.__CodeBox.get(0.0, END)
+            for item in self.__main.place_slaves():
+                item.destroy()
+            for item in self.__main.pack_slaves():
+                item.destroy()
+        except:
+            pass
+        return(temp)
+
+    @abstractmethod
+    def createMainWindow(self):
+        temp=self.__deleteWidgets()
+        if self.__Config.get_Element("StaticSize") == "0":
+            s = self.__GetWindowSize(self.__monitor.get_screensize())
+        else:
+            s = int(self.__Config.get_Element("StaticSize"))
+
+        """This function will start builing up the main window."""
+        self.__size_Num = self.__Create_Main_Window_By_Screen_Size(s, self.__monitor.get_screensize(),
+                                                                   self.__Config.get_Element("Language"))
+
+        self.updateCodeBox() #Needed for the correct text-size, reason unknown!
+        if temp!="":
+            self.__CodeBox.insert(0.0, temp)
+
     def __linuxTryToOpenFontViewer(self, app):
         """If the selected font viewer is present in Linux, open our font in it, allowing the user to install it."""
 
         if ((os.popen(str("whereis "+app)).read()).split(":")[1].replace("\n", "")) != "":
             #os.popen(app + ' "' + os.getcwd() + '/HammerFat.ttf"')
             import subprocess
-            subprocess.run(app + ' "' + os.getcwd() + '/HammerFat.ttf"')
+            import psutil
+            subprocess.run([app, os.getcwd() + os.sep + 'HammerFat.ttf'])
+            
+            Break=False                                                           
+            while(Break==False):                                              
+                Break=True                                                    
+                for proc in psutil.process_iter():                            
+                    if proc.name()==app or proc.name()=="font-viewer":
+                        Break=False
+                        break
+            from tkinter import font
+            font.families()
 
+            #from sys import executable
+            #os.execl(executable, os.path.abspath(__file__), *sys.argv)
             return (True)
         else:
             return (False)
-
-
 
     def autoS(self):
         """Recursively calls itself and does autosave in the given period."""
@@ -221,7 +254,6 @@ class MainWindow_Real(ABC):
         import UndoBuffer
         self.__Undo = UndoBuffer.UndoBuffer(self.__Undo_B)
 
-
         self.__imgHTML = ImageTk.PhotoImage(Image.open("icons/html.png"))
         self.__HTML_B = self.__createButton(self.__imgHTML, self.__getCodeOnly, self.__on_enterHTML, 7.5)
 
@@ -290,14 +322,9 @@ class MainWindow_Real(ABC):
                                        (self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "fileAll"),
                                         "*.*"),
                                    ))
-        try:
-            self.__openFile(openname,True)
 
-        except Exception as e:
-            messagebox.showerror(
-                self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "fileOpenErrorTitle"),
-                self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "fileOpenError").replace("#path#",
-                                                                                                             openname) + "\n" + str(e))
+        self.__openFile(openname,True)
+
 
     def __openFile(self, openname, addRecent):
         self.__checkAllLines = True
@@ -308,14 +335,28 @@ class MainWindow_Real(ABC):
         else:
             self.__opened = True
 
-        opened = open(openname, "r")
+        try:
+            opened = open(openname, "r", encoding='utf-8')
+            self.__openSuccess(opened, openname, addRecent)
+
+        except Exception as e:
+            try:
+                opened = open(openname, "rb")
+                self.__openSuccess(opened, openname, addRecent)
+            except:
+                m = self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "fileOpenError").replace("#path#", str(openname))
+                messagebox.showerror(
+                    self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "fileOpenErrorTitle"),
+                    m + "\n" + str(e))
+
+    def __openSuccess(self, opened, openname, addRecent):
         self.__insertBox(opened.read())
         self.updateCodeBox()
-
         opened.close()
-        if addRecent==True:
+        if addRecent == True:
             self.__addToRecent(openname)
         self.__path = openname
+        self.__modified == False
 
     def __askForSave(self):
         """Asks if you want to save the file."""
@@ -351,19 +392,18 @@ class MainWindow_Real(ABC):
         self.__Saver(savename)
 
     def __Saver(self, savename):
-
-
         try:
 
             if savename!="" and ("new_file" not in savename):
                 if savename.endswith(".boo") == False or savename.endswith(".txt"):
                     savename += ".boo"
-                opened = open(savename, "w")
+                opened = open(savename, "w", encoding='utf-8')
                 opened.write(self.__getCodeFromBox())
                 opened.close()
+                self.__opened = True
+                self.__modified = False
                 #self.saveQuickSave()
                 self.__addToRecent(savename)
-                self.__opened = True
                 self.__path = savename
                 self.__deleteQuick()
 
@@ -453,6 +493,8 @@ class MainWindow_Real(ABC):
         self.__CodeBox = tkscrolled.ScrolledText(self.__Frame_for_CodeBox, width=1, height=1, font=baseFont)
         self.__box_Ctrl_Pressed = False
         self.__CodeBox.bind("<MouseWheel>", self.mouse_Wheel)
+        self.__CodeBox.bind("<Button-4>", self.mouse_Wheel)
+        self.__CodeBox.bind("<Button-5>", self.mouse_Wheel)
         self.__CodeBox.bind("v", self.__Pasted)
         self.__CodeBox.bind("<space>", self.__addBuffer)
         self.__CodeBox.bind("<Return>", self.__addBuffer)
@@ -483,13 +525,14 @@ class MainWindow_Real(ABC):
         """If ctrl is pressed and the user roll the mouse's wheel, the font size will be changed.
         Need to call updateCodeBox for the actual change."""
         if self.__box_Ctrl_Pressed:
-            if (event.delta > 0 and int(self.__Config.get_Element("BoxFontSize")) < 48):
+            if ((event.delta > 0 or event.num==4) and int(self.__Config.get_Element("BoxFontSize")) < 48):
                 self.__Config.set_Element("BoxFontSize", str(int(self.__Config.get_Element("BoxFontSize")) + 1))
                 self.updateCodeBox()
 
-            if (event.delta < 0 and int(self.__Config.get_Element("BoxFontSize")) > 12):
+            if ((event.delta<0 or event.num==5) and int(self.__Config.get_Element("BoxFontSize")) > 12):
                 self.__Config.set_Element("BoxFontSize", str(int(self.__Config.get_Element("BoxFontSize")) - 1))
                 self.updateCodeBox()
+
 
     def __getHammerFont(self):
         """Sets font for the code box section"""
@@ -731,7 +774,7 @@ class MainWindow_Real(ABC):
         __loadImageFrame.bind("<Enter>", self.__imgPrintOutLabel)
 
         from PIL import ImageTk, Image
-        self.__imgImg = ImageTk.PhotoImage(Image.open("icons/Image.png"))
+        self.__imgImg = ImageTk.PhotoImage(Image.open("icons/image.png"))
         self.__imgLabel = Label(__loadImageFrame, image=self.__imgImg)
         self.__imgLabel.pack(side=LEFT)
 
@@ -812,10 +855,11 @@ class MainWindow_Real(ABC):
             self.__recentList.delete(0, END)
             for item in file.readlines():
                 try:
-                    if len(self.__recentFiles) < int(self.__Config.get_Element("MaxRecent")) or int(
-                            self.__Config.get_Element("MaxRecent")) == 0:
-                        self.__recentList.insert(END, item.replace("\n", "").replace("\r", "").split("=")[0])
-                        self.__recentFiles.append(item.replace("\n", "").replace("\r", "").split("=")[1])
+                    if os.path.exists(item.split("=")[1].replace("\r","").replace("\n","")):
+                        if len(self.__recentFiles) < int(self.__Config.get_Element("MaxRecent")) or int(
+                                self.__Config.get_Element("MaxRecent")) == 0:
+                            self.__recentList.insert(END, item.replace("\n", "").replace("\r", "").split("=")[0])
+                            self.__recentFiles.append(item.replace("\n", "").replace("\r", "").split("=")[1])
 
                 except:
                     pass
@@ -860,13 +904,13 @@ class MainWindow_Real(ABC):
     def __loadQuickSave(self):
         """Loads quicksave file if present."""
         if os.path.exists("QuickSave.txt"):
-            file=open("QuickSave.txt", "r")
+            file=open("QuickSave.txt", "r", encoding='utf-8')
             self.__insertBox(file.read())
             file.close()
 
     @abstractmethod
     def saveQuickSave(self):
-        file = open("QuickSave.txt", "w", encoding='utf8')
+        file = open("QuickSave.txt", "w", encoding='utf-8')
         file.write(self.__getCodeFromBox())
         file.close()
 
@@ -1164,6 +1208,9 @@ class MainWindow(MainWindow_Real):
 
     def compileCode(self):
         return(super().compileCode())
+
+    def createMainWindow(self):
+        super().createMainWindow()
 
 if __name__ == "__main__":
     MainWindow()

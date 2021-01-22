@@ -21,8 +21,10 @@ class AboutMenu_REAL(ABC):
 
         __monitor = monitor
         size=__monitor.get_screensize()
-
-        self.__AboutM.geometry("%dx%d+%d+%d" % (400, 350, size[0]/2-200, size[1]/2-300))
+        __h = size[1] / 2 - 300
+        if __h<100:
+            __h=100
+        self.__AboutM.geometry("%dx%d+%d+%d" % (400, 350, size[0]/2-200, __h))
 
         authorFrame=Frame(self.__AboutM, background="black", width=390, height=22)
         versionFrame=Frame(self.__AboutM, background="black", width=390, height=22)
@@ -65,6 +67,8 @@ class AboutMenu_REAL(ABC):
         self.__AboutM.bind("<S>", self.__soundChange2)
         self.__AboutM.bind("<s>", self.__soundChange2)
         self.__AboutM.bind("<MouseWheel>", self.__wheel)
+        self.__AboutM.bind("<Button-4>", self.__wheel)
+        self.__AboutM.bind("<Button-5>", self.__wheel)
 
 
         self.__imageOff=ImageTk.PhotoImage(Image.open("icons/sound-off.png"))
@@ -80,9 +84,9 @@ class AboutMenu_REAL(ABC):
         self.__AboutM.wait_window()
 
     def __wheel(self, event):
-        if event.delta>0:
+        if (event.delta > 0 or event.num==4):
             self.__upPressed("123")
-        elif event.delta<0:
+        elif (event.delta < 0 or event.num==5):
             self.__downPressed("123")
 
     def __soundChange2(self, event):
@@ -90,10 +94,9 @@ class AboutMenu_REAL(ABC):
 
     def __soundChange(self):
         if self.__sound==False:
-            from playsound import playsound
             self.__sound=True
             self.__soundButton.config(image=self.__imageOn)
-            playsound("p/p3.wav")
+            self.__playsound("p/p3.wav")
         else:
             self.__sound=False
             self.__soundButton.config(image=self.__imageOff)
@@ -140,13 +143,12 @@ class AboutMenu_REAL(ABC):
         self.__CPUMoveUnit=0
 
     def __resetBall(self):
-        from playsound import playsound
         import random
         import datetime
 
         self.__ballXY = [190, 120]
         if self.__sound==True:
-            playsound("p/p1.wav")
+            self.__playsound("p/p1.wav")
         random.seed(int(str(datetime.datetime.now()).split(".")[1]))
         self.__ballDir=random.randint(0,7)
         self.__ballSpeed = 1
@@ -185,10 +187,15 @@ class AboutMenu_REAL(ABC):
             elif self.__bat2XY[1]<205 and self.__CPUMoveUnit==10:
                 self.__bat2XY[1] += 10
 
+    def __playsound(self, sound):
+        os.environ['PYGAME_HIDE_SUPPORT_PROMPT'] = "hide"
+        import pygame.mixer
+        pygame.mixer.init()
+        sound = pygame.mixer.Sound(sound)
+        sound.play()
 
 
     def __checkballCollision(self):
-        from playsound import playsound
         import random
         import datetime
         random.seed(int(str(datetime.datetime.now()).split(".")[1]))
@@ -198,7 +205,7 @@ class AboutMenu_REAL(ABC):
             self.__collisionDelay = 10
             self.__ballXY[1]=5
             if self.__points[0]<15 and self.__points[1]<15 and self.__sound==True:
-                playsound("p/p3.wav")
+                self.__playsound("p/p3.wav")
 
             if self.__ballDir==1:
                 num2 = random.randint(-3, 3)
@@ -229,7 +236,7 @@ class AboutMenu_REAL(ABC):
             self.__collisionDelay = 10
             self.__ballXY[1]=240
             if self.__points[0]<15 and self.__points[1]<15 and self.__sound==True:
-                playsound("p/p3.wav")
+                self.__playsound("p/p3.wav")
 
             if self.__ballDir==3:
                 num2 = random.randint(-3, 3)
@@ -258,7 +265,7 @@ class AboutMenu_REAL(ABC):
         elif (abs((self.__bat1XY[0]+5)-(self.__ballXY[0]+5))<5) and (abs((self.__bat1XY[1]+20)-(self.__ballXY[1]+5))<25):
             self.__collisionDelay = 10
             if self.__points[0]<15 and self.__points[1]<15 and self.__sound==True:
-                playsound("p/p3.wav")
+                self.__playsound("p/p3.wav")
             if ((self.__bat1XY[1]+20)-(self.__ballXY[1]+5))<-4:
                 self.__ballDir=5
             elif ((self.__bat1XY[1]+20)-(self.__ballXY[1]+5))>4:
@@ -270,7 +277,7 @@ class AboutMenu_REAL(ABC):
         elif (abs((self.__bat2XY[0]+5)-(self.__ballXY[0]+5))<5) and (abs((self.__bat2XY[1]+20)-(self.__ballXY[1]+5))<25):
             self.__collisionDelay = 10
             if self.__points[0]<15 and self.__points[1]<15 and self.__sound==True:
-                playsound("p/p3.wav")
+                self.__playsound("p/p3.wav")
             if ((self.__bat2XY[1]+20)-(self.__ballXY[1]+5))<-4:
                 self.__ballDir=3
             elif ((self.__bat2XY[1]+20)-(self.__ballXY[1]+5))<4:

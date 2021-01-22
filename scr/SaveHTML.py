@@ -20,7 +20,8 @@ class SaveHTML_Real(ABC):
                 sep="/"
             else:
                 filepath = "\\"[0].join(savename.split("\\"[0])[0:-1]) + "\\"[0]
-                sep = "\\"[0]
+                sep = os.sep
+
             if savename == "temp/temp.html":
                 filepath=os.getcwd()+sep+"temp"+sep
 

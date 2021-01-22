@@ -1,35 +1,36 @@
-deliminator ß
-title(A sivatagi roka) ß
-basics(author=Fehér János Zoltán, language=hu, palette=sand) ß
-keywords(roka,emlos,sivatag,termeszet) ß
-description(Csak egy cuki allatka!) ß
-font-family("Gabriola","Times New Roman") ß
-opacity(navbar=0.70,container=0.65,footer=0.70) ß
+deliminator ÃŸ
+title(A sivatagi roka) ÃŸ
+basics(author=FehÃ©r JÃ¡nos ZoltÃ¡n, language=hu, palette=sand) ÃŸ
+keywords(roka,emlos,sivatag,termeszet) ÃŸ
+description(Csak egy cuki allatka!) ÃŸ
+font-family("Gabriola","Times New Roman") ÃŸ
+opacity(navbar=0.70,container=0.65,footer=0.70) ÃŸ
 
-background(image=E:/PyCharm/P/Boo-T/RokaPlus/Roka02.jpg) ß
+background(image=E:/PyCharm/P/Boo-T/RokaPlus/Roka02.jpg) ÃŸ
 
-banner(size=cover, text("Sivatagi rókák",7em,center), animation(40s,
+banner(size=cover, text("Sivatagi rÃ³kÃ¡k",7em,center), animation(40s,
 		E:/PyCharm/P/Boo-T/Roka04.jpg,
 		E:/PyCharm/P/Boo-T/RokaPlus/Roka01.jpg,
 		E:/PyCharm/P/Boo-T/Roka01.jpg
-		), height=350) ß
+		), height=350) ÃŸ
 
 navbar(brand(image=E:/PyCharm/P/Boo-T/desertfox.png), sticky,
-	item("Az állatról",1),
-	item("Galéria",2)) ß
+	item("Az Ã¡llatrÃ³l",1),
+	item("GalÃ©ria",2)) ÃŸ
 
 bootrow(id=1,rate(3,6,3), opacity=0.65, imgfilter,
 	image=E:/PyCharm/P/Boo-T/Roka02.jpg,
-	article(title="A sivatagi rókáról", title-align=left, 
-	rawtext="Testtömege 0,7-1,6 kilogramm, testhossza 24–41 centiméter, farka 18–31 centiméter hosszú és fekete végû. Marmagassága alig éri el a 20 centimétert.A nagy fülei 10-15 centiméteresek; ezek a talaj alatt mozgó zsákmány észrevételére hasznosak; viszont ha kénytelen nappal is elõjönni, akkor a fülei a nagy felületük miatt hõleadásra szolgálnak.<br>A bundája gyakran krémszínû és bolyhos, mely nappal védi az erõs napsütéstõl, míg éjszaka melegen tartja. Az összes rókafaj közül a sivatagi rókának van a legnagyobb füle a testéhez képest; mivel igen sok ér van a vékony füleiben, kiváló hõleadó rendszerként mûködik. A róka talpán vastag bunda van, így a forró homok nem égeti meg a talpát, és tompítja a lépései zaját. Orrán és a szemöldök tájékon hosszú szõrû bajusza van.<br>A többi rókafélétõl eltérõen a sivatagi rókának nincs szagmirigye ('ibolyamirigy') a farka tövében, továbbá csak 32 kromoszómával rendelkezik (a rókafajok esetén ez a szám 35-39). A sivatagi róka csapatokban él, ami szintén eltér a rókafélék életmódjától.)"),
-	image=E:/PyCharm/P/Boo-T/Roka03.jpg) ß
+	article(title="A sivatagi rÃ³kÃ¡rÃ³l", title-align=left, 
+	rawtext="TesttÃ¶mege 0,7-1,6 kilogramm, testhossza 24â€“41 centimÃ©ter, farka 18â€“31 centimÃ©ter hosszÃº Ã©s fekete vÃ©gÅ±. MarmagassÃ¡ga alig Ã©ri el a 20 centimÃ©tert.A nagy fÃ¼lei 10-15 centimÃ©teresek; ezek a talaj alatt mozgÃ³ zsÃ¡kmÃ¡ny Ã©szrevÃ©telÃ©re hasznosak; viszont ha kÃ©nytelen nappal is elÅ‘jÃ¶nni, akkor a fÃ¼lei a nagy felÃ¼letÃ¼k miatt hÅ‘leadÃ¡sra szolgÃ¡lnak.<br>A bundÃ¡ja gyakran krÃ©mszÃ­nÅ± Ã©s bolyhos, mely nappal vÃ©di az erÅ‘s napsÃ¼tÃ©stÅ‘l, mÃ­g Ã©jszaka melegen tartja. Az Ã¶sszes rÃ³kafaj kÃ¶zÃ¼l a sivatagi rÃ³kÃ¡nak van a legnagyobb fÃ¼le a testÃ©hez kÃ©pest; mivel igen sok Ã©r van a vÃ©kony fÃ¼leiben, kivÃ¡lÃ³ hÅ‘leadÃ³ rendszerkÃ©nt mÅ±kÃ¶dik. A rÃ³ka talpÃ¡n vastag bunda van, Ã­gy a forrÃ³ homok nem Ã©geti meg a talpÃ¡t, Ã©s tompÃ­tja a lÃ©pÃ©sei zajÃ¡t. OrrÃ¡n Ã©s a szemÃ¶ldÃ¶k tÃ¡jÃ©kon hosszÃº szÅ‘rÅ± bajusza van.<br>A tÃ¶bbi rÃ³kafÃ©lÃ©tÅ‘l eltÃ©rÅ‘en a sivatagi rÃ³kÃ¡nak nincs szagmirigye ('ibolyamirigy') a farka tÃ¶vÃ©ben, tovÃ¡bbÃ¡ csak 32 kromoszÃ³mÃ¡val rendelkezik (a rÃ³kafajok esetÃ©n ez a szÃ¡m 35-39). A sivatagi rÃ³ka csapatokban Ã©l, ami szintÃ©n eltÃ©r a rÃ³kafÃ©lÃ©k Ã©letmÃ³djÃ¡tÃ³l.)"),
+	image=E:/PyCharm/P/Boo-T/Roka03.jpg) ÃŸ
 
 bootrow(id=2, rate(auto), imgfilter,
 	image=E:/PyCharm/P/Boo-T/Roka05.jpg,
 	image=E:/PyCharm/P/Boo-T/Roka07.jpg,	
-	image=E:/PyCharm/P/Boo-T/Roka09.jpg) ß
+	image=E:/PyCharm/P/Boo-T/Roka09.jpg) ÃŸ
 
-footer(button="Felülre!")
+footer(button="FelÃ¼lre!")
+
 
 
 

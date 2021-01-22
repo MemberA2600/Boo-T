@@ -21,7 +21,10 @@ class GetCodeOnly_REAL(ABC):
         self.__TheBox = Toplevel()
         self.__TheBox.title(self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "generateCode"))
         self.__TheBox.resizable(False, False)
-        self.__TheBox.geometry("%dx%d+%d+%d" % (500, 450, size[0] / 2 - 250, size[1] / 2 - 400))
+        __h = size[1] / 2 - 400
+        if __h<100:
+            __h=100
+        self.__TheBox.geometry("%dx%d+%d+%d" % (500, 450, size[0] / 2 - 250, __h))
 
         self.__TheBox.pack_propagate(False)
 
