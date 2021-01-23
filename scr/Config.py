@@ -103,9 +103,14 @@ class Config_Real(ABC):
         return(temp)
 
     def __LinuxFindCode(self, codepart):
-        """Uses whereis in Linux to get the location of the app."""
-        return((os.popen(str("whereis "+ codepart)).read()).split(":")[1].replace("\n", ""))
+        import subprocess
+        try:
+            return(str(subprocess.check_output(["which", codepart]))[2:-3])
+        except:
+            return("")
 
+        """Uses which in Linux to get the location of the app."""
+       
     def __CheckOpera(self, Opera):
         """Checks browser location by directly searching in the OS and at the default locations as well."""
 
@@ -169,7 +174,7 @@ class Config_Real(ABC):
             if self.__os_Name=="Windows":
                 return(askopenfilename(initialdir = "C:\\",title = asktitle, filetypes = ((self.__dicts.getWordFromDict(self.__Config["Language"], "executable"), "*.exe"),)))
             else:
-                return(askopenfilename(initialdir = "/usr/bin/",title = asktitle, filetypes = ((self.__dicts.getWordFromDict(self.__Config["Language"], "executable"), "*.*"),)))
+                return(askopenfilename(initialdir = "/usr/bin/",title = asktitle, filetypes = ((self.__dicts.getWordFromDict(self.__Config["Language"], "fileAll"), "*.*"),)))
 
 
     def __GetLocation(self, browser):

@@ -1152,7 +1152,7 @@ class MainWindow_Real(ABC):
         try:
             self.__removeTemp()
             self.__generateTemp()
-            self.__openWithDefaulBrowser(os.getcwd()+os.sep+"temp/temp.html")
+            self.__openWithDefaulBrowser(os.getcwd()+os.sep+"temp"+os.sep+"temp.html")
         except Exception as e:
             messagebox.showerror(title=self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "testError"),
                                  message=e)
@@ -1163,7 +1163,10 @@ class MainWindow_Real(ABC):
 
     def __openSiteWithBrowser(self, browser, site):
         import subprocess
-        subprocess.Popen(str(self.__Config.get_Element(browser) + " "+ site))
+        if self.__Config.get_OS_Name()=="Linux":
+            subprocess.run([self.__Config.get_Element(browser), site])
+        else:
+            subprocess.Popen(str(self.__Config.get_Element(browser) + " "+ site))
 
     def __generateTemp(self):
         import SaveHTML

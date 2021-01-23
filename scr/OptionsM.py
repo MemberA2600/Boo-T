@@ -614,12 +614,18 @@ class OptionsMenu_REAL(ABC):
         else:
             startdir = "/".join(default_path.split("/")[:-1])
 
-
-        path = askopenfilename(initialdir=startdir,
+        if self.__Config.get_OS_Name()=="Windows":
+            path = askopenfilename(initialdir=startdir,
                                title=self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "open"),
                                filetypes=(
                                    (self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "executable"),
                                     "*.exe"),))
+        else:
+            path = askopenfilename(initialdir=startdir,
+                               title=self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "open"),
+                               filetypes=(
+                                   (self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "fileAll"),
+                                    "*.*"),))
 
         if path == "" or path.endswith(".exe") == False:
             return (default_path)

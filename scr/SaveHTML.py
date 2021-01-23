@@ -14,12 +14,13 @@ class SaveHTML_Real(ABC):
                                                 (self.__dicts.getWordFromDict(self.__Config.get_Element("Language"),
                                                                               "fileTxT"), "*.txt")))
 
+
         try:
             if self.__Config.get_OS_Name() == "Windows":
                 filepath = "/".join(savename.split("/")[0:-1]) + "/"
                 sep="/"
             else:
-                filepath = "\\"[0].join(savename.split("\\"[0])[0:-1]) + "\\"[0]
+                filepath = os.sep.join(savename.split(os.sep)[0:-1]) + os.sep
                 sep = os.sep
 
             if savename == "temp/temp.html":
@@ -65,7 +66,7 @@ class SaveHTML_Real(ABC):
     def __copyFile(self, dir, file,sep,sourcedir, destfile):
         from shutil import copyfile
         src = sourcedir+sep+file
-        dest = str(dir + destfile).replace("\\"[0], sep)
+        dest = str(dir + destfile).replace(os.sep, sep)
         copyfile(src, dest)
 
     def __searchForImagesPaths(self, code, sep, filepath, ):
