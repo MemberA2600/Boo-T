@@ -1025,7 +1025,6 @@ class MainWindow_Real(ABC):
                                            str(linenum + 1) + "." + str(charnum))
 
     def __comment_tinting(self, lines):
-        if len(lines)>1:
             try:
                 for linenum in range(0, len(lines)):
                     self.__comment_tinting_lines(lines)
@@ -1035,6 +1034,7 @@ class MainWindow_Real(ABC):
                 self.__comment_tinting_lines(lines)
 
     def __comment_tinting_lines(self, lines):
+
         for linenum in range(0, len(lines)):
             for charnum in range(0, len(lines[linenum])):
                 if lines[linenum][charnum:charnum + len(self.__deliminator)] == self.__deliminator:
