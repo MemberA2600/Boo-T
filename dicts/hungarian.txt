@@ -83,3 +83,5 @@ testError=Tesztelési hiba!
 noBrowser=Nincs böngészõ!
 noBrowserError=Nincs beállítva böngészõ az alkalmazásban!
 Undo=Visszavonás
+deliminatorNoFirstLineError=A deliminator megadása csak elsõ parancs lehet, hiba történt
+canBeOnlySetOnceError='#item#' csak egyszer állítható be, hibás beállítás

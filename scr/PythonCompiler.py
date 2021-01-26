@@ -157,6 +157,11 @@ class Compiler_REAL(ABC):
             args=line[1][1:-1]
             if line[0] == "keywords":
                 self.__keywords = args
+            elif line[0] == "deliminator":
+                if self.__number>1:
+                    self.__error = self.__dicts.getWordFromDict(
+                        self.__Config.get_Element("Language"), "deliminatorNoFirstLineError")
+
             elif line[0] == "opacity":
                 args = self.__splitComma(args)
                 for arg in args:
@@ -257,7 +262,11 @@ class Compiler_REAL(ABC):
 
             elif line[0] == "banner":
                 "Settings for the banner."
-                self.__bannerTemplateChanged = True
+                if self.__bannerTemplateChanged==False:
+                    self.__bannerTemplateChanged = True
+                else:
+                    self.__canBeOnlySetOnceError(line[0])
+
 
                 args = self.__splitComma(args)
                 self.__bannerSize="cover"
@@ -344,7 +353,10 @@ class Compiler_REAL(ABC):
 
             elif line[0] == "navbar":
                 "Navbar settings."
-                self.__navBarTemplateChanged = True
+                if self.__navBarTemplateChanged == False:
+                    self.__navBarTemplateChanged = True
+                else:
+                    self.__canBeOnlySetOnceError(line[0])
                 __brandName = "Brand"
                 __items = []
                 __sticky = ""
@@ -507,8 +519,10 @@ class Compiler_REAL(ABC):
 
             elif line[0]=="footer":
                 """Sets the footer for the site."""
-
-                self.__footerTemplateChanged = True
+                if self.__footerTemplateChanged==False:
+                    self.__footerTemplateChanged = True
+                else:
+                    self.__canBeOnlySetOnceError(line[0])
                 self.__footerCSS = self.__templateLoader("FooterCSSTemplate")
                 __footerData = ""
                 __buttonText = "Go to Top"
@@ -551,6 +565,10 @@ class Compiler_REAL(ABC):
                     self.__footerTemplate = self.__footerTemplate.replace("#icons#", "")
 
                 self.__footerCSS =self.__footerCSS.replace("Color2", "FooterOpacityColor2")
+
+    def __canBeOnlySetOnceError(self, item):
+        self.__error = self.__dicts.getWordFromDict(
+            self.__Config.get_Element("Language"), "canBeOnlySetOnceError").replace("#item#", item)
 
     def __argumentError(self, Key, All):
         self.__error = self.__dicts.getWordFromDict(

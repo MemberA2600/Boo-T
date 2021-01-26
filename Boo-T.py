@@ -604,7 +604,7 @@ class MainWindow_Real(ABC):
                                       font=("HammerFat_Hun", self.__Config.get_Element("BoxFontSize"), "bold"))
             self.__CodeBox.tag_config("Arg", foreground="green", font=(
             "HammerFat_Hun", self.__Config.get_Element("BoxFontSize"), "bold", "underline"))
-            self.__CodeBox.tag_config("string", foreground="red", background="yellow",
+            self.__CodeBox.tag_config("string", foreground="snow", background="snow4",
                                       font=("HammerFat_Hun", self.__Config.get_Element("BoxFontSize")))
             self.__CodeBox.tag_config("comment", background=None, foreground="plum4",
                                       font=("HammerFat_Hun", self.__Config.get_Element("BoxFontSize"), "italic",))
@@ -615,11 +615,13 @@ class MainWindow_Real(ABC):
                                       font=("HammerFat_Hun", self.__Config.get_Element("BoxFontSize"), "bold"))
             self.__CodeBox.tag_config("Arg", foreground="lime", font=(
             "HammerFat_Hun", self.__Config.get_Element("BoxFontSize"), "bold", "underline"))
-            self.__CodeBox.tag_config("string", foreground="yellow", background="red",
+            self.__CodeBox.tag_config("string", foreground="snow4", background="snow",
                                       font=("HammerFat_Hun", self.__Config.get_Element("BoxFontSize")))
             self.__CodeBox.tag_config("comment", background=None, foreground="plum1",
                                       font=("HammerFat_Hun", self.__Config.get_Element("BoxFontSize"), "italic",))
             self.__CodeBox.config(insertbackground="lightgray")
+
+
 
     def __on_leave(self, event):
         self.__Hint.set("")
@@ -960,7 +962,6 @@ class MainWindow_Real(ABC):
             else:
                 self.__CodeBox.tag_remove(tag, str(currentline+1)+".0", str(currentline+1)+"."+ str(len(lines[currentline])))
 
-
         self.__deliminator=self.__getDeliminator()
         self.__standard_tinting("subArg", self.__SYN, currentline, lines, "Arg")
         self.__standard_tinting("Arg", self.__Syntax.getKeys(), currentline, lines, "subArg")
@@ -1034,13 +1035,11 @@ class MainWindow_Real(ABC):
                 self.__comment_tinting_lines(lines)
 
     def __comment_tinting_lines(self, lines):
-
         for linenum in range(0, len(lines)):
             for charnum in range(0, len(lines[linenum])):
                 if lines[linenum][charnum:charnum + len(self.__deliminator)] == self.__deliminator:
                     self.__CodeBox.tag_add("comment", str(linenum + 1) + "." + str(charnum),
                                            str(linenum + 1) + "." + str(len(lines[linenum])))
-                    break
 
     def __lightDark(self):
         if self.__Config.get_Element("DarkBox") == "True":
@@ -1055,6 +1054,15 @@ class MainWindow_Real(ABC):
         except:
             self.__CodeBox.insert(INSERT, "%%")
             self.__deliminator="%%"
+
+        import re
+
+        lines=re.sub(rf"{self.__deliminator}.*\n", self.__deliminator, self.__CodeBox.get(0.0, INSERT))
+        lines=lines.split(self.__deliminator)
+
+        if ("deliminator " in lines[-2]) == False:
+            self.__CodeBox.insert(INSERT, " ("+str(len(lines)-1)+")")
+
 
     def __F1(self, event):
         self.__doNew()
@@ -1177,7 +1185,10 @@ class MainWindow_Real(ABC):
     def compileCode(self):
         if self.__Config.get_Element("FortranCompiler") == "False":
             import PythonCompiler
+            import re
+
             Compiler = PythonCompiler.Compiler(self.__CodeBox.get(0.0, END), self.__Config, self.__dicts, self.__Syntax, self)
+
             return Compiler.compiled
 
         else:

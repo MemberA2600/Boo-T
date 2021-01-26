@@ -83,3 +83,5 @@ testError=Error while compiling!
 noBrowser=No Browser Set!
 noBrowserError=No browser set for applicaton!
 Undo=Undo
+deliminatorNoFirstLineError=Setting of deliminator can only be done as the first command, error raised
+canBeOnlySetOnceError='#item#' command can be set only once, invalid set command
