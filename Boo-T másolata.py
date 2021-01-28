@@ -7,6 +7,7 @@ import os
 
 from tkinter.filedialog import *
 from tkinter import messagebox
+import multiprocessing
 import time
 
 from sys import path
@@ -16,16 +17,6 @@ class MainWindow_Real(ABC):
     """Creating the Main Window, loads data for application."""
     @abstractmethod
     def __init__(self):
-        from threading import Thread
-
-        self.__Window = Thread(target=self.__createAll)
-        self.__Window.start()
-        self.__HighLighter = Thread(target=self.__highLighter)
-        self.__HighLighter.daemon = True
-        self.__HighLighter.start()
-
-    def __createAll(self):
-        self.__ready = False
 
         self.__main = Tk()
         self.__main.withdraw() #The Window is hidded while the
@@ -127,7 +118,6 @@ class MainWindow_Real(ABC):
         self.__main.deiconify()
         self.create_StatLabel(self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "welcome"))
         self.__main.after(int(self.__Config.get_Element("AutoSave"))*60000, self.autoS)
-        self.__ready = True
         self.__main.mainloop()
 
     def __deleteWidgets(self):
@@ -371,8 +361,6 @@ class MainWindow_Real(ABC):
         self.__path = openname
         self.__modified == False
 
-        self.__highLigher_Code()
-
     def __askForSave(self):
         """Asks if you want to save the file."""
         M = messagebox.askyesno(self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "Unsaved"),
@@ -531,6 +519,7 @@ class MainWindow_Real(ABC):
 
     def code_Key_Released(self, event):
         """Neded for the usual ctrl + mousewheel combnation for resizing textbox font."""
+        self.__highLighter()
 
         if (event.keysym == "Control_L" or event.keysym == "Control_R"):
             self.__box_Ctrl_Pressed = False
@@ -605,13 +594,12 @@ class MainWindow_Real(ABC):
                 for num in range(0, self.__syntaxList.size()-1):
                     if self.__SYN[num] in self.__Syntax.getKeys():
                         self.__syntaxList.itemconfig(num, {"fg": "lime"})
-            self.__highLigher_Code()
+
+            self.__highLighter()
         except Exception as e:
             pass
         self.__addTags()
         self.__CodeBox.pack()
-
-
 
     def __addTags(self):
         if (self.__Config.get_Element("DarkBox") == "False"):
@@ -963,33 +951,21 @@ class MainWindow_Real(ABC):
             self.__syntaxList.insert(END, the_list[i])
 
     def __highLighter(self):
-
-        import keyboard
-        while True:
-            if keyboard.read_key()!=None:
-                try:
-                    self.__highLigher_Code()
-                except:
-                    pass
-
-
-    def __highLigher_Code(self):
-        currentline = int((self.__CodeBox.index(INSERT)).split(".")[0]) - 1
+        currentline=int((self.__CodeBox.index(INSERT)).split(".")[0])-1
         lines = self.__CodeBox.get("1.0", END).splitlines()
 
-        if self.__deliminator != self.__tempDeliminator:
+        if self.__deliminator!=self.__tempDeliminator:
             self.__checkAllLines = True
-            self.__tempDeliminator = self.__deliminator
+            self.__tempDeliminator=self.__deliminator
 
         for tag in self.__CodeBox.tag_names():
-            if self.__checkAllLines == True:
+            if self.__checkAllLines==True:
                 self.__CodeBox.tag_remove(tag, "0.0", END)
 
             else:
-                self.__CodeBox.tag_remove(tag, str(currentline + 1) + ".0",
-                                          str(currentline + 1) + "." + str(len(lines[currentline])))
+                self.__CodeBox.tag_remove(tag, str(currentline+1)+".0", str(currentline+1)+"."+ str(len(lines[currentline])))
 
-        self.__deliminator = self.__getDeliminator()
+        self.__deliminator=self.__getDeliminator()
         self.__standard_tinting("subArg", self.__SYN, currentline, lines, "Arg")
         self.__standard_tinting("Arg", self.__Syntax.getKeys(), currentline, lines, "subArg")
 
@@ -1234,12 +1210,7 @@ class MainWindow_Real(ABC):
     def __closeWindow(self):
         if self.__modified == True:
             self.__askForSave()
-
         self.__main.destroy()
-        del self.__main
-        import gc
-        gc.collect()
-
 
 class MainWindow(MainWindow_Real):
     def __init__(self):
@@ -1265,7 +1236,6 @@ class MainWindow(MainWindow_Real):
 
 if __name__ == "__main__":
     MainWindow()
-
     if os.path.exists("QuickSave.txt"):
         os.remove("QuickSave.txt")
     if os.path.exists("temp"):
