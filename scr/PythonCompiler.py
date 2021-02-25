@@ -460,7 +460,7 @@ class Compiler_REAL(ABC):
                     if item.startswith("id"):
                         __id = self.__splitByEQ(item, 1)
                     elif item.startswith("rate"):
-                        if item=="rate(auto)":
+                        if "auto" in item:
                             __rates="auto"
                         else:
                             __rates = self.__splitComma(self.__Command_and_Argument(item)[1][1:-1])

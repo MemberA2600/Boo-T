@@ -1,0 +1,20 @@
+	.navbar
+	{
+		color: #Color4# !important;
+		background-attachment: scroll !important;
+
+	}
+
+	a
+	{
+		color: #Color4# !important;
+	}
+
+	.nav-link:hover, .navbar-brand:hover, .navbar-toggler:hover
+	{
+		background-color: #Color3#;
+		border-radius: 10px;
+	
+	}
+
+	

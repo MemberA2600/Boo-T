@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="#lang#">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="#charset#">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="#description#">
+    <meta name="keywords" content="#keywords#">
+    <meta name="author" content="#author#">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="bootstrap/bootstrap.min.css">
+
+    <title>#title#</title>
+    <style>#style#</style>
+  </head>
+  <body>
+    <div class="container">
+
+    #Banner#
+    #NavBar#
+    #Container#
+    #Footer# 
+    </div> 
+  </body>
+    <!-- Optional JavaScript -->
+    <script>document.addEventListener("touchstart", function() {}, true);</script>
+    <script>function topFunction() {
+  document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}</script>	
+    <script src="bootstrap/jquery-3.5.1.slim.min.js"></script>
+    <script src="bootstrap/bootstrap.bundle.min.js"></script>
+</html>

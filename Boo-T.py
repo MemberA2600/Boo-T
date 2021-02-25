@@ -1219,8 +1219,29 @@ class MainWindow_Real(ABC):
             return Compiler.compiled
 
         else:
-            import subprocess
-            subprocess.call("TODO", creationflags=0x08000000)
+            import ctypes
+
+            file = open("temp.boo", "w", encoding='utf-8')
+            file.write(self.__CodeBox.get(0.0, END))
+            file.close()
+            fortran = ""
+
+            if (self.__Config.get_OS_Name() == "Windows"):
+                fortran = ctypes.CDLL(r"FortranCompilerAsDLLWin.dll")
+
+            else:
+                path=os.path.abspath("libCompilerAsDLLLinux.so")
+                fortran = ctypes.CDLL(path)
+
+            fortran.compile()
+            file = open("temp.txt", "r", encoding='utf-8')
+
+            txt = file.read()
+            file.close()
+            return(txt)
+            os.remove("temp.txt")
+
+            #subprocess.call("TODO", creationflags=0x08000000)
 
     def __doUndo(self):
         temp=self.__Undo.undo()
