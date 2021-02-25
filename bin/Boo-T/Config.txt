@@ -1,4 +1,4 @@
-FortranCompiler=False
+FortranCompiler=True
 AutoCheckForInstalledBrowsers=True
 Language=english
 Chrome=C:/Program Files/Google/Chrome/Application/chrome.exe

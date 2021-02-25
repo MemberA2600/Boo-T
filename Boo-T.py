@@ -19,13 +19,14 @@ class MainWindow_Real(ABC):
         from threading import Thread
 
         self.__Window = Thread(target=self.__createAll)
-        self.__Window.start()
         self.__HighLighter = Thread(target=self.__highLighter)
         self.__HighLighter.daemon = True
+        self.__Window.start()
         self.__HighLighter.start()
 
     def __createAll(self):
         self.__ready = False
+        self.__keyPress = False
 
         self.__main = Tk()
         self.__main.withdraw() #The Window is hidded while the
@@ -166,11 +167,11 @@ class MainWindow_Real(ABC):
             import subprocess
             import psutil
             subprocess.run([app, os.getcwd() + os.sep + 'HammerFat.ttf'])
-            
-            Break=False                                                           
-            while(Break==False):                                              
-                Break=True                                                    
-                for proc in psutil.process_iter():                            
+
+            Break=False
+            while(Break==False):
+                Break=True
+                for proc in psutil.process_iter():
                     if proc.name()==app or proc.name()=="font-viewer":
                         Break=False
                         break
@@ -524,12 +525,14 @@ class MainWindow_Real(ABC):
 
     def code_Key_Pressed(self, event):
         """Neded for the usual ctrl + mousewheel combnation for resizing textbox font."""
+        self.__keyPress = False
         self.__modified = True
         if (event.keysym == "Control_L" or event.keysym == "Control_R"):
             self.__box_Ctrl_Pressed = True
 
 
     def code_Key_Released(self, event):
+        self.__keyPress = True
         """Neded for the usual ctrl + mousewheel combnation for resizing textbox font."""
 
         if (event.keysym == "Control_L" or event.keysym == "Control_R"):
@@ -963,14 +966,16 @@ class MainWindow_Real(ABC):
             self.__syntaxList.insert(END, the_list[i])
 
     def __highLighter(self):
+        import time
 
-        import keyboard
         while True:
-            if keyboard.read_key()!=None:
-                try:
+            time.sleep(0.10)
+            if self.__keyPress == True:
+                time.sleep(0.55)
+                if self.__keyPress == True:
+                    self.__keyPress = False
                     self.__highLigher_Code()
-                except:
-                    pass
+
 
 
     def __highLigher_Code(self):
@@ -1238,8 +1243,11 @@ class MainWindow_Real(ABC):
 
             txt = file.read()
             file.close()
-            return(txt)
             os.remove("temp.txt")
+            os.remove("temp.boo")
+            return(txt)
+
+
 
             #subprocess.call("TODO", creationflags=0x08000000)
 
