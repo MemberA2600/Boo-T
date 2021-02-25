@@ -1,0 +1,264 @@
+ <!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Just a simple site dedicated to the Altair 8800 computer">
+    <meta name="keywords" content="Altair 8800,70s computing, vintage, computer science">
+    <meta name="author" content="Member - Fehér János Zoltán">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="bootstrap/bootstrap.min.css">
+
+    <title>Altair 8800</title>
+    <style>html
+	{
+
+    	scroll-behavior: smooth;
+	}
+
+body
+	{
+	 background-image: linear-gradient(#Data#;
+        color: whitesmoke;
+ 	margin-right: auto;
+    	margin-left: auto;
+    	display: block;
+    	width: 100%;
+	border-radius: 15px !important;
+	font-family: "Gulim", sans-serif;
+	}
+
+.container
+	{
+	border-radius: 15px;
+	}
+
+img
+	{
+	padding: 10px;
+
+	}
+
+ #Banner
+	{
+	display: flex;
+	height: 300px;
+	align-items: flex-end;
+	vertical-align: bottom;
+	background-size: cover;
+	background-position-x: center;
+	background-position-y: center;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 15px 15px 0px 0px;
+	animation-name: bannerAnimation;
+	animation-duration: 40s;
+	animation-timing-function: ease-in-out;
+	animation-iteration-count: infinite;
+
+	}
+#BannerText
+	{
+	display: flex;
+	height: 0px;
+	align-items: flex-end;
+	vertical-align: bottom;
+	font-size: 8em;
+	justify-content: center;
+	text-shadow: gray 5px 5px 5px;
+	padding-bottom: 300px;
+	margin-bottom: -300px;
+
+	}
+
+@keyframes bannerAnimation
+	{
+		0%{	background-image: url('E:/PyCharm/P/Boo-T/01.jpg');	filter: saturate(0.25) blur(3px) ;}
+                        		2%{	background-image: url('E:/PyCharm/P/Boo-T/01.jpg');	filter: saturate(1) blur(0px) ;}
+                        		16%{	background-image: url('E:/PyCharm/P/Boo-T/01.jpg');	filter: saturate(1) blur(0px) ;}
+                        		18%{	background-image: url('E:/PyCharm/P/Boo-T/01.jpg');	filter: saturate(0.25) blur(3px) ;}
+                        		20%{	background-image: url('E:/PyCharm/P/Boo-T/02.jpg');	filter: saturate(0.25) blur(3px) ;}
+                        		22%{	background-image: url('E:/PyCharm/P/Boo-T/02.jpg');	filter: saturate(1) blur(0px) ;}
+                        		36%{	background-image: url('E:/PyCharm/P/Boo-T/02.jpg');	filter: saturate(1) blur(0px) ;}
+                        		38%{	background-image: url('E:/PyCharm/P/Boo-T/02.jpg');	filter: saturate(0.25) blur(3px) ;}
+                        		40%{	background-image: url('E:/PyCharm/P/Boo-T/03.jpg');	filter: saturate(0.25) blur(3px) ;}
+                        		42%{	background-image: url('E:/PyCharm/P/Boo-T/03.jpg');	filter: saturate(1) blur(0px) ;}
+                        		56%{	background-image: url('E:/PyCharm/P/Boo-T/03.jpg');	filter: saturate(1) blur(0px) ;}
+                        		58%{	background-image: url('E:/PyCharm/P/Boo-T/03.jpg');	filter: saturate(0.25) blur(3px) ;}
+                        		60%{	background-image: url('E:/PyCharm/P/Boo-T/04.jpg');	filter: saturate(0.25) blur(3px) ;}
+                        		62%{	background-image: url('E:/PyCharm/P/Boo-T/04.jpg');	filter: saturate(1) blur(0px) ;}
+                        		76%{	background-image: url('E:/PyCharm/P/Boo-T/04.jpg');	filter: saturate(1) blur(0px) ;}
+                        		78%{	background-image: url('E:/PyCharm/P/Boo-T/04.jpg');	filter: saturate(0.25) blur(3px) ;}
+                        		80%{	background-image: url('E:/PyCharm/P/Boo-T/05.jpg');	filter: saturate(0.25) blur(3px) ;}
+                        		82%{	background-image: url('E:/PyCharm/P/Boo-T/05.jpg');	filter: saturate(1) blur(0px) ;}
+                        		96%{	background-image: url('E:/PyCharm/P/Boo-T/05.jpg');	filter: saturate(1) blur(0px) ;}
+                        		98%{	background-image: url('E:/PyCharm/P/Boo-T/05.jpg');	filter: saturate(0.25) blur(3px) ;}
+                        		100%{	background-image: url('E:/PyCharm/P/Boo-T/01.jpg');	filter: saturate(0.25) blur(3px) ;}
+
+	}
+                    </div>
+	.navbar
+	{
+		color: whitesmoke !important;
+		background-attachment: scroll !important;
+
+	}
+
+	a
+	{
+		color: whitesmoke !important;
+	}
+
+	.nav-link:hover, .navbar-brand:hover, .navbar-toggler:hover
+	{
+		background-color: darkgray;
+		border-radius: 10px;
+	
+	}
+#
+ 	.row-item
+		{
+		color: whitesmoke;
+    		transition: 0.25s;
+  		display: flex;
+  		justify-content: center;
+  		align-items: center;
+		border-radius: 15px;
+		}
+
+	.row-item h1
+		{
+		font-weight: 600;
+		color: darkgray;
+		text-shadow: gray 5px 5px 5px;
+		font-size: 2.5em;
+		}
+
+	.bootrow
+		{
+		padding: 10px;
+		}
+
+	.container
+		{
+		background-color: rgba(119,136,153,1.);
+		}
+
+
+	.row-item img
+		{
+		border-radius: 10px;
+		}
+
+	.row-item a
+		{
+		color: gray;
+		text-decoration: none;
+
+		}
+
+	.row-item .img-animate
+		{
+		filter: saturate(0.25) blur(3px);
+    		transition: 0.25s;
+		}
+
+	.row-item img:hover
+		{
+		filter: saturate(1) blur(0px);
+		}
+
+	.row-item:hover
+		{
+		color: darkgray;
+		background-color: gray;
+		
+		}
+
+
+	/* smartphones, touchscreens */
+	@media (hover: none) and (pointer: coarse)
+		{
+		.row-item
+			{
+			filter: saturate(1) blur(0px);
+			}
+	}
+
+
+                <html lang="en"></style>
+  </head>
+  <body>
+    <div class="container">
+
+         <!-- Banner starts -->
+    <div class="row d-none d-sm-block">
+	<div class="col-12" id="Banner" style="background-attachment: scroll !important; " >
+		
+	</div>
+	<div class="col-12" id="BannerText" >
+		Altair 8800
+	</div>
+    </div>
+    <!-- Banner ends -->
+         <!-- NavBar starts -->
+
+	<nav class="navbar navbar-expand-lg navbar-light sticky-top" style="background-color: rgba(119,136,153,1.) !important; font-size: 1.5em !important; margin: 0px -15px !important; padding: 0px 10px !important">
+		<a class="navbar-brand" href="#"><span style="font-size: 1.5em;"><img class='img-fluid' target='_blank' src='E:/PyCharm/P/Boo-T/mits.svg'></span></a>
+  		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    			<span class="navbar-toggler-icon"></span>
+  		</button>
+
+		<div class="collapse navbar-collapse" id="collapsibleNavbar">
+    		<ul class="navbar-nav">
+			<li class="nav-item">
+        			<a class="nav-link" href="#hw">The Hardware</a>
+      			</li>
+			<li class="nav-item">
+        			<a class="nav-link" href="#prog">Programing</a>
+      			</li>
+			<li class="nav-item">
+        			<a class="nav-link" href="#pic">Gallery</a>
+      			</li>
+			<li class="nav-item">
+        			<a class="nav-link" href="#price">Price</a>
+      			</li>
+
+		</ul>
+		</div>		
+
+	</nav>
+    <!-- NavBar ends -->
+    
+ 		<div class="row bootrow" id='hw'>
+		<div class="col-12 col-md-7  row-item">
+			<span class="align-middle">
+			<h1 style="text-align: #align#;">Hardware</h1>
+			<br>
+			<p style="text-align: justify">The Altair 8800 from Micro Instrumentation Telemetry Systems (MITS) of Albuquerque, NM, is considered by many to be the first personal computer - a computer that is easily affordable and obtainable. The entire Altair 8800 system is comprised of a metal case, a power supply, a front panel with switches, and a passive motherboard with expansion slots. All of the circuitry - the CPU and memory, are on cards which plug into the expansion slots, which MITS called the Altair Bus.</p>
+			</span>
+		</div>
+		<div class="col-12 col-md-5  row-item">
+			<span class="align-middle">
+				<a href='E:/PyCharm/P/Boo-T/07.jpg'><img class='img-fluid ' src='E:/PyCharm/P/Boo-T/07.jpg'></a>
+			</span>
+		</div>
+
+		</div>
+ 		<div class="row bootrow" id='prog'>
+
+		</div>
+    
+    </div>
+  </body>
+    <!-- Optional JavaScript -->
+    <script>document.addEventListener("touchstart", function() {}, true);</script>
+    <script>function topFunction() {
+  document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}</script>	
+    <script src="bootstrap/jquery-3.5.1.slim.min.js"></script>
+    <script src="bootstrap/bootstrap.bundle.min.js"></script>
+</html>
