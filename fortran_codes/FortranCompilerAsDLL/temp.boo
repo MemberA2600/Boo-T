@@ -1,4 +1,4 @@
-Ôªøbasics(author=Member - Feh√©r J√°nos Zolt√°n,
+basics(author=Member - FehÈr J·nos Zolt·n,
        language=en, 
        charset=UTF-8,
        palette=7) %%

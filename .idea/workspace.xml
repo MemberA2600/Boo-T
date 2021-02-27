@@ -4,116 +4,120 @@
     <list default="true" id="3910d8e7-84ad-4a90-b5d4-8893b99ff487" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Boo-T.py" beforeDir="false" afterPath="$PROJECT_DIR$/Boo-T.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Boo-T/Boo-T.exe" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Boo-T/Boo-T.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Boo-T/Config.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Boo-T/FortranCompilerAsDLLWin.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Boo-T/HammerFat.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Boo-T/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Boo-T/bootstrap/bootstrap-grid.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Boo-T/bootstrap/bootstrap-grid.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Boo-T/bootstrap/bootstrap-grid.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Boo-T/bootstrap/bootstrap-grid.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Boo-T/bootstrap/bootstrap-reboot.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Boo-T/bootstrap/bootstrap-reboot.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Boo-T/bootstrap/bootstrap-reboot.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Boo-T/bootstrap/bootstrap-reboot.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Boo-T/bootstrap/bootstrap.bundle.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Boo-T/bootstrap/bootstrap.bundle.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Boo-T/bootstrap/bootstrap.bundle.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Boo-T/bootstrap/bootstrap.bundle.min.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Boo-T/bootstrap/bootstrap.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Boo-T/bootstrap/bootstrap.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Boo-T/bootstrap/bootstrap.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Boo-T/bootstrap/bootstrap.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Boo-T/bootstrap/bootstrap.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Boo-T/bootstrap/bootstrap.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Boo-T/bootstrap/bootstrap.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Boo-T/bootstrap/bootstrap.min.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Boo-T/bootstrap/jquery-3.5.1.slim.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Boo-T/default/Colors.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Boo-T/default/Config.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Boo-T/default/RGBA.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Boo-T/default/Recent.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Boo-T/default/Syntax.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Boo-T/dicts/english.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Boo-T/dicts/hungarian.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Boo-T/icons/Boots.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Boo-T/icons/Boots.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Boo-T/icons/about.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Boo-T/icons/chrome.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Boo-T/icons/copy.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Boo-T/icons/edge.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Boo-T/icons/email.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Boo-T/icons/facebook.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Boo-T/icons/firefox.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Boo-T/icons/fortran.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Boo-T/icons/github.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Boo-T/icons/googleplus.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Boo-T/icons/help.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Boo-T/icons/html.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Boo-T/icons/image.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Boo-T/icons/instagram.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Boo-T/icons/linkedin.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Boo-T/icons/new.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Boo-T/icons/open.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Boo-T/icons/opera.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Boo-T/icons/paste.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Boo-T/icons/phone.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Boo-T/icons/python.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Boo-T/icons/save.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Boo-T/icons/save_as.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Boo-T/icons/settings.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Boo-T/icons/skype.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Boo-T/icons/sound-off.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Boo-T/icons/sound-on.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Boo-T/icons/twitter.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Boo-T/icons/undo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Boo-T/icons/vkontakte.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Boo-T/icons/youtube.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Boo-T/libCompilerAsDLLLinux.so" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Boo-T/libFortranCompilerAsDLLWin.a" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Boo-T/libFortranCompilerAsDLLWin.def" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Boo-T/libgcc_s_seh-1.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Boo-T/libquadmath-0.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Boo-T/libwinpthread-1.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Boo-T/loading.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Boo-T/p/p1.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Boo-T/p/p3.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Boo-T/scr/About.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Boo-T/scr/ColorPalettes.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Boo-T/scr/Config.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Boo-T/scr/Dictionaries.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Boo-T/scr/DisplayLoading.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Boo-T/scr/GetCodeOnly.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Boo-T/scr/Monitor.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Boo-T/scr/OptionsM.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Boo-T/scr/PythonCompiler.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Boo-T/scr/SaveHTML.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Boo-T/scr/SyntaxList.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Boo-T/scr/UndoBuffer.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Boo-T/temp.boo" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Boo-T/temp.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Boo-T/templates/ArticleTemplate.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Boo-T/templates/BannerCSSTemplate.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Boo-T/templates/BannerTemplate.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Boo-T/templates/CSSTemplate.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Boo-T/templates/ContainerTemplate.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Boo-T/templates/FooterCSSTemplate.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Boo-T/templates/FooterTemplate.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Boo-T/templates/MainTemplate.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Boo-T/templates/NavBarCSSTemplate.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Boo-T/templates/NavBarTemplate.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Boo-T/templates/NavItemTemplate.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Boo-T/templates/RowCSSTemplate.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Boo-T/templates/RowItemTemplate.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Boo-T/templates/RowTemplate.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Boo-T/templates/TableCSSTemplate.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Boo-T/templates/TableTemplate.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Boo-T/templates/bannerAnimationTemplate.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Boo-T/templates/new_file.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/temp.boo" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/temp.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/new_file.txt" beforeDir="false" afterPath="$PROJECT_DIR$/templates/new_file.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FortranCompilerAsDLLWin.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/default/Recent.txt" beforeDir="false" afterPath="$PROJECT_DIR$/default/Recent.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/Altair8800/Altair.boo" beforeDir="false" afterPath="$PROJECT_DIR$/examples/Altair8800/Altair.boo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SivatagiRoka/Roka.boo" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SivatagiRoka/Roka.boo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/CompilerAsDLLLinux.cbp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/CompilerAsDLLLinux.depend" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/CompilerAsDLLLinux.layout" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/bin/Debug/libCompilerAsDLLLinux.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/bin/Release/libCompilerAsDLLLinux.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/default/Colors.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/default/Config.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/default/RGBA.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/default/Recent.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/default/Syntax.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/dicts/english.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/dicts/hungarian.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/fortran_modules/dict.f90" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/fortran_modules/file_func.f90" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/fortran_modules/list.f90" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/fortran_modules/os_func.f90" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/fortran_modules/randomInteger.f90" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/fortran_modules/string_func.f90" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/main.f90" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/obj/Debug/compiler.mod" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/obj/Debug/dict.mod" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/obj/Debug/file_func.mod" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/obj/Debug/fresh.mod" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/obj/Debug/languages.mod" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/obj/Debug/list.mod" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/obj/Debug/os_func.mod" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/obj/Debug/randominteger.mod" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/obj/Debug/string_func.mod" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/obj/Debug/syntax.mod" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/obj/Release/compiler.mod" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/obj/Release/dict.mod" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/obj/Release/file_func.mod" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/obj/Release/fresh.mod" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/obj/Release/languages.mod" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/obj/Release/list.mod" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/obj/Release/main.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/obj/Release/os_func.mod" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/obj/Release/randominteger.mod" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/obj/Release/string_func.mod" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/obj/Release/syntax.mod" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/templates/ArticleTemplate.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/templates/BannerCSSTemplate.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/templates/BannerTemplate.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/templates/CSSTemplate.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/templates/ContainerTemplate.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/templates/FooterCSSTemplate.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/templates/FooterTemplate.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/templates/MainTemplate.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/templates/NavBarCSSTemplate.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/templates/NavBarTemplate.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/templates/NavItemTemplate.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/templates/RowCSSTemplate.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/templates/RowItemTemplate.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/templates/RowTemplate.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/templates/TableCSSTemplate.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/templates/TableTemplate.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/templates/bannerAnimationTemplate.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/templates/new_file.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_files/FortranCompilerAsDLLWin/FortranCompilerAsDLL.cbp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_files/FortranCompilerAsDLLWin/FortranCompilerAsDLL.layout" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_files/FortranCompilerAsDLLWin/bin/Debug/FortranCompilerAsDLL.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_files/FortranCompilerAsDLLWin/bin/Debug/libFortranCompilerAsDLL.a" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_files/FortranCompilerAsDLLWin/bin/Debug/libFortranCompilerAsDLL.def" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_files/FortranCompilerAsDLLWin/default/Colors.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_files/FortranCompilerAsDLLWin/default/Config.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_files/FortranCompilerAsDLLWin/default/RGBA.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_files/FortranCompilerAsDLLWin/default/Recent.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_files/FortranCompilerAsDLLWin/default/Syntax.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_files/FortranCompilerAsDLLWin/dicts/english.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_files/FortranCompilerAsDLLWin/dicts/hungarian.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_files/FortranCompilerAsDLLWin/fortran_modules/dict.f90" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_files/FortranCompilerAsDLLWin/fortran_modules/file_func.f90" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_files/FortranCompilerAsDLLWin/fortran_modules/list.f90" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_files/FortranCompilerAsDLLWin/fortran_modules/os_func.f90" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_files/FortranCompilerAsDLLWin/fortran_modules/randomInteger.f90" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_files/FortranCompilerAsDLLWin/fortran_modules/string_func.f90" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_files/FortranCompilerAsDLLWin/main.f90" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_files/FortranCompilerAsDLLWin/obj/Debug/compiler.mod" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_files/FortranCompilerAsDLLWin/obj/Debug/dict.mod" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_files/FortranCompilerAsDLLWin/obj/Debug/file_func.mod" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_files/FortranCompilerAsDLLWin/obj/Debug/fresh.mod" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_files/FortranCompilerAsDLLWin/obj/Debug/languages.mod" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_files/FortranCompilerAsDLLWin/obj/Debug/list.mod" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_files/FortranCompilerAsDLLWin/obj/Debug/main.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_files/FortranCompilerAsDLLWin/obj/Debug/os_func.mod" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_files/FortranCompilerAsDLLWin/obj/Debug/randominteger.mod" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_files/FortranCompilerAsDLLWin/obj/Debug/string_func.mod" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_files/FortranCompilerAsDLLWin/obj/Debug/syntax.mod" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_files/FortranCompilerAsDLLWin/templates/ArticleTemplate.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_files/FortranCompilerAsDLLWin/templates/BannerCSSTemplate.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_files/FortranCompilerAsDLLWin/templates/BannerTemplate.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_files/FortranCompilerAsDLLWin/templates/CSSTemplate.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_files/FortranCompilerAsDLLWin/templates/ContainerTemplate.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_files/FortranCompilerAsDLLWin/templates/FooterCSSTemplate.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_files/FortranCompilerAsDLLWin/templates/FooterTemplate.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_files/FortranCompilerAsDLLWin/templates/MainTemplate.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_files/FortranCompilerAsDLLWin/templates/NavBarCSSTemplate.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_files/FortranCompilerAsDLLWin/templates/NavBarTemplate.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_files/FortranCompilerAsDLLWin/templates/NavItemTemplate.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_files/FortranCompilerAsDLLWin/templates/RowCSSTemplate.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_files/FortranCompilerAsDLLWin/templates/RowItemTemplate.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_files/FortranCompilerAsDLLWin/templates/RowTemplate.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_files/FortranCompilerAsDLLWin/templates/TableCSSTemplate.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_files/FortranCompilerAsDLLWin/templates/TableTemplate.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_files/FortranCompilerAsDLLWin/templates/bannerAnimationTemplate.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_files/FortranCompilerAsDLLWin/templates/new_file.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libCompilerAsDLLLinux.so" beforeDir="false" afterPath="$PROJECT_DIR$/libCompilerAsDLLLinux.so" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libFortranCompilerAsDLLWin.a" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libFortranCompilerAsDLLWin.def" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/scr/SaveHTML.py" beforeDir="false" afterPath="$PROJECT_DIR$/scr/SaveHTML.py" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/venv/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -128,36 +132,37 @@
     <SUITE FILE_PATH="coverage/Boo_T$PythonCompiler.coverage" NAME="PythonCompiler Coverage Results" MODIFIED="1613841398392" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scr" />
     <SUITE FILE_PATH="coverage/Boo_T$stocks2.coverage" NAME="stocks2 Coverage Results" MODIFIED="1603422107248" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../../projects" />
     <SUITE FILE_PATH="coverage/Boo_T$SaveHTML.coverage" NAME="SaveHTML Coverage Results" MODIFIED="1614246168687" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scr" />
-    <SUITE FILE_PATH="coverage/Boo_T$Boo_T.coverage" NAME="Boo-T Coverage Results" MODIFIED="1614273470976" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Boo_T$Boo_T.coverage" NAME="Boo-T Coverage Results" MODIFIED="1614419642210" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Boo_T$Config.coverage" NAME="Config Coverage Results" MODIFIED="1603999625413" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scr" />
   </component>
   <component name="FUSProjectUsageTrigger">
     <session id="-768247875">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="4" />
-          <entry key="project.open.time.3" value="5" />
-          <entry key="project.opened" value="5" />
+          <entry key="project.closed" value="7" />
+          <entry key="project.open.time.3" value="7" />
+          <entry key="project.open.time.4" value="3" />
+          <entry key="project.opened" value="10" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="1086" />
+          <entry key="py" value="1390" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="1086" />
+          <entry key="Python" value="1390" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="2" />
+          <entry key="py" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Python" value="2" />
+          <entry key="Python" value="3" />
         </counts>
       </usages-collector>
     </session>
@@ -167,11 +172,12 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Boo-T.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="401">
-              <caret line="1242" lean-forward="true" selection-start-line="1242" selection-end-line="1242" />
+            <state relative-caret-position="492">
+              <caret line="1273" selection-start-line="1273" selection-end-line="1273" />
               <folding>
-                <marker date="1614273470969" expanded="true" signature="355:356" ph="..." />
-                <marker date="1614273470969" expanded="true" signature="43585:43869" ph="..." />
+                <marker date="1614414807316" expanded="true" signature="355:356" ph="..." />
+                <marker date="1614414807316" expanded="true" signature="43527:43811" ph="..." />
+                <marker date="1614414807316" expanded="true" signature="55070:55562" ph="..." />
               </folding>
             </state>
           </provider>
@@ -188,9 +194,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>self.</find>
-      <find>fontSize</find>
-      <find>self.__hamm</find>
       <find>self.__hammerFont=</find>
       <find>__set</find>
       <find>__font</find>
@@ -218,6 +221,9 @@
       <find>after</find>
       <find>__highLigher_Code</find>
       <find>__keyPress</find>
+      <find>__ready</find>
+      <find>highligh</find>
+      <find>undo</find>
     </findStrings>
     <replaceStrings>
       <replace>self.__autoSearch</replace>
@@ -244,7 +250,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-38" />
     <option name="y" value="27" />
     <option name="width" value="1400" />
@@ -256,8 +262,23 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Boo-T" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Boo-T" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Boo-T" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Boo-T" type="462c0819:PsiDirectoryNode" />
+              <item name="scr" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="Scope" />
-      <pane id="ProjectPane" />
     </panes>
   </component>
   <component name="ProjectViewState">
@@ -434,15 +455,15 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-38" y="27" width="1400" height="1000" extended-state="0" />
+    <frame x="-4" y="-4" width="1608" height="1164" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1274074" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.11681643" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.39115646" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.39101338" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -503,13 +524,19 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/scr/GetCodeOnly.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-882" />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Boo-T.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="401">
-          <caret line="1242" lean-forward="true" selection-start-line="1242" selection-end-line="1242" />
+        <state relative-caret-position="492">
+          <caret line="1273" selection-start-line="1273" selection-end-line="1273" />
           <folding>
-            <marker date="1614273470969" expanded="true" signature="355:356" ph="..." />
-            <marker date="1614273470969" expanded="true" signature="43585:43869" ph="..." />
+            <marker date="1614414807316" expanded="true" signature="355:356" ph="..." />
+            <marker date="1614414807316" expanded="true" signature="43527:43811" ph="..." />
+            <marker date="1614414807316" expanded="true" signature="55070:55562" ph="..." />
           </folding>
         </state>
       </provider>

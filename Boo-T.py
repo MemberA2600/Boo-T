@@ -25,9 +25,7 @@ class MainWindow_Real(ABC):
         self.__HighLighter.start()
 
     def __createAll(self):
-        self.__ready = False
         self.__keyPress = False
-
         self.__main = Tk()
         self.__main.withdraw() #The Window is hidded while the
         self.__main.overrideredirect(True)
@@ -128,7 +126,6 @@ class MainWindow_Real(ABC):
         self.__main.deiconify()
         self.create_StatLabel(self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "welcome"))
         self.__main.after(int(self.__Config.get_Element("AutoSave"))*60000, self.autoS)
-        self.__ready = True
         self.__main.mainloop()
 
     def __deleteWidgets(self):
@@ -971,7 +968,7 @@ class MainWindow_Real(ABC):
         while True:
             time.sleep(0.10)
             if self.__keyPress == True:
-                time.sleep(0.55)
+                time.sleep(0.60)
                 if self.__keyPress == True:
                     self.__keyPress = False
                     self.__highLigher_Code()
@@ -1229,17 +1226,21 @@ class MainWindow_Real(ABC):
             file = open("temp.boo", "w", encoding='utf-8')
             file.write(self.__CodeBox.get(0.0, END))
             file.close()
-            fortran = ""
 
             if (self.__Config.get_OS_Name() == "Windows"):
-                fortran = ctypes.CDLL(r"FortranCompilerAsDLLWin.dll")
+                path=os.path.abspath("FortranCompilerAsDLL.dll")
+                fortran = ctypes.CDLL(path)
+                fortran.compile()
+                file = open("temp.txt", "r", encoding='utf-8')
 
             else:
+                #import subprocess
+                #subprocess.run("FortranCompilerLinux", shell=False)
                 path=os.path.abspath("libCompilerAsDLLLinux.so")
                 fortran = ctypes.CDLL(path)
+                fortran.compile()
+                file = open("temp.txt", "rb")
 
-            fortran.compile()
-            file = open("temp.txt", "r", encoding='utf-8')
 
             txt = file.read()
             file.close()
@@ -1256,6 +1257,8 @@ class MainWindow_Real(ABC):
         if temp!=False:
             self.__CodeBox.delete(1.0, END)
             self.__CodeBox.insert(1.0, temp)
+            self.__checkAllLines = True
+            self.__highLigher_Code()
 
     def __addBuffer(self, event):
         self.__Undo.saveBox(self.__CodeBox.get(0.0, END)[:-1])
@@ -1292,12 +1295,20 @@ class MainWindow(MainWindow_Real):
     def createMainWindow(self):
         super().createMainWindow()
 
-if __name__ == "__main__":
-    MainWindow()
-
+def deleteJunk():
+    """remove junk from folder"""
     if os.path.exists("QuickSave.txt"):
         os.remove("QuickSave.txt")
     if os.path.exists("temp"):
         import shutil
         shutil.rmtree("temp")
+    for filename in ["background.txt", "bannerCSS.txt", "footerCSS.txt", "tableCSS.txt", "rowCSS.txt", "NavBarCSSTemplate",
+                     "banner.txt", "navBar.txt", "mainBody.txt", "footer.txt", "temp.boo", "temp.txt"]:
+        if os.path.exists(filename):
+            os.remove(filename)
+
+
+if __name__ == "__main__":
+    MainWindow()
+    deleteJunk()
 

@@ -75,7 +75,6 @@ class SaveHTML_Real(ABC):
         regex2=re.findall(r"url\(\'[\-:a-zA-Z0-9\.\/\\]+\'\)", code)
         already = []
         source_paths = []
-
         for item in regex:
             temp = item.replace("src=","").replace("'","")
             img_types = ["jpg", "bmp", "gif", "png", "tiff", "webp", "avif",  "ico", "apng", "svg", "jpeg"]
@@ -97,6 +96,7 @@ class SaveHTML_Real(ABC):
         for item in regex2:
             temp = item.replace("url(","").replace("'","").replace(")","")
             img_types = ["jpg", "bmp", "gif", "png", "tiff", "webp", "avif",  "ico", "apng", "svg"]
+
 
             if (temp.split(".")[-1] in img_types) and temp.startswith("http") == False and (temp.startswith("/") or temp[1:3] == ":/"):
                 filename=temp.split(sep)[-1]
