@@ -10,6 +10,6 @@ DarkBox=False
 BoxFontSize=12
 MaxRecent=0
 AutoSave=2
-version=0.01
+version=0.66
 noLoading=True
 loadTemplate=True

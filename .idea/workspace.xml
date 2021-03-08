@@ -4,120 +4,1379 @@
     <list default="true" id="3910d8e7-84ad-4a90-b5d4-8893b99ff487" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Boo-T.py" beforeDir="false" afterPath="$PROJECT_DIR$/Boo-T.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FortranCompilerAsDLLWin.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Config.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Config.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FortranCompilerAsDLL.dll" beforeDir="false" afterPath="$PROJECT_DIR$/FortranCompilerAsDLL.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/Boo-T.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/Boo-T.exe.manifest" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/Config.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/FortranCompilerAsDLLWin.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/HammerFat.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/Include/pyconfig.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/PIL/_imaging.cp37-win_amd64.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/PIL/_imagingtk.cp37-win_amd64.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/PIL/_webp.cp37-win_amd64.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/VCRUNTIME140.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/_bz2.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/_cffi_backend.cp37-win_amd64.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/_contextvars.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/_ctypes.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/_decimal.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/_distutils_findvs.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/_elementtree.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/_hashlib.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/_lzma.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/_multiprocessing.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/_queue.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/_socket.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/_ssl.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/_tkinter.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/api-ms-win-core-console-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/api-ms-win-core-datetime-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/api-ms-win-core-debug-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/api-ms-win-core-errorhandling-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/api-ms-win-core-file-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/api-ms-win-core-file-l1-2-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/api-ms-win-core-file-l2-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/api-ms-win-core-handle-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/api-ms-win-core-heap-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/api-ms-win-core-interlocked-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/api-ms-win-core-libraryloader-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/api-ms-win-core-localization-l1-2-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/api-ms-win-core-memory-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/api-ms-win-core-namedpipe-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/api-ms-win-core-processenvironment-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/api-ms-win-core-processthreads-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/api-ms-win-core-processthreads-l1-1-1.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/api-ms-win-core-profile-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/api-ms-win-core-rtlsupport-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/api-ms-win-core-string-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/api-ms-win-core-synch-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/api-ms-win-core-synch-l1-2-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/api-ms-win-core-sysinfo-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/api-ms-win-core-timezone-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/api-ms-win-core-util-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/api-ms-win-crt-conio-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/api-ms-win-crt-convert-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/api-ms-win-crt-environment-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/api-ms-win-crt-filesystem-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/api-ms-win-crt-heap-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/api-ms-win-crt-locale-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/api-ms-win-crt-math-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/api-ms-win-crt-process-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/api-ms-win-crt-runtime-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/api-ms-win-crt-stdio-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/api-ms-win-crt-string-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/api-ms-win-crt-time-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/api-ms-win-crt-utility-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/base_library.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/bootstrap/bootstrap-grid.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/bootstrap/bootstrap-grid.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/bootstrap/bootstrap-grid.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/bootstrap/bootstrap-grid.min.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/bootstrap/bootstrap-reboot.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/bootstrap/bootstrap-reboot.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/bootstrap/bootstrap-reboot.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/bootstrap/bootstrap-reboot.min.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/bootstrap/bootstrap.bundle.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/bootstrap/bootstrap.bundle.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/bootstrap/bootstrap.bundle.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/bootstrap/bootstrap.bundle.min.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/bootstrap/bootstrap.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/bootstrap/bootstrap.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/bootstrap/bootstrap.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/bootstrap/bootstrap.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/bootstrap/bootstrap.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/bootstrap/bootstrap.min.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/bootstrap/bootstrap.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/bootstrap/bootstrap.min.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/bootstrap/jquery-3.5.1.slim.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/default/Colors.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/default/Config.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/default/RGBA.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/default/Recent.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/default/Syntax.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/dicts/english.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/dicts/hungarian.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/Altair8800/Altair.boo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/Altair8800/Altair.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/Altair8800/bootstrap/bootstrap-grid.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/Altair8800/bootstrap/bootstrap-grid.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/Altair8800/bootstrap/bootstrap-grid.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/Altair8800/bootstrap/bootstrap-grid.min.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/Altair8800/bootstrap/bootstrap-reboot.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/Altair8800/bootstrap/bootstrap-reboot.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/Altair8800/bootstrap/bootstrap-reboot.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/Altair8800/bootstrap/bootstrap-reboot.min.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/Altair8800/bootstrap/bootstrap.bundle.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/Altair8800/bootstrap/bootstrap.bundle.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/Altair8800/bootstrap/bootstrap.bundle.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/Altair8800/bootstrap/bootstrap.bundle.min.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/Altair8800/bootstrap/bootstrap.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/Altair8800/bootstrap/bootstrap.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/Altair8800/bootstrap/bootstrap.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/Altair8800/bootstrap/bootstrap.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/Altair8800/bootstrap/bootstrap.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/Altair8800/bootstrap/bootstrap.min.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/Altair8800/bootstrap/bootstrap.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/Altair8800/bootstrap/bootstrap.min.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/Altair8800/bootstrap/jquery-3.5.1.slim.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/Altair8800/img/01.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/Altair8800/img/02.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/Altair8800/img/03.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/Altair8800/img/04.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/Altair8800/img/05.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/Altair8800/img/07.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/Altair8800/img/09.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/Altair8800/img/10.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/Altair8800/img/11.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/Altair8800/img/12.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/Altair8800/img/13.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/Altair8800/img/14.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/Altair8800/img/16.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/Altair8800/img/email.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/Altair8800/img/facebook.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/Altair8800/img/github.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/Altair8800/img/googleplus.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/Altair8800/img/instagram.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/Altair8800/img/linkedin.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/Altair8800/img/mits.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/Altair8800/img/phone.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/Altair8800/img/skype.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/Altair8800/img/twitter.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/Altair8800/img/vkontakte.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/Altair8800/img/youtube.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/Help/Help.boo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/Help/Help.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/Help/bootstrap/bootstrap-grid.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/Help/bootstrap/bootstrap-grid.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/Help/bootstrap/bootstrap-grid.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/Help/bootstrap/bootstrap-grid.min.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/Help/bootstrap/bootstrap-reboot.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/Help/bootstrap/bootstrap-reboot.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/Help/bootstrap/bootstrap-reboot.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/Help/bootstrap/bootstrap-reboot.min.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/Help/bootstrap/bootstrap.bundle.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/Help/bootstrap/bootstrap.bundle.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/Help/bootstrap/bootstrap.bundle.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/Help/bootstrap/bootstrap.bundle.min.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/Help/bootstrap/bootstrap.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/Help/bootstrap/bootstrap.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/Help/bootstrap/bootstrap.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/Help/bootstrap/bootstrap.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/Help/bootstrap/bootstrap.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/Help/bootstrap/bootstrap.min.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/Help/bootstrap/bootstrap.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/Help/bootstrap/bootstrap.min.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/Help/bootstrap/jquery-3.5.1.slim.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/Help/img/Back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/Help/img/Spooky1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/Help/img/Spooky2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/Help/img/Spooky3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/Help/img/Spooky4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/Help/img/Zerg1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/Help/img/Zerg2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/Help/img/Zerg3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/Help/img/Zerg4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/Help/img/Zerg5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/Help/img/Zerg6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/Help/img/email.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/Help/img/facebook.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/Help/img/ghost.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/Help/img/github.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/Help/img/googleplus.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/Help/img/instagram.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/Help/img/linkedin.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/Help/img/phone.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/Help/img/skype.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/Help/img/twitter.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/Help/img/vkontakte.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/Help/img/youtube.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/SivatagiRoka/QuickSave.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/SivatagiRoka/Roka.boo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/SivatagiRoka/bootstrap/bootstrap-grid.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/SivatagiRoka/bootstrap/bootstrap-grid.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/SivatagiRoka/bootstrap/bootstrap-grid.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/SivatagiRoka/bootstrap/bootstrap-grid.min.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/SivatagiRoka/bootstrap/bootstrap-reboot.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/SivatagiRoka/bootstrap/bootstrap-reboot.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/SivatagiRoka/bootstrap/bootstrap-reboot.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/SivatagiRoka/bootstrap/bootstrap-reboot.min.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/SivatagiRoka/bootstrap/bootstrap.bundle.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/SivatagiRoka/bootstrap/bootstrap.bundle.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/SivatagiRoka/bootstrap/bootstrap.bundle.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/SivatagiRoka/bootstrap/bootstrap.bundle.min.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/SivatagiRoka/bootstrap/bootstrap.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/SivatagiRoka/bootstrap/bootstrap.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/SivatagiRoka/bootstrap/bootstrap.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/SivatagiRoka/bootstrap/bootstrap.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/SivatagiRoka/bootstrap/bootstrap.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/SivatagiRoka/bootstrap/bootstrap.min.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/SivatagiRoka/bootstrap/bootstrap.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/SivatagiRoka/bootstrap/bootstrap.min.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/SivatagiRoka/bootstrap/jquery-3.5.1.slim.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/SivatagiRoka/img/Roka01.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/SivatagiRoka/img/Roka01_000.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/SivatagiRoka/img/Roka02.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/SivatagiRoka/img/Roka02_000.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/SivatagiRoka/img/Roka03.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/SivatagiRoka/img/Roka04.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/SivatagiRoka/img/Roka05.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/SivatagiRoka/img/Roka07.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/SivatagiRoka/img/Roka09.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/SivatagiRoka/img/desertfox.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/SivatagiRoka/img/email.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/SivatagiRoka/img/facebook.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/SivatagiRoka/img/github.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/SivatagiRoka/img/googleplus.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/SivatagiRoka/img/instagram.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/SivatagiRoka/img/linkedin.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/SivatagiRoka/img/phone.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/SivatagiRoka/img/skype.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/SivatagiRoka/img/twitter.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/SivatagiRoka/img/vkontakte.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/SivatagiRoka/img/youtube.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/examples/SivatagiRoka/roka.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/icons/Boots.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/icons/Boots.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/icons/about.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/icons/chrome.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/icons/copy.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/icons/edge.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/icons/email.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/icons/facebook.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/icons/firefox.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/icons/fortran.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/icons/github.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/icons/googleplus.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/icons/help.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/icons/html.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/icons/image.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/icons/instagram.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/icons/linkedin.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/icons/new.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/icons/open.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/icons/opera.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/icons/paste.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/icons/phone.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/icons/python.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/icons/save.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/icons/save_as.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/icons/settings.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/icons/skype.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/icons/sound-off.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/icons/sound-on.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/icons/twitter.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/icons/undo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/icons/vkontakte.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/icons/youtube.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/libCompilerAsDLLLinux.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/libFortranCompilerAsDLLWin.a" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/libFortranCompilerAsDLLWin.def" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/libcrypto-1_1-x64.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/libgcc_s_seh-1.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/libquadmath-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/libssl-1_1-x64.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/libwinpthread-1.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/loading.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/p/p1.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/p/p3.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/pyexpat.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/python37.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/scr/About.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/scr/ColorPalettes.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/scr/Config.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/scr/Dictionaries.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/scr/DisplayLoading.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/scr/GetCodeOnly.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/scr/Monitor.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/scr/OptionsM.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/scr/PythonCompiler.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/scr/SaveHTML.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/scr/SyntaxList.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/scr/UndoBuffer.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/select.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/auto.tcl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/clock.tcl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/encoding/ascii.enc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/encoding/big5.enc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/encoding/cp1250.enc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/encoding/cp1251.enc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/encoding/cp1252.enc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/encoding/cp1253.enc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/encoding/cp1254.enc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/encoding/cp1255.enc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/encoding/cp1256.enc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/encoding/cp1257.enc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/encoding/cp1258.enc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/encoding/cp437.enc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/encoding/cp737.enc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/encoding/cp775.enc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/encoding/cp850.enc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/encoding/cp852.enc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/encoding/cp855.enc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/encoding/cp857.enc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/encoding/cp860.enc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/encoding/cp861.enc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/encoding/cp862.enc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/encoding/cp863.enc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/encoding/cp864.enc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/encoding/cp865.enc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/encoding/cp866.enc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/encoding/cp869.enc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/encoding/cp874.enc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/encoding/cp932.enc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/encoding/cp936.enc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/encoding/cp949.enc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/encoding/cp950.enc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/encoding/dingbats.enc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/encoding/ebcdic.enc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/encoding/euc-cn.enc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/encoding/euc-jp.enc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/encoding/euc-kr.enc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/encoding/gb12345.enc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/encoding/gb1988.enc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/encoding/gb2312-raw.enc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/encoding/gb2312.enc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/encoding/iso2022-jp.enc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/encoding/iso2022-kr.enc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/encoding/iso2022.enc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/encoding/iso8859-1.enc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/encoding/iso8859-10.enc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/encoding/iso8859-13.enc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/encoding/iso8859-14.enc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/encoding/iso8859-15.enc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/encoding/iso8859-16.enc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/encoding/iso8859-2.enc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/encoding/iso8859-3.enc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/encoding/iso8859-4.enc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/encoding/iso8859-5.enc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/encoding/iso8859-6.enc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/encoding/iso8859-7.enc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/encoding/iso8859-8.enc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/encoding/iso8859-9.enc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/encoding/jis0201.enc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/encoding/jis0208.enc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/encoding/jis0212.enc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/encoding/koi8-r.enc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/encoding/koi8-u.enc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/encoding/ksc5601.enc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/encoding/macCentEuro.enc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/encoding/macCroatian.enc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/encoding/macCyrillic.enc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/encoding/macDingbats.enc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/encoding/macGreek.enc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/encoding/macIceland.enc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/encoding/macJapan.enc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/encoding/macRoman.enc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/encoding/macRomania.enc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/encoding/macThai.enc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/encoding/macTurkish.enc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/encoding/macUkraine.enc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/encoding/shiftjis.enc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/encoding/symbol.enc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/encoding/tis-620.enc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/history.tcl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/http1.0/http.tcl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/http1.0/pkgIndex.tcl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/init.tcl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/af.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/af_za.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/ar.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/ar_in.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/ar_jo.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/ar_lb.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/ar_sy.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/be.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/bg.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/bn.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/bn_in.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/ca.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/cs.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/da.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/de.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/de_at.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/de_be.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/el.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/en_au.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/en_be.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/en_bw.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/en_ca.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/en_gb.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/en_hk.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/en_ie.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/en_in.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/en_nz.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/en_ph.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/en_sg.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/en_za.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/en_zw.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/eo.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/es.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/es_ar.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/es_bo.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/es_cl.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/es_co.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/es_cr.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/es_do.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/es_ec.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/es_gt.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/es_hn.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/es_mx.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/es_ni.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/es_pa.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/es_pe.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/es_pr.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/es_py.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/es_sv.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/es_uy.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/es_ve.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/et.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/eu.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/eu_es.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/fa.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/fa_in.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/fa_ir.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/fi.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/fo.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/fo_fo.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/fr.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/fr_be.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/fr_ca.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/fr_ch.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/ga.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/ga_ie.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/gl.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/gl_es.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/gv.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/gv_gb.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/he.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/hi.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/hi_in.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/hr.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/hu.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/id.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/id_id.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/is.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/it.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/it_ch.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/ja.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/kl.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/kl_gl.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/ko.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/ko_kr.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/kok.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/kok_in.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/kw.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/kw_gb.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/lt.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/lv.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/mk.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/mr.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/mr_in.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/ms.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/ms_my.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/mt.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/nb.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/nl.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/nl_be.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/nn.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/pl.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/pt.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/pt_br.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/ro.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/ru.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/ru_ua.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/sh.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/sk.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/sl.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/sq.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/sr.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/sv.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/sw.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/ta.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/ta_in.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/te.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/te_in.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/th.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/tr.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/uk.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/vi.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/zh.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/zh_cn.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/zh_hk.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/zh_sg.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/msgs/zh_tw.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/opt0.4/optparse.tcl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/opt0.4/pkgIndex.tcl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/package.tcl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/parray.tcl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/safe.tcl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tclIndex" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tm.tcl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Africa/Abidjan" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Africa/Accra" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Africa/Addis_Ababa" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Africa/Algiers" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Africa/Asmara" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Africa/Asmera" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Africa/Bamako" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Africa/Bangui" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Africa/Banjul" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Africa/Bissau" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Africa/Blantyre" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Africa/Brazzaville" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Africa/Bujumbura" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Africa/Cairo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Africa/Casablanca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Africa/Ceuta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Africa/Conakry" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Africa/Dakar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Africa/Dar_es_Salaam" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Africa/Djibouti" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Africa/Douala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Africa/El_Aaiun" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Africa/Freetown" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Africa/Gaborone" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Africa/Harare" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Africa/Johannesburg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Africa/Juba" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Africa/Kampala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Africa/Khartoum" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Africa/Kigali" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Africa/Kinshasa" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Africa/Lagos" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Africa/Libreville" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Africa/Lome" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Africa/Luanda" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Africa/Lubumbashi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Africa/Lusaka" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Africa/Malabo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Africa/Maputo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Africa/Maseru" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Africa/Mbabane" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Africa/Mogadishu" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Africa/Monrovia" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Africa/Nairobi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Africa/Ndjamena" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Africa/Niamey" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Africa/Nouakchott" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Africa/Ouagadougou" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Africa/Porto-Novo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Africa/Sao_Tome" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Africa/Timbuktu" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Africa/Tripoli" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Africa/Tunis" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Africa/Windhoek" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Adak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Anchorage" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Anguilla" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Antigua" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Araguaina" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Argentina/Buenos_Aires" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Argentina/Catamarca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Argentina/ComodRivadavia" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Argentina/Cordoba" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Argentina/Jujuy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Argentina/La_Rioja" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Argentina/Mendoza" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Argentina/Rio_Gallegos" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Argentina/Salta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Argentina/San_Juan" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Argentina/San_Luis" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Argentina/Tucuman" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Argentina/Ushuaia" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Aruba" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Asuncion" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Atikokan" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Atka" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Bahia" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Bahia_Banderas" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Barbados" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Belem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Belize" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Blanc-Sablon" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Boa_Vista" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Bogota" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Boise" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Buenos_Aires" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Cambridge_Bay" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Campo_Grande" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Cancun" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Caracas" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Catamarca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Cayenne" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Cayman" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Chicago" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Chihuahua" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Coral_Harbour" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Cordoba" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Costa_Rica" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Creston" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Cuiaba" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Curacao" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Danmarkshavn" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Dawson" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Dawson_Creek" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Denver" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Detroit" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Dominica" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Edmonton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Eirunepe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/El_Salvador" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Ensenada" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Fort_Nelson" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Fort_Wayne" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Fortaleza" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Glace_Bay" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Godthab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Goose_Bay" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Grand_Turk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Grenada" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Guadeloupe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Guatemala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Guayaquil" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Guyana" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Halifax" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Havana" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Hermosillo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Indiana/Indianapolis" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Indiana/Knox" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Indiana/Marengo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Indiana/Petersburg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Indiana/Tell_City" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Indiana/Vevay" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Indiana/Vincennes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Indiana/Winamac" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Indianapolis" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Inuvik" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Iqaluit" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Jamaica" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Jujuy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Juneau" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Kentucky/Louisville" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Kentucky/Monticello" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Knox_IN" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Kralendijk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/La_Paz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Lima" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Los_Angeles" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Louisville" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Lower_Princes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Maceio" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Managua" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Manaus" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Marigot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Martinique" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Matamoros" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Mazatlan" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Mendoza" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Menominee" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Merida" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Metlakatla" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Mexico_City" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Miquelon" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Moncton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Monterrey" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Montevideo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Montreal" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Montserrat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Nassau" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/New_York" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Nipigon" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Nome" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Noronha" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/North_Dakota/Beulah" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/North_Dakota/Center" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/North_Dakota/New_Salem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Ojinaga" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Panama" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Pangnirtung" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Paramaribo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Phoenix" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Port-au-Prince" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Port_of_Spain" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Porto_Acre" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Porto_Velho" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Puerto_Rico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Punta_Arenas" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Rainy_River" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Rankin_Inlet" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Recife" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Regina" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Resolute" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Rio_Branco" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Rosario" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Santa_Isabel" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Santarem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Santiago" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Santo_Domingo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Sao_Paulo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Scoresbysund" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Shiprock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Sitka" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/St_Barthelemy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/St_Johns" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/St_Kitts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/St_Lucia" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/St_Thomas" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/St_Vincent" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Swift_Current" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Tegucigalpa" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Thule" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Thunder_Bay" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Tijuana" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Toronto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Tortola" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Vancouver" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Virgin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Whitehorse" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Winnipeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Yakutat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/America/Yellowknife" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Antarctica/Casey" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Antarctica/Davis" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Antarctica/DumontDUrville" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Antarctica/Macquarie" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Antarctica/Mawson" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Antarctica/McMurdo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Antarctica/Palmer" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Antarctica/Rothera" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Antarctica/South_Pole" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Antarctica/Syowa" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Antarctica/Troll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Antarctica/Vostok" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Arctic/Longyearbyen" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Asia/Aden" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Asia/Almaty" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Asia/Amman" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Asia/Anadyr" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Asia/Aqtau" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Asia/Aqtobe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Asia/Ashgabat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Asia/Ashkhabad" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Asia/Atyrau" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Asia/Baghdad" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Asia/Bahrain" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Asia/Baku" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Asia/Bangkok" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Asia/Barnaul" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Asia/Beirut" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Asia/Bishkek" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Asia/Brunei" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Asia/Calcutta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Asia/Chita" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Asia/Choibalsan" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Asia/Chongqing" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Asia/Chungking" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Asia/Colombo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Asia/Dacca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Asia/Damascus" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Asia/Dhaka" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Asia/Dili" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Asia/Dubai" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Asia/Dushanbe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Asia/Famagusta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Asia/Gaza" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Asia/Harbin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Asia/Hebron" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Asia/Ho_Chi_Minh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Asia/Hong_Kong" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Asia/Hovd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Asia/Irkutsk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Asia/Istanbul" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Asia/Jakarta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Asia/Jayapura" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Asia/Jerusalem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Asia/Kabul" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Asia/Kamchatka" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Asia/Karachi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Asia/Kashgar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Asia/Kathmandu" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Asia/Katmandu" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Asia/Khandyga" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Asia/Kolkata" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Asia/Krasnoyarsk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Asia/Kuala_Lumpur" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Asia/Kuching" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Asia/Kuwait" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Asia/Macao" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Asia/Macau" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Asia/Magadan" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Asia/Makassar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Asia/Manila" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Asia/Muscat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Asia/Nicosia" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Asia/Novokuznetsk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Asia/Novosibirsk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Asia/Omsk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Asia/Oral" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Asia/Phnom_Penh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Asia/Pontianak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Asia/Pyongyang" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Asia/Qatar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Asia/Qyzylorda" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Asia/Rangoon" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Asia/Riyadh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Asia/Saigon" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Asia/Sakhalin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Asia/Samarkand" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Asia/Seoul" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Asia/Shanghai" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Asia/Singapore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Asia/Srednekolymsk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Asia/Taipei" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Asia/Tashkent" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Asia/Tbilisi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Asia/Tehran" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Asia/Tel_Aviv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Asia/Thimbu" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Asia/Thimphu" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Asia/Tokyo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Asia/Tomsk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Asia/Ujung_Pandang" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Asia/Ulaanbaatar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Asia/Ulan_Bator" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Asia/Urumqi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Asia/Ust-Nera" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Asia/Vientiane" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Asia/Vladivostok" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Asia/Yakutsk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Asia/Yangon" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Asia/Yekaterinburg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Asia/Yerevan" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Atlantic/Azores" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Atlantic/Bermuda" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Atlantic/Canary" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Atlantic/Cape_Verde" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Atlantic/Faeroe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Atlantic/Faroe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Atlantic/Jan_Mayen" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Atlantic/Madeira" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Atlantic/Reykjavik" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Atlantic/South_Georgia" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Atlantic/St_Helena" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Atlantic/Stanley" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Australia/ACT" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Australia/Adelaide" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Australia/Brisbane" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Australia/Broken_Hill" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Australia/Canberra" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Australia/Currie" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Australia/Darwin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Australia/Eucla" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Australia/Hobart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Australia/LHI" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Australia/Lindeman" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Australia/Lord_Howe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Australia/Melbourne" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Australia/NSW" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Australia/North" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Australia/Perth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Australia/Queensland" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Australia/South" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Australia/Sydney" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Australia/Tasmania" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Australia/Victoria" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Australia/West" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Australia/Yancowinna" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Brazil/Acre" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Brazil/DeNoronha" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Brazil/East" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Brazil/West" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/CET" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/CST6CDT" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Canada/Atlantic" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Canada/Central" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Canada/East-Saskatchewan" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Canada/Eastern" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Canada/Mountain" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Canada/Newfoundland" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Canada/Pacific" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Canada/Saskatchewan" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Canada/Yukon" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Chile/Continental" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Chile/EasterIsland" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Cuba" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/EET" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/EST" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/EST5EDT" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Egypt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Eire" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Etc/GMT" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Etc/GMT+0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Etc/GMT+1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Etc/GMT+10" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Etc/GMT+11" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Etc/GMT+12" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Etc/GMT+2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Etc/GMT+3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Etc/GMT+4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Etc/GMT+5" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Etc/GMT+6" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Etc/GMT+7" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Etc/GMT+8" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Etc/GMT+9" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Etc/GMT-0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Etc/GMT-1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Etc/GMT-10" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Etc/GMT-11" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Etc/GMT-12" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Etc/GMT-13" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Etc/GMT-14" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Etc/GMT-2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Etc/GMT-3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Etc/GMT-4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Etc/GMT-5" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Etc/GMT-6" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Etc/GMT-7" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Etc/GMT-8" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Etc/GMT-9" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Etc/GMT0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Etc/Greenwich" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Etc/UCT" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Etc/UTC" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Etc/Universal" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Etc/Zulu" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Europe/Amsterdam" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Europe/Andorra" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Europe/Astrakhan" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Europe/Athens" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Europe/Belfast" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Europe/Belgrade" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Europe/Berlin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Europe/Bratislava" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Europe/Brussels" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Europe/Bucharest" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Europe/Budapest" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Europe/Busingen" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Europe/Chisinau" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Europe/Copenhagen" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Europe/Dublin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Europe/Gibraltar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Europe/Guernsey" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Europe/Helsinki" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Europe/Isle_of_Man" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Europe/Istanbul" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Europe/Jersey" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Europe/Kaliningrad" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Europe/Kiev" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Europe/Kirov" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Europe/Lisbon" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Europe/Ljubljana" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Europe/London" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Europe/Luxembourg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Europe/Madrid" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Europe/Malta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Europe/Mariehamn" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Europe/Minsk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Europe/Monaco" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Europe/Moscow" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Europe/Nicosia" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Europe/Oslo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Europe/Paris" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Europe/Podgorica" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Europe/Prague" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Europe/Riga" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Europe/Rome" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Europe/Samara" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Europe/San_Marino" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Europe/Sarajevo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Europe/Saratov" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Europe/Simferopol" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Europe/Skopje" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Europe/Sofia" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Europe/Stockholm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Europe/Tallinn" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Europe/Tirane" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Europe/Tiraspol" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Europe/Ulyanovsk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Europe/Uzhgorod" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Europe/Vaduz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Europe/Vatican" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Europe/Vienna" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Europe/Vilnius" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Europe/Volgograd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Europe/Warsaw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Europe/Zagreb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Europe/Zaporozhye" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Europe/Zurich" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/GB" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/GB-Eire" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/GMT" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/GMT+0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/GMT-0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/GMT0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Greenwich" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/HST" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Hongkong" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Iceland" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Indian/Antananarivo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Indian/Chagos" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Indian/Christmas" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Indian/Cocos" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Indian/Comoro" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Indian/Kerguelen" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Indian/Mahe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Indian/Maldives" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Indian/Mauritius" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Indian/Mayotte" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Indian/Reunion" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Iran" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Israel" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Jamaica" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Japan" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Kwajalein" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Libya" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/MET" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/MST" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/MST7MDT" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Mexico/BajaNorte" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Mexico/BajaSur" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Mexico/General" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/NZ" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/NZ-CHAT" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Navajo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/PRC" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/PST8PDT" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Pacific/Apia" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Pacific/Auckland" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Pacific/Bougainville" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Pacific/Chatham" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Pacific/Chuuk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Pacific/Easter" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Pacific/Efate" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Pacific/Enderbury" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Pacific/Fakaofo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Pacific/Fiji" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Pacific/Funafuti" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Pacific/Galapagos" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Pacific/Gambier" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Pacific/Guadalcanal" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Pacific/Guam" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Pacific/Honolulu" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Pacific/Johnston" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Pacific/Kiritimati" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Pacific/Kosrae" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Pacific/Kwajalein" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Pacific/Majuro" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Pacific/Marquesas" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Pacific/Midway" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Pacific/Nauru" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Pacific/Niue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Pacific/Norfolk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Pacific/Noumea" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Pacific/Pago_Pago" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Pacific/Palau" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Pacific/Pitcairn" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Pacific/Pohnpei" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Pacific/Ponape" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Pacific/Port_Moresby" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Pacific/Rarotonga" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Pacific/Saipan" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Pacific/Samoa" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Pacific/Tahiti" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Pacific/Tarawa" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Pacific/Tongatapu" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Pacific/Truk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Pacific/Wake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Pacific/Wallis" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Pacific/Yap" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Poland" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Portugal" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/ROC" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/ROK" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Singapore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/SystemV/AST4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/SystemV/AST4ADT" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/SystemV/CST6" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/SystemV/CST6CDT" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/SystemV/EST5" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/SystemV/EST5EDT" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/SystemV/HST10" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/SystemV/MST7" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/SystemV/MST7MDT" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/SystemV/PST8" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/SystemV/PST8PDT" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/SystemV/YST9" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/SystemV/YST9YDT" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Turkey" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/UCT" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/US/Alaska" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/US/Aleutian" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/US/Arizona" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/US/Central" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/US/East-Indiana" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/US/Eastern" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/US/Hawaii" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/US/Indiana-Starke" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/US/Michigan" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/US/Mountain" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/US/Pacific" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/US/Pacific-New" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/US/Samoa" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/UTC" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Universal" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/W-SU" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/WET" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/tzdata/Zulu" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl/word.tcl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl8/8.4/platform-1.0.14.tm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl8/8.4/platform/shell-1.1.4.tm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl8/8.5/msgcat-1.6.1.tm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl8/8.5/tcltest-2.4.1.tm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl8/8.6/http-2.8.12.tm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tcl86t.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/templates/ArticleTemplate.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/templates/BannerCSSTemplate.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/templates/BannerTemplate.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/templates/CSSTemplate.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/templates/ContainerTemplate.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/templates/FooterCSSTemplate.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/templates/FooterTemplate.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/templates/MainTemplate.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/templates/NavBarCSSTemplate.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/templates/NavBarTemplate.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/templates/NavItemTemplate.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/templates/RowCSSTemplate.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/templates/RowItemTemplate.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/templates/RowTemplate.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/templates/TableCSSTemplate.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/templates/TableTemplate.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/templates/bannerAnimationTemplate.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/templates/new_file.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tk/bgerror.tcl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tk/button.tcl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tk/choosedir.tcl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tk/clrpick.tcl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tk/comdlg.tcl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tk/console.tcl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tk/dialog.tcl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tk/entry.tcl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tk/focus.tcl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tk/fontchooser.tcl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tk/iconlist.tcl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tk/icons.tcl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tk/images/README" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tk/images/logo.eps" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tk/images/logo100.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tk/images/logo64.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tk/images/logoLarge.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tk/images/logoMed.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tk/images/pwrdLogo.eps" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tk/images/pwrdLogo100.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tk/images/pwrdLogo150.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tk/images/pwrdLogo175.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tk/images/pwrdLogo200.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tk/images/pwrdLogo75.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tk/images/tai-ku.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tk/license.terms" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tk/listbox.tcl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tk/megawidget.tcl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tk/menu.tcl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tk/mkpsenc.tcl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tk/msgbox.tcl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tk/msgs/cs.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tk/msgs/da.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tk/msgs/de.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tk/msgs/el.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tk/msgs/en.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tk/msgs/en_gb.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tk/msgs/eo.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tk/msgs/es.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tk/msgs/fr.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tk/msgs/hu.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tk/msgs/it.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tk/msgs/nl.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tk/msgs/pl.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tk/msgs/pt.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tk/msgs/ru.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tk/msgs/sv.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tk/obsolete.tcl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tk/optMenu.tcl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tk/palette.tcl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tk/panedwindow.tcl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tk/pkgIndex.tcl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tk/safetk.tcl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tk/scale.tcl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tk/scrlbar.tcl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tk/spinbox.tcl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tk/tclIndex" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tk/tearoff.tcl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tk/text.tcl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tk/tk.tcl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tk/tkfbox.tcl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tk/ttk/altTheme.tcl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tk/ttk/aquaTheme.tcl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tk/ttk/button.tcl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tk/ttk/clamTheme.tcl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tk/ttk/classicTheme.tcl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tk/ttk/combobox.tcl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tk/ttk/cursors.tcl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tk/ttk/defaults.tcl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tk/ttk/entry.tcl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tk/ttk/fonts.tcl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tk/ttk/menubutton.tcl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tk/ttk/notebook.tcl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tk/ttk/panedwindow.tcl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tk/ttk/progress.tcl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tk/ttk/scale.tcl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tk/ttk/scrollbar.tcl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tk/ttk/sizegrip.tcl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tk/ttk/spinbox.tcl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tk/ttk/treeview.tcl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tk/ttk/ttk.tcl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tk/ttk/utils.tcl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tk/ttk/vistaTheme.tcl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tk/ttk/winTheme.tcl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tk/ttk/xpTheme.tcl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tk/unsupported.tcl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tk/xmfbox.tcl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/tk86t.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/ucrtbase.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Boo-T/unicodedata.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/default/Config.txt" beforeDir="false" afterPath="$PROJECT_DIR$/default/Config.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/default/Recent.txt" beforeDir="false" afterPath="$PROJECT_DIR$/default/Recent.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/documentatio_hungarian/UML.dia" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/examples/Altair8800/Altair.boo" beforeDir="false" afterPath="$PROJECT_DIR$/examples/Altair8800/Altair.boo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/SivatagiRoka/Roka.boo" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SivatagiRoka/Roka.boo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/CompilerAsDLLLinux.cbp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/CompilerAsDLLLinux.depend" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/CompilerAsDLLLinux.layout" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/bin/Debug/libCompilerAsDLLLinux.so" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/bin/Release/libCompilerAsDLLLinux.so" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/default/Colors.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/default/Config.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/default/RGBA.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/default/Recent.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/default/Syntax.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/dicts/english.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/dicts/hungarian.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/fortran_modules/dict.f90" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/fortran_modules/file_func.f90" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/fortran_modules/list.f90" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/fortran_modules/os_func.f90" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/fortran_modules/randomInteger.f90" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/fortran_modules/string_func.f90" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/main.f90" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/obj/Debug/compiler.mod" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/obj/Debug/dict.mod" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/obj/Debug/file_func.mod" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/obj/Debug/fresh.mod" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/obj/Debug/languages.mod" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/obj/Debug/list.mod" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/obj/Debug/os_func.mod" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/obj/Debug/randominteger.mod" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/obj/Debug/string_func.mod" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/obj/Debug/syntax.mod" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/obj/Release/compiler.mod" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/obj/Release/dict.mod" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/obj/Release/file_func.mod" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/obj/Release/fresh.mod" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/obj/Release/languages.mod" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/obj/Release/list.mod" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/obj/Release/main.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/obj/Release/os_func.mod" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/obj/Release/randominteger.mod" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/obj/Release/string_func.mod" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/obj/Release/syntax.mod" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/templates/ArticleTemplate.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/templates/BannerCSSTemplate.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/templates/BannerTemplate.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/templates/CSSTemplate.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/templates/ContainerTemplate.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/templates/FooterCSSTemplate.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/templates/FooterTemplate.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/templates/MainTemplate.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/templates/NavBarCSSTemplate.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/templates/NavBarTemplate.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/templates/NavItemTemplate.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/templates/RowCSSTemplate.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/templates/RowItemTemplate.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/templates/RowTemplate.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/templates/TableCSSTemplate.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/templates/TableTemplate.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/templates/bannerAnimationTemplate.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_files/CompilerAsDLLLinux/templates/new_file.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_files/FortranCompilerAsDLLWin/FortranCompilerAsDLL.cbp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_files/FortranCompilerAsDLLWin/FortranCompilerAsDLL.layout" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_files/FortranCompilerAsDLLWin/bin/Debug/FortranCompilerAsDLL.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_files/FortranCompilerAsDLLWin/bin/Debug/libFortranCompilerAsDLL.a" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_files/FortranCompilerAsDLLWin/bin/Debug/libFortranCompilerAsDLL.def" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_files/FortranCompilerAsDLLWin/default/Colors.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_files/FortranCompilerAsDLLWin/default/Config.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_files/FortranCompilerAsDLLWin/default/RGBA.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_files/FortranCompilerAsDLLWin/default/Recent.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_files/FortranCompilerAsDLLWin/default/Syntax.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_files/FortranCompilerAsDLLWin/dicts/english.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_files/FortranCompilerAsDLLWin/dicts/hungarian.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_files/FortranCompilerAsDLLWin/fortran_modules/dict.f90" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_files/FortranCompilerAsDLLWin/fortran_modules/file_func.f90" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_files/FortranCompilerAsDLLWin/fortran_modules/list.f90" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_files/FortranCompilerAsDLLWin/fortran_modules/os_func.f90" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_files/FortranCompilerAsDLLWin/fortran_modules/randomInteger.f90" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_files/FortranCompilerAsDLLWin/fortran_modules/string_func.f90" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_files/FortranCompilerAsDLLWin/main.f90" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_files/FortranCompilerAsDLLWin/obj/Debug/compiler.mod" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_files/FortranCompilerAsDLLWin/obj/Debug/dict.mod" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_files/FortranCompilerAsDLLWin/obj/Debug/file_func.mod" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_files/FortranCompilerAsDLLWin/obj/Debug/fresh.mod" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_files/FortranCompilerAsDLLWin/obj/Debug/languages.mod" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_files/FortranCompilerAsDLLWin/obj/Debug/list.mod" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_files/FortranCompilerAsDLLWin/obj/Debug/main.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_files/FortranCompilerAsDLLWin/obj/Debug/os_func.mod" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_files/FortranCompilerAsDLLWin/obj/Debug/randominteger.mod" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_files/FortranCompilerAsDLLWin/obj/Debug/string_func.mod" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_files/FortranCompilerAsDLLWin/obj/Debug/syntax.mod" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_files/FortranCompilerAsDLLWin/templates/ArticleTemplate.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_files/FortranCompilerAsDLLWin/templates/BannerCSSTemplate.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_files/FortranCompilerAsDLLWin/templates/BannerTemplate.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_files/FortranCompilerAsDLLWin/templates/CSSTemplate.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_files/FortranCompilerAsDLLWin/templates/ContainerTemplate.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_files/FortranCompilerAsDLLWin/templates/FooterCSSTemplate.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_files/FortranCompilerAsDLLWin/templates/FooterTemplate.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_files/FortranCompilerAsDLLWin/templates/MainTemplate.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_files/FortranCompilerAsDLLWin/templates/NavBarCSSTemplate.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_files/FortranCompilerAsDLLWin/templates/NavBarTemplate.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_files/FortranCompilerAsDLLWin/templates/NavItemTemplate.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_files/FortranCompilerAsDLLWin/templates/RowCSSTemplate.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_files/FortranCompilerAsDLLWin/templates/RowItemTemplate.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_files/FortranCompilerAsDLLWin/templates/RowTemplate.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_files/FortranCompilerAsDLLWin/templates/TableCSSTemplate.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_files/FortranCompilerAsDLLWin/templates/TableTemplate.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_files/FortranCompilerAsDLLWin/templates/bannerAnimationTemplate.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_files/FortranCompilerAsDLLWin/templates/new_file.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libCompilerAsDLLLinux.so" beforeDir="false" afterPath="$PROJECT_DIR$/libCompilerAsDLLLinux.so" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libFortranCompilerAsDLLWin.a" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libFortranCompilerAsDLLWin.def" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/Help/Help.boo" beforeDir="false" afterPath="$PROJECT_DIR$/examples/Help/Help.boo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/Help/Help.html" beforeDir="false" afterPath="$PROJECT_DIR$/examples/Help/Help.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/CompilerAsDLLLinux/CompilerAsDLLLinux.cbp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/CompilerAsDLLLinux/CompilerAsDLLLinux.depend" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/CompilerAsDLLLinux/CompilerAsDLLLinux.layout" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/CompilerAsDLLLinux/bin/Release/libCompilerAsDLLLinux.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/CompilerAsDLLLinux/default/Colors.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/CompilerAsDLLLinux/default/Config.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/CompilerAsDLLLinux/default/RGBA.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/CompilerAsDLLLinux/default/Recent.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/CompilerAsDLLLinux/default/Syntax.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/CompilerAsDLLLinux/dicts/english.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/CompilerAsDLLLinux/dicts/hungarian.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/CompilerAsDLLLinux/fortran_modules/dict.f90" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/CompilerAsDLLLinux/fortran_modules/file_func.f90" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/CompilerAsDLLLinux/fortran_modules/list.f90" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/CompilerAsDLLLinux/fortran_modules/os_func.f90" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/CompilerAsDLLLinux/fortran_modules/randomInteger.f90" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/CompilerAsDLLLinux/fortran_modules/string_func.f90" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/CompilerAsDLLLinux/main.f90" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/CompilerAsDLLLinux/obj/Debug/compiler.mod" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/CompilerAsDLLLinux/obj/Debug/dict.mod" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/CompilerAsDLLLinux/obj/Debug/file_func.mod" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/CompilerAsDLLLinux/obj/Debug/fresh.mod" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/CompilerAsDLLLinux/obj/Debug/languages.mod" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/CompilerAsDLLLinux/obj/Debug/list.mod" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/CompilerAsDLLLinux/obj/Debug/os_func.mod" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/CompilerAsDLLLinux/obj/Debug/randominteger.mod" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/CompilerAsDLLLinux/obj/Debug/string_func.mod" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/CompilerAsDLLLinux/obj/Debug/syntax.mod" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/CompilerAsDLLLinux/obj/Release/compiler.mod" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/CompilerAsDLLLinux/obj/Release/dict.mod" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/CompilerAsDLLLinux/obj/Release/file_func.mod" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/CompilerAsDLLLinux/obj/Release/fresh.mod" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/CompilerAsDLLLinux/obj/Release/languages.mod" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/CompilerAsDLLLinux/obj/Release/list.mod" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/CompilerAsDLLLinux/obj/Release/main.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/CompilerAsDLLLinux/obj/Release/os_func.mod" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/CompilerAsDLLLinux/obj/Release/randominteger.mod" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/CompilerAsDLLLinux/obj/Release/string_func.mod" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/CompilerAsDLLLinux/obj/Release/syntax.mod" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/CompilerAsDLLLinux/temp.boo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/CompilerAsDLLLinux/templates/ArticleTemplate.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/CompilerAsDLLLinux/templates/BannerCSSTemplate.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/CompilerAsDLLLinux/templates/BannerTemplate.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/CompilerAsDLLLinux/templates/CSSTemplate.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/CompilerAsDLLLinux/templates/ContainerTemplate.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/CompilerAsDLLLinux/templates/FooterCSSTemplate.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/CompilerAsDLLLinux/templates/FooterTemplate.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/CompilerAsDLLLinux/templates/MainTemplate.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/CompilerAsDLLLinux/templates/NavBarCSSTemplate.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/CompilerAsDLLLinux/templates/NavBarTemplate.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/CompilerAsDLLLinux/templates/NavItemTemplate.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/CompilerAsDLLLinux/templates/RowCSSTemplate.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/CompilerAsDLLLinux/templates/RowItemTemplate.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/CompilerAsDLLLinux/templates/RowTemplate.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/CompilerAsDLLLinux/templates/TableCSSTemplate.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/CompilerAsDLLLinux/templates/TableTemplate.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/CompilerAsDLLLinux/templates/bannerAnimationTemplate.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/CompilerAsDLLLinux/templates/new_file.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/FortranCompilerAsDLL/FortranCompilerAsDLL.cbp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/FortranCompilerAsDLL/FortranCompilerAsDLL.layout" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/FortranCompilerAsDLL/bin/Debug/FortranCompilerAsDLL.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/FortranCompilerAsDLL/bin/Debug/libFortranCompilerAsDLL.a" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/FortranCompilerAsDLL/bin/Debug/libFortranCompilerAsDLL.def" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/FortranCompilerAsDLL/bin/Release/FortranCompilerAsDLL.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/FortranCompilerAsDLL/bin/Release/libFortranCompilerAsDLL.a" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/FortranCompilerAsDLL/bin/Release/libFortranCompilerAsDLL.def" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/FortranCompilerAsDLL/default/Colors.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/FortranCompilerAsDLL/default/Config.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/FortranCompilerAsDLL/default/RGBA.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/FortranCompilerAsDLL/default/Recent.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/FortranCompilerAsDLL/default/Syntax.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/FortranCompilerAsDLL/dicts/english.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/FortranCompilerAsDLL/dicts/hungarian.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/FortranCompilerAsDLL/fortran_modules/dict.f90" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/FortranCompilerAsDLL/fortran_modules/file_func.f90" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/FortranCompilerAsDLL/fortran_modules/list.f90" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/FortranCompilerAsDLL/fortran_modules/os_func.f90" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/FortranCompilerAsDLL/fortran_modules/randomInteger.f90" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/FortranCompilerAsDLL/fortran_modules/string_func.f90" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/FortranCompilerAsDLL/main.f90" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/FortranCompilerAsDLL/obj/Debug/compiler.mod" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/FortranCompilerAsDLL/obj/Debug/dict.mod" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/FortranCompilerAsDLL/obj/Debug/file_func.mod" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/FortranCompilerAsDLL/obj/Debug/fresh.mod" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/FortranCompilerAsDLL/obj/Debug/languages.mod" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/FortranCompilerAsDLL/obj/Debug/list.mod" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/FortranCompilerAsDLL/obj/Debug/main.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/FortranCompilerAsDLL/obj/Debug/os_func.mod" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/FortranCompilerAsDLL/obj/Debug/randominteger.mod" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/FortranCompilerAsDLL/obj/Debug/string_func.mod" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/FortranCompilerAsDLL/obj/Debug/syntax.mod" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/FortranCompilerAsDLL/obj/Release/compiler.mod" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/FortranCompilerAsDLL/obj/Release/dict.mod" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/FortranCompilerAsDLL/obj/Release/file_func.mod" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/FortranCompilerAsDLL/obj/Release/fresh.mod" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/FortranCompilerAsDLL/obj/Release/languages.mod" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/FortranCompilerAsDLL/obj/Release/list.mod" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/FortranCompilerAsDLL/obj/Release/main.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/FortranCompilerAsDLL/obj/Release/os_func.mod" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/FortranCompilerAsDLL/obj/Release/randominteger.mod" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/FortranCompilerAsDLL/obj/Release/string_func.mod" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/FortranCompilerAsDLL/obj/Release/syntax.mod" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/FortranCompilerAsDLL/temp.boo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/FortranCompilerAsDLL/templates/ArticleTemplate.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/FortranCompilerAsDLL/templates/BannerCSSTemplate.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/FortranCompilerAsDLL/templates/BannerTemplate.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/FortranCompilerAsDLL/templates/CSSTemplate.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/FortranCompilerAsDLL/templates/ContainerTemplate.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/FortranCompilerAsDLL/templates/FooterCSSTemplate.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/FortranCompilerAsDLL/templates/FooterTemplate.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/FortranCompilerAsDLL/templates/MainTemplate.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/FortranCompilerAsDLL/templates/NavBarCSSTemplate.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/FortranCompilerAsDLL/templates/NavBarTemplate.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/FortranCompilerAsDLL/templates/NavItemTemplate.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/FortranCompilerAsDLL/templates/RowCSSTemplate.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/FortranCompilerAsDLL/templates/RowItemTemplate.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/FortranCompilerAsDLL/templates/RowTemplate.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/FortranCompilerAsDLL/templates/TableCSSTemplate.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/FortranCompilerAsDLL/templates/TableTemplate.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/FortranCompilerAsDLL/templates/bannerAnimationTemplate.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortran_codes/FortranCompilerAsDLL/templates/new_file.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libCompilerAsDLLLinux.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libFortranCompilerAsDLL.a" beforeDir="false" afterPath="$PROJECT_DIR$/libFortranCompilerAsDLL.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libFortranCompilerAsDLL.def" beforeDir="false" afterPath="$PROJECT_DIR$/libFortranCompilerAsDLL.def" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scr/About.py" beforeDir="false" afterPath="$PROJECT_DIR$/scr/About.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scr/ColorPalettes.py" beforeDir="false" afterPath="$PROJECT_DIR$/scr/ColorPalettes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scr/Config.py" beforeDir="false" afterPath="$PROJECT_DIR$/scr/Config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scr/Dictionaries.py" beforeDir="false" afterPath="$PROJECT_DIR$/scr/Dictionaries.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scr/DisplayLoading.py" beforeDir="false" afterPath="$PROJECT_DIR$/scr/DisplayLoading.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scr/GetCodeOnly.py" beforeDir="false" afterPath="$PROJECT_DIR$/scr/GetCodeOnly.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scr/Monitor.py" beforeDir="false" afterPath="$PROJECT_DIR$/scr/Monitor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scr/OptionsM.py" beforeDir="false" afterPath="$PROJECT_DIR$/scr/OptionsM.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scr/PythonCompiler.py" beforeDir="false" afterPath="$PROJECT_DIR$/scr/PythonCompiler.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scr/SaveHTML.py" beforeDir="false" afterPath="$PROJECT_DIR$/scr/SaveHTML.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scr/SyntaxList.py" beforeDir="false" afterPath="$PROJECT_DIR$/scr/SyntaxList.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scr/UndoBuffer.py" beforeDir="false" afterPath="$PROJECT_DIR$/scr/UndoBuffer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/new_file.txt" beforeDir="false" afterPath="$PROJECT_DIR$/templates/new_file.txt" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/venv/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -128,56 +1387,57 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/Boo_T$Converter.coverage" NAME="Converter Coverage Results" MODIFIED="1603721156761" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="F:/vidi" />
-    <SUITE FILE_PATH="coverage/Boo_T$OptionsM.coverage" NAME="OptionsM Coverage Results" MODIFIED="1604050371028" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scr" />
-    <SUITE FILE_PATH="coverage/Boo_T$PythonCompiler.coverage" NAME="PythonCompiler Coverage Results" MODIFIED="1613841398392" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scr" />
+    <SUITE FILE_PATH="coverage/Boo_T$PythonCompiler.coverage" NAME="PythonCompiler Coverage Results" MODIFIED="1615059687885" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scr" />
+    <SUITE FILE_PATH="coverage/Boo_T$OptionsM.coverage" NAME="OptionsM Coverage Results" MODIFIED="1615113615420" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scr" />
     <SUITE FILE_PATH="coverage/Boo_T$stocks2.coverage" NAME="stocks2 Coverage Results" MODIFIED="1603422107248" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../../projects" />
-    <SUITE FILE_PATH="coverage/Boo_T$SaveHTML.coverage" NAME="SaveHTML Coverage Results" MODIFIED="1614246168687" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scr" />
-    <SUITE FILE_PATH="coverage/Boo_T$Boo_T.coverage" NAME="Boo-T Coverage Results" MODIFIED="1614419642210" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Boo_T$SaveHTML.coverage" NAME="SaveHTML Coverage Results" MODIFIED="1615103088257" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scr" />
+    <SUITE FILE_PATH="coverage/Boo_T$Boo_T.coverage" NAME="Boo-T Coverage Results" MODIFIED="1615177187879" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Boo_T$About.coverage" NAME="About Coverage Results" MODIFIED="1614760679017" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scr" />
     <SUITE FILE_PATH="coverage/Boo_T$Config.coverage" NAME="Config Coverage Results" MODIFIED="1603999625413" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scr" />
   </component>
   <component name="FUSProjectUsageTrigger">
     <session id="-768247875">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="7" />
-          <entry key="project.open.time.3" value="7" />
-          <entry key="project.open.time.4" value="3" />
-          <entry key="project.opened" value="10" />
+          <entry key="project.closed" value="29" />
+          <entry key="project.open.time.0" value="1" />
+          <entry key="project.open.time.3" value="22" />
+          <entry key="project.open.time.4" value="11" />
+          <entry key="project.open.time.5" value="1" />
+          <entry key="project.opened" value="35" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="1390" />
+          <entry key="py" value="2519" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="1390" />
+          <entry key="Python" value="2519" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="3" />
+          <entry key="py" value="164" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Python" value="3" />
+          <entry key="Python" value="164" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+    <leaf>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Boo-T.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="492">
-              <caret line="1273" selection-start-line="1273" selection-end-line="1273" />
+            <state relative-caret-position="496">
+              <caret line="31" column="29" selection-start-line="31" selection-start-column="29" selection-end-line="31" selection-end-column="29" />
               <folding>
-                <marker date="1614414807316" expanded="true" signature="355:356" ph="..." />
-                <marker date="1614414807316" expanded="true" signature="43527:43811" ph="..." />
-                <marker date="1614414807316" expanded="true" signature="55070:55562" ph="..." />
+                <element signature="e#47#68#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -194,36 +1454,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>self.__hammerFont=</find>
-      <find>__set</find>
-      <find>__font</find>
-      <find>print</find>
-      <find>codebox</find>
-      <find>update</find>
-      <find>self.__fontSize</find>
-      <find>__Command_and_Argument</find>
-      <find>article</find>
-      <find>bannerAn</find>
-      <find>template</find>
-      <find>compil</find>
-      <find>compiler</find>
-      <find>press</find>
-      <find>thread</find>
-      <find>high</find>
-      <find>highlighter</find>
-      <find>self.__highLighter</find>
-      <find>__high</find>
-      <find>__highLigher</find>
-      <find>__highLighter</find>
-      <find>keyre</find>
-      <find>key_re</find>
-      <find>__HighLighter</find>
-      <find>after</find>
-      <find>__highLigher_Code</find>
-      <find>__keyPress</find>
-      <find>__ready</find>
-      <find>highligh</find>
-      <find>undo</find>
+      <find>ctypes</find>
+      <find>syste</find>
+      <find>system</find>
+      <find>subpro</find>
+      <find>subp</find>
+      <find>subpr</find>
+      <find>subpt</find>
+      <find>ra</find>
+      <find>os.environ['PYGAME_HIDE_SUPPORT_PROMPT'] = &quot;hide&quot;</find>
+      <find>webb</find>
+      <find>shutil</find>
+      <find>pyglet</find>
+      <find>display</find>
+      <find>__configChanged</find>
+      <find>configchan</find>
+      <find>getword</find>
+      <find>master.</find>
+      <find>try</find>
+      <find>compileCode</find>
+      <find>random</find>
+      <find>getcod</find>
+      <find>#</find>
+      <find>&quot;</find>
+      <find>tinting</find>
+      <find>'&quot;'</find>
+      <find>saveht</find>
+      <find>encoding</find>
+      <find>fortran</find>
+      <find>unk</find>
+      <find>linux</find>
     </findStrings>
     <replaceStrings>
       <replace>self.__autoSearch</replace>
@@ -232,6 +1492,8 @@
       <replace>__windowSize</replace>
       <replace>updateCodeBox</replace>
       <replace>self.__windowSize</replace>
+      <replace>_</replace>
+      <replace>self.__master</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -240,7 +1502,19 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/scr/ColorPalettes.py" />
+        <option value="$PROJECT_DIR$/scr/DisplayLoading.py" />
+        <option value="$PROJECT_DIR$/scr/GetCodeOnly.py" />
+        <option value="$PROJECT_DIR$/scr/Monitor.py" />
+        <option value="$PROJECT_DIR$/scr/SyntaxList.py" />
+        <option value="$PROJECT_DIR$/scr/About.py" />
+        <option value="$PROJECT_DIR$/scr/UndoBuffer.py" />
+        <option value="$PROJECT_DIR$/scr/Dictionaries.py" />
+        <option value="$PROJECT_DIR$/scr/Config.py" />
+        <option value="$PROJECT_DIR$/scr/PythonCompiler.py" />
+        <option value="$PROJECT_DIR$/scr/SaveHTML.py" />
         <option value="$PROJECT_DIR$/Boo-T.py" />
+        <option value="$PROJECT_DIR$/scr/OptionsM.py" />
       </list>
     </option>
   </component>
@@ -313,6 +1587,28 @@
     </option>
   </component>
   <component name="RunManager" selected="Python.Boo-T">
+    <configuration name="About" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Boo-T" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/scr" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/scr/About.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="Boo-T" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Boo-T" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -327,28 +1623,6 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Boo-T.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Config" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Boo-T" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/scr" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/scr/Config.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -425,18 +1699,18 @@
     </configuration>
     <list>
       <item itemvalue="Python.Boo-T" />
-      <item itemvalue="Python.Config" />
       <item itemvalue="Python.OptionsM" />
       <item itemvalue="Python.PythonCompiler" />
       <item itemvalue="Python.SaveHTML" />
+      <item itemvalue="Python.About" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.Boo-T" />
+        <item itemvalue="Python.OptionsM" />
         <item itemvalue="Python.SaveHTML" />
         <item itemvalue="Python.PythonCompiler" />
-        <item itemvalue="Python.OptionsM" />
-        <item itemvalue="Python.Config" />
+        <item itemvalue="Python.About" />
       </list>
     </recent_temporary>
   </component>
@@ -458,20 +1732,20 @@
     <frame x="-4" y="-4" width="1608" height="1164" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.11681643" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17907573" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.39101338" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.5802311" weight="0.31548756" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49935815" weight="0.39961758" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.41976893" side_tool="true" visible="true" weight="0.31548756" />
       <window_info anchor="bottom" id="Terminal" order="11" />
       <window_info anchor="bottom" id="Python Console" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -509,6 +1783,17 @@
     </state>
     <state x="16" y="0" key="SettingsEditor/0.0.1024.728@0.0.1024.728" timestamp="1614263174603" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/scr/About.py</url>
+          <line>25</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
   <component name="editorHistoryManager">
     <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/threading.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -524,19 +1809,106 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/scr/SyntaxList.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="3" column="17" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scr/UndoBuffer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="32">
+          <caret line="2" column="4" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scr/DisplayLoading.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="373">
+          <caret line="30" column="35" selection-start-line="30" selection-start-column="35" selection-end-line="30" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scr/Monitor.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="11" column="23" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scr/About.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="348">
+          <caret line="199" selection-start-line="199" selection-end-line="204" selection-end-column="54" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scr/Dictionaries.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="9" column="67" lean-forward="true" selection-start-line="9" selection-start-column="67" selection-end-line="9" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/scr/GetCodeOnly.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-882" />
+        <state relative-caret-position="-186">
+          <caret line="24" column="30" selection-start-line="24" selection-start-column="27" selection-end-line="24" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scr/ColorPalettes.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scr/PythonCompiler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="637">
+          <caret line="604" column="16" selection-start-line="600" selection-start-column="31" selection-end-line="600" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scr/SaveHTML.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="41" selection-start-line="41" selection-end-line="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/tkinter/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="1475" selection-start-line="1475" selection-end-line="1475" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scr/OptionsM.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="68" column="48" lean-forward="true" selection-start-line="68" selection-start-column="48" selection-end-line="68" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scr/Config.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="58" selection-start-line="58" selection-end-line="58" />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Boo-T.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="492">
-          <caret line="1273" selection-start-line="1273" selection-end-line="1273" />
+        <state relative-caret-position="496">
+          <caret line="31" column="29" selection-start-line="31" selection-start-column="29" selection-end-line="31" selection-end-column="29" />
           <folding>
-            <marker date="1614414807316" expanded="true" signature="355:356" ph="..." />
-            <marker date="1614414807316" expanded="true" signature="43527:43811" ph="..." />
-            <marker date="1614414807316" expanded="true" signature="55070:55562" ph="..." />
+            <element signature="e#47#68#0" expanded="true" />
           </folding>
         </state>
       </provider>

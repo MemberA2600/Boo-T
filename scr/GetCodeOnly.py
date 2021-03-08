@@ -1,10 +1,8 @@
 from tkinter import *
-from abc import *
 from tkinter.filedialog import *
 
-class GetCodeOnly_REAL(ABC):
+class GetCodeOnly():
 
-    @abstractmethod
     def __init__(self, dicts, config, hammer, master, main, fontSize, monitor, code, syntax):
         import tkinter.scrolledtext as tkscrolled
 
@@ -104,8 +102,3 @@ class GetCodeOnly_REAL(ABC):
         import SaveHTML
         SaveHTML = SaveHTML.SaveHTML(self.__codebox.get(0.0, END), self.__Config, self.__dicts, "")
         self.__destroyWindow()
-
-class GetCodeOnly(GetCodeOnly_REAL):
-
-    def __init__(self, dicts, config, hammer, master, main, fontSize, monitor, code, syntax):
-        super().__init__(dicts, config, hammer, master, main, fontSize, monitor, code, syntax)

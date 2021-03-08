@@ -1,3 +1,0 @@
-    <!-- Container starts -->
-#body#
-    <!-- Container Ends -->

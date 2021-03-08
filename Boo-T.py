@@ -2,19 +2,16 @@
 # -*- coding: utf-8 -*-
 
 from tkinter import *
-from abc import *
 import os
 
 from tkinter.filedialog import *
 from tkinter import messagebox
-import time
 
 from sys import path
 path.insert(1, "scr/")
 
-class MainWindow_Real(ABC):
+class MainWindow():
     """Creating the Main Window, loads data for application."""
-    @abstractmethod
     def __init__(self):
         from threading import Thread
 
@@ -27,15 +24,13 @@ class MainWindow_Real(ABC):
     def __createAll(self):
         self.__keyPress = False
         self.__main = Tk()
-        self.__main.withdraw() #The Window is hidded while the
+        self.__main.withdraw()
         self.__main.overrideredirect(True)
         self.__main.resizable(False, False)
 
-        self.__checkAllLines = False
+        self.__checkAllLines = True
         self.__opened = False
         self.__modified = False
-        self.__saved = False
-        self.__configChanged = False
         self.__path = ""
         self.__deliminator = "%%"
         self.__tempDeliminator = self.__deliminator
@@ -98,7 +93,7 @@ class MainWindow_Real(ABC):
         self.__setFont(1)
 
 
-        self.createMainWindow()
+        self.__createMainWindow()
 
         "Bind function keys for hotkeys."
         self.__main.bind("<F1>", self.__F1)
@@ -120,12 +115,12 @@ class MainWindow_Real(ABC):
 
         "Makes the main window visible again."
 
-        self.__main.bind("<Key>", self.code_Key_Pressed)
-        self.__main.bind("<KeyRelease>", self.code_Key_Released)
+        self.__main.bind("<Key>", self.__code_Key_Pressed)
+        self.__main.bind("<KeyRelease>", self.__code_Key_Released)
 
         self.__main.deiconify()
         self.create_StatLabel(self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "welcome"))
-        self.__main.after(int(self.__Config.get_Element("AutoSave"))*60000, self.autoS)
+        self.__main.after(int(self.__Config.get_Element("AutoSave"))*60000, self.__autoS)
         self.__main.mainloop()
 
     def __deleteWidgets(self):
@@ -140,8 +135,7 @@ class MainWindow_Real(ABC):
             pass
         return(temp)
 
-    @abstractmethod
-    def createMainWindow(self):
+    def __createMainWindow(self):
         temp=self.__deleteWidgets()
         if self.__Config.get_Element("StaticSize") == "0":
             s = self.__GetWindowSize(self.__monitor.get_screensize())
@@ -175,20 +169,18 @@ class MainWindow_Real(ABC):
             from tkinter import font
             font.families()
 
-            #from sys import executable
-            #os.execl(executable, os.path.abspath(__file__), *sys.argv)
             return (True)
         else:
             return (False)
 
-    def autoS(self):
+    def __autoS(self):
         """Recursively calls itself and does autosave in the given period."""
         if int(self.__Config.get_Element("AutoSave"))>0:
             self.create_StatLabel(self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "autoSaveDone"))
             self.saveQuickSave()
-            self.__main.after(int(self.__Config.get_Element("AutoSave")) * 60000, self.autoS)
+            self.__main.after(int(self.__Config.get_Element("AutoSave")) * 60000, self.__autoS)
         else:
-            self.__main.after(60000, self.autoS)
+            self.__main.after(60000, self.__autoS)
 
     def __setFont(self, num):
         """The font side is set based on the screensize you got at '__GetWindowSize' """
@@ -196,11 +188,11 @@ class MainWindow_Real(ABC):
         self.__hammerFont = ("HammerFat_Hun", self.__fontSize)
 
     def __GetWindowSize(self, size):
-        if size[0] > 1600:
+        if size[0] > 1600 and size[1]>1200:
             s = 4
-        elif size[0] > 1280:
+        elif size[0] > 1280 and size[1]>768:
             s = 3
-        elif size[0] > 800:
+        elif size[0] > 800 and size[1]>600:
             s = 2
         else:
             s = 1
@@ -289,7 +281,7 @@ class MainWindow_Real(ABC):
         self.__imgAbout = ImageTk.PhotoImage(Image.open("icons/about.png"))
         self.__About_B = self.__createButton(self.__imgAbout, self.__AboutMenu, self.__on_enterAbout, 14.75)
 
-        self.CheckIfValid()
+        self.__CheckIfValid()
 
         self.__Hint = StringVar()
         self.__HintText = Label(self.__main, textvariable=self.__Hint, font=self.__hammerFont)
@@ -339,7 +331,7 @@ class MainWindow_Real(ABC):
 
     def __openFile(self, openname, addRecent):
         self.__checkAllLines = True
-        if "new_file" in openname:
+        if "new_file.txt" in openname:
             addRecent = False
             self.__opened = False
 
@@ -361,7 +353,10 @@ class MainWindow_Real(ABC):
                     m + "\n" + str(e))
 
     def __openSuccess(self, opened, openname, addRecent):
-        self.__insertBox(opened.read())
+        try:
+            self.__insertBox(opened.read())
+        except:
+            self.__insertBox(self.__createString(opened.read()))
         self.updateCodeBox()
         opened.close()
         if addRecent == True:
@@ -389,8 +384,7 @@ class MainWindow_Real(ABC):
     def __doSave(self):
         """Calls saver directly, if a file is already opened."""
         if self.__opened == True:
-            savename = self.__path
-            self.__Saver(savename)
+            self.__Saver(self.__path)
         else:
             self.__doSaveAs()
 
@@ -406,8 +400,7 @@ class MainWindow_Real(ABC):
 
     def __Saver(self, savename):
         try:
-
-            if savename!="" and ("new_file" not in savename):
+            if savename!="" and ("new_file.txt" not in savename):
                 if savename.endswith(".boo") == False or savename.endswith(".txt"):
                     savename += ".boo"
                 opened = open(savename, "w", encoding='utf-8')
@@ -415,12 +408,9 @@ class MainWindow_Real(ABC):
                 opened.close()
                 self.__opened = True
                 self.__modified = False
-                #self.saveQuickSave()
                 self.__addToRecent(savename)
                 self.__path = savename
                 self.__deleteQuick()
-
-
 
         except Exception as e:
             messagebox.showerror(
@@ -464,7 +454,7 @@ class MainWindow_Real(ABC):
         """Returns X position for the menu button"""
         return (4 + (self.__buttonSize) * num)
 
-    def CheckIfValid(self):
+    def __CheckIfValid(self):
         """Disables test in browser buttons if browser path is not enabled."""
         if self.__Config.get_Element("Chrome") == "":
             self.__Chrome_B.config(state=DISABLED)
@@ -505,9 +495,9 @@ class MainWindow_Real(ABC):
 
         self.__CodeBox = tkscrolled.ScrolledText(self.__Frame_for_CodeBox, width=1, height=1, font=baseFont)
         self.__box_Ctrl_Pressed = False
-        self.__CodeBox.bind("<MouseWheel>", self.mouse_Wheel)
-        self.__CodeBox.bind("<Button-4>", self.mouse_Wheel)
-        self.__CodeBox.bind("<Button-5>", self.mouse_Wheel)
+        self.__CodeBox.bind("<MouseWheel>", self.__mouse_Wheel)
+        self.__CodeBox.bind("<Button-4>", self.__mouse_Wheel)
+        self.__CodeBox.bind("<Button-5>", self.__mouse_Wheel)
         self.__CodeBox.bind("v", self.__Pasted)
         self.__CodeBox.bind("<space>", self.__addBuffer)
         self.__CodeBox.bind("<Return>", self.__addBuffer)
@@ -520,7 +510,7 @@ class MainWindow_Real(ABC):
         self.__checkAllLines = True
         self.updateCodeBox()
 
-    def code_Key_Pressed(self, event):
+    def __code_Key_Pressed(self, event):
         """Neded for the usual ctrl + mousewheel combnation for resizing textbox font."""
         self.__keyPress = False
         self.__modified = True
@@ -528,14 +518,14 @@ class MainWindow_Real(ABC):
             self.__box_Ctrl_Pressed = True
 
 
-    def code_Key_Released(self, event):
+    def __code_Key_Released(self, event):
         self.__keyPress = True
         """Neded for the usual ctrl + mousewheel combnation for resizing textbox font."""
 
         if (event.keysym == "Control_L" or event.keysym == "Control_R"):
             self.__box_Ctrl_Pressed = False
 
-    def mouse_Wheel(self, event):
+    def __mouse_Wheel(self, event):
         """If ctrl is pressed and the user roll the mouse's wheel, the font size will be changed.
         Need to call updateCodeBox for the actual change."""
         if self.__box_Ctrl_Pressed:
@@ -562,7 +552,6 @@ class MainWindow_Real(ABC):
 
         return (hammerFont)
 
-    @abstractmethod
     def updateCodeBox(self):
         """Changes the light/dark them for the box, also changes the font size.
         If the listbox are existing, updates their colors too."""
@@ -719,7 +708,6 @@ class MainWindow_Real(ABC):
         self.__Hint.set(self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "about"))
         self.__setHintTextLocation(12.75)
 
-    @abstractmethod
     def create_StatLabel(self, text):
         "Because other objects can display message on the main window, the method has an abstract call."
         try:
@@ -781,7 +769,7 @@ class MainWindow_Real(ABC):
                                              text=self.__dicts.getWordFromDict(self.__Config.get_Element("Language"),
                                                                                "open"),font=self.__hammerFont, command=self.__openRecentFile)
         self.__loadFromRecentButton.pack()
-        self.loadRecent()
+        self.__loadRecent()
 
         __secondListY = (__relativeY + self.__hammerFont[1] * 2) + __firstListHeight + 51 + self.__hammerFont[1] * 2
 
@@ -863,7 +851,7 @@ class MainWindow_Real(ABC):
             self.__CodeBox.insert(INSERT, path)
 
 
-    def loadRecent(self):
+    def __loadRecent(self):
         """List of recently saved and opened files.
         If max number of recent files is exceeded, it won't load more."""
         if os.path.exists("default/Recent.txt"):
@@ -925,7 +913,6 @@ class MainWindow_Real(ABC):
             self.__insertBox(file.read())
             file.close()
 
-    @abstractmethod
     def saveQuickSave(self):
         file = open("QuickSave.txt", "w", encoding='utf-8')
         file.write(self.__getCodeFromBox())
@@ -990,13 +977,21 @@ class MainWindow_Real(ABC):
             else:
                 self.__CodeBox.tag_remove(tag, str(currentline + 1) + ".0",
                                           str(currentline + 1) + "." + str(len(lines[currentline])))
+        self.__CodeBox.tag_remove("string", "0.0", END)
 
         self.__deliminator = self.__getDeliminator()
         self.__standard_tinting("subArg", self.__SYN, currentline, lines, "Arg")
         self.__standard_tinting("Arg", self.__Syntax.getKeys(), currentline, lines, "subArg")
 
-        self.__between_tinting("string", "'", currentline, lines)
-        self.__between_tinting("string", '"', currentline, lines)
+        #self.__between_tinting("string", "'", currentline, lines)
+        #self.__between_tinting("string", '"', currentline, lines)
+
+
+        self.__alreadyStringed = []
+        self.__between_tinting("string", '"', lines)
+        self.__between_tinting("string", '`', lines)
+        self.__between_tinting("string", "'", lines)
+
         self.__comment_tinting(lines)
 
         self.__checkAllLines = False
@@ -1034,6 +1029,34 @@ class MainWindow_Real(ABC):
             self.__CodeBox.tag_add(tag, str(linenum + 1) + "." + str(x),
                                    str(linenum + 1) + "." + str(len(lines[linenum])))
 
+    def __between_tinting(self, tag, char, lines):
+
+        start = 0
+        startY = 0
+        turnedOn = False
+        __tempStringed = []
+
+        for y in range(0, len(lines)):
+            for x in range(0, len(lines[y])):
+                if turnedOn == True:
+                    __tempStringed.append(str(y + 1) + "." + str(x+1))
+
+                if lines[y][x] == char:
+                    if turnedOn == False:
+                        if (str(y + 1) + "." + str(x+1)) not in self.__alreadyStringed:
+                            turnedOn = True
+                            start = x
+                            startY = y
+                    else:
+                        turnedOn = False
+                        if (str(str(startY + 1) + "." + str(start))) not in self.__alreadyStringed:
+                            if (str(y + 1) + "." + str(x+1)) not in self.__alreadyStringed:
+                                self.__CodeBox.tag_add(tag, str(startY + 1) + "." + str(start),
+                                                   str(y + 1) + "." + str(x+1))
+                                self.__alreadyStringed.extend(__tempStringed)
+                                __tempStringed = []
+
+    """
     def __between_tinting(self, tag, char, currentline, lines):
         if self.__checkAllLines==True:
             for linenum in range(0, len(lines)):
@@ -1053,7 +1076,7 @@ class MainWindow_Real(ABC):
                     on = False
                     self.__CodeBox.tag_add(tag, str(linenum + 1) + "." + str(x + 1),
                                            str(linenum + 1) + "." + str(charnum))
-
+    """
     def __comment_tinting(self, lines):
             try:
                 for linenum in range(0, len(lines)):
@@ -1065,7 +1088,7 @@ class MainWindow_Real(ABC):
 
     def __comment_tinting_lines(self, lines):
         for linenum in range(0, len(lines)):
-            for charnum in range(0, len(lines[linenum])):
+            for charnum in range(len(lines[linenum]), 0, -1):
                 if lines[linenum][charnum:charnum + len(self.__deliminator)] == self.__deliminator:
                     self.__CodeBox.tag_add("comment", str(linenum + 1) + "." + str(charnum),
                                            str(linenum + 1) + "." + str(len(lines[linenum])))
@@ -1126,7 +1149,6 @@ class MainWindow_Real(ABC):
     def __Pasted(self, even):
         self.__checkAllLines = True
 
-    @abstractmethod
     def getDeliminator(self):
         return(self.__deliminator)
 
@@ -1210,11 +1232,9 @@ class MainWindow_Real(ABC):
         os.mkdir("temp")
         SaveHTML = SaveHTML.SaveHTML(self.compileCode(), self.__Config, self.__dicts, str("temp/temp.html"))
 
-    @abstractmethod
     def compileCode(self):
         if self.__Config.get_Element("FortranCompiler") == "False":
             import PythonCompiler
-            import re
 
             Compiler = PythonCompiler.Compiler(self.__CodeBox.get(0.0, END), self.__Config, self.__dicts, self.__Syntax, self)
 
@@ -1227,30 +1247,26 @@ class MainWindow_Real(ABC):
             file.write(self.__CodeBox.get(0.0, END))
             file.close()
 
-            if (self.__Config.get_OS_Name() == "Windows"):
-                path=os.path.abspath("FortranCompilerAsDLL.dll")
-                fortran = ctypes.CDLL(path)
-                fortran.compile()
-                file = open("temp.txt", "r", encoding='utf-8')
-
-            else:
-                #import subprocess
-                #subprocess.run("FortranCompilerLinux", shell=False)
-                path=os.path.abspath("libCompilerAsDLLLinux.so")
-                fortran = ctypes.CDLL(path)
-                fortran.compile()
-                file = open("temp.txt", "rb")
-
-
+            path=os.path.abspath("FortranCompilerAsDLL.dll")
+            fortran = ctypes.CDLL(path)
+            fortran.compile()
+            file = open("temp.txt", "rb")
             txt = file.read()
+            txt = self.__createString(txt)
             file.close()
             os.remove("temp.txt")
             os.remove("temp.boo")
             return(txt)
 
+    def __createString(self, txt):
+        newString=""
+        for c in txt:
+            try:
+                newString = newString + chr(c)
+            except:
+                pass
 
-
-            #subprocess.call("TODO", creationflags=0x08000000)
+        return(newString)
 
     def __doUndo(self):
         temp=self.__Undo.undo()
@@ -1271,29 +1287,6 @@ class MainWindow_Real(ABC):
         del self.__main
         import gc
         gc.collect()
-
-
-class MainWindow(MainWindow_Real):
-    def __init__(self):
-        super().__init__()
-
-    def create_StatLabel(master, text):
-        super().create_StatLabel(text)
-
-    def updateCodeBox(master):
-        super().updateCodeBox()
-
-    def saveQuickSave(master):
-        super().saveQuickSave()
-
-    def getDeliminator(master):
-        return(super().getDeliminator())
-
-    def compileCode(self):
-        return(super().compileCode())
-
-    def createMainWindow(self):
-        super().createMainWindow()
 
 def deleteJunk():
     """remove junk from folder"""

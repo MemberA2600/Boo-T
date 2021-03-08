@@ -92,7 +92,7 @@ bootrow(rate(3,6,3),
 	image=E:/PyCharm/P/Boo-T/Zerg6.jpg) hullahopp
 
 bootrow(rate(auto), 
-	article(rawtext="<ul><li><b>article(title="", title-align=, rawtext="")</b></il><br>Articles are walls of text, the object you are reading right now is an arcticle as well. Articles have three part:<ul><li>title="String"</li>The text for the title, given as a string.<li><b>title-align</b>={left, center, right}<br>This will set the aligment of the title.</li><li><b>rawtext=""</b><br>This is the most advanced argument in the whole environment, this is the mathod for embending test. You can use here any html tags to make your text more pleasant for the eyes, here you can find some examples, I added some spaces so they won't be compiled:</li>< b > is for <b>bold</b> text, < i > is for <i>italic</i>, < u > stand for <u>underlined</u>. <br>You can add new lines by inserting a < br >, since normal enters won't work. You can create list by < ul > < ol > and itt items with < li >. I created a new tag that is not used by html standards: < space:X > will add X spaces to you text, < space:10 > works <space:10> like this-</ul><li><b>image</b>=<br>Works like as mentioned before.</li><li><b>imgfilter</b><br>This argument changes the image behavior by making it blurry and grayscale unit the mouse goes by.</li></ul>")) hullahopp
+	article(rawtext="<ul><li><b>article(title="", title-align=, rawtext="")</b></il><br>Articles are walls of text, the object you are reading right now is an arcticle as well. Articles have three part:<ul><li>title="String"</li>The text for the title, given as a string.<li><b>title-align</b>={left, center, right}<br>This will set the aligment of the title.</li><li><b>rawtext=""</b><br>This is the most advanced argument in the whole environment, this is the mathod for embending test. You can use here any html tags to make your text more pleasant for the eyes, here you can find some examples, I added some spaces so they won't be compiled:</li>< b > is for <b>bold</b> text, < i > is for <i>italic</i>, < u > stand for <u>underlined</u>. <br>You can add new lines by inserting a < br >, since normal enters won't work. You can create list by < ul > < ol > and itt items with < li >. I created a new tag that is not used by html standards: < space:X > will add X spaces to you text, < space:10 > works <space:10> like this.</ul><li><b>image</b>=<br>Works like as mentioned before.</li><li><b>imgfilter</b><br>This argument changes the image behavior by making it blurry and grayscale unit the mouse goes by.</li></ul>")) hullahopp
 
 bootrow(rate(auto), image=E:/PyCharm/P/Boo-T/Zerg5.jpg,
 	article(title="centered title", title-align=center,
@@ -130,5 +130,6 @@ footer(button="Scroll back to top!",
 	github=https://github.com/MemberA2600,
 	youtube=https://www.youtube.com/user/M3MB3Rrr,
 	linkedin=https://www.linkedin.com/in/j%C3%A1nos-zolt%C3%A1n-feh%C3%A9r-4378828b/) hullahopp
+
 
 

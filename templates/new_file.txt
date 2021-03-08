@@ -2,18 +2,25 @@ deliminator %%
 basics(author=,
        language=en, 
        charset=utf-8,
-       palette=) %%
+       palette=) %% (2)
 
-keywords() %%
-description() %%
-title() %%
+keywords() %% (3)
+description() %% (4)
+title() %% (5)
 
-background() %%
-font-family("Arial") %%
-opacity(container=, navbar=, footer=, table=) %%
+opacity(navbar=1.00, container=1.00, table=1.00, footer=1.00) %% (6)
 
-banner() %%
+background() %% (7)
+font-family("Myriad Pro Light", "Arial") %% (8)
 
-navbar() %%
+opacity(container=, navbar=, footer=, table=) %% (9)
 
-footer() %%
+banner() %% (10)
+
+navbar() %% (11)
+
+table() %% (12)
+
+bootrow() %% (13)
+
+footer() %% (14)

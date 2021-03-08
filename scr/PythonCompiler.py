@@ -1,11 +1,8 @@
-from abc import *
 import re
 import os
 
+class Compiler():
 
-class Compiler_REAL(ABC):
-
-    @abstractmethod
     def __init__(self, code, config, dicts, syntax, master):
 
         import ColorPalettes
@@ -34,7 +31,7 @@ class Compiler_REAL(ABC):
         self.__fontfamily='"Arial"'
         self.__lang="en"
         self.__charset="UTF-8"
-        self.__palette="random"
+        self.__palette="black"
 
         self.__mainBody=""
         self.__tableCSS = ""
@@ -148,7 +145,7 @@ class Compiler_REAL(ABC):
 
 
         if line[0] not in self.__Syntax.getKeys():
-            """If the main command is invalid, rise error."""
+            """If the main command is invalid, raise error."""
             self.__error = self.__dicts.getWordFromDict(
                            self.__Config.get_Element("Language"), "errorInvalidCommand").replace("#line#", line[0])
 
@@ -207,8 +204,12 @@ class Compiler_REAL(ABC):
                                 if Value == "random":
                                     import random
                                     import datetime
-                                    random.seed(int(str(datetime.datetime.now()).split(".")[1]))
-
+                                    try:
+                                        random.seed(int(str(datetime.datetime.now()).split(".")[1]))
+                                    except:
+                                        os.environ['PYGAME_HIDE_SUPPORT_PROMPT'] = "hide"
+                                        import pygame.mouse as M
+                                        random.seed(M.get_pos()[0] + M.get_pos()[1])
                                     num = random.randint(0,27)
                                 else:
                                     num=int(Value)
@@ -590,12 +591,16 @@ class Compiler_REAL(ABC):
         lines = line.split(",")
         tempstring=""
         merge = False
+        stringSign = False
         for item in lines:
             item=item.strip()
             tempstring +=item
 
             for char in item:
-                if char == '"':
+                if stringSign == False:
+                    if char == '"' or char == "'" or char == '`':
+                        stringSign = char
+                if char == stringSign:
                     merge = not merge
             if merge == False:
                 lines2.append(tempstring)
@@ -662,8 +667,3 @@ class Compiler_REAL(ABC):
         for item in parts:
             code=code.replace("<space:"+item[7:-1]+">", "&nbsp;" * int(item[7:-1]))
         return(code)
-
-class Compiler(Compiler_REAL):
-
-    def __init__(self, code, config, dicts, syntax, main):
-        return(super().__init__(code, config, dicts, syntax, main))

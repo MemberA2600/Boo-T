@@ -1,4 +1,4 @@
-﻿basics(author=Member - Fehér János Zoltán,
+basics(author=Member - Fehér János Zoltán,
        language=en, 
        charset=UTF-8,
        palette=7) %%
@@ -6,7 +6,6 @@
 keywords(Altair 8800,70s computing, vintage, computer science) %%
 description(Just a simple site dedicated to the Altair 8800 computer) %%
 title(Altair 8800) %%
-
 background(gradient=HOR) %%
 font-family("Gulim") %%pic
 
@@ -54,11 +53,14 @@ table(id=price, columns("Function", "Kit", "Assembled"), inverted,
 	row("Casette Interface", "$128", "$175")
 ) %%
 
+
+
 footer(button="Keyboard is for dummies!",
        facebook=https://www.facebook.com/groups/265721677918/,
        youtube=https://www.youtube.com/channel/UC1y5UrhN90ULLSGnZjzR7Fw,
        skype=#,
        phone=#,
        email=grant@stockly.com )%%
+
 
 

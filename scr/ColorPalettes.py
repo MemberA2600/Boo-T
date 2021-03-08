@@ -1,9 +1,5 @@
-from abc import *
+class ColorPalettes():
 
-
-class ColorPalettes_REAL(ABC):
-
-    @abstractmethod
     def __init__(self):
         self.__colors = {}
         self.__getColors()
@@ -22,29 +18,13 @@ class ColorPalettes_REAL(ABC):
             xxx = line.split("=")
             self.__rgbaCodes[xxx[0].strip()] = xxx[1].strip()
 
-
-    @abstractmethod
     def getPalette(self, color):
         return(self.__colors[color])
 
-    @abstractmethod
+
     def getColors(self):
         return(self.__colors.keys())
 
-    @abstractmethod
+
     def getRGBA(self, color):
         return(self.__rgbaCodes[color])
-
-class ColorPalettes(ColorPalettes_REAL):
-
-    def __init__(self):
-        super().__init__()
-
-    def getPalette(self, color):
-        return(super().getPalette(color))
-
-    def getColors(self):
-        return(super().getColors())
-
-    def getRGBA(self, color):
-        return(super().getRGBA(color))

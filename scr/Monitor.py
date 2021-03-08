@@ -1,10 +1,7 @@
-from abc import *
-
-class Monitor_Real(ABC):
+class Monitor():
     """This the real class that is supposed to get the current
     resolution of the primary monitor."""
 
-    @abstractmethod
     def __init__(self, system):
         """Has different methods to get the main monitor's metrics on the two OS."""
 
@@ -18,15 +15,5 @@ class Monitor_Real(ABC):
             screen=Display(":0").screen()
             self.__screensize=screen.width_in_pixels, screen.height_in_pixels
 
-    @abstractmethod
     def get_screensize(self):
         return(self.__screensize)
-
-class Monitor(Monitor_Real):
-    """This is the class the user can primary access to get the resolution of the screen."""
-
-    def __init__(self, system):
-        super().__init__(system)
-
-    def get_screensize(self):
-        return(super().get_screensize())

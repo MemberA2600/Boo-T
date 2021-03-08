@@ -1,15 +1,12 @@
-from tkinter import *
-from abc import *
-import os
 from tkinter.filedialog import *
 from tkinter import messagebox
 
-class Config_Real(ABC):
+class Config():
     """This is the real class, hidden from direct accessing.
     The configuration file and the dictionary containing the
     settings can be accessed with it."""
 
-    @abstractmethod
+
     def __init__(self, dicts):
         self.__os_Name=self.__get_OS()
         self.__dicts=dicts
@@ -20,7 +17,7 @@ class Config_Real(ABC):
                                  self.__Config["Edge"],
                                  self.__Config["Opera"])
 
-    @abstractmethod
+
     def set_Element(self, key, value):
         self.__Config[key]=value
 
@@ -29,13 +26,13 @@ class Config_Real(ABC):
         from platform import system
         return(system())
 
-    @abstractmethod
+
     def get_OS_Name(self):
         """Many objects work differently with Windows and Linux, so they have to ask for the
         OS really often!"""
         return(self.__os_Name)
 
-    @abstractmethod
+
     def get_Element(self, key):
         """Gives the objects in the outside, mostly the menüs, the current settings."""
         return(self.__Config[key])
@@ -43,7 +40,10 @@ class Config_Real(ABC):
     def __Load_Config_File(self):
         """Will load the config file located in the root folder."""
         if os.path.exists("Config.txt"):
-            return(self.__loadDict("Config.txt"))
+            try:
+                return(self.__loadDict("Config.txt"))
+            except:
+                return (self.__loadDict("default/Config.txt"))
         else:
             return(self.__loadDict("default/Config.txt"))
 
@@ -56,12 +56,15 @@ class Config_Real(ABC):
             """Loads the config, then splits it into two at the eq mark. Both parts are removed of some unneccessery possible
             special characters. the first part becomes the key, the other the value."""
             __temp[line.replace("\r","").replace("\n","").split("=")[0]]=line.replace("\r","").replace("\n","").split("=")[1].replace("\n","")
+        if self.get_OS_Name()=="Linux":
+            __temp["FortranCompiler"]="False"
         return(__temp)
 
-    @abstractmethod
+
     def load_Config_Defaults(self):
         """Loads the Default config file from subfolder."""
         self.__Config=self.__loadDict("default/Config.txt")
+
 
     def __CheckBrowsers(self, Chrome, FireFox, Edge, Opera):
         """If a browser had no gien path, it will try to find the installed path of application.
@@ -203,31 +206,9 @@ class Config_Real(ABC):
                     return(str(root + "/" + file).replace("\\", "/"))
         return("")
 
-    @abstractmethod
+
     def saveConfig(self):
         file=open("Config.txt", "w")
         for key in self.__Config:
             file.write(key+"="+self.__Config[key]+"\n")
         file.close()
-
-class Config(Config_Real):
-    """This is the class that can be accessed directly for the
-    configuration."""
-
-    def __init__(self, dicts):
-        super().__init__(dicts)
-
-    def set_Element(self, key, value):
-        super().set_Element(key, value)
-
-    def get_Element(self, key):
-        return(super().get_Element(key))
-
-    def load_Config_Defaults(self):
-        super().load_Config_Defaults()
-
-    def saveConfig(self):
-        super().saveConfig()
-
-    def get_OS_Name(self):
-        return(super().get_OS_Name())

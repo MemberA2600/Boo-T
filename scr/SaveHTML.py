@@ -1,7 +1,6 @@
-from abc import *
 from tkinter.filedialog import *
 
-class SaveHTML_Real(ABC):
+class SaveHTML():
 
     def __init__(self, code, config, dicts, savename):
         self.__dicts=dicts
@@ -39,10 +38,7 @@ class SaveHTML_Real(ABC):
 
             if savename.endswith(".html") == False or savename.endswith(".txt"):
                 savename += ".html"
-
-            code = code
             code = self.__searchForImagesPaths(code, sep, filepath)
-
             opened = open(savename, "w", encoding='utf8')
             opened.write(code)
             opened.close()
@@ -131,10 +127,3 @@ class SaveHTML_Real(ABC):
             num=num+1
 
         return (file2)
-
-
-
-class SaveHTML(SaveHTML_Real):
-
-    def __init__(self, code, config, dicts, savename):
-        super().__init__(code, config, dicts, savename)

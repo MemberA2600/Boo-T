@@ -1,10 +1,9 @@
 from tkinter import *
-from abc import *
 from tkinter.filedialog import *
 
-class AboutMenu_REAL(ABC):
+class AboutMenu():
 
-    @abstractmethod
+
     def __init__(self, dicts, config, hammer, master, main, fontSize, monitor):
         from PIL import ImageTk, Image
 
@@ -12,7 +11,7 @@ class AboutMenu_REAL(ABC):
         self.__dicts = dicts
         self.__Config = config
         self.__hammerFont = hammer
-        self.master = master
+        self.__master = master
         self.__main = main
 
         self.__AboutM=Toplevel()
@@ -77,7 +76,7 @@ class AboutMenu_REAL(ABC):
         self.__soundButton=Button(self.__AboutM, image=self.__imageOff, width=32, height=32, command=self.__soundChange, relief=FLAT)
         self.__soundButton.place(x=355, y=285)
 
-        self.master.create_StatLabel(self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "wheel"))
+        self.__master.create_StatLabel(self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "wheel"))
 
         self.__AboutM.focus()
         self.__AboutM.after(20, self.__Animation)
@@ -198,8 +197,13 @@ class AboutMenu_REAL(ABC):
     def __checkballCollision(self):
         import random
         import datetime
-        random.seed(int(str(datetime.datetime.now()).split(".")[1]))
-        num=random.randint(-1,1)
+        try:
+            random.seed(int(str(datetime.datetime.now()).split(".")[1]))
+        except:
+            os.environ['PYGAME_HIDE_SUPPORT_PROMPT'] = "hide"
+            import pygame.mouse as M
+            random.seed(M.get_pos()[0]+M.get_pos()[1])
+        num=random.randint(-1,3)
 
         if self.__ballXY[1]<5:
             self.__collisionDelay = 10
@@ -238,14 +242,14 @@ class AboutMenu_REAL(ABC):
             if self.__points[0]<15 and self.__points[1]<15 and self.__sound==True:
                 self.__playsound("p/p3.wav")
 
-            if self.__ballDir==3:
+            if self.__ballDir==5:
                 num2 = random.randint(-3, 3)
 
                 if num==-1:
                     self.__ballDir=0
                 else:
                     self.__ballDir=7
-            elif self.__ballDir==5:
+            elif self.__ballDir==3:
                 num2 = random.randint(-3, 3)
 
                 if num==-1:
@@ -344,9 +348,3 @@ class AboutMenu_REAL(ABC):
     def __placeText(self):
         self.__versionLabel.place(x=self.__theX, y=-3)
         self.__authorLabel.place(x=self.__theX2, y=-3)
-
-
-class AboutMenu(AboutMenu_REAL):
-
-    def __init__(self, dicts, config, hammer, master, main, fontSize, monitor):
-        super().__init__(dicts, config, hammer, master, main, fontSize, monitor)

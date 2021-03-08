@@ -1,20 +1,11 @@
-
 from tkinter import *
-from abc import *
 import os
 import re
 from tkinter.filedialog import *
 from tkinter import messagebox
 
-"""
-from Dictionaries import *
-from Config import *
-from Monitor import *
-"""
+class OptionsMenu():
 
-class OptionsMenu_REAL(ABC):
-
-    @abstractmethod
     def __init__(self, dicts, config, hammer, imgChrome, imgFFox, imgEdge, imgOpera, master, main, fontSize, monitor):
         """The most importan elemets are inherited from the main window."""
 
@@ -27,7 +18,7 @@ class OptionsMenu_REAL(ABC):
         self.__imgEdge=imgEdge
         self.__imgOpera=imgOpera
 
-        self.master=master
+        self.__master=master
 
         self.__main=main
 
@@ -39,7 +30,7 @@ class OptionsMenu_REAL(ABC):
 
         __monitor = monitor
         __s = __monitor.get_screensize()
-        if __s[0] < 800:
+        if __s[0] < 800 or __s[1] < 600:
             __w = 480
             __h = 240
         else:
@@ -66,7 +57,7 @@ class OptionsMenu_REAL(ABC):
         self.__createCompilerFrame(__w, __h, __s)
         self.__intCompiler = IntVar()
 
-        if self.__Config.get_Element("FortranCompiler") == "True":
+        if self.__Config.get_Element("FortranCompiler") == "True" and self.__Config.get_OS_Name()!="Linux":
             self.__intCompiler.set(2)
         else:
             self.__intCompiler.set(1)
@@ -74,6 +65,11 @@ class OptionsMenu_REAL(ABC):
         """Had to put these two here, instead of '__createCompilerFrame', they don't work properly that way, reason unknown"""
         self.__compilerPython, self.__imgPython, self.__imgPythonLabel = self.__compilerLabelButton(1, "Python", 10, hammerheight, hammerFont, "icons/python.png")
         self.__compilerFortran, self.__imgFortran, self.__imgFortranLabel = self.__compilerLabelButton(2, "Fortran", round((__w) / 4), hammerheight, hammerFont, "icons/fortran.png")
+
+        if self.__Config.get_OS_Name()=="Linux":
+            self.__compilerFortran.config(state="disabled")
+            self.__imgFortranLabel.config(state="disabled")
+
 
         """Browserframe starts here"""
         __relative1 = round(__h / 10) + self.__hammerFont[1] * 2 + 5
@@ -505,7 +501,7 @@ class OptionsMenu_REAL(ABC):
             self.__setSizeAgain()
 
     def __setSizeAgain(self):
-        self.master.createMainWindow()
+        self.__master.createMainWindow()
 
 
     def __setWindowLayout(self):
@@ -558,7 +554,7 @@ class OptionsMenu_REAL(ABC):
         else:
             self.__loadTemplate.set(False)
 
-        self.master.updateCodeBox()
+        self.__master.updateCodeBox()
 
 
     def __setOptionsMenuSize(self, w, h, size):
@@ -567,21 +563,21 @@ class OptionsMenu_REAL(ABC):
 
     def __OptionsCompFrameLabel(self, event):
         """Writes the label of the main window to show info about the frame."""
-        self.master.create_StatLabel(self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "compilerLabel"))
+        self.__master.create_StatLabel(self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "compilerLabel"))
 
 
     def __OptionsBrowFrameLabel(self, event):
         """Writes the label of the main window to show info about the frame."""
-        self.master.create_StatLabel(self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "browserLabel"))
+        self.__master.create_StatLabel(self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "browserLabel"))
 
 
     def __OptionsButFrameLabel(self, event):
         """Writes the label of the main window to show info about the frame."""
-        self.master.create_StatLabel(self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "buttonLabel"))
+        self.__master.create_StatLabel(self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "buttonLabel"))
 
     def __BasicSettingsFrameLabel(self, event):
         """Writes the label of the main window to show info about the frame."""
-        self.master.create_StatLabel(self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "basicSettings"))
+        self.__master.create_StatLabel(self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "basicSettings"))
 
     def __setPathChrome(self):
         self.__Config.set_Element("Chrome", self.__openToGetPath("Chrome"))
@@ -631,9 +627,3 @@ class OptionsMenu_REAL(ABC):
             return (default_path)
         else:
             return (path)
-
-
-class OptionsMenu(OptionsMenu_REAL):
-
-    def __init__(self, dicts, config, hammer, imgChrome, imgFFox, imgEdge, imgOpera, master, main, fontsize, monitor):
-        super().__init__(dicts, config, hammer, imgChrome, imgFFox, imgEdge, imgOpera, master, main, fontsize, monitor)
