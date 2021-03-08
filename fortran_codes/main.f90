@@ -100,7 +100,7 @@ module Languages
         character(:), allocatable :: deliminator, line, temp
         character(10000), dimension(:), allocatable :: lineSplitted
 
-        lineSplitted = splitBySpaces(line, 2)
+        lineSplitted = splitBySpaces(line, 9999)
         temp = trim(lineSplitted(1))
         call removeBullShitFromBeginning(temp)
         if (temp == "deliminator") then
@@ -108,7 +108,6 @@ module Languages
         else
             deliminator = "%%"
         end if
-
     end function
 
     subroutine removeComments(codeLines, deliminator)

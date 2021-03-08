@@ -1000,7 +1000,11 @@ class MainWindow():
         try:
             if self.__CodeBox.get("1.0", 2.0).startswith("deliminator"):
                 regex = re.findall(r"deliminator\s.+", self.__CodeBox.get("1.0", END))[0]
-                return(regex[12:])
+                line = regex.split(" ")
+                for word in line:
+                    if word!="deliminator" and word!="":
+                        return(word)
+
         except:
             return(self.__deliminator)
 
@@ -1112,8 +1116,7 @@ class MainWindow():
         lines=re.sub(rf"{self.__deliminator}.*\n", self.__deliminator, self.__CodeBox.get(0.0, INSERT))
         lines=lines.split(self.__deliminator)
 
-        if ("deliminator " in lines[-2]) == False:
-            self.__CodeBox.insert(INSERT, " ("+str(len(lines)-1)+")")
+        self.__CodeBox.insert(INSERT, " ("+str(len(lines)-1)+")")
         self.__CodeBox.insert(INSERT, "\n")
 
     def __F1(self, event):
