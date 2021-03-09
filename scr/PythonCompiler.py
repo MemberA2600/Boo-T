@@ -385,10 +385,10 @@ class Compiler():
                         size = self.__splitByEQ(item, 1)
                         if size in sizes:
                             __expand=sizes[size]
+                        elif size="xs":
+                            __expand=""
                         else:
                             __expand = "-"+size
-
-
 
                     else:
                         self.__argumentError(item, "navbar")

@@ -551,6 +551,8 @@ module compiler
                         end do
                         if (contain .EQV. .TRUE.) then
                             expand = trim(adjustl(temp2))
+                        else if(temp2=="xs") then
+                            expand=""
                         else
                             expand = "-"//trim(adjustl(temp2))
                         end if
