@@ -5,17 +5,9 @@
       <change beforePath="$PROJECT_DIR$/.idea/Boo-T.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Boo-T.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Boo-T.py" beforeDir="false" afterPath="$PROJECT_DIR$/Boo-T.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FortranCompilerAsDLL.dll" beforeDir="false" afterPath="$PROJECT_DIR$/FortranCompilerAsDLL.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/default/Recent.txt" beforeDir="false" afterPath="$PROJECT_DIR$/default/Recent.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/documentacio_hungarian/Szakdolgozat.doc" beforeDir="false" afterPath="$PROJECT_DIR$/documentacio_hungarian/Szakdolgozat.doc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_codes/FortranCompilerAsDLL.layout" beforeDir="false" afterPath="$PROJECT_DIR$/fortran_codes/FortranCompilerAsDLL.layout" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_codes/bin/Release/FortranCompilerAsDLL.dll" beforeDir="false" afterPath="$PROJECT_DIR$/fortran_codes/bin/Release/FortranCompilerAsDLL.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_codes/bin/Release/libFortranCompilerAsDLL.a" beforeDir="false" afterPath="$PROJECT_DIR$/fortran_codes/bin/Release/libFortranCompilerAsDLL.a" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_codes/main.f90" beforeDir="false" afterPath="$PROJECT_DIR$/fortran_codes/main.f90" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortran_codes/obj/Release/main.o" beforeDir="false" afterPath="$PROJECT_DIR$/fortran_codes/obj/Release/main.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libFortranCompilerAsDLL.a" beforeDir="false" afterPath="$PROJECT_DIR$/libFortranCompilerAsDLL.a" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/new_file.txt" beforeDir="false" afterPath="$PROJECT_DIR$/templates/new_file.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scr/PythonCompiler.py" beforeDir="false" afterPath="$PROJECT_DIR$/scr/PythonCompiler.py" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/venv/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -25,45 +17,45 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/Boo_T$Converter.coverage" NAME="Converter Coverage Results" MODIFIED="1603721156761" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="F:/vidi" />
+    <SUITE FILE_PATH="coverage/Boo_T$OptionsM.coverage" NAME="OptionsM Coverage Results" MODIFIED="1615113615420" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scr" />
+    <SUITE FILE_PATH="coverage/Boo_T$PythonCompiler.coverage" NAME="PythonCompiler Coverage Results" MODIFIED="1615059687885" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scr" />
+    <SUITE FILE_PATH="coverage/Boo_T$stocks2.coverage" NAME="stocks2 Coverage Results" MODIFIED="1603422107248" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../../projects" />
+    <SUITE FILE_PATH="coverage/Boo_T$SaveHTML.coverage" NAME="SaveHTML Coverage Results" MODIFIED="1615103088257" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scr" />
+    <SUITE FILE_PATH="coverage/Boo_T$Boo_T.coverage" NAME="Boo-T Coverage Results" MODIFIED="1615261792802" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Boo_T$About.coverage" NAME="About Coverage Results" MODIFIED="1614760679017" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scr" />
     <SUITE FILE_PATH="coverage/Boo_T$Config.coverage" NAME="Config Coverage Results" MODIFIED="1603999625413" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scr" />
-    <SUITE FILE_PATH="coverage/Boo_T$Converter.coverage" NAME="Converter Coverage Results" MODIFIED="1603721156761" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="F:/vidi" />
-    <SUITE FILE_PATH="coverage/Boo_T$SaveHTML.coverage" NAME="SaveHTML Coverage Results" MODIFIED="1615103088257" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scr" />
-    <SUITE FILE_PATH="coverage/Boo_T$Boo_T.coverage" NAME="Boo-T Coverage Results" MODIFIED="1615205625767" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Boo_T$OptionsM.coverage" NAME="OptionsM Coverage Results" MODIFIED="1615113615420" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scr" />
-    <SUITE FILE_PATH="coverage/Boo_T$stocks2.coverage" NAME="stocks2 Coverage Results" MODIFIED="1603422107248" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../../projects" />
-    <SUITE FILE_PATH="coverage/Boo_T$PythonCompiler.coverage" NAME="PythonCompiler Coverage Results" MODIFIED="1615059687885" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scr" />
   </component>
   <component name="FUSProjectUsageTrigger">
     <session id="-768247875">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="29" />
+          <entry key="project.closed" value="30" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.3" value="22" />
-          <entry key="project.open.time.4" value="11" />
+          <entry key="project.open.time.4" value="12" />
           <entry key="project.open.time.5" value="1" />
-          <entry key="project.opened" value="35" />
+          <entry key="project.opened" value="36" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="2519" />
+          <entry key="py" value="2535" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="2519" />
+          <entry key="Python" value="2535" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="164" />
+          <entry key="py" value="165" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Python" value="164" />
+          <entry key="Python" value="165" />
         </counts>
       </usages-collector>
     </session>
@@ -89,14 +81,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Boo-T.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="116">
-              <caret line="998" column="24" selection-start-line="998" selection-start-column="13" selection-end-line="998" selection-end-column="24" />
+            <state relative-caret-position="-129">
+              <caret line="994" column="25" lean-forward="true" selection-start-line="1000" selection-start-column="22" selection-end-line="1000" selection-end-column="24" />
               <folding>
                 <element signature="e#47#68#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/scr/PythonCompiler.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="279">
+              <caret line="374" column="97" selection-start-line="374" selection-start-column="97" selection-end-line="374" selection-end-column="97" />
             </state>
           </provider>
         </entry>
@@ -112,10 +113,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>system</find>
-      <find>subpro</find>
-      <find>subp</find>
-      <find>subpr</find>
       <find>subpt</find>
       <find>ra</find>
       <find>os.environ['PYGAME_HIDE_SUPPORT_PROMPT'] = &quot;hide&quot;</find>
@@ -134,7 +131,6 @@
       <find>#</find>
       <find>&quot;</find>
       <find>tinting</find>
-      <find>'&quot;'</find>
       <find>saveht</find>
       <find>encoding</find>
       <find>fortran</find>
@@ -142,6 +138,11 @@
       <find>linux</find>
       <find>getdelim</find>
       <find>deliminator</find>
+      <find>background</find>
+      <find>contain</find>
+      <find>banner</find>
+      <find>cover</find>
+      <find>'&quot;'</find>
     </findStrings>
     <replaceStrings>
       <replace>self.__autoSearch</replace>
@@ -169,10 +170,10 @@
         <option value="$PROJECT_DIR$/scr/UndoBuffer.py" />
         <option value="$PROJECT_DIR$/scr/Dictionaries.py" />
         <option value="$PROJECT_DIR$/scr/Config.py" />
-        <option value="$PROJECT_DIR$/scr/PythonCompiler.py" />
         <option value="$PROJECT_DIR$/scr/SaveHTML.py" />
         <option value="$PROJECT_DIR$/scr/OptionsM.py" />
         <option value="$PROJECT_DIR$/Boo-T.py" />
+        <option value="$PROJECT_DIR$/scr/PythonCompiler.py" />
       </list>
     </option>
   </component>
@@ -387,15 +388,15 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-4" y="-4" width="1374" height="732" extended-state="6" />
+    <frame x="-4" y="-4" width="1608" height="1164" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18126889" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18356867" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.5793051" weight="0.31433225" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.57830554" weight="0.31357554" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49935815" weight="0.39961758" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -403,7 +404,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.42069486" side_tool="true" visible="true" weight="0.31433225" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.4216945" side_tool="true" visible="true" weight="0.31357554" />
       <window_info anchor="bottom" id="Terminal" order="11" />
       <window_info anchor="bottom" id="Python Console" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -526,13 +527,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scr/PythonCompiler.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="637">
-          <caret line="604" column="16" selection-start-line="600" selection-start-column="31" selection-end-line="600" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/scr/SaveHTML.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="128">
@@ -563,11 +557,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Boo-T.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="998" column="24" selection-start-line="998" selection-start-column="13" selection-end-line="998" selection-end-column="24" />
+        <state relative-caret-position="-129">
+          <caret line="994" column="25" lean-forward="true" selection-start-line="1000" selection-start-column="22" selection-end-line="1000" selection-end-column="24" />
           <folding>
             <element signature="e#47#68#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scr/PythonCompiler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="279">
+          <caret line="374" column="97" selection-start-line="374" selection-start-column="97" selection-end-line="374" selection-end-column="97" />
         </state>
       </provider>
     </entry>

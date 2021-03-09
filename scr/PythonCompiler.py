@@ -368,7 +368,7 @@ class Compiler():
                 for item in args:
                     if item.startswith("brand"):
                         inside=self.__Command_and_Argument(item)[1][1:-1]
-                        if inside.startswith('"'):
+                        if inside.startswith('"') or inside.startswith("'") or inside.startswith("`"):
                             __brandName = inside[1:-1]
                         else:
                             url=self.__splitByEQ(inside, 1)
