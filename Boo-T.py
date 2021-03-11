@@ -93,7 +93,7 @@ class MainWindow():
         self.__setFont(1)
 
 
-        self.__createMainWindow()
+        self.createMainWindow()
 
         "Bind function keys for hotkeys."
         self.__main.bind("<F1>", self.__F1)
@@ -135,7 +135,7 @@ class MainWindow():
             pass
         return(temp)
 
-    def __createMainWindow(self):
+    def createMainWindow(self):
         temp=self.__deleteWidgets()
         if self.__Config.get_Element("StaticSize") == "0":
             s = self.__GetWindowSize(self.__monitor.get_screensize())
