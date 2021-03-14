@@ -1,0 +1,15 @@
+FortranCompiler=False
+AutoCheckForInstalledBrowsers=True
+Language=english
+Chrome=
+FireFox=
+Edge=
+Opera=
+StaticSize=0
+DarkBox=False
+BoxFontSize=0
+MaxRecent=0
+AutoSave=2
+version=0.66
+noLoading=False
+loadTemplate=True

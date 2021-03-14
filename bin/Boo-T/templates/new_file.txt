@@ -1,0 +1,26 @@
+deliminator %% (1)
+basics(author=,
+       language=en, 
+       charset=utf-8,
+       palette=) %% (2)
+
+keywords() %% (3)
+description() %% (4)
+title() %% (5)
+
+opacity(navbar=1.00, container=1.00, table=1.00, footer=1.00) %% (6)
+
+background() %% (7)
+font-family("Myriad Pro Light", "Arial") %% (8)
+
+opacity(container=, navbar=, footer=, table=) %% (9)
+
+banner() %% (10)
+
+navbar() %% (11)
+
+table() %% (12)
+
+bootrow() %% (13)
+
+footer() %% (14)

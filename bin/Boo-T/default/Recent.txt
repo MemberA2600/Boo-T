@@ -1,0 +1,2 @@
+Altair.boo=E:/PyCharm/P/Boo-T/Boo-T/examples/Altair8800/Altair.boo
+Help.boo=E:/PyCharm/P/Boo-T/Boo-T/examples/Help/Help.boo

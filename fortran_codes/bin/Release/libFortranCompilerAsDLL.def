@@ -39,8 +39,8 @@ EXPORTS
     __file_func_MOD_savetext @38
     __file_func_MOD_texttoarray @39
     __fresh_MOD_deletefile @40
-    __fresh_MOD_getthelastchar @41
-    __fresh_MOD_hopetherewontbeanymemoryallocationerrors @42
+    __fresh_MOD_finalbuilder @41
+    __fresh_MOD_getthelastchar @42
     __fresh_MOD_spacetags @43
     __languages_MOD___copy_languages_Worddict @44
     __languages_MOD___def_init_languages_Worddict @45 DATA
@@ -49,10 +49,10 @@ EXPORTS
     __languages_MOD_createdicts @48
     __languages_MOD_getdeliminator @49
     __languages_MOD_getwordfromdict @50
-    __languages_MOD_removebullshitfrombeginning @51
-    __languages_MOD_removecomments @52
-    __languages_MOD_removeleadingspacesfromeveryline @53
-    __languages_MOD_removenewlinechar @54
+    __languages_MOD_removecomments @51
+    __languages_MOD_removeleadingspacesfromeveryline @52
+    __languages_MOD_removenewlinechar @53
+    __languages_MOD_removepossibleerrorsfromstart @54
     __languages_MOD_templateloader @55
     __list_MOD___copy_list_Charlist @56
     __list_MOD___def_init_list_Charlist @57 DATA

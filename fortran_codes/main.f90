@@ -102,7 +102,7 @@ module Languages
 
         lineSplitted = splitBySpaces(line, 9999)
         temp = trim(lineSplitted(1))
-        call removeBullShitFromBeginning(temp)
+        call removePossibleErrorsFromStart(temp)
         if (temp == "deliminator") then
             deliminator = trim(lineSplitted(2))
         else
@@ -171,7 +171,7 @@ module Languages
 
     end subroutine
 
-    subroutine removeBullShitFromBeginning(command)
+    subroutine removePossibleErrorsFromStart(command)
         character(:), allocatable, intent(inout) :: command
         integer :: num, start
         character(1) :: c
@@ -249,7 +249,7 @@ module compiler
 
         comAndArg = commandAndArgument(line);
         command = trim(adjustl(comAndArg(1)))
-        call removeBullShitFromBeginning(command)
+        call removePossibleErrorsFromStart(command)
         if (trim(command) == "") then
             ! do nothing
         else if (SyntaxList%containsKey(Command) .EQV. .FALSE.) then
@@ -393,7 +393,7 @@ module compiler
 
                     do num = 1, size(tempList), 1
                         temp = trim(adjustl(tempList(num)))
-                        call removeBullShitFromBeginning(temp)
+                        call removePossibleErrorsFromStart(temp)
 
                         if (startswith(temp, "image") .EQV. .TRUE.) then
                             temp2 = getSecondPartAfterEQ(temp)
@@ -516,7 +516,7 @@ module compiler
                 call templateLoader(bannerCSS, name)
                 do num = 1, size(tempList), 1
                     temp = trim(adjustl(tempList(num)))
-                    call removeBullShitFromBeginning(temp)
+                    call removePossibleErrorsFromStart(temp)
 
                     if (startswith(temp, "brand") .EQV. .TRUE.) then
                         tempList2 = commandAndArgument(temp)
@@ -594,7 +594,7 @@ module compiler
                 tempList = splitByCommmas(args, .TRUE.)
                 do num2 = 1, size(tempList), 1
                     temp = tempList(num2)
-                    call removeBullShitFromBeginning(temp)
+                    call removePossibleErrorsFromStart(temp)
                     if (startswith(temp, "inverted") .EQV. .TRUE.) then
                         dark = "table-dark"
                     else if (startswith(temp, "id") .EQV. .TRUE.) then
@@ -687,7 +687,7 @@ module compiler
 
                 do num2 =1, size(tempList), 1
                     temp = trim(adjustl(tempList(num2)))
-                    call removeBullShitFromBeginning(temp)
+                    call removePossibleErrorsFromStart(temp)
                     if (startswith(temp, "id") .EQV. .TRUE.) then
                         theID = trim(getSecondPartAfterEQ(temp))
                     else if (startswith(temp, "rate") .EQV. .TRUE.) then
@@ -805,7 +805,7 @@ module compiler
                 do num=1, size(tempList), 1
                     contain = .FALSE.
                     temp = tempList(num)
-                    call removeBullShitFromBeginning(temp)
+                    call removePossibleErrorsFromStart(temp)
 
                     do num2 = 1, size(social_icons), 1
                         if (getFirstPartBeforeEQ(temp) == trim(social_icons(num2))) contain = .TRUE.
@@ -949,7 +949,7 @@ module compiler
         character(10000) :: img
 
         temp=trim(adjustl(img))
-        call removeBullShitFromBeginning(temp)
+        call removePossibleErrorsFromStart(temp)
         img=temp
 
         string = string_replace_all(animpart, "#number#", numb)
@@ -1178,7 +1178,7 @@ module fresh
 
     contains
 
-    subroutine hopeThereWontBeAnyMemoryAllocationErrors(palette, author, title, charset, keywords,&
+    subroutine finalBuilder(palette, author, title, charset, keywords,&
         &description, fontfamily, lang, mainTemplateChanged, bannerTemplateChanged,&
         &navbarTemplateChanged, footerTemplateChanged, containerTemplateChanged,&
         &cssTemplateChanged, navbarOpacity, tableOpacity, rowOpacity, footerOpacity&
@@ -1538,7 +1538,7 @@ subroutine FortranCompiler() bind(C, name="compile")
         write(11, *) errorText
         close(11)
     else
-        call hopeThereWontBeAnyMemoryAllocationErrors(palette, author, title, charset, keywords,&
+        call finalBuilder(palette, author, title, charset, keywords,&
         &description, fontfamily, lang, mainTemplateChanged, bannerTemplateChanged,&
         &navbarTemplateChanged, footerTemplateChanged, containerTemplateChanged,&
         &cssTemplateChanged, navbarOpacity, tableOpacity, rowOpacity, footerOpacity&

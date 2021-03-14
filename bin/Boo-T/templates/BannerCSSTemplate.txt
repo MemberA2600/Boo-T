@@ -1,0 +1,10 @@
+#Banner 
+	{
+#bannerData#
+	}
+#BannerText
+	{
+#bannerTextData#
+	}
+
+#BannerAnimation#
