@@ -1,4 +1,4 @@
-﻿basics(author=Member - Fehér János Zoltán,
+basics(author=Member - Fehér János Zoltán,
        language=en, 
        charset=UTF-8,
        palette=7) %%
@@ -61,6 +61,7 @@ footer(button="Keyboard is for dummies!",
        skype=#,
        phone=#,
        email=grant@stockly.com )%%
+
 
 
 

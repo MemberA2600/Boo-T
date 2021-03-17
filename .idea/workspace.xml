@@ -1,26 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3910d8e7-84ad-4a90-b5d4-8893b99ff487" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/Boo-T.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Boo-T.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Boo-T.py" beforeDir="false" afterPath="$PROJECT_DIR$/Boo-T.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Config.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Config.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/default/Recent.txt" beforeDir="false" afterPath="$PROJECT_DIR$/default/Recent.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/documentacio_hungarian/Szakdolgozat.doc" beforeDir="false" afterPath="$PROJECT_DIR$/documentacio_hungarian/Szakdolgozat.doc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/Altair8800/Altair.boo" beforeDir="false" afterPath="$PROJECT_DIR$/examples/Altair8800/Altair.boo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/Altair8800Lin/Altair.boo" beforeDir="false" afterPath="$PROJECT_DIR$/examples/Altair8800Lin/Altair.boo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/Help/Help.boo" beforeDir="false" afterPath="$PROJECT_DIR$/examples/Help/Help.boo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/HelpLin/Help.boo" beforeDir="false" afterPath="$PROJECT_DIR$/examples/HelpLin/Help.boo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/SivatagiRoka/QuickSave.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/SivatagiRoka/Roka.boo" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SivatagiRoka/Roka.boo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/SivatagiRokaLin/QuickSave.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/SivatagiRokaLin/Roka.boo" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SivatagiRokaLin/Roka.boo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scr/GetCodeOnly.py" beforeDir="false" afterPath="$PROJECT_DIR$/scr/GetCodeOnly.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scr/PythonCompiler.py" beforeDir="false" afterPath="$PROJECT_DIR$/scr/PythonCompiler.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scr/SaveHTML.py" beforeDir="false" afterPath="$PROJECT_DIR$/scr/SaveHTML.py" afterDir="false" />
-    </list>
+    <list default="true" id="3910d8e7-84ad-4a90-b5d4-8893b99ff487" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/venv/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -29,14 +10,14 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/Boo_T$Converter.coverage" NAME="Converter Coverage Results" MODIFIED="1603721156761" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="F:/vidi" />
+    <SUITE FILE_PATH="coverage/Boo_T$OptionsM.coverage" NAME="OptionsM Coverage Results" MODIFIED="1615345813429" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scr" />
+    <SUITE FILE_PATH="coverage/Boo_T$PythonCompiler.coverage" NAME="PythonCompiler Coverage Results" MODIFIED="1615985777784" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scr" />
+    <SUITE FILE_PATH="coverage/Boo_T$stocks2.coverage" NAME="stocks2 Coverage Results" MODIFIED="1603422107248" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../../projects" />
+    <SUITE FILE_PATH="coverage/Boo_T$SaveHTML.coverage" NAME="SaveHTML Coverage Results" MODIFIED="1615987490435" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scr" />
+    <SUITE FILE_PATH="coverage/Boo_T$Boo_T.coverage" NAME="Boo-T Coverage Results" MODIFIED="1616005666746" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Boo_T$About.coverage" NAME="About Coverage Results" MODIFIED="1614760679017" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scr" />
     <SUITE FILE_PATH="coverage/Boo_T$Config.coverage" NAME="Config Coverage Results" MODIFIED="1603999625413" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scr" />
-    <SUITE FILE_PATH="coverage/Boo_T$Converter.coverage" NAME="Converter Coverage Results" MODIFIED="1603721156761" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="F:/vidi" />
-    <SUITE FILE_PATH="coverage/Boo_T$SaveHTML.coverage" NAME="SaveHTML Coverage Results" MODIFIED="1615987490435" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scr" />
-    <SUITE FILE_PATH="coverage/Boo_T$Boo_T.coverage" NAME="Boo-T Coverage Results" MODIFIED="1615989174986" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Boo_T$OptionsM.coverage" NAME="OptionsM Coverage Results" MODIFIED="1615345813429" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scr" />
-    <SUITE FILE_PATH="coverage/Boo_T$stocks2.coverage" NAME="stocks2 Coverage Results" MODIFIED="1603422107248" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../../projects" />
-    <SUITE FILE_PATH="coverage/Boo_T$PythonCompiler.coverage" NAME="PythonCompiler Coverage Results" MODIFIED="1615985777784" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scr" />
   </component>
   <component name="FUSProjectUsageTrigger">
     <session id="-768247875">
@@ -45,9 +26,9 @@
           <entry key="project.closed" value="30" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.3" value="22" />
-          <entry key="project.open.time.4" value="14" />
+          <entry key="project.open.time.4" value="15" />
           <entry key="project.open.time.5" value="1" />
-          <entry key="project.opened" value="38" />
+          <entry key="project.opened" value="39" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -109,8 +90,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Boo-T.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="184">
-              <caret line="1210" column="31" selection-start-line="1210" selection-start-column="31" selection-end-line="1210" selection-end-column="31" />
+            <state relative-caret-position="232">
+              <caret line="1213" column="31" selection-start-line="1213" selection-start-column="31" selection-end-line="1213" selection-end-column="31" />
               <folding>
                 <element signature="e#47#68#0" expanded="true" />
               </folding>
@@ -172,7 +153,7 @@
     </replaceStrings>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -206,12 +187,12 @@
     <option name="height" value="1000" />
   </component>
   <component name="ProjectId" id="1oydngpTASiVrp2uVYfEyKWu7h0" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -228,6 +209,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="ProjectViewState">
@@ -404,9 +386,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-4" y="-4" width="1374" height="732" extended-state="6" />
+    <frame x="-4" y="-4" width="1608" height="1164" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19486405" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1970475" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -419,7 +402,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.4244713" side_tool="true" visible="true" weight="0.2931596" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.4244713" side_tool="true" visible="true" weight="0.29254302" />
       <window_info anchor="bottom" id="Terminal" order="11" />
       <window_info anchor="bottom" id="Python Console" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -579,8 +562,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Boo-T.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="1210" column="31" selection-start-line="1210" selection-start-column="31" selection-end-line="1210" selection-end-column="31" />
+        <state relative-caret-position="232">
+          <caret line="1213" column="31" selection-start-line="1213" selection-start-column="31" selection-end-line="1213" selection-end-column="31" />
           <folding>
             <element signature="e#47#68#0" expanded="true" />
           </folding>

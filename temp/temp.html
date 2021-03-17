@@ -1,0 +1,378 @@
+ <!doctype html>
+<html lang="hu">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Csak egy cuki allatka!">
+    <meta name="keywords" content="roka,emlos,sivatag,termeszet">
+    <meta name="author" content="FehÃ©r JÃ¡nos ZoltÃ¡n">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="bootstrap/bootstrap.min.css">
+
+    <title>A sivatagi roka</title>
+    <style>html
+	{
+
+    	scroll-behavior: smooth;
+	}
+
+body
+	{
+	 background-image: url('img/Roka02_000.jpg');
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;;
+        color: moccasin;
+ 	margin-right: auto;
+    	margin-left: auto;
+    	display: block;
+    	width: 100%;
+	border-radius: 15px !important;
+	font-family: "Gabriola","Times New Roman", sans-serif;
+	}
+
+.container
+	{
+	border-radius: 15px;
+	}
+
+img
+	{
+	padding: 10px;
+
+	}
+
+ #Banner
+	{
+	display: flex;
+	height: 350px;
+	align-items: flex-end;
+	vertical-align: bottom;
+	background-size: cover;
+	background-position-x: center;
+	background-position-y: center;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 15px 15px 0px 0px;
+	animation-name: bannerAnimation;
+	animation-duration: 40s;
+	animation-timing-function: ease-in-out;
+	animation-iteration-count: infinite;
+
+	}
+#BannerText
+	{
+	display: flex;
+	height: 0px;
+	align-items: flex-end;
+	vertical-align: bottom;
+	font-size: 7em;
+	justify-content: center;
+	text-shadow: sandybrown 5px 5px 5px;
+	padding-bottom: 350px;
+	margin-bottom: -350px;
+
+	}
+
+@keyframes bannerAnimation
+	{
+ 		0%{	background-image: url('img/Roka04.jpg');	filter: saturate(0.25) blur(3px) ;}
+
+ 		3%{	background-image: url('img/Roka04.jpg');	filter: saturate(1) blur(0px) ;}
+
+ 		27%{	background-image: url('img/Roka04.jpg');	filter: saturate(1) blur(0px) ;}
+
+ 		30%{	background-image: url('img/Roka04.jpg');	filter: saturate(0.25) blur(3px) ;}
+
+ 		33%{	background-image: url('img/Roka01.jpg');	filter: saturate(0.25) blur(3px) ;}
+
+ 		36%{	background-image: url('img/Roka01.jpg');	filter: saturate(1) blur(0px) ;}
+
+ 		60%{	background-image: url('img/Roka01.jpg');	filter: saturate(1) blur(0px) ;}
+
+ 		63%{	background-image: url('img/Roka01.jpg');	filter: saturate(0.25) blur(3px) ;}
+
+ 		66%{	background-image: url('img/Roka01_000.jpg');	filter: saturate(0.25) blur(3px) ;}
+
+ 		69%{	background-image: url('img/Roka01_000.jpg');	filter: saturate(1) blur(0px) ;}
+
+ 		93%{	background-image: url('img/Roka01_000.jpg');	filter: saturate(1) blur(0px) ;}
+
+ 		96%{	background-image: url('img/Roka01_000.jpg');	filter: saturate(0.25) blur(3px) ;}
+
+ 		100%{	background-image: url('img/Roka04.jpg');	filter: saturate(0.25) blur(3px) ;}
+	}
+	.navbar
+	{
+		color: moccasin !important;
+		background-attachment: scroll !important;
+
+	}
+
+	a
+	{
+		color: moccasin !important;
+	}
+
+	.nav-link:hover, .navbar-brand:hover, .navbar-toggler:hover
+	{
+		background-color: palevioletred;
+		border-radius: 10px;
+	
+	}
+
+ 	.row-item
+		{
+		color: moccasin;
+    		transition: 0.25s;
+  		display: flex;
+  		justify-content: center;
+  		align-items: center;
+		border-radius: 15px;
+		}
+
+	.row-item h1
+		{
+		font-weight: 600;
+		color: palevioletred;
+		text-shadow: sandybrown 5px 5px 5px;
+		font-size: 2.5em;
+		}
+
+	.bootrow
+		{
+		padding: 10px;
+		}
+
+	.container
+		{
+		background-color: rgba(205,133,63,0.649999976158);
+		}
+
+
+	.row-item img
+		{
+		border-radius: 10px;
+		}
+
+	.row-item a
+		{
+		color: sandybrown;
+		text-decoration: none;
+
+		}
+
+	.row-item .img-animate
+		{
+		filter: saturate(0.25) blur(3px);
+    		transition: 0.25s;
+		}
+
+	.row-item img:hover
+		{
+		filter: saturate(1) blur(0px);
+		}
+
+	.row-item:hover
+		{
+		color: palevioletred;
+		background-color: sandybrown;
+		
+		}
+
+
+	/* smartphones, touchscreens */
+	@media (hover: none) and (pointer: coarse)
+		{
+		.row-item
+			{
+			filter: saturate(1) blur(0px);
+			}
+	}
+ 	Footer Button
+		{
+		background-color: palevioletred !important;
+		color: moccasin !important;
+		border-color: moccasin !important;
+		}
+
+	Footer Button:hover
+		{
+		background-color: moccasin !important;
+		color: sandybrown !important;
+		border-color: sandybrown !important;
+		}
+
+
+	#copyright
+		{
+		background-color: palevioletred !important;
+		font-weight: 700px;
+		font-size: 1.5em;
+		border-radius: 0px 0px 15px 15px;
+		}
+
+	#copyright p
+		{
+		display: block;
+		margin-top: 10px;
+		margin-bottom: 10px;
+    		animation-name: moveCopy;
+    		animation-duration: 2s;
+		text-align: center;
+    		animation-timing-function: ease-in-out;
+    		animation-iteration-count: infinite;
+    		animation-direction: alternate;
+		}
+
+	#copyright a, #copyright a:visited, #copyright a:active, #copyright a:hover
+		{
+ 		color: sandybrown !important;
+		text-decoration: none;
+		}
+
+	@keyframes moveCopy
+		{
+		0% { transform: translateX(-40px) ; }
+		100% { transform: translateX(40px)) ; }
+		}
+
+	#socials
+		{
+		margin-top: 15px;
+		background-color: palevioletred !important;
+		border-radius: 15px 15px 0px 0px;
+
+		}
+	#socials img
+		{
+			text-align: center;
+			margin-top: 25px;
+			margin-bottom: 15px;
+
+		}
+
+	#socials div:hover
+		{
+		background-color: moccasin;
+		border-radius: 200px;
+		
+		}
+
+	@media only screen and (min-width: 767px)
+	{
+		#footerbutton {
+			position: relative;
+		}
+
+	}</style>
+  </head>
+  <body>
+    <div class="container">
+
+         <!-- Banner starts -->
+    <div class="row d-none d-sm-block">
+	<div class="col-12" id="Banner" style="background-attachment: scroll !important; " >
+		
+	</div>
+	<div class="col-12" id="BannerText" >
+		Sivatagi rÃ³kÃ¡k
+	</div>
+    </div>
+    <!-- Banner ends -->
+	}
+         <!-- NavBar starts -->
+
+	<nav class="navbar navbar-expand-lg navbar-light sticky-top" style="background-color: rgba(205,133,63,0.699999988 79) !important; font-size: 1.5em !important; margin: 0px -15px !important; padding: 0px 10px !important">
+		<a class="navbar-brand" href="#"><span style="font-size: 1.5em;"><img class='img-fluid' target='_blank' style='max-width: 300px; max-height: 200px' src='img/desertfox.png'></span></a>
+  		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    			<span class="navbar-toggler-icon"></span>
+  		</button>
+
+		<div class="collapse navbar-collapse" id="collapsibleNavbar">
+    		<ul class="navbar-nav">
+			<li class="nav-item">
+        			<a class="nav-link" href="#1">Az Ã¡llatrÃ³l</a>
+      			</li>
+			<li class="nav-item">
+        			<a class="nav-link" href="#2">GalÃ©ria</a>
+      			</li>
+
+		</ul>
+		</div>		
+
+	</nav>
+    <!-- NavBar ends -->
+    
+ 		<div class="row bootrow" id='1'>
+		<div class="col-12 col-md-3  row-item">
+			<span class="align-middle">
+				<a href='img/Roka02.jpg'><img class='img-fluid img-animate' src='img/Roka02.jpg'></a>
+			</span>
+		</div>
+		<div class="col-12 col-md-6  row-item">
+			<span class="align-middle">
+			<h1 style="text-align: #align#;">A sivatagi rÃ³kÃ¡rÃ³l</h1>
+			<br>
+			<p style="text-align: justify">TesttÃ¶mege 0, 7-1, 6 kilogramm, testhossza 24â41 centimÃ©ter, farka 18â31 centimÃ©ter hosszÃº Ã©s fekete vÃ©gÅ±. MarmagassÃ¡ga alig Ã©ri el a 20 centimÃ©tert.A nagy fÃ¼lei 10-15 centimÃ©teresek; ezek a talaj alatt mozgÃ³ zsÃ¡kmÃ¡ny Ã©szrevÃ©telÃ©re hasznosak; viszont ha kÃ©nytelen nappal is elÅjÃ¶nni, akkor a fÃ¼lei a nagy felÃ¼letÃ¼k miatt hÅleadÃ¡sra szolgÃ¡lnak.<br>A bundÃ¡ja gyakran krÃ©mszÃ­nÅ± Ã©s bolyhos, mely nappal vÃ©di az erÅs napsÃ¼tÃ©stÅl, mÃ­g Ã©jszaka melegen tartja. Az Ã¶sszes rÃ³kafaj kÃ¶zÃ¼l a sivatagi rÃ³kÃ¡nak van a legnagyobb fÃ¼le a testÃ©hez kÃ©pest; mivel igen sok Ã©r van a vÃ©kony fÃ¼leiben, kivÃ¡lÃ³ hÅleadÃ³ rendszerkÃ©nt mÅ±kÃ¶dik. A rÃ³ka talpÃ¡n vastag bunda van, Ã­gy a forrÃ³ homok nem Ã©geti meg a talpÃ¡t, Ã©s tompÃ­tja a lÃ©pÃ©sei zajÃ¡t. OrrÃ¡n Ã©s a szemÃ¶ldÃ¶k tÃ¡jÃ©kon hosszÃº szÅrÅ± bajusza van.<br>A tÃ¶bbi rÃ³kafÃ©lÃ©tÅl eltÃ©rÅen a sivatagi rÃ³kÃ¡nak nincs szagmirigye ('ibolyamirigy') a farka tÃ¶vÃ©ben, tovÃ¡bbÃ¡ csak 32 kromoszÃ³mÃ¡val rendelkezik (a rÃ³kafajok esetÃ©n ez a szÃ¡m 35-39). A sivatagi rÃ³ka csapatokban Ã©l, ami szintÃ©n eltÃ©r a rÃ³kafÃ©lÃ©k Ã©letmÃ³djÃ¡tÃ³l.)</p>
+			</span>
+		</div>
+		<div class="col-12 col-md-3  row-item">
+			<span class="align-middle">
+				<a href='img/Roka03.jpg'><img class='img-fluid img-animate' src='img/Roka03.jpg'></a>
+			</span>
+		</div>
+
+		</div>
+ 		<div class="row bootrow" id='2'>
+		<div class="col-12 col-md row-item">
+			<span class="align-middle">
+				<a href='img/Roka05.jpg'><img class='img-fluid img-animate' src='img/Roka05.jpg'></a>
+			</span>
+		</div>
+		<div class="col-12 col-md row-item">
+			<span class="align-middle">
+				<a href='img/Roka07.jpg'><img class='img-fluid img-animate' src='img/Roka07.jpg'></a>
+			</span>
+		</div>
+		<div class="col-12 col-md row-item">
+			<span class="align-middle">
+				<a href='img/Roka09.jpg'><img class='img-fluid img-animate' src='img/Roka09.jpg'></a>
+			</span>
+		</div>
+
+		</div>
+     	<!-- Footer Starts here -->
+	<footer id=''>
+		<div class="row" id="socials">
+
+
+		</div>
+		<div class="row">
+			<div class="col-12" id="copyright">
+				<p>Made with <a style="color: sandybrown;" href="https://github.com/MemberA2600/Boo-T"> Boo-T </a> in 2021!</p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12" style="padding: 15px;">
+				<button id="footerbutton" type="button" class="btn btn-lg btn-block col-12 fixed-bottom" onclick="topFunction(); return false;">FelÃ¼lre!</button>
+			</div>
+
+		</div>
+
+	</footer>
+	<!-- Footer Ends here -->
+	</nav>
+    </div>
+  </body>
+    <!-- Optional JavaScript -->
+    <script>document.addEventListener("touchstart", function() {}, true);</script>
+    <script>function topFunction() {
+  document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}</script>	
+    <script src="bootstrap/jquery-3.5.1.slim.min.js"></script>
+    <script src="bootstrap/bootstrap.bundle.min.js"></script>
+</html>
