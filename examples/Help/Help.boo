@@ -1,4 +1,4 @@
-﻿deliminator hullahopp
+deliminator hullahopp
 basics(author=Fehér János Zoltán (Member),
        language=en, 
        charset=utf-8,
@@ -8,19 +8,19 @@ keywords(Help, Boo-T, Bootstrap) hullahopp
 description(This is the help file for the Boo-T application) hullahopp
 title(Help) hullahopp
 
-background(image=E:/PyCharm/P/Boo-T/Back.jpg) hullahopp
+background(image=src/Back.jpg) hullahopp
 font-family("Myriad Pro Light", "Informal Roman", "Gabriola", "Arial") hullahopp
 opacity(navbar=0.55, container=0.75, table=0.75, footer=0.55) hullahopp
 
 banner(size=cover, height=450, animation(50s, 
-	E:/PyCharm/P/Boo-T/Spooky1.jpg,
-	E:/PyCharm/P/Boo-T/Spooky2.jpg,
-	E:/PyCharm/P/Boo-T/Spooky3.jpg,	
-	E:/PyCharm/P/Boo-T/Spooky4.jpg),
+	src/Spooky1.jpg,
+	src/Spooky2.jpg,
+	src/Spooky3.jpg,	
+	src/Spooky4.jpg),
 	text("Help with Boo-Ting!", 4em, center)
 ) hullahopp
 
-navbar(brand(image=E:/PyCharm/P/Boo-T/ghost.png), expand=xl,
+navbar(brand(image=src/ghost.png), expand=xl,
 	item("Welcome", welcome),
 	item("Basics", basics),
 	item("Page Settings", page),
@@ -64,41 +64,41 @@ bootrow(id=bootr, rate(auto),
 )) hullahopp
 
 bootrow(rate(auto), 
-	image=E:/PyCharm/P/Boo-T/Zerg1.jpg,
-	image=E:/PyCharm/P/Boo-T/Zerg2.jpg,
-	image=E:/PyCharm/P/Boo-T/Zerg3.jpg,
-	image=E:/PyCharm/P/Boo-T/Zerg4.jpg,
-	image=E:/PyCharm/P/Boo-T/Zerg5.jpg,
-	image=E:/PyCharm/P/Boo-T/Zerg6.jpg) hullahopp
+	image=src/Zerg1.jpg,
+	image=src/Zerg2.jpg,
+	image=src/Zerg3.jpg,
+	image=src/Zerg4.jpg,
+	image=src/Zerg5.jpg,
+	image=src/Zerg6.jpg) hullahopp
 
 bootrow(rate(auto), 
 	article(rawtext="Of course, you can wrap it into two rows, for your taste."
 )) hullahopp
 
 bootrow(rate(auto),  
-	image=E:/PyCharm/P/Boo-T/Zerg1.jpg,
-	image=E:/PyCharm/P/Boo-T/Zerg2.jpg,
-	image=E:/PyCharm/P/Boo-T/Zerg3.jpg
+	image=src/Zerg1.jpg,
+	image=src/Zerg2.jpg,
+	image=src/Zerg3.jpg
 ) hullahopp
 
 bootrow(rate(auto), 
-	image=E:/PyCharm/P/Boo-T/Zerg4.jpg,
-	image=E:/PyCharm/P/Boo-T/Zerg5.jpg,
-	image=E:/PyCharm/P/Boo-T/Zerg6.jpg) hullahopp
+	image=src/Zerg4.jpg,
+	image=src/Zerg5.jpg,
+	image=src/Zerg6.jpg) hullahopp
 
 bootrow(rate(3,6,3),  
-	image=E:/PyCharm/P/Boo-T/Zerg5.jpg,
+	image=src/Zerg5.jpg,
 	article(rawtext="But you can do it like this, where the column in the middle takes up twice the place."),
-	image=E:/PyCharm/P/Boo-T/Zerg6.jpg) hullahopp
+	image=src/Zerg6.jpg) hullahopp
 
 bootrow(rate(auto), 
 	article(rawtext="<ul><li><b>article(title="", title-align=center, rawtext="")</b></il><br>Articles are walls of text, the object you are reading right now is an arcticle as well. Articles have three part:<ul><li>title="String"</li>The text for the title, given as a string.<li><b>title-align</b>={left, center, right}<br>This will set the aligment of the title.</li><li><b>rawtext=""</b><br>This is the most advanced argument in the whole environment, this is the mathod for embending test. You can use here any html tags to make your text more pleasant for the eyes, here you can find some examples, I added some spaces so they won't be compiled:</li>< b > is for <b>bold</b> text, < i > is for <i>italic</i>, < u > stand for <u>underlined</u>. <br>You can add new lines by inserting a < br >, since normal enters won't work. You can create list by < ul > < ol > and itt items with < li >. I created a new tag that is not used by html standards: < space:X > will add X spaces to you text, < space:10 > works <space:10> like this.</ul><li><b>image</b>=<br>Works like as mentioned before.</li><li><b>imgfilter</b><br>This argument changes the image behavior by making it blurry and grayscale unit the mouse goes by.</li></ul>")) hullahopp
 
-bootrow(rate(auto), image=E:/PyCharm/P/Boo-T/Zerg5.jpg,
+bootrow(rate(auto), image=src/Zerg5.jpg,
 	article(title="centered title", title-align=center,
 	rawtext="This is a normal image, i have to write here some uninteresting thing to make it work.")) hullahopp
 
-bootrow(rate(auto), image=E:/PyCharm/P/Boo-T/Zerg5.jpg, imgfilter,
+bootrow(rate(auto), image=src/Zerg5.jpg, imgfilter,
 	article(title="right-aligned title", title-align=right,
 	rawtext="This one is filtered! Just showing you the basic syntax for a bootrow:<br><u>bootrow</u>(id=Two, rate(3,6,3), imgfilter,<br><space:20>image=05.jpg,<br<space:20>   article(title="This is the Title!", title-align=center,<br><spcae:20>rawtext="And this is some really awesome text!"),<br><space:20>image=06.jpg<br><space:20>) %%")) hullahopp
 
@@ -130,6 +130,7 @@ footer(button="Scroll back to top!",
 	github=https://github.com/MemberA2600,
 	youtube=https://www.youtube.com/user/M3MB3Rrr,
 	linkedin=https://www.linkedin.com/in/j%C3%A1nos-zolt%C3%A1n-feh%C3%A9r-4378828b/) hullahopp
+
 
 
 

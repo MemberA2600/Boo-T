@@ -6,11 +6,20 @@
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Boo-T.py" beforeDir="false" afterPath="$PROJECT_DIR$/Boo-T.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/QuickSave.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Config.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Config.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/default/Recent.txt" beforeDir="false" afterPath="$PROJECT_DIR$/default/Recent.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/documentacio_hungarian/Szakdolgozat.doc" beforeDir="false" afterPath="$PROJECT_DIR$/documentacio_hungarian/Szakdolgozat.doc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/documentacio_hungarian/UML_v2.dia" beforeDir="false" afterPath="$PROJECT_DIR$/documentacio_hungarian/UML_v2.dia" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/documentacio_hungarian/osztalydiagram.png" beforeDir="false" afterPath="$PROJECT_DIR$/documentacio_hungarian/osztalydiagram.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/Altair8800/Altair.boo" beforeDir="false" afterPath="$PROJECT_DIR$/examples/Altair8800/Altair.boo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/Altair8800Lin/Altair.boo" beforeDir="false" afterPath="$PROJECT_DIR$/examples/Altair8800Lin/Altair.boo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/Help/Help.boo" beforeDir="false" afterPath="$PROJECT_DIR$/examples/Help/Help.boo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/HelpLin/Help.boo" beforeDir="false" afterPath="$PROJECT_DIR$/examples/HelpLin/Help.boo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SivatagiRoka/QuickSave.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SivatagiRoka/Roka.boo" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SivatagiRoka/Roka.boo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SivatagiRokaLin/QuickSave.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/SivatagiRokaLin/Roka.boo" beforeDir="false" afterPath="$PROJECT_DIR$/examples/SivatagiRokaLin/Roka.boo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scr/GetCodeOnly.py" beforeDir="false" afterPath="$PROJECT_DIR$/scr/GetCodeOnly.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scr/PythonCompiler.py" beforeDir="false" afterPath="$PROJECT_DIR$/scr/PythonCompiler.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scr/SaveHTML.py" beforeDir="false" afterPath="$PROJECT_DIR$/scr/SaveHTML.py" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/venv/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,14 +29,14 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/Boo_T$Converter.coverage" NAME="Converter Coverage Results" MODIFIED="1603721156761" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="F:/vidi" />
-    <SUITE FILE_PATH="coverage/Boo_T$PythonCompiler.coverage" NAME="PythonCompiler Coverage Results" MODIFIED="1615059687885" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scr" />
-    <SUITE FILE_PATH="coverage/Boo_T$OptionsM.coverage" NAME="OptionsM Coverage Results" MODIFIED="1615345813429" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scr" />
-    <SUITE FILE_PATH="coverage/Boo_T$stocks2.coverage" NAME="stocks2 Coverage Results" MODIFIED="1603422107248" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../../projects" />
-    <SUITE FILE_PATH="coverage/Boo_T$SaveHTML.coverage" NAME="SaveHTML Coverage Results" MODIFIED="1615103088257" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scr" />
-    <SUITE FILE_PATH="coverage/Boo_T$Boo_T.coverage" NAME="Boo-T Coverage Results" MODIFIED="1615388758720" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Boo_T$About.coverage" NAME="About Coverage Results" MODIFIED="1614760679017" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scr" />
     <SUITE FILE_PATH="coverage/Boo_T$Config.coverage" NAME="Config Coverage Results" MODIFIED="1603999625413" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scr" />
+    <SUITE FILE_PATH="coverage/Boo_T$Converter.coverage" NAME="Converter Coverage Results" MODIFIED="1603721156761" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="F:/vidi" />
+    <SUITE FILE_PATH="coverage/Boo_T$SaveHTML.coverage" NAME="SaveHTML Coverage Results" MODIFIED="1615987490435" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scr" />
+    <SUITE FILE_PATH="coverage/Boo_T$Boo_T.coverage" NAME="Boo-T Coverage Results" MODIFIED="1615989174986" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Boo_T$OptionsM.coverage" NAME="OptionsM Coverage Results" MODIFIED="1615345813429" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scr" />
+    <SUITE FILE_PATH="coverage/Boo_T$stocks2.coverage" NAME="stocks2 Coverage Results" MODIFIED="1603422107248" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../../projects" />
+    <SUITE FILE_PATH="coverage/Boo_T$PythonCompiler.coverage" NAME="PythonCompiler Coverage Results" MODIFIED="1615985777784" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scr" />
   </component>
   <component name="FUSProjectUsageTrigger">
     <session id="-768247875">
@@ -65,31 +74,32 @@
     <session id="195922117">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="3" />
+          <entry key="project.closed" value="4" />
+          <entry key="project.open.time.49" value="1" />
           <entry key="project.open.time.55" value="1" />
           <entry key="project.open.time.65" value="1" />
           <entry key="project.open.time.70" value="1" />
-          <entry key="project.opened" value="3" />
+          <entry key="project.opened" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="194" />
+          <entry key="py" value="500" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="194" />
+          <entry key="Python" value="500" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="1" />
+          <entry key="py" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Python" value="1" />
+          <entry key="Python" value="4" />
         </counts>
       </usages-collector>
     </session>
@@ -99,8 +109,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Boo-T.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="591">
-              <caret line="119" lean-forward="true" selection-start-line="119" selection-end-line="119" />
+            <state relative-caret-position="184">
+              <caret line="1210" column="31" selection-start-line="1210" selection-start-column="31" selection-end-line="1210" selection-end-column="31" />
               <folding>
                 <element signature="e#47#68#0" expanded="true" />
               </folding>
@@ -119,8 +129,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>webb</find>
-      <find>shutil</find>
       <find>pyglet</find>
       <find>display</find>
       <find>__configChanged</find>
@@ -149,6 +157,8 @@
       <find>doUndo</find>
       <find>createMainWindow</find>
       <find>__setSizeAgain</find>
+      <find>html</find>
+      <find>getcode</find>
     </findStrings>
     <replaceStrings>
       <replace>self.__autoSearch</replace>
@@ -169,17 +179,17 @@
       <list>
         <option value="$PROJECT_DIR$/scr/ColorPalettes.py" />
         <option value="$PROJECT_DIR$/scr/DisplayLoading.py" />
-        <option value="$PROJECT_DIR$/scr/GetCodeOnly.py" />
         <option value="$PROJECT_DIR$/scr/Monitor.py" />
         <option value="$PROJECT_DIR$/scr/SyntaxList.py" />
         <option value="$PROJECT_DIR$/scr/About.py" />
         <option value="$PROJECT_DIR$/scr/Dictionaries.py" />
         <option value="$PROJECT_DIR$/scr/Config.py" />
-        <option value="$PROJECT_DIR$/scr/SaveHTML.py" />
-        <option value="$PROJECT_DIR$/scr/PythonCompiler.py" />
         <option value="$PROJECT_DIR$/scr/UndoBuffer.py" />
         <option value="$PROJECT_DIR$/scr/OptionsM.py" />
+        <option value="$PROJECT_DIR$/scr/PythonCompiler.py" />
         <option value="$PROJECT_DIR$/Boo-T.py" />
+        <option value="$PROJECT_DIR$/scr/GetCodeOnly.py" />
+        <option value="$PROJECT_DIR$/scr/SaveHTML.py" />
       </list>
     </option>
   </component>
@@ -372,9 +382,9 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.Boo-T" />
-        <item itemvalue="Python.OptionsM" />
         <item itemvalue="Python.SaveHTML" />
         <item itemvalue="Python.PythonCompiler" />
+        <item itemvalue="Python.OptionsM" />
         <item itemvalue="Python.About" />
       </list>
     </recent_temporary>
@@ -394,15 +404,14 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-4" y="-4" width="1608" height="1164" extended-state="6" />
-    <editor active="true" />
+    <frame x="-4" y="-4" width="1374" height="732" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19191271" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19486405" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.57637995" visible="true" weight="0.3126195" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.5755287" weight="0.2931596" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49935815" weight="0.39961758" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -410,13 +419,13 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.42362002" side_tool="true" visible="true" weight="0.3126195" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.4244713" side_tool="true" visible="true" weight="0.2931596" />
       <window_info anchor="bottom" id="Terminal" order="11" />
       <window_info anchor="bottom" id="Python Console" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="SciView" order="3" />
+      <window_info anchor="right" id="SciView" order="3" weight="0.32930514" />
       <window_info anchor="right" id="Database" order="4" />
     </layout>
   </component>
@@ -512,13 +521,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scr/GetCodeOnly.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-186">
-          <caret line="24" column="30" selection-start-line="24" selection-start-column="27" selection-end-line="24" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/scr/ColorPalettes.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="336">
@@ -526,24 +528,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scr/SaveHTML.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="41" selection-start-line="41" selection-end-line="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/scr/Config.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="418">
           <caret line="58" selection-start-line="58" selection-end-line="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scr/PythonCompiler.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5984">
-          <caret line="374" column="97" selection-start-line="374" selection-start-column="97" selection-end-line="374" selection-end-column="97" />
         </state>
       </provider>
     </entry>
@@ -568,10 +556,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/scr/PythonCompiler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="387" column="35" selection-start-line="387" selection-start-column="35" selection-end-line="387" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scr/SaveHTML.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="227">
+          <caret line="128" column="32" selection-start-line="128" selection-start-column="32" selection-end-line="128" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scr/GetCodeOnly.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="529">
+          <caret line="103" column="112" selection-start-line="103" selection-start-column="112" selection-end-line="103" selection-end-column="112" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Boo-T.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="591">
-          <caret line="119" lean-forward="true" selection-start-line="119" selection-end-line="119" />
+        <state relative-caret-position="184">
+          <caret line="1210" column="31" selection-start-line="1210" selection-start-column="31" selection-end-line="1210" selection-end-column="31" />
           <folding>
             <element signature="e#47#68#0" expanded="true" />
           </folding>

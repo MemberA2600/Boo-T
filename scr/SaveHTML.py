@@ -2,9 +2,10 @@ from tkinter.filedialog import *
 
 class SaveHTML():
 
-    def __init__(self, code, config, dicts, savename):
+    def __init__(self, code, config, dicts, savename, path):
         self.__dicts=dicts
         self.__Config = config
+        self.__path = path
         if savename == "":
             savename = asksaveasfilename(initialdir="*",
                                      title=self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "save"),
@@ -75,35 +76,65 @@ class SaveHTML():
             temp = item.replace("src=","").replace("'","")
             img_types = ["jpg", "bmp", "gif", "png", "tiff", "webp", "avif",  "ico", "apng", "svg", "jpeg"]
 
-            if (temp.split(".")[-1] in img_types) and temp.startswith("http") == False and (temp.startswith("/") or temp[1:3] == ":/"):
-                filename=temp.split(sep)[-1]
+            if (temp.split(".")[-1] in img_types) and temp.startswith("http") == False:
+                if (temp.startswith("/") or temp[1:3] == ":/"):
+                    filename=temp.split(sep)[-1]
+                    if filename in ["email.png","phone.png","skype.png","facebook.png", "youtube.png", "instagram.png", "vkontakte.png", "googleplus.png", "linkedin.png", "twitter.png", "github.png"]:
+                        continue
+                    savename = self.__getSaveName(filename, sep, filepath, already)
 
-                savename = self.__getSaveName(filename, sep, filepath, already)
-
-                if temp in source_paths:
-                    pass
+                    if temp in source_paths:
+                        pass
+                    else:
+                        source_paths.append(temp)
+                        self.__copyFile(str(filepath+"img"+sep), filename, sep, sep.join(temp.split(sep)[0:-1]), savename)
+                    code=code.replace(item, "src='img/" + savename + "'" )
+                    code=code.replace(item.replace("src", "href", 1), "href='img/" + savename + "'" )
                 else:
-                    source_paths.append(temp)
-                    self.__copyFile(str(filepath+"img"+sep), filename, sep, sep.join(temp.split(sep)[0:-1]), savename)
-                code=code.replace(item, "src='img/" + savename + "'" )
-                code=code.replace(item.replace("src", "href"), "href='img/" + savename + "'" )
+                    filename=temp.split(sep)[-1]
+                    if filename in ["email.png","phone.png","skype.png","facebook.png", "youtube.png", "instagram.png", "vkontakte.png", "googleplus.png", "linkedin.png", "twitter.png", "github.png"]:
+                        continue
+                    savename = self.__getSaveName(filename, sep, filepath, already)
+
+                    if temp in source_paths:
+                        pass
+                    else:
+                        source_paths.append(temp)
+                        sourcedir = sep.join(self.__path.split(sep)[:-1]) + sep + sep.join(temp.split(sep)[0:-1])
+                        self.__copyFile(str(filepath+"img"+sep), filename, sep, sourcedir, savename)
+                    code=code.replace(item, "src='img/" + savename + "'" )
+                    code=code.replace(item.replace("src", "href", 1), "href='img/" + savename + "'" )
 
 
         for item in regex2:
             temp = item.replace("url(","").replace("'","").replace(")","")
-            img_types = ["jpg", "bmp", "gif", "png", "tiff", "webp", "avif",  "ico", "apng", "svg"]
+            img_types = ["jpg", "bmp", "gif", "png", "tiff", "webp", "avif",  "ico", "apng", "svg", "jpeg"]
 
 
-            if (temp.split(".")[-1] in img_types) and temp.startswith("http") == False and (temp.startswith("/") or temp[1:3] == ":/"):
-                filename=temp.split(sep)[-1]
-
-                savename = self.__getSaveName(filename, sep, filepath, already)
-                if temp in source_paths:
-                    pass
+            if (temp.split(".")[-1] in img_types) and temp.startswith("http") == False:
+                if (temp.startswith("/") or temp[1:3] == ":/"):
+                    filename=temp.split(sep)[-1]
+                    if filename in ["email.png","phone.png","skype.png","facebook.png", "youtube.png", "instagram.png", "vkontakte.png", "googleplus.png", "linkedin.png", "twitter.png", "github.png"]:
+                        continue
+                    savename = self.__getSaveName(filename, sep, filepath, already)
+                    if temp in source_paths:
+                        pass
+                    else:
+                        source_paths.append(temp)
+                        self.__copyFile(str(filepath+"img"+sep), filename, sep, sep.join(temp.split(sep)[0:-1]), savename)
+                    code =code.replace(item, "url('img/" + savename + "')" )
                 else:
-                    source_paths.append(temp)
-                    self.__copyFile(str(filepath+"img"+sep), filename, sep, sep.join(temp.split(sep)[0:-1]), savename)
-                code =code.replace(item, "url('img/" + savename + "')" )
+                    filename=temp.split(sep)[-1]
+                    if filename in ["email.png","phone.png","skype.png","facebook.png", "youtube.png", "instagram.png", "vkontakte.png", "googleplus.png", "linkedin.png", "twitter.png", "github.png"]:
+                        continue
+                    savename = self.__getSaveName(filename, sep, filepath, already)
+                    if temp in source_paths:
+                        pass
+                    else:
+                        source_paths.append(temp)
+                        sourcedir = sep.join(self.__path.split(sep)[:-1]) + sep + sep.join(temp.split(sep)[0:-1])
+                        self.__copyFile(str(filepath+"img"+sep), filename, sep, sourcedir, savename)
+                    code =code.replace(item, "url('img/" + savename + "')" )
 
         return(code)
 

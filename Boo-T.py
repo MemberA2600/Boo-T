@@ -354,9 +354,12 @@ class MainWindow():
 
     def __openSuccess(self, opened, openname, addRecent):
         try:
-            self.__insertBox(opened.read())
+            temp = opened.read()
+
+            self.__insertBox(temp)
         except:
-            self.__insertBox(self.__createString(opened.read()))
+            temp = self.__createString(opened.read())
+            self.__insertBox(temp)
         self.updateCodeBox()
         opened.close()
         if addRecent == True:
@@ -895,7 +898,7 @@ class MainWindow():
     def __getCodeOnly(self):
         import GetCodeOnly
         try:
-            GetCodeOnly = GetCodeOnly.GetCodeOnly(self.__dicts, self.__Config, self.__hammerFont, self, self.__main, self.__fontSize, self.__monitor, self.__getCodeFromBox(), self.__Syntax)
+            GetCodeOnly = GetCodeOnly.GetCodeOnly(self.__dicts, self.__Config, self.__hammerFont, self, self.__main, self.__fontSize, self.__monitor, self.__getCodeFromBox(), self.__Syntax, self.__path)
         except Exception as e:
             messagebox.showerror(title=self.__dicts.getWordFromDict(self.__Config.get_Element("Language"), "testError"), message=e)
 
@@ -1120,22 +1123,22 @@ class MainWindow():
         self.__CodeBox.insert(INSERT, "\n")
 
     def __F1(self, event):
-        self.__doNew()
+        self.__doHelp()
 
     def __F2(self, event):
-        self.__doOpen()
-
-    def __F3(self, event):
         self.__doSave()
 
-    def __F4(self, event):
-        self.__getCodeOnly()
+    def __F3(self, event):
+        self.__doOpen()
 
-    def __F5(self, event):
+    def __F4(self, event):
         self.__loadImagePath()
 
+    def __F5(self, event):
+        self.__getCodeOnly()
+
     def __F6(self, event):
-        self.__lightDark()
+        self.__doViewDefault()
 
     def __F7(self, event):
         self.__doUndo()
@@ -1147,7 +1150,7 @@ class MainWindow():
         self.__OptionsMenu()
 
     def __F10(self, event):
-        self.__doViewDefault()
+        self.__lightDark()
 
     def __Pasted(self, even):
         self.__checkAllLines = True
@@ -1233,7 +1236,7 @@ class MainWindow():
     def __generateTemp(self):
         import SaveHTML
         os.mkdir("temp")
-        SaveHTML = SaveHTML.SaveHTML(self.compileCode(), self.__Config, self.__dicts, str("temp/temp.html"))
+        SaveHTML = SaveHTML.SaveHTML(self.compileCode(), self.__Config, self.__dicts, str("temp/temp.html"), self.__path)
 
     def compileCode(self):
         if self.__Config.get_Element("FortranCompiler") == "False":

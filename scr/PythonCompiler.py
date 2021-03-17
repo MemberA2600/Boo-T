@@ -385,7 +385,7 @@ class Compiler():
                         size = self.__splitByEQ(item, 1)
                         if size in sizes:
                             __expand=sizes[size]
-                        elif size="xs":
+                        elif size=="xs":
                             __expand=""
                         else:
                             __expand = "-"+size
