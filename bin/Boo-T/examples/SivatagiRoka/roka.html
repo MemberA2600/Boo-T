@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="hu">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Csak egy cuki allatka!">
+    <meta name="keywords" content="roka,emlos,sivatag,termeszet">
+    <meta name="author" content="Fehér János Zoltán">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="bootstrap/bootstrap.min.css">
+
+    <title>A sivatagi roka</title>
+    <style>html
+	{
+
+    	scroll-behavior: smooth;
+	}
+
+body
+	{
+	background-image: url('img/Roka02_000.jpg');
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+        color: moccasin;
+ 	margin-right: auto;
+    	margin-left: auto;
+    	display: block;
+    	width: 100%;
+	border-radius: 15px !important;
+	font-family: "Gabriola","Times New Roman", sans-serif;
+	}
+
+.container 
+	{
+	border-radius: 15px;
+	}
+
+img
+	{
+	padding: 10px;
+
+	}
+
+#Banner 
+	{
+	display: flex;
+	align-items: flex-end;
+	height: 350px;
+	vertical-align: bottom;
+	background-size: cover;
+	background-position-x: center;
+	background-position-y: center;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 15px 15px 0px 0px;
+	animation-name: bannerAnimation;
+	animation-duration: 40s;
+	animation-timing-function: ease-in-out;
+	animation-iteration-count: infinite;
+
+	}
+#BannerText
+	{
+	display: flex;
+	align-items: flex-end;
+	height: 0px;
+	vertical-align: bottom;
+	font-size: 7em;
+	justify-content: center;
+	text-shadow: sandybrown 5px 5px 5px;
+	padding-bottom: 350px;
+	margin-bottom: -350px;
+
+	}
+
+@keyframes bannerAnimation
+	{
+		0%{	background-image: url('img/Roka04.jpg');	filter: saturate(0.25) blur(3px) ;}
+		3%{	background-image: url('img/Roka04.jpg');	filter: saturate(1) blur(0px) ;}
+		27%{	background-image: url('img/Roka04.jpg');	filter: saturate(1) blur(0px) ;}
+		30%{	background-image: url('img/Roka04.jpg');	filter: saturate(0.25) blur(3px) ;}
+		33%{	background-image: url('img/Roka01.jpg');	filter: saturate(0.25) blur(3px) ;}
+		36%{	background-image: url('img/Roka01.jpg');	filter: saturate(1) blur(0px) ;}
+		60%{	background-image: url('img/Roka01.jpg');	filter: saturate(1) blur(0px) ;}
+		63%{	background-image: url('img/Roka01.jpg');	filter: saturate(0.25) blur(3px) ;}
+		66%{	background-image: url('img/Roka01_000.jpg');	filter: saturate(0.25) blur(3px) ;}
+		69%{	background-image: url('img/Roka01_000.jpg');	filter: saturate(1) blur(0px) ;}
+		93%{	background-image: url('img/Roka01_000.jpg');	filter: saturate(1) blur(0px) ;}
+		96%{	background-image: url('img/Roka01_000.jpg');	filter: saturate(0.25) blur(3px) ;}
+		100%{	background-image: url('img/Roka04.jpg');	filter: saturate(0.25) blur(3px) ;}
+
+	}
+	.navbar
+	{
+		color: moccasin !important;
+		background-attachment: scroll !important;
+
+	}
+
+	a
+	{
+		color: moccasin !important;
+	}
+
+	.nav-link:hover, .navbar-brand:hover, .navbar-toggler:hover
+	{
+		background-color: palevioletred;
+		border-radius: 10px;
+	
+	}
+
+	
+
+	.row-item
+		{
+		color: moccasin;
+    		transition: 0.25s;
+  		display: flex;
+  		justify-content: center;
+  		align-items: center;
+		border-radius: 15px;
+		}
+
+	.row-item h1
+		{
+		font-weight: 600;
+		color: palevioletred;
+		text-shadow: sandybrown 5px 5px 5px;
+		font-size: 2.5em;
+		}
+
+	.bootrow
+		{
+		padding: 10px;
+		}
+
+	.container
+		{
+		background-color: rgba(205,133,63,0.65);
+		}
+
+
+	.row-item img
+		{
+		border-radius: 10px;
+		}
+
+	.row-item a
+		{
+		color: sandybrown;
+		text-decoration: none;
+
+		}
+
+	.row-item .img-animate
+		{
+		filter: saturate(0.25) blur(3px);
+    		transition: 0.25s;
+		}
+
+	.row-item img:hover
+		{
+		filter: saturate(1) blur(0px);
+		}
+
+	.row-item:hover
+		{
+		color: palevioletred;
+		background-color: sandybrown;
+		
+		}
+
+
+	/* smartphones, touchscreens */
+	@media (hover: none) and (pointer: coarse) 
+		{
+		.row-item
+			{
+			filter: saturate(1) blur(0px);
+			}
+	}
+	Footer Button
+		{
+		background-color: palevioletred !important;
+		color: moccasin !important; 
+		border-color: moccasin !important;
+		}
+
+	Footer Button:hover
+		{
+		background-color: moccasin !important;
+		color: sandybrown !important; 
+		border-color: sandybrown !important;
+		}
+
+
+	#copyright
+		{
+		background-color: palevioletred !important;
+		font-weight: 700px;
+		font-size: 1.5em;
+		border-radius: 0px 0px 15px 15px;
+		}
+
+	#copyright p
+		{
+		display: block;
+		margin-top: 10px;
+		margin-bottom: 10px;
+    		animation-name: moveCopy;
+    		animation-duration: 2s;
+		text-align: center;
+    		animation-timing-function: ease-in-out;
+    		animation-iteration-count: infinite;
+    		animation-direction: alternate;
+		}
+
+	#copyright a, #copyright a:visited, #copyright a:active, #copyright a:hover
+		{
+ 		color: sandybrown !important;
+		text-decoration: none;
+		}
+
+	@keyframes moveCopy
+		{
+		0% { transform: translateX(-40px) ; }
+		100% { transform: translateX(40px)) ; }
+		}
+
+	#socials
+		{
+		margin-top: 15px;
+		background-color: palevioletred !important;
+		border-radius: 15px 15px 0px 0px;
+
+		}
+	#socials img
+		{
+			text-align: center;
+			margin-top: 25px;
+			margin-bottom: 15px;
+
+		}
+
+	#socials div:hover
+		{
+		background-color: moccasin;
+		border-radius: 200px;
+		
+		}
+
+	@media only screen and (min-width: 767px)
+	{
+		#footerbutton {
+			position: relative; 
+		}
+
+	}
+
+
+
+</style>
+  </head>
+  <body>
+    <div class="container">
+
+        <!-- Banner starts -->
+    <div class="row d-none d-sm-block">
+	<div class="col-12" id="Banner" style="background-attachment: scroll !important; " > 
+		
+	</div>
+	<div class="col-12" id="BannerText" > 
+		Sivatagi rókák
+	</div>
+    </div>
+    <!-- Banner ends -->
+        <!-- NavBar starts -->
+
+	<nav class="navbar navbar-expand-lg navbar-light sticky-top" style="background-color: rgba(205,133,63,0.7) !important; font-size: 1.5em !important; margin: 0px -15px !important; padding: 0px 10px !important">
+		<a class="navbar-brand" href="#"><span style="font-size: 1.5em;"><img class='img-fluid' target='_blank' style='max-width: 300px; max-height: 200px' src='img/desertfox.png'></span></a>
+  		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    			<span class="navbar-toggler-icon"></span>
+  		</button>
+
+		<div class="collapse navbar-collapse" id="collapsibleNavbar">
+    		<ul class="navbar-nav">
+			<li class="nav-item">
+        			<a class="nav-link" href="#1">Az állatról</a>
+      			</li>
+			<li class="nav-item">
+        			<a class="nav-link" href="#2">Galéria</a>
+      			</li>
+		</ul>
+		</div>		
+
+	</nav>
+    <!-- NavBar ends -->
+        <!-- Container starts -->
+		<div class="row bootrow" id='1'>
+		<div class="col-12 col-md-3 row-item">
+			<span class="align-middle">
+				<a href='img/Roka02.jpg'><img class='img-fluid img-animate' src='img/Roka02.jpg'></a>
+			</span>
+		</div>
+		<div class="col-12 col-md-6 row-item">
+			<span class="align-middle">
+			<h1 style="text-align: left;">A sivatagi rókáról</h1>
+			<br>
+			<p style="text-align: justify">Testtömege 0, 7-1, 6 kilogramm, testhossza 24–41 centiméter, farka 18–31 centiméter hosszú és fekete végű. Marmagassága alig éri el a 20 centimétert.A nagy fülei 10-15 centiméteresek; ezek a talaj alatt mozgó zsákmány észrevételére hasznosak; viszont ha kénytelen nappal is előjönni, akkor a fülei a nagy felületük miatt hőleadásra szolgálnak.<br>A bundája gyakran krémszínű és bolyhos, mely nappal védi az erős napsütéstől, míg éjszaka melegen tartja. Az összes rókafaj közül a sivatagi rókának van a legnagyobb füle a testéhez képest; mivel igen sok ér van a vékony füleiben, kiváló hőleadó rendszerként működik. A róka talpán vastag bunda van, így a forró homok nem égeti meg a talpát, és tompítja a lépései zaját. Orrán és a szemöldök tájékon hosszú szőrű bajusza van.<br>A többi rókafélétől eltérően a sivatagi rókának nincs szagmirigye ('ibolyamirigy') a farka tövében, továbbá csak 32 kromoszómával rendelkezik (a rókafajok esetén ez a szám 35-39). A sivatagi róka csapatokban él, ami szintén eltér a rókafélék életmódjától.)</p>
+			</span>
+		</div>
+		<div class="col-12 col-md-3 row-item">
+			<span class="align-middle">
+				<a href='img/Roka03.jpg'><img class='img-fluid img-animate' src='img/Roka03.jpg'></a>
+			</span>
+		</div>
+		</div>		<div class="row bootrow" id='2'>
+		<div class="col-12 col-md row-item">
+			<span class="align-middle">
+				<a href='img/Roka05.jpg'><img class='img-fluid img-animate' src='img/Roka05.jpg'></a>
+			</span>
+		</div>
+		<div class="col-12 col-md row-item">
+			<span class="align-middle">
+				<a href='img/Roka07.jpg'><img class='img-fluid img-animate' src='img/Roka07.jpg'></a>
+			</span>
+		</div>
+		<div class="col-12 col-md row-item">
+			<span class="align-middle">
+				<a href='img/Roka09.jpg'><img class='img-fluid img-animate' src='img/Roka09.jpg'></a>
+			</span>
+		</div>
+		</div>
+    <!-- Container Ends -->
+    	<!-- Footer Starts here -->
+	<footer id=''>
+		<div class="row" id="socials">
+			<div class='col-4 col-md text-center'>
+				<a  href='#' target='_blank'><img src='img/facebook.png' class='img-fluid'></a>
+</div>
+			<div class='col-4 col-md text-center'>
+				<a  href='#' target='_blank'><img src='img/youtube.png' class='img-fluid'></a>
+</div>
+			<div class='col-4 col-md text-center'>
+				<a  href='#' target='_blank'><img src='img/googleplus.png' class='img-fluid'></a>
+</div>
+
+		</div>
+		<div class="row">
+			<div class="col-12" id="copyright">
+				<p>Made with <a style="color: sandybrown;" href="https://github.com/MemberA2600/Boo-T"> Boo-T </a> in 2021!</p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12" style="padding: 15px;">
+				<button id="footerbutton" type="button" class="btn btn-lg btn-block col-12 fixed-bottom" onclick="topFunction(); return false;">Felülre!</button>
+			</div>
+
+		</div>
+
+	</footer> 
+	<!-- Footer Ends here --> 
+    </div> 
+  </body>
+    <!-- Optional JavaScript -->
+    <script>document.addEventListener("touchstart", function() {}, true);</script>
+    <script>function topFunction() {
+  document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}</script>	
+    <script src="bootstrap/jquery-3.5.1.slim.min.js"></script>
+    <script src="bootstrap/bootstrap.bundle.min.js"></script>
+</html>

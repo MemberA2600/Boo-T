@@ -1,0 +1,659 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="This is the help file for the Boo-T application">
+    <meta name="keywords" content="Help, Boo-T, Bootstrap">
+    <meta name="author" content="Fehér János Zoltán (Member)">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="bootstrap/bootstrap.min.css">
+
+    <title>Help</title>
+    <style>html
+	{
+
+    	scroll-behavior: smooth;
+	}
+
+body
+	{
+	background-image: url('img/Back.jpg');
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+        color: gray;
+ 	margin-right: auto;
+    	margin-left: auto;
+    	display: block;
+    	width: 100%;
+	border-radius: 15px !important;
+	font-family: "Myriad Pro Light", "Informal Roman", "Gabriola", "Arial", sans-serif;
+	}
+
+.container 
+	{
+	border-radius: 15px;
+	}
+
+img
+	{
+	padding: 10px;
+
+	}
+
+#Banner 
+	{
+	display: flex;
+	align-items: flex-end;
+	height: 450px;
+	vertical-align: bottom;
+	background-size: cover;
+	background-position-x: center;
+	background-position-y: center;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 15px 15px 0px 0px;
+	animation-name: bannerAnimation;
+	animation-duration: 50s;
+	animation-timing-function: ease-in-out;
+	animation-iteration-count: infinite;
+
+	}
+#BannerText
+	{
+	display: flex;
+	align-items: flex-end;
+	height: 0px;
+	vertical-align: bottom;
+	font-size: 4em;
+	justify-content: center;
+	text-shadow: black 5px 5px 5px;
+	padding-bottom: 450px;
+	margin-bottom: -450px;
+
+	}
+
+@keyframes bannerAnimation
+	{
+		0%{	background-image: url('img/Spooky1.jpg');	filter: saturate(0.25) blur(3px) ;}
+		2%{	background-image: url('img/Spooky1.jpg');	filter: saturate(1) blur(0px) ;}
+		21%{	background-image: url('img/Spooky1.jpg');	filter: saturate(1) blur(0px) ;}
+		23%{	background-image: url('img/Spooky1.jpg');	filter: saturate(0.25) blur(3px) ;}
+		25%{	background-image: url('img/Spooky2.jpg');	filter: saturate(0.25) blur(3px) ;}
+		27%{	background-image: url('img/Spooky2.jpg');	filter: saturate(1) blur(0px) ;}
+		46%{	background-image: url('img/Spooky2.jpg');	filter: saturate(1) blur(0px) ;}
+		48%{	background-image: url('img/Spooky2.jpg');	filter: saturate(0.25) blur(3px) ;}
+		50%{	background-image: url('img/Spooky3.jpg');	filter: saturate(0.25) blur(3px) ;}
+		52%{	background-image: url('img/Spooky3.jpg');	filter: saturate(1) blur(0px) ;}
+		71%{	background-image: url('img/Spooky3.jpg');	filter: saturate(1) blur(0px) ;}
+		73%{	background-image: url('img/Spooky3.jpg');	filter: saturate(0.25) blur(3px) ;}
+		75%{	background-image: url('img/Spooky4.jpg');	filter: saturate(0.25) blur(3px) ;}
+		77%{	background-image: url('img/Spooky4.jpg');	filter: saturate(1) blur(0px) ;}
+		96%{	background-image: url('img/Spooky4.jpg');	filter: saturate(1) blur(0px) ;}
+		98%{	background-image: url('img/Spooky4.jpg');	filter: saturate(0.25) blur(3px) ;}
+		100%{	background-image: url('img/Spooky1.jpg');	filter: saturate(0.25) blur(3px) ;}
+
+	}
+	.navbar
+	{
+		color: gray !important;
+		background-attachment: scroll !important;
+
+	}
+
+	a
+	{
+		color: gray !important;
+	}
+
+	.nav-link:hover, .navbar-brand:hover, .navbar-toggler:hover
+	{
+		background-color: white;
+		border-radius: 10px;
+	
+	}
+
+	
+
+	thead
+		{
+
+		background-color: white;
+		color: black;
+		font-weight: 600;
+		}
+
+	tbody
+		{
+
+		background-color: rgba(248,248,255,0.75);
+		font-weight: 300;
+		color: gray;
+		}
+
+	tr:hover
+		{
+		background-color: white;
+		color: black;
+		}
+	.row-item
+		{
+		color: gray;
+    		transition: 0.25s;
+  		display: flex;
+  		justify-content: center;
+  		align-items: center;
+		border-radius: 15px;
+		}
+
+	.row-item h1
+		{
+		font-weight: 600;
+		color: white;
+		text-shadow: black 5px 5px 5px;
+		font-size: 2.5em;
+		}
+
+	.bootrow
+		{
+		padding: 10px;
+		}
+
+	.container
+		{
+		background-color: rgba(248,248,255,0.75);
+		}
+
+
+	.row-item img
+		{
+		border-radius: 10px;
+		}
+
+	.row-item a
+		{
+		color: black;
+		text-decoration: none;
+
+		}
+
+	.row-item .img-animate
+		{
+		filter: saturate(0.25) blur(3px);
+    		transition: 0.25s;
+		}
+
+	.row-item img:hover
+		{
+		filter: saturate(1) blur(0px);
+		}
+
+	.row-item:hover
+		{
+		color: white;
+		background-color: black;
+		
+		}
+
+
+	/* smartphones, touchscreens */
+	@media (hover: none) and (pointer: coarse) 
+		{
+		.row-item
+			{
+			filter: saturate(1) blur(0px);
+			}
+	}
+	Footer Button
+		{
+		background-color: white !important;
+		color: gray !important; 
+		border-color: gray !important;
+		}
+
+	Footer Button:hover
+		{
+		background-color: gray !important;
+		color: black !important; 
+		border-color: black !important;
+		}
+
+
+	#copyright
+		{
+		background-color: white !important;
+		font-weight: 700px;
+		font-size: 1.5em;
+		border-radius: 0px 0px 15px 15px;
+		}
+
+	#copyright p
+		{
+		display: block;
+		margin-top: 10px;
+		margin-bottom: 10px;
+    		animation-name: moveCopy;
+    		animation-duration: 2s;
+		text-align: center;
+    		animation-timing-function: ease-in-out;
+    		animation-iteration-count: infinite;
+    		animation-direction: alternate;
+		}
+
+	#copyright a, #copyright a:visited, #copyright a:active, #copyright a:hover
+		{
+ 		color: black !important;
+		text-decoration: none;
+		}
+
+	@keyframes moveCopy
+		{
+		0% { transform: translateX(-40px) ; }
+		100% { transform: translateX(40px)) ; }
+		}
+
+	#socials
+		{
+		margin-top: 15px;
+		background-color: white !important;
+		border-radius: 15px 15px 0px 0px;
+
+		}
+	#socials img
+		{
+			text-align: center;
+			margin-top: 25px;
+			margin-bottom: 15px;
+
+		}
+
+	#socials div:hover
+		{
+		background-color: gray;
+		border-radius: 200px;
+		
+		}
+
+	@media only screen and (min-width: 767px)
+	{
+		#footerbutton {
+			position: relative; 
+		}
+
+	}
+
+
+
+</style>
+  </head>
+  <body>
+    <div class="container">
+
+        <!-- Banner starts -->
+    <div class="row d-none d-sm-block">
+	<div class="col-12" id="Banner" style="background-attachment: scroll !important; " > 
+		
+	</div>
+	<div class="col-12" id="BannerText" > 
+		Help with Boo-Ting!
+	</div>
+    </div>
+    <!-- Banner ends -->
+        <!-- NavBar starts -->
+
+	<nav class="navbar navbar-expand-xl navbar-light " style="background-color: rgba(248,248,255,0.55) !important; font-size: 1.5em !important; margin: 0px -15px !important; padding: 0px 10px !important">
+		<a class="navbar-brand" href="#"><span style="font-size: 1.5em;"><img class='img-fluid' target='_blank' style='max-width: 300px; max-height: 200px' src='img/ghost.png'></span></a>
+  		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    			<span class="navbar-toggler-icon"></span>
+  		</button>
+
+		<div class="collapse navbar-collapse" id="collapsibleNavbar">
+    		<ul class="navbar-nav">
+			<li class="nav-item">
+        			<a class="nav-link" href="#welcome">Welcome</a>
+      			</li>
+			<li class="nav-item">
+        			<a class="nav-link" href="#basics">Basics</a>
+      			</li>
+			<li class="nav-item">
+        			<a class="nav-link" href="#page">Page Settings</a>
+      			</li>
+			<li class="nav-item">
+        			<a class="nav-link" href="#banner">Banner</a>
+      			</li>
+			<li class="nav-item">
+        			<a class="nav-link" href="#nav">NavBar</a>
+      			</li>
+			<li class="nav-item">
+        			<a class="nav-link" href="#bootr">BootRow</a>
+      			</li>
+			<li class="nav-item">
+        			<a class="nav-link" href="#tables">Tables</a>
+      			</li>
+			<li class="nav-item">
+        			<a class="nav-link" href="#footer">Footer</a>
+      			</li>
+		</ul>
+		</div>		
+
+	</nav>
+    <!-- NavBar ends -->
+        <!-- Container starts -->
+		<div class="row bootrow" id='welcome'>
+		<div class="col-12 col-md row-item">
+			<span class="align-middle">
+			<h1 style="text-align: left;">Greetings!</h1>
+			<br>
+			<p style="text-align: justify">You just opened the help file for Boo-T and as you can see, it was created in Boo-T as well. Well, well, let's get started!<br>The software was designed to be as simple as it can be for a beginner, so you won't gave up too early! Let me explain the most basic things!<br>In the main windows, you can see the <b>Syntax List</b>, these are the only things you need to work with!<br><br>The software generates an HTML file and <b>injects the CSS</b> into it, the only thing you will find in your folder is the <i>'img'</i> that contains the images you used. Because I don't want you to lose your images, Boo-T <b>will copy them</b> to that folder and changes the path in the HTML file if you are using an absolute path like <i>'C:/Documents/powerpuffgirls.png'</i>.<br></p>
+			</span>
+		</div>
+		</div>		<div class="row bootrow" id='basics'>
+		<div class="col-12 col-md row-item">
+			<span class="align-middle">
+			<h1 style="text-align: left;">I. Basics</h1>
+			<br>
+			<p style="text-align: justify">In the syntax of Boo-T, there are <b>commands</b> and <b>arguments</b>. Commands are the most important, they are at the beginning of lines, they are followed by rounded brackets. The line is always ended by a deliminator, which also separates code and comments, you can write anything after the deliminator till the next newline. So the syntax basically looks like this:<br><br><b><u>command</u></b>(<i>arguments</i>) <i>deliminator</i> comment<br><br>Setting the <b>deliminator</b> is really special compared to the other commands. You can set it only in the very first line of your code (other ones will be ignored), writing '<b><u>deliminator</u></b>' without the rounded brackets you would usually use with commands and putting the desired deliminator <b>after a single space.</b><br>Most commands are only needed to be used once (except for bootrows and tables), the newer ones are just overriding the older ones.<br><b>Arguments</b> are seperated by commas inside the rounded brackets. There are three kind of appearances of arguments:<br><ul><li>Just a single word</il><li>Two words splitted by an equality symbol, like <i>arg=something</i></li><li>A word with rounded brackets, like commands, containing several words seperared by commas, like <i>arg(something, something, something)</i></li></ul>Because of this wrapping you can place spaces and newlines nearly anywhere, so your code can be really easy to read, like I did with the banner for this site:<br><br><u>banner</u>(size=cover, height=450, animation(50s, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;E:/PyCharm/P/Boo-T/Spooky1.jpg, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;E:/PyCharm/P/Boo-T/Spooky2.jpg, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;E:/PyCharm/P/Boo-T/Spooky3.jpg, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;E:/PyCharm/P/Boo-T/Spooky4.jpg), <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text('Help with Boo-Ting!', 4em, center)<br>) %%<br><br>Now you know the most basic things, we are gonna go for the 'page settings'!</p>
+			</span>
+		</div>
+		</div>		<div class="row bootrow" id='page'>
+		<div class="col-12 col-md row-item">
+			<span class="align-middle">
+			<h1 style="text-align: left;">II. Page Settings</h1>
+			<br>
+			<p style="text-align: justify">Creating the HTML template for your website can be really boring, so I'm taking care of that for you! These are the things you can set in Boo-T:<ul><li><u>basics</u>(author=, language=, charset=, palette=)<br>Author, language and charset basically just <b>sets the meta tags</b>, if you ignore or forget them, language will be set to <i>english</i> and charset to <i>UTF-8</i> (anything else for charset is <u>not recommanded</u>!) Palette has a basic set of palettes, containing 4 colors for building up the entire site. You can call them by name (you can find them in folder <i>'default/Colors'</i>), use a number between 0-27 or set it to random that will save your site with a random palette each time you save you generate your code.</li><li><u>keywords</u>()<br>You can put there keywords, separated by commas, it will be directly copied to the meta tag on your site.</li><li><u>description</u>()<br>Same as the keywords, it will be copied directly.</li><li><u>title</u>()<br>And this one as well!</li><li><u>background</u>({color, gradient=, image=})<br>Setting the background is really simplified. You can set it to 'color' that will create a solid color. Gradient will produce a color gradient based on the color palette, you can set it to HOR, VER or DIG, representing the direction. If you set it to 'image', de background will be filled with a fixed image.</li><li><u>font-family</u>()<br>This will set the fonts your website gonna use. If you don't set it, Arial will be choosen.</li><li><u>opacity</u>({container=, tables=, navbar=, footer=})<br>Sets opacity for the given elements, default is 1.0. You have to use float numbers between 0.0 and 1.0! </li></ul></p>
+			</span>
+		</div>
+		</div>		<div class="row bootrow" id='banner'>
+		<div class="col-12 col-md row-item">
+			<span class="align-middle">
+			<h1 style="text-align: left;">III. Banner</h1>
+			<br>
+			<p style="text-align: justify">Banner is a really important part for a website. On small devices, like phones, the banner won't be displayed along with the part outside the container. Inside the <b>banner()</b> command, there are a lot to set. <b>Size</b> can be <i>'contain'</i> or <i>'cover'</i>, left out will display a cover-style banner. <b>Height<b> is the vertical size of your banner in pixels (you <u>don't have</u> to put there 'px'!). The title of your site can be set via the <b>text()</b> argument, it contains three elements, you <u>cannot</u> change their orders!<ol><li><b>"The Title Text as a String"</b></li><li><b>The size of the title text</b>, can be px or em.</li><li><b>The alignment of the text</b>, can be left, center or right</li></ol>There are two ways to set the background picture of the banner:<ul><li><b>image=</b><br>Works as the image argument for the background, it will cover the division.</li><li><b>animation()</b></li>Contains the time and the images, separated by commas. <u>First</u> you have set the time for the whole animation circle, then add the link for the pictures, one by one, creating a list. It will have a blurry, grayscale animation for transition.</li></ul>For the banner example, you can see one at the Basics section!</p>
+			</span>
+		</div>
+		</div>		<div class="row bootrow" id='nav'>
+		<div class="col-12 col-md row-item">
+			<span class="align-middle">
+			<h1 style="text-align: left;">IV. NavBar</h1>
+			<br>
+			<p style="text-align: justify">Navbars are the only navigation tool and you can only add link to ids available on the current site, because on mobile phone, it's a lot easier to use a onepage site with vertical scrolling. Building Navbars is pretty easy, you set if witrh the <b>navbar()</b> command. There are two kind of elements you can add:<ul><li><b>brand({"String", image=})</b><br>Brand is the very item of the navbar which is not affected by the toggle button. The brand can be a <b>"String"</b>, a plaint text or you can add an image tag and put there an image.</li><li><b>item("String", id)<br>Items are the links for the parts of your website. They can be only string items and you have to put there an id that was added to a bootrow, table or footer item.</li><li><b>sticky</b><br>If you set it, the NavBar will stay at the top as you progress scrolling down.</li><li><b>expand=</b><br>You can add here the screen size where the navbar should be expanded. You can use sm, md, lg, xl or a number between 0-4.</li></ul> An example for the NavBar code:<br><u>navbar</u>(brand(image=ghost.png), sticky, expand=xl<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;item("Item1", item1), <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;item("Item2", item2), <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;item("Item3", item3)) %%</p>
+			</span>
+		</div>
+		</div>		<div class="row bootrow" id='bootr'>
+		<div class="col-12 col-md row-item">
+			<span class="align-middle">
+			<h1 style="text-align: left;">V. BootRow</h1>
+			<br>
+			<p style="text-align: justify">BootRows are maybe the most importrant and complex components of your website, you can have more than one, they use the column alignment of Bootstrap. You insert them with the <u>bootrow()</u> command. There are several elements you can add to bootrows:<ul><li><b>id=</b><br>With the id, you can add your row to one of the navbar links. You just have to type it, no string format needed.</li><li><b>rate</b>()<br>Rates can have two kind of values, auto and a list of numbers, separated by commas. If you set it to auto, all the items you will have to fit in the row with the same width. The is great for an image gallery, take this example:</li></ul></p>
+			</span>
+		</div>
+		</div>		<div class="row bootrow" id=''>
+		<div class="col-12 col-md row-item">
+			<span class="align-middle">
+				<a href='img/Zerg1.jpg'><img class='img-fluid ' src='img/Zerg1.jpg'></a>
+			</span>
+		</div>
+		<div class="col-12 col-md row-item">
+			<span class="align-middle">
+				<a href='img/Zerg2.jpg'><img class='img-fluid ' src='img/Zerg2.jpg'></a>
+			</span>
+		</div>
+		<div class="col-12 col-md row-item">
+			<span class="align-middle">
+				<a href='img/Zerg3.jpg'><img class='img-fluid ' src='img/Zerg3.jpg'></a>
+			</span>
+		</div>
+		<div class="col-12 col-md row-item">
+			<span class="align-middle">
+				<a href='img/Zerg4.jpg'><img class='img-fluid ' src='img/Zerg4.jpg'></a>
+			</span>
+		</div>
+		<div class="col-12 col-md row-item">
+			<span class="align-middle">
+				<a href='img/Zerg5.jpg'><img class='img-fluid ' src='img/Zerg5.jpg'></a>
+			</span>
+		</div>
+		<div class="col-12 col-md row-item">
+			<span class="align-middle">
+				<a href='img/Zerg6.jpg'><img class='img-fluid ' src='img/Zerg6.jpg'></a>
+			</span>
+		</div>
+		</div>		<div class="row bootrow" id=''>
+		<div class="col-12 col-md row-item">
+			<span class="align-middle">
+			<h1 style="text-align: center;"></h1>
+			<br>
+			<p style="text-align: justify">Of course, you can wrap it into two rows, for your taste.</p>
+			</span>
+		</div>
+		</div>		<div class="row bootrow" id=''>
+		<div class="col-12 col-md row-item">
+			<span class="align-middle">
+				<a href='img/Zerg1.jpg'><img class='img-fluid ' src='img/Zerg1.jpg'></a>
+			</span>
+		</div>
+		<div class="col-12 col-md row-item">
+			<span class="align-middle">
+				<a href='img/Zerg2.jpg'><img class='img-fluid ' src='img/Zerg2.jpg'></a>
+			</span>
+		</div>
+		<div class="col-12 col-md row-item">
+			<span class="align-middle">
+				<a href='img/Zerg3.jpg'><img class='img-fluid ' src='img/Zerg3.jpg'></a>
+			</span>
+		</div>
+		</div>		<div class="row bootrow" id=''>
+		<div class="col-12 col-md row-item">
+			<span class="align-middle">
+				<a href='img/Zerg4.jpg'><img class='img-fluid ' src='img/Zerg4.jpg'></a>
+			</span>
+		</div>
+		<div class="col-12 col-md row-item">
+			<span class="align-middle">
+				<a href='img/Zerg5.jpg'><img class='img-fluid ' src='img/Zerg5.jpg'></a>
+			</span>
+		</div>
+		<div class="col-12 col-md row-item">
+			<span class="align-middle">
+				<a href='img/Zerg6.jpg'><img class='img-fluid ' src='img/Zerg6.jpg'></a>
+			</span>
+		</div>
+		</div>		<div class="row bootrow" id=''>
+		<div class="col-12 col-md-3 row-item">
+			<span class="align-middle">
+				<a href='img/Zerg5.jpg'><img class='img-fluid ' src='img/Zerg5.jpg'></a>
+			</span>
+		</div>
+		<div class="col-12 col-md-6 row-item">
+			<span class="align-middle">
+			<h1 style="text-align: center;"></h1>
+			<br>
+			<p style="text-align: justify">But you can do it like this, where the column in the middle takes up twice the place.</p>
+			</span>
+		</div>
+		<div class="col-12 col-md-3 row-item">
+			<span class="align-middle">
+				<a href='img/Zerg6.jpg'><img class='img-fluid ' src='img/Zerg6.jpg'></a>
+			</span>
+		</div>
+		</div>		<div class="row bootrow" id=''>
+		<div class="col-12 col-md row-item">
+			<span class="align-middle">
+			<h1 style="text-align: center;"></h1>
+			<br>
+			<p style="text-align: justify"><ul><li><b>article(title="", title-align=, rawtext="")</b></il><br>Articles are walls of text, the object you are reading right now is an arcticle as well. Articles have three part:<ul><li>title="String"</li>The text for the title, given as a string.<li><b>title-align</b>={left, center, right}<br>This will set the aligment of the title.</li><li><b>rawtext=""</b><br>This is the most advanced argument in the whole environment, this is the mathod for embending test. You can use here any html tags to make your text more pleasant for the eyes, here you can find some examples, I added some spaces so they won't be compiled:</li>< b > is for <b>bold</b> text, < i > is for <i>italic</i>, < u > stand for <u>underlined</u>. <br>You can add new lines by inserting a < br >, since normal enters won't work. You can create list by < ul > < ol > and itt items with < li >. I created a new tag that is not used by html standards: < space:X > will add X spaces to you text, < space:10 > works &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; like this-</ul><li><b>image</b>=<br>Works like as mentioned before.</li><li><b>imgfilter</b><br>This argument changes the image behavior by making it blurry and grayscale unit the mouse goes by.</li></ul></p>
+			</span>
+		</div>
+		</div>		<div class="row bootrow" id=''>
+		<div class="col-12 col-md row-item">
+			<span class="align-middle">
+				<a href='img/Zerg5.jpg'><img class='img-fluid ' src='img/Zerg5.jpg'></a>
+			</span>
+		</div>
+		<div class="col-12 col-md row-item">
+			<span class="align-middle">
+			<h1 style="text-align: center;">centered title</h1>
+			<br>
+			<p style="text-align: justify">This is a normal image, i have to write here some uninteresting thing to make it work.</p>
+			</span>
+		</div>
+		</div>		<div class="row bootrow" id=''>
+		<div class="col-12 col-md row-item">
+			<span class="align-middle">
+				<a href='img/Zerg5.jpg'><img class='img-fluid img-animate' src='img/Zerg5.jpg'></a>
+			</span>
+		</div>
+		<div class="col-12 col-md row-item">
+			<span class="align-middle">
+			<h1 style="text-align: right;">right-aligned title</h1>
+			<br>
+			<p style="text-align: justify">This one is filtered! Just showing you the basic syntax for a bootrow:<br><u>bootrow</u>(id=Two, rate(3, 6, 3), imgfilter, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;image=05.jpg, <br&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   article(title="This is the Title!", title-align=center, <br><spcae:20>rawtext="And this is some really awesome text!"), <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;image=06.jpg<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;) %%</p>
+			</span>
+		</div>
+		</div>		<div class="row bootrow" id='tables'>
+		<div class="col-12 col-md row-item">
+			<span class="align-middle">
+			<h1 style="text-align: left;">VI. Tables</h1>
+			<br>
+			<p style="text-align: justify">Tables are a little oldschool, but can give your visitors many information collected into a small place. They are invoked with the <u>table</u>() command, and there are additional fields to fill them with content:<ul><li><b>id=</b><br>Same as the bootrow.</il><li><b>columns("string", "string", "string")></b><br>You have to add the columns names as a list of strings.</li><li><b>row("string", "string", "string")<b><br>You add rows with a single subcommand that contains a list of strings</li><li><b>inverted</b><br>Will let you change the colors of the table, it may be easier to read that way!</li></ul>So the syntax of the example tables looks like this:<br><u>table</u>(id=Protoss, columns("Unit", "HP/Shield", "Mana", "Mineral", "Gas"), <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;row("Zealot", "100/60", "0", "100", "0"), <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;row("Dragoon", "100/80", "0", "125", "50"), <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;row("High Templar", "40/40", "250", "50", "150"), <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;row("Dark Templar", "80/40", "0", "125", "100")<br>The second one has the "inverted" argument added!)</p>
+			</span>
+		</div>
+		</div>		<div class="table-responsive">
+		<table class="table table-sm " id='Protoss1'>
+			<thead>
+    			<tr>
+				<th scope='col'>Unit</th>
+				<th scope='col'>HP/Shield</th>
+				<th scope='col'>Mana</th>
+				<th scope='col'>Mineral</th>
+				<th scope='col'>Gas</th>
+
+    			</tr>
+  			</thead>
+  			<tbody>
+			<tr>
+				<th scope='row'>Zealot</th>
+				<td>100/60</td>
+				<td>0</td>
+				<td>100</td>
+				<td>0</td>
+			</tr>
+
+			<tr>
+				<th scope='row'>Dragoon</th>
+				<td>100/80</td>
+				<td>0</td>
+				<td>125</td>
+				<td>50</td>
+			</tr>
+
+			<tr>
+				<th scope='row'>High Templar</th>
+				<td>40/40</td>
+				<td>250</td>
+				<td>50</td>
+				<td>150</td>
+			</tr>
+
+  			</tbody>
+		</table>
+		</div>		<div class="table-responsive">
+		<table class="table table-sm table-dark" id='Protoss2'>
+			<thead>
+    			<tr>
+				<th scope='col'>Unit</th>
+				<th scope='col'>HP/Shield</th>
+				<th scope='col'>Mana</th>
+				<th scope='col'>Mineral</th>
+				<th scope='col'>Gas</th>
+
+    			</tr>
+  			</thead>
+  			<tbody>
+			<tr>
+				<th scope='row'>Zealot</th>
+				<td>100/60</td>
+				<td>0</td>
+				<td>100</td>
+				<td>0</td>
+			</tr>
+
+			<tr>
+				<th scope='row'>Dragoon</th>
+				<td>100/80</td>
+				<td>0</td>
+				<td>125</td>
+				<td>50</td>
+			</tr>
+
+			<tr>
+				<th scope='row'>High Templar</th>
+				<td>40/40</td>
+				<td>250</td>
+				<td>50</td>
+				<td>150</td>
+			</tr>
+
+  			</tbody>
+		</table>
+		</div>		<div class="row bootrow" id='footer'>
+		<div class="col-12 col-md row-item">
+			<span class="align-middle">
+			<h1 style="text-align: left;">VII. Footer</h1>
+			<br>
+			<p style="text-align: justify">Footers are showing the user where they can contact you, so they are really important to make. Footers in Boo-T are prebaked, so you don't have to worry about it. Footers are created with the <u>Footer()</u> command and basically, you have to enter two kind of arguments. The button will scroll back to the top and on smaller screens, it will be attached to the bottom. Also, the Footer contains a lot of buttons to social media.<ul><li><b>button="String"</b><br>You can add the text to the button as a string.<li><b>{media}=</b><br>You can add a social media icon and your desired link. Media can be email, phone, skype, facebook, youtube, instagram, vkontakte, googleplus, linkedin, twitter or github.</li>The footer of this site looks like this:<br>footer(button="Scroll back to top!", <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;facebook=https://www.facebook.com/jnszltn.fhr/, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;email=feher.janos.zoltan@gmail.com, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;phone=+36705977991, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;github=https://github.com/MemberA2600, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;youtube=https://www.youtube.com/user/M3MB3Rrr, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linkedin=https://www.linkedin.com/in/j%C3%A1nos-zolt%C3%A1n-feh%C3%A9r-4378828b/) </p>
+			</span>
+		</div>
+		</div>
+    <!-- Container Ends -->
+    	<!-- Footer Starts here -->
+	<footer id=''>
+		<div class="row" id="socials">
+			<div class='col-4 col-md text-center'>
+				<a  href='https://www.facebook.com/jnszltn.fhr/' target='_blank'><img src='img/facebook.png' class='img-fluid'></a>
+</div>
+			<div class='col-4 col-md text-center'>
+				<a  href='https://www.youtube.com/user/M3MB3Rrr' target='_blank'><img src='img/youtube.png' class='img-fluid'></a>
+</div>
+			<div class='col-4 col-md text-center'>
+				<a  href='https://www.linkedin.com/in/j%C3%A1nos-zolt%C3%A1n-feh%C3%A9r-4378828b/' target='_blank'><img src='img/linkedin.png' class='img-fluid'></a>
+</div>
+			<div class='col-4 col-md text-center'>
+				<a  href='https://github.com/MemberA2600' target='_blank'><img src='img/github.png' class='img-fluid'></a>
+</div>
+			<div class='col-4 col-md text-center'>
+				<a  href='feher.janos.zoltan@gmail.com' target='_blank'><img src='img/email.png' class='img-fluid'></a>
+</div>
+			<div class='col-4 col-md text-center'>
+				<a  href='+36705977991' target='_blank'><img src='img/phone.png' class='img-fluid'></a>
+</div>
+
+		</div>
+		<div class="row">
+			<div class="col-12" id="copyright">
+				<p>Made with <a style="color: black;" href="https://github.com/MemberA2600/Boo-T"> Boo-T </a> in 2021!</p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12" style="padding: 15px;">
+				<button id="footerbutton" type="button" class="btn btn-lg btn-block col-12 fixed-bottom" onclick="topFunction(); return false;">Scroll back to top!</button>
+			</div>
+
+		</div>
+
+	</footer> 
+	<!-- Footer Ends here --> 
+    </div> 
+  </body>
+    <!-- Optional JavaScript -->
+    <script>document.addEventListener("touchstart", function() {}, true);</script>
+    <script>function topFunction() {
+  document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}</script>	
+    <script src="bootstrap/jquery-3.5.1.slim.min.js"></script>
+    <script src="bootstrap/bootstrap.bundle.min.js"></script>
+</html>

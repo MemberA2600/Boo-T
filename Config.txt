@@ -1,4 +1,4 @@
-FortranCompiler=False
+FortranCompiler=True
 AutoCheckForInstalledBrowsers=True
 Language=english
 Chrome=C:/Program Files/Google/Chrome/Application/chrome.exe
@@ -8,7 +8,7 @@ Opera=C:\Users\Member\AppData\Local\Programs\Opera\launcher.exe
 StaticSize=0
 DarkBox=False
 BoxFontSize=12
-MaxRecent=0
+MaxRecent=3
 AutoSave=2
 version=0.66
 noLoading=True

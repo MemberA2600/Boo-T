@@ -1,2 +1,0 @@
-Roka.boo=E:/PyCharm/P/Boo-T/Boo-T/examples/SivatagiRoka/Roka.boo
-Altair.boo=E:/PyCharm/P/Boo-T/Boo-T/examples/Altair8800/Altair.boo

@@ -40,10 +40,15 @@ class MainWindow():
         import Dictionaries
         import Config
         import SyntaxList
+        from MySQLHandler import MySQLHandler
+
+
 
         self.__dicts = Dictionaries.Dictionaries()
         self.__Config = Config.Config(self.__dicts)
         self.__Syntax = SyntaxList.SyntaxList()
+        self.__mySQLHandler = MySQLHandler("localhost", "root", "", "BootProjects")
+
 
         """Creates monitor object for getting the actual screensize, so the most
         suitable window sizes can be created.
@@ -207,9 +212,9 @@ class MainWindow():
         elif s == 2:
             self.__create_Main_Window_by_size(size, s, 800, 580, 632)
         elif s == 3:
-            self.__create_Main_Window_by_size(size, s, 800, 1100, 632)
+            self.__create_Main_Window_by_size(size, s, 800, 900, 632)
         else:
-            self.__create_Main_Window_by_size(size, s, 800, 1400, 632)
+            self.__create_Main_Window_by_size(size, s, 800, 1200, 632)
 
         self.__main.title("Boo-T")
         self.__main.overrideredirect(False)
@@ -437,6 +442,7 @@ class MainWindow():
         """Saves the recent opened file list, also updates the listbox.
         If maximum number of recent is exceeded, it will delete the last element before update."""
 
+        """
         file = open("default/Recent.txt", "w")
         if text in self.__recentFiles:
             self.__recentFiles.remove(text)
@@ -452,6 +458,18 @@ class MainWindow():
 
         file.close()
         self.__recentList.insert(0, text.split("/")[-1])
+        """
+        if text in self.__recentFiles:
+            self.__recentFiles.remove(text)
+            self.__recentList.delete(self.__recentList.get(0, END).index(text.split("/")[-1]))
+            self.__mySQLHandler.deleteFilePath(text)
+
+        if len(self.__recentFiles) <= int(self.__Config.get_Element("MaxRecent"))-1 or self.__Config.get_Element("MaxRecent") == "0":
+            self.__recentFiles.insert(0, text)
+            self.__recentList.insert(0, text.split("/")[-1])
+            self.__mySQLHandler.addFilePath(text)
+        self.__mySQLHandler.deleteAllWithLimit(self.__Config.get_Element("MaxRecent"))
+
 
     def __getButtonPoz(self, num):
         """Returns X position for the menu button"""
@@ -857,6 +875,7 @@ class MainWindow():
     def __loadRecent(self):
         """List of recently saved and opened files.
         If max number of recent files is exceeded, it won't load more."""
+        """
         if os.path.exists("default/Recent.txt"):
             file = open("default/Recent.txt", "r")
             self.__recentFiles = []
@@ -874,6 +893,20 @@ class MainWindow():
         else:
             file = open("default/Recent.txt", "w")
         file.close()
+        """
+
+        data = self.__mySQLHandler.selectAllFromDataBase(self.__Config.get_Element("MaxRecent"))
+        self.__recentFiles = []
+        self.__recentList.delete(0, END)
+
+        for item in data:
+            if os.path.exists(item[1]) == False:
+                self.__mySQLHandler.deleteFilePath(item[1])
+            else:
+                self.__recentList.insert(END, item[0])
+                self.__recentFiles.append(item[1])
+
+
 
     def __printPath(self, event):
         """Uses the hint label to print out selected file's path"""

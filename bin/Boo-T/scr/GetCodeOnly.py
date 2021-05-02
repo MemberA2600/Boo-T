@@ -3,7 +3,7 @@ from tkinter.filedialog import *
 
 class GetCodeOnly():
 
-    def __init__(self, dicts, config, hammer, master, main, fontSize, monitor, code, syntax):
+    def __init__(self, dicts, config, hammer, master, main, fontSize, monitor, code, syntax, path):
         import tkinter.scrolledtext as tkscrolled
 
         self.__dicts = dicts
@@ -12,6 +12,7 @@ class GetCodeOnly():
         self.__main = main
         self.__code = code
         self.__Syntax = syntax
+        self.__path = path
 
         __monitor = monitor
         size = __monitor.get_screensize()
@@ -100,5 +101,5 @@ class GetCodeOnly():
 
     def __doSaveAs(self):
         import SaveHTML
-        SaveHTML = SaveHTML.SaveHTML(self.__codebox.get(0.0, END), self.__Config, self.__dicts, "")
+        SaveHTML = SaveHTML.SaveHTML(self.__codebox.get(0.0, END), self.__Config, self.__dicts, "" , self.__path)
         self.__destroyWindow()

@@ -1,0 +1,3 @@
+			<h1 style="text-align: #align#;">#title#</h1>
+			<br>
+			<p style="text-align: justify">#text#</p>

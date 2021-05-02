@@ -1,0 +1,22 @@
+
+	thead
+		{
+
+		background-color: #Color3#;
+		color: #Color1#;
+		font-weight: 600;
+		}
+
+	tbody
+		{
+
+		background-color: #Color2#;
+		font-weight: 300;
+		color: #Color4#;
+		}
+
+	tr:hover
+		{
+		background-color: #Color3#;
+		color: #Color1#;
+		}
