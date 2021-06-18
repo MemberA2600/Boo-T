@@ -459,6 +459,7 @@ class MainWindow():
         file.close()
         self.__recentList.insert(0, text.split("/")[-1])
         """
+
         if text in self.__recentFiles:
             self.__recentFiles.remove(text)
             self.__recentList.delete(self.__recentList.get(0, END).index(text.split("/")[-1]))
