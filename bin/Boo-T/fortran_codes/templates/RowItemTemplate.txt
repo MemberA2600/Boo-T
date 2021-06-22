@@ -1,5 +1,0 @@
-		<div class="col-12 col-md#number# row-item">
-			<span class="align-middle">
-#data#
-			</span>
-		</div>

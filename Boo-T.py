@@ -465,7 +465,7 @@ class MainWindow():
             self.__recentList.delete(self.__recentList.get(0, END).index(text.split("/")[-1]))
             self.__mySQLHandler.deleteFilePath(text)
 
-        if len(self.__recentFiles) <= int(self.__Config.get_Element("MaxRecent"))-1 or self.__Config.get_Element("MaxRecent") == "0":
+        if len(self.__recentFiles) <= int(self.__Config.get_Element("MaxRecent")) or self.__Config.get_Element("MaxRecent") == "0":
             self.__recentFiles.insert(0, text)
             self.__recentList.insert(0, text.split("/")[-1])
             self.__mySQLHandler.addFilePath(text)

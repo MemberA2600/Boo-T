@@ -11,5 +11,5 @@ BoxFontSize=12
 MaxRecent=3
 AutoSave=2
 version=0.66
-noLoading=True
+noLoading=False
 loadTemplate=True

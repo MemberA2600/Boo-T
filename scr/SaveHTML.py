@@ -72,6 +72,7 @@ class SaveHTML():
         regex2=re.findall(r"url\(\'[\-:a-zA-Z0-9\.\/\\]+\'\)", code)
         already = []
         source_paths = []
+        saved = []
         for item in regex:
             temp = item.replace("src=","").replace("'","")
             img_types = ["jpg", "bmp", "gif", "png", "tiff", "webp", "avif",  "ico", "apng", "svg", "jpeg"]
@@ -83,10 +84,11 @@ class SaveHTML():
                         continue
                     savename = self.__getSaveName(filename, sep, filepath, already)
 
-                    if temp in source_paths:
+                    if (temp in source_paths) and (savename in saved):
                         pass
                     else:
                         source_paths.append(temp)
+                        saved.append(savename)
                         self.__copyFile(str(filepath+"img"+sep), filename, sep, sep.join(temp.split(sep)[0:-1]), savename)
                     code=code.replace(item, "src='img/" + savename + "'" )
                     code=code.replace(item.replace("src", "href", 1), "href='img/" + savename + "'" )
@@ -96,10 +98,11 @@ class SaveHTML():
                         continue
                     savename = self.__getSaveName(filename, sep, filepath, already)
 
-                    if temp in source_paths:
+                    if (temp in source_paths) and (savename in saved):
                         pass
                     else:
                         source_paths.append(temp)
+                        saved.append(savename)
                         sourcedir = sep.join(self.__path.split(sep)[:-1]) + sep + sep.join(temp.split(sep)[0:-1])
                         self.__copyFile(str(filepath+"img"+sep), filename, sep, sourcedir, savename)
                     code=code.replace(item, "src='img/" + savename + "'" )
@@ -117,10 +120,11 @@ class SaveHTML():
                     if filename in ["email.png","phone.png","skype.png","facebook.png", "youtube.png", "instagram.png", "vkontakte.png", "googleplus.png", "linkedin.png", "twitter.png", "github.png"]:
                         continue
                     savename = self.__getSaveName(filename, sep, filepath, already)
-                    if temp in source_paths:
+                    if (temp in source_paths) and (savename in saved):
                         pass
                     else:
                         source_paths.append(temp)
+                        saved.append(savename)
                         self.__copyFile(str(filepath+"img"+sep), filename, sep, sep.join(temp.split(sep)[0:-1]), savename)
                     code =code.replace(item, "url('img/" + savename + "')" )
                 else:
@@ -128,10 +132,11 @@ class SaveHTML():
                     if filename in ["email.png","phone.png","skype.png","facebook.png", "youtube.png", "instagram.png", "vkontakte.png", "googleplus.png", "linkedin.png", "twitter.png", "github.png"]:
                         continue
                     savename = self.__getSaveName(filename, sep, filepath, already)
-                    if temp in source_paths:
+                    if (temp in source_paths) and (savename in saved):
                         pass
                     else:
                         source_paths.append(temp)
+                        saved.append(savename)
                         sourcedir = sep.join(self.__path.split(sep)[:-1]) + sep + sep.join(temp.split(sep)[0:-1])
                         self.__copyFile(str(filepath+"img"+sep), filename, sep, sourcedir, savename)
                     code =code.replace(item, "url('img/" + savename + "')" )
@@ -150,7 +155,6 @@ class SaveHTML():
         num = 1
         """If path exists, add underline and a 3 digit number with leading zeros to name."""
         file2=file
-
         if (os.path.exists(path+file)):
             file2 = ".".join(file.split(".")[:-1])+"_000."+file.split(".")[-1]
         while (os.path.exists(path+file2)):
